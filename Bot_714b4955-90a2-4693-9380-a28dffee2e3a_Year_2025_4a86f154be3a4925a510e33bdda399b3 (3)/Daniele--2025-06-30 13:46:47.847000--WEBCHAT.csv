@@ -1,0 +1,25 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-06-30 13:46:47.847000,,"{""recipient_id"": ""30560bcf-e68c-48c5-95b5-944cb9df5d61"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-06-30 13:46:47.857000,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+web,WEBCHAT,afcb8ac7afd543829bddb01dac23554c,Daniele ,2025-06-30 13:46:47.867000,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""Daniele""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""tools@scalability.io""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1938667841361977345""}]}"
+web,WEBCHAT,afcb8ac7afd543829bddb01dac23554c,Daniele ,2025-06-30 13:47:03.258501,Add users,{}
+bot,WEBCHAT,BOT,BOT,2025-06-30 13:47:11.268484," To add users to your organization in News Break, follow these steps:
+
+1. Access Account Management.
+2. Click ‘Access’ under your preferred Organization.
+3. Select ‘Add User’ on the right-hand side of your screen.
+4. Fill in the email address of the new user and their organization role (Admin or Employee) and submit.
+
+Once submitted, the new user will be prompted to make an account via their email. For more details, you can check out our guide here: [Account Management Guide](https://help.newsbreak.com/hc/en-us/articles/17539290349709-Account-Management-Guide).",{}
+web,WEBCHAT,afcb8ac7afd543829bddb01dac23554c,Daniele ,2025-06-30 13:47:30.342499,How can I verify My organization?,{}
+bot,WEBCHAT,BOT,BOT,2025-06-30 13:47:38.644375," To verify your organization, please provide the following information by emailing adsupport@newsbreak.com with the subject line: Business Verification:
+
+- Company's full address
+- Company's legal entity name
+- Account Email
+- Company's EHID or DUNS number
+- Primary contact person's name
+- Company's phone number
+- Business URL
+
+Once we receive this information, we will conduct a thorough review and update you on your account status. If you have any questions, feel free to reach out!",{}

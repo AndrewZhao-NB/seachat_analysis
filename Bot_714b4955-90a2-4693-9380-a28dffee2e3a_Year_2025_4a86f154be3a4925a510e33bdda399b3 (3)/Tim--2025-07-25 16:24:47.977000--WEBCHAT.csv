@@ -1,0 +1,90 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-07-25 16:24:47.977000,,"{""recipient_id"": ""d2c22608-1d3e-4439-993a-adfedf61408a"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-07-25 16:24:47.987000,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+web,WEBCHAT,3a159320d4b947619c2e51ec3552c3a1,Tim ,2025-07-25 16:24:47.997000,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""Tim""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""go.maplemedia@gmail.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1945301184921890817""}]}"
+web,WEBCHAT,3a159320d4b947619c2e51ec3552c3a1,Tim ,2025-07-25 16:25:03.211857,my ad account is taling any spend,{}
+bot,WEBCHAT,BOT,BOT,2025-07-25 16:25:13.309705," It seems like your ad account is not spending. Let's break down the issue to find a solution. Could you please provide the following details?
+
+- Campaign start date
+- Bidding type
+- Targeting or budget settings
+- Any recent changes in the last 72 hours
+
+Once I have this information, I can guide you further based on our Bidding Methodologies documentation.",{}
+web,WEBCHAT,3a159320d4b947619c2e51ec3552c3a1,Tim ,2025-07-25 16:25:20.003573,my ad account is not taking any spend,{}
+bot,WEBCHAT,BOT,BOT,2025-07-25 16:25:31.568087," Let's figure out why your ad account isn't spending. Could you please provide the following details?
+
+- Campaign start date
+- Bidding type
+- Targeting or budget settings
+- Any recent changes in the last 72 hours
+
+With this information, I can help you troubleshoot the issue based on our Bidding Methodologies documentation.",{}
+web,WEBCHAT,3a159320d4b947619c2e51ec3552c3a1,Tim ,2025-07-25 16:26:59.870716,campaign start date was 3 days ago,{}
+bot,WEBCHAT,BOT,BOT,2025-07-25 16:27:13.587672," Thanks for sharing the campaign start date. Since your campaign started 3 days ago, it might still be in the 'Cold Start Period.' During this phase, our system gathers crucial learnings about user behavior to identify the most likely converting audience segments. You should expect daily fluctuations, and once enough data is collected, performance will stabilize.
+
+Could you also let me know your bidding type and any targeting or budget settings? This will help us further analyze the situation.",{}
+web,WEBCHAT,3a159320d4b947619c2e51ec3552c3a1,Tim ,2025-07-25 16:27:18.028532,bidding type is maximum conversions,{}
+bot,WEBCHAT,BOT,BOT,2025-07-25 16:27:45.191947," Great, you're using the Max Conversion bidding type. During the learning phase, which typically completes after around 20-30 conversions, it's important to be patient and avoid making too many changes. This is when our system is analyzing performance signals to find the best audience segments and placements.
+
+If your campaign isn't spending as expected, consider gradually increasing your daily budget every 2-3 days by a maximum of 50% each time to help scale. Also, ensure that your targeting settings are broad enough unless you have specific restrictions.
+
+Let me know if you need further assistance!",{}
+web,WEBCHAT,3a159320d4b947619c2e51ec3552c3a1,Tim ,2025-07-25 16:28:09.248249,my budget is set for 50$ a day.,{}
+bot,WEBCHAT,BOT,BOT,2025-07-25 16:28:25.588015," With a daily budget of $50, you're in a good position to start seeing results once the learning phase is complete. If your campaign isn't spending as expected, you might want to consider increasing your budget gradually. A good rule of thumb is to increase it by no more than 50% every 2-3 days.
+
+Additionally, ensure that your targeting settings are broad enough to allow the system to find the best audience segments. This will help optimize your campaign's performance.
+
+If you have any more questions or need further assistance, feel free to ask!",{}
+web,WEBCHAT,3a159320d4b947619c2e51ec3552c3a1,Tim ,2025-07-25 16:29:14.573895,how can i get my ads to take spend,{}
+bot,WEBCHAT,BOT,BOT,2025-07-25 16:29:34.487732," To help your ads start spending, here are a few steps you can take:
+
+1. **Review Targeting Settings:** Ensure your targeting is broad enough to reach a wider audience. Narrow targeting can limit the potential reach and spend.
+
+2. **Adjust Budget Gradually:** Consider increasing your daily budget by no more than 50% every 2-3 days. This allows the system to adjust and optimize without causing performance fluctuations.
+
+3. **Check Bidding Strategy:** Since you're using Max Conversions, make sure your CPA goal aligns with the budget and expected conversion rate.
+
+4. **Monitor Learning Phase:** Be patient during the learning phase, which typically requires around 20-30 conversions to complete. Avoid making too many changes during this time.
+
+5. **Creative Testing:** If possible, test different ad creatives to see which ones perform better and drive more engagement.
+
+By following these steps, you should be able to improve your campaign's performance and start seeing spend on your ads.",{}
+web,WEBCHAT,3a159320d4b947619c2e51ec3552c3a1,Tim ,2025-07-27 18:46:06.590830,my ads are approved but it will not take any spend,{}
+bot,WEBCHAT,BOT,BOT,2025-07-27 18:46:16.743068," Let's troubleshoot why your ads aren't spending. Since your bidding type is set to 'Maximize Conversions' and the campaign started 3 days ago with a daily budget of $50, it might still be in the learning phase. During this time, it's normal for performance to fluctuate or for spending to be low. I recommend monitoring the campaign for a few more days to see if it stabilizes. If you have any recent changes, try not to make further adjustments until it exits the learning phase. For more detailed guidance, you can refer to our article on 'Introduction to Maximize Conversions': [here](https://help.newsbreak.com/hc/en-us/articles/20624355375117-Introduction-to-Maximize-Conversions).",{}
+web,WEBCHAT,3a159320d4b947619c2e51ec3552c3a1,Tim ,2025-07-27 18:46:55.220482,is it normal for a new account to not take any spend?,{}
+bot,WEBCHAT,BOT,BOT,2025-07-27 18:47:12.199393," Yes, it's quite normal for a new account to experience low spending initially. This is often due to the learning phase where the system is analyzing performance signals to optimize your campaign. It typically takes around 20-30 conversions for the learning phase to complete. During this time, minimal changes should be made to avoid disrupting the process. If your ads are approved but not spending, give it a few more days and monitor its progress. For more information on this, you can check out our article on 'Newsbreak Ads Overview'.",{}
+web,WEBCHAT,3a159320d4b947619c2e51ec3552c3a1,Tim ,2025-08-01 18:59:18.228251,how do i change my time slots,{}
+bot,WEBCHAT,BOT,BOT,2025-08-01 18:59:24.841543," To change the timezone for your Ad Manager, you can use the dropdown for timezone located on the upper right of your dashboard. Select the appropriate timezone you need, and the dashboard will refresh to reflect data in that timezone.",{}
+web,WEBCHAT,3a159320d4b947619c2e51ec3552c3a1,Tim ,2025-08-01 18:59:49.828312,i need to change the times when my ads can run,{}
+bot,WEBCHAT,BOT,BOT,2025-08-01 19:00:08.805382," To change the times when your ads can run, you need to adjust the scheduling settings in your campaign. Here's how you can do it:
+
+1. Go to Ad Management.
+2. Select the campaign you want to edit.
+3. Look for the scheduling or time settings option.
+4. Set the specific days and times you want your ads to run.
+5. Save your changes.
+
+This will allow you to control when your ads are active and visible to users.",{}
+web,WEBCHAT,3a159320d4b947619c2e51ec3552c3a1,Tim ,2025-08-01 19:06:09.679578,Thank you for your feedback. You can click the close icon below to close this widget.,"{""form_id"": ""cf69400b93794252b3a8edeb197d0bfa"", ""hidden_reply"": false, ""intent_name"": ""_csat_form_submit"", ""rating"": 4, ""comment"": """"}"
+bot,WEBCHAT,BOT,BOT,2025-08-01 19:06:18.912617, Thanks for contacting us and we want to hear from you!,{}
+web,WEBCHAT,3a159320d4b947619c2e51ec3552c3a1,Tim ,2025-08-01 19:06:29.642222,where is the time setting opyions located,{}
+bot,WEBCHAT,BOT,BOT,2025-08-01 19:06:40.263666," The time setting options for your ads are located within the campaign settings in your Ad Manager. To access them, follow these steps:
+
+1. Open your Ad Manager dashboard.
+2. Navigate to the specific campaign you want to edit.
+3. Look for the 'Scheduling' or 'Time Settings' section within the campaign settings.
+4. Here, you can adjust the days and times when you want your ads to run.
+
+If you have any trouble finding it, let me know!",{}
+web,WEBCHAT,3a159320d4b947619c2e51ec3552c3a1,Tim ,2025-08-01 19:07:14.535271,where is the campaign settings,{}
+bot,WEBCHAT,BOT,BOT,2025-08-01 19:07:25.721733," To find the campaign settings in your Ad Manager, follow these steps:
+
+1. Log into your Ad Manager dashboard.
+2. Click on the 'Campaigns' tab to view all your campaigns.
+3. Select the campaign you want to edit by clicking on its name.
+4. Once inside the campaign, you'll see various options including 'Settings' where you can adjust different parameters like scheduling, budget, and targeting.
+
+If you need further assistance, feel free to ask!",{}
+web,WEBCHAT,3a159320d4b947619c2e51ec3552c3a1,Tim ,2025-08-01 19:09:22.988729,"im in the campaign , where is the settings",{}
+bot,WEBCHAT,BOT,BOT,2025-08-01 19:10:01.867789," Once you're inside the campaign, the 'Settings' option is usually located in the menu or toolbar at the top or side of the campaign page. Look for tabs or sections labeled as 'Settings,' 'Edit,' or similar terms. This is where you can adjust your scheduling, budget, and other campaign parameters. If you still can't find it, please let me know!",{}

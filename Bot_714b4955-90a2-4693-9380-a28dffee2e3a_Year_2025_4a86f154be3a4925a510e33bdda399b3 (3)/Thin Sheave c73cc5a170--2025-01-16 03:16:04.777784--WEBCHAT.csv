@@ -1,0 +1,13 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-01-16 03:16:05.296289,Welcome!,
+web,WEBCHAT,67a1b51b465f49f68e650af1fca4c4fc,Thin Sheave c73cc5a170,2025-01-16 03:16:34.123511,how do i run ads on newsbreak?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-16 03:16:37.382725," To run ads on NewsBreak, you'll need to create an ad in the Ad Management section and submit it for approval. Once your ad is approved, you can start running it! If you want more detailed steps, check out this article: [How to create your first ad](https://help.newsbreak.com/hc/en-us/articles/17618196971149-How-to-create-your-first-ad).",{}
+web,WEBCHAT,67a1b51b465f49f68e650af1fca4c4fc,Thin Sheave c73cc5a170,2025-01-16 03:16:55.674670,what vertical should i start with?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-16 03:16:58.379169," Choosing a vertical to start with depends on your target audience and business goals. Common verticals include local news, lifestyle, health, and entertainment. Think about where your audience is most engaged and what aligns with your brand. If you need more guidance on targeting options, let me know!",{}
+web,WEBCHAT,67a1b51b465f49f68e650af1fca4c4fc,Thin Sheave c73cc5a170,2025-01-16 03:17:11.978338,what verticals perform well on newsbreak?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-16 03:17:14.817989," Some verticals that perform well on NewsBreak include Health and Wellness, Lead Generation, Finance, E-commerce, and Beauty. For example, products like pain relief braces or health supplements tend to attract attention. It’s a good idea to focus on what resonates with your audience in these categories!",{}
+web,WEBCHAT,67a1b51b465f49f68e650af1fca4c4fc,Thin Sheave c73cc5a170,2025-01-16 03:17:26.961915,what products are not approved to run?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-16 03:17:29.595181," Products that are typically not approved to run ads on NewsBreak include those that promote illegal activities, adult content, or harmful substances. Additionally, misleading or deceptive products may also be rejected. If you have a specific product in mind, I can help you check its eligibility!",{}
+web,WEBCHAT,67a1b51b465f49f68e650af1fca4c4fc,Thin Sheave c73cc5a170,2025-01-16 03:17:58.749448,🧹 New Topic,"{""payload"": ""/clear_history""}"
+bot,WEBCHAT,BOT,BOT,2025-01-16 03:17:59.522677,"Okay, Let's start fresh! What can I help you with?
+Welcome!",{}

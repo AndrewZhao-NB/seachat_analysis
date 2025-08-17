@@ -1,0 +1,31 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-03-20 13:32:27.559183,,"{""recipient_id"": ""3cb67497-e403-48b6-a2a9-8b4b654050ec"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-03-20 13:32:28.052245,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-03-20 13:32:31.030443,,"{""recipient_id"": ""3cb67497-e403-48b6-a2a9-8b4b654050ec"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+web,WEBCHAT,fb992d1c32544e4783fb26cc6824c6ba,sunil ,2025-03-20 13:32:47.832466,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""sunil""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""sunilpupari@gmail.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1902047127912423425""}]}"
+web,WEBCHAT,fb992d1c32544e4783fb26cc6824c6ba,sunil ,2025-03-20 13:34:07.486464,can you help me for event management setting to everflow,{}
+bot,WEBCHAT,BOT,BOT,2025-03-20 13:34:20.861845," Sure, I can help you with setting up event management for Everflow. Here are the steps you need to follow:
+1. Log in to the Everflow account associated with your offer and click on the upper left menu button and select 'Postbacks.'
+2. On the 'Manage Postbacks' page, make sure you are under the 'Conversions' tab and click '+Postback.'
+3. In the pop-up form, select the following items:
+   - Status: Active
+   - Postback Type: Conversion
+   - Postback Level: Global
+   - Delivery Method: Postback
+4. Once Postback is selected, you need to enter the Postback URL.
+5. In NewsBreak ad platform, go to Tools → Event management → Web Events → Create/test web event.
+6. Name the event, select Postback, choose Everflow as the tracking service and choose your event type. You could also turn on Event value if you have a value associated with this event.
+For more detailed information, please refer to this article: [How to set up an Everflow Postback on NewsBreak](https://help.newsbreak.com/hc/en-us/articles/22576502022285-How-to-set-up-an-Everflow-Postback-on-NewsBreak).",{}
+web,WEBCHAT,fb992d1c32544e4783fb26cc6824c6ba,sunil ,2025-03-20 13:34:29.511845,poatback setting,{}
+bot,WEBCHAT,BOT,BOT,2025-03-20 13:34:40.123471," It looks like you want to set up a postback. Here are the steps to set up a postback for Everflow on NewsBreak:
+1. Log in to your Everflow account and click on the upper left menu button, then select 'Postbacks.'
+2. On the 'Manage Postbacks' page, make sure you are under the 'Conversions' tab and click '+Postback.'
+3. In the pop-up form, select the following items:
+   - Status: Active
+   - Postback Type: Conversion
+   - Postback Level: Global
+   - Delivery Method: Postback
+4. Enter the Postback URL generated from NewsBreak.
+5. In NewsBreak ad platform, go to Tools → Event management → Web Events → Create/test web event.
+6. Name the event, select Postback, choose Everflow as the tracking service and choose your event type.
+For more detailed information, please refer to this article: [How to set up an Everflow Postback on NewsBreak](https://help.newsbreak.com/hc/en-us/articles/22576502022285-How-to-set-up-an-Everflow-Postback-on-NewsBreak).",{}

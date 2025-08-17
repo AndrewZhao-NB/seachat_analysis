@@ -1,0 +1,28 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-07-25 16:48:12.680000,,"{""recipient_id"": ""a88a93b4-3db9-4b85-afdb-f8046ac818cc"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-07-25 16:48:12.690000,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+web,WEBCHAT,99d6f0832e284f5b84e8e47b9527d9b3,Jason Stogsdill ,2025-07-25 16:48:12.700000,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""Jason Stogsdill""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""jstogsdill@porterandcompanyresearch.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1947286604441362433""}]}"
+web,WEBCHAT,99d6f0832e284f5b84e8e47b9527d9b3,Jason Stogsdill ,2025-07-25 16:50:10.633425,"Hi. I can't figure out how to properly test conversion postbacks with Everflow. I used Everflow's testing tool to verify the postback. Everflow says it works. But, Newsbreak's testing tool never finishes verification. I can't go all the way through the funnel by clicking because it is a paid product",{}
+bot,WEBCHAT,BOT,BOT,2025-07-25 16:50:34.242606," Hi there! It sounds like you're having some trouble with testing your conversion postbacks on NewsBreak using Everflow. Let's try to troubleshoot this together.
+
+First, ensure that you have correctly set up the Postback URL in your Everflow account. You can follow these steps:
+
+1. Log in to your Everflow account and click on the upper left menu button, then select ""Postbacks.""
+2. Select the following items:
+   - Status: Active
+   - Postback Type: Conversion
+   - Postback Level: Global
+   - Delivery Method: Postback
+3. Enter the Postback URL generated from NewsBreak's ad platform under Tools → Event management → Web Events → Create/test web event.
+4. Name the event, select Postback, choose Everflow as the tracking service, and choose your event type.
+5. Save and proceed with testing in our Ad Manager.
+6. Make sure to append “=__CALLBACK_PARAM__” to your offer's landing page URL for testing purposes.
+7. Use NewsBreak's Postback testing tool at the bottom of the page to trigger a conversion event.
+8. If you see a green checkmark within 1-2 minutes, it means the postback is successful.
+9. If unsuccessful, switch tabs back to Everflow and manually trigger a conversion event to see if a postback is generated there.
+10. If no postback is generated in Everflow, please work with your Everflow AM for further assistance as it might be a setup issue on their side.
+11. If a postback is generated but not recorded by NewsBreak, take a screenshot and send it to your NewsBreak POC or contact adsupport@newsbreak.com for further investigation.
+
+For more detailed instructions, you can refer to our [How-to-set-up-an-Everflow-Postback-on-NewsBreak article](https://help.newsbreak.com/hc/en-us/articles/22576502022285-How-to-set-up-an-Everflow-Postback-on-NewsBreak).
+
+If you have any other questions or need further assistance, feel free to ask!",{}

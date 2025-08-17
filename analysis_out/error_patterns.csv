@@ -1,0 +1,55 @@
+error_pattern,count
+no-errors-detected,667
+system-functioning-perfectly,639
+no-technical-issues,568
+conversation-abandoned,496
+no-technical-issues-detected,10
+quota-exceeded-notification,8
+invalid-operation-error,4
+repeated-message,3
+response-delay-notification,3
+incorrect-navigation-instructions,2
+no-direct-human-escalation,2
+no-technical-issues-detected-by-bot,2
+system-response-delay,2
+api-error-message,2
+incorrect-feature-information,2
+duplicate-response,2
+quota-exhaustion-notification,2
+incorrect-resource-link,2
+incorrect initial instructions,1
+no-live-agent-connection,1
+quota-exhaustion,1
+misunderstanding-user-intent,1
+access-denied-error,1
+attachment-missing-in-email,1
+repeated information,1
+repeated responses without resolution,1
+invalid-ipn-error,1
+initial-missing-step,1
+no-escalation-capability,1
+incorrect Click ID retrieval instructions,1
+support-email-not-working,1
+platform-issue-message,1
+reply-quota-exhausted,1
+conflicting-targeting-information,1
+no-response-to-command,1
+non-functional-link,1
+possible-ui-click-issue,1
+broken-link,1
+system-delay-in-status-update,1
+non-functional-email-address,1
+incorrect URL provided,1
+inability to verify audience availability,1
+live-agent-transfer-not-supported,1
+initial-misunderstanding-of-platform,1
+invalid-token,1
+no-live-agent-transfer-capability,1
+blank-responses,1
+test-not-completing,1
+card-authorization-failure,1
+user-unable-to-save-pixel-setup,1
+no-access-to-error-details,1
+support-team-non-response,1
+no-download-link-visible,1
+no-response-from-support,1

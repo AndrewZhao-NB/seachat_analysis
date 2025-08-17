@@ -1,0 +1,13 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-06-17 23:54:37.716000,,"{""recipient_id"": ""fb4c7e12-40e6-4156-99fe-6d48164abaec"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-06-17 23:54:37.726000,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+web,WEBCHAT,3867f9cf1f2e4124b0e6a3bcfe12d912,sara test ,2025-06-17 23:54:37.736000,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""sara test""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""sara.li@newsbreak.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1906989157460119553""}]}"
+web,WEBCHAT,3867f9cf1f2e4124b0e6a3bcfe12d912,sara test ,2025-06-17 23:54:58.425068,最低的日预算是多少？,{}
+bot,WEBCHAT,BOT,BOT,2025-06-17 23:55:04.247159, 在 NewsBreak 广告平台上，最低的日预算是 1000 美元。这个预算可以根据需要进行调整，但建议最多增加 100% 或减少 50%。如果您有其他问题或需要帮助，请随时告诉我！,{}
+web,WEBCHAT,3867f9cf1f2e4124b0e6a3bcfe12d912,sara test ,2025-06-17 23:55:38.484856,出价方式是选择max conversion还是tcpa,{}
+bot,WEBCHAT,BOT,BOT,2025-06-17 23:55:47.022834," 选择出价方式时，可以根据您的广告目标来决定：
+
+- 如果您的目标是最大化转化率，可以选择“Maximize Conversions”作为出价类型。
+- 如果您希望控制成本并优化性能，可以在收集到足够的转化数据并通过学习阶段后，切换到“Target CPA”。
+
+如果您不确定自己的 CPA 目标，可以先从“Maximize Conversions”开始收集数据，然后切换到 tCPA 以进行更有针对性的优化。希望这些信息对您有帮助！",{}

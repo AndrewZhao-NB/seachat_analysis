@@ -1,0 +1,128 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-08-08 06:21:14.020000,,"{""recipient_id"": ""cdfbd9da-3f98-48ee-aa1b-0484b9ddefa0"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-08-08 06:21:14.030000,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+web,WEBCHAT,b1988ef4660245c3a6ebbaa258bdc17f,zhou ,2025-08-08 06:21:14.040000,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""zhou""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""bldtfehn3041@outlook.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1818169695887273985""}]}"
+web,WEBCHAT,b1988ef4660245c3a6ebbaa258bdc17f,zhou ,2025-08-08 06:21:27.778830,🧹 New Topic,"{""payload"": ""/clear_history""}"
+bot,WEBCHAT,BOT,BOT,2025-08-08 06:21:32.562445,"Okay, Let's start fresh! What can I help you with?
+Hi, I’m the NewsBreak Ad Assistant. How can I help?",{}
+web,WEBCHAT,b1988ef4660245c3a6ebbaa258bdc17f,zhou ,2025-08-08 06:22:43.113711,,"{""image_list"": [{""image"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/cdfbd9da-3f98-48ee-aa1b-0484b9ddefa0/6023e9b0968d4ee88439b6df90c91386.png"", ""thumbnail"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/cdfbd9da-3f98-48ee-aa1b-0484b9ddefa0/6023e9b0968d4ee88439b6df90c91386_thumbnail.png"", ""is_ready"": true}]}"
+seachat_sys,WEBCHAT,BOT,BOT,2025-08-08 06:22:49.921163,"**Image 1:** This screenshot shows an interface for Ad Management. On the left sidebar, options include 'Dashboard,' 'Campaigns,' 'Ad sets,' 'Billing,' 'Account management,' 'Report,' and 'Tools.' In the main area, there are fields for setting up delivery details for an ad. The user can select a schedule with start and end times, specify a daily budget of $100, and see a recommendation for a minimum daily budget of $150. There's an option to increase the budget for specific periods, with optimization goals set for conversions. The bid type is set to maximize conversions with a bid rate of $15. The interface includes a note about fluctuating costs around the bid rate, and there are buttons to 'Close' or 'Save and Next' at the bottom right.",
+bot,WEBCHAT,BOT,BOT,2025-08-08 06:23:10.541523," It looks like you're setting up an ad campaign in the Ad Management interface. Here are some tips based on your screenshot:
+
+1. **Daily Budget**: You have set a daily budget of $100, but there's a recommendation for a minimum daily budget of $150. It's often beneficial to follow these recommendations to ensure optimal performance and give the algorithm enough room to optimize effectively.
+
+2. **Bid Type**: You're using the 'maximize conversions' bid type with a bid rate of $15. This is great for focusing on conversion goals, but keep in mind that costs can fluctuate around this rate.
+
+3. **Schedule and Optimization**: Make sure your schedule aligns with when your target audience is most active, and consider increasing the budget during peak periods if possible.
+
+4. **Save Your Settings**: Don't forget to click 'Save and Next' after making any changes to ensure they're applied.
+
+If you need more detailed guidance on setting up your ad or optimizing it further, feel free to ask!",{}
+web,WEBCHAT,b1988ef4660245c3a6ebbaa258bdc17f,zhou ,2025-08-08 06:23:55.311005,"Hello, should it be the expected advertising fee for converting one order or the CPC for advertising clicks?",{}
+bot,WEBCHAT,BOT,BOT,2025-08-08 06:24:08.349812," When deciding between focusing on the cost per conversion (tCPA) or cost per click (CPC), it depends on your advertising goals:
+
+1. **Cost Per Conversion (tCPA)**: If your primary goal is to drive conversions, such as sales or sign-ups, you should focus on the expected advertising fee for converting one order. This approach helps optimize your budget towards achieving specific conversion goals.
+
+2. **Cost Per Click (CPC)**: If you're aiming to increase traffic to your website or raise brand awareness, focusing on CPC might be more suitable. This model charges you for each click your ad receives.
+
+Consider what outcome is most important for your campaign and choose the pricing model that aligns with those objectives.",{}
+web,WEBCHAT,b1988ef4660245c3a6ebbaa258bdc17f,zhou ,2025-08-08 06:25:30.946889,Artificial,{}
+bot,WEBCHAT,BOT,BOT,2025-08-08 06:25:43.870169," It seems like you mentioned ""Artificial."" Could you please provide more context or details about what you're referring to? Are you asking about artificial intelligence, artificial pricing strategies, or something else?",{}
+web,WEBCHAT,b1988ef4660245c3a6ebbaa258bdc17f,zhou ,2025-08-09 08:18:37.276623,"When creating an ad, where can I choose whether to run it on a desktop or mobile device?",{}
+bot,WEBCHAT,BOT,BOT,2025-08-09 08:18:51.676344," When setting up your ad campaign in NewsBreak's Ad Manager, you can select the device type during the targeting phase. Here's how you can do it:
+
+1. **Access Ad Management**: Start by navigating to the 'Ad Management' section.
+
+2. **Create Campaign**: Click on 'Create Campaign' and proceed through the initial steps.
+
+3. **Targeting Options**: When you reach the targeting options, you'll be able to specify your audience based on various criteria, including device type.
+
+4. **Device Selection**: Choose whether you want your ads to appear on desktop or mobile devices as part of your audience targeting settings.
+
+Make sure to save your settings before moving on to the next step!
+
+For more detailed instructions, check out this article: [How to create your first ad](https://help.newsbreak.com/hc/en-us/articles/17618196971149-How-to-create-your-first-ad).",{}
+web,WEBCHAT,b1988ef4660245c3a6ebbaa258bdc17f,zhou ,2025-08-09 08:21:36.939000,"Where to look for audience targeting settings, but still can't find them",{}
+bot,WEBCHAT,BOT,BOT,2025-08-09 08:21:51.378608," If you're having trouble finding the audience targeting settings in NewsBreak's Ad Manager, here's a step-by-step guide to help you locate them:
+
+1. **Ad Management Dashboard**: Start by logging into your Ad Management dashboard.
+
+2. **Create or Edit Campaign**: Either create a new campaign by clicking 'Create Campaign' or edit an existing one.
+
+3. **Targeting Section**: As you go through the campaign setup process, you'll reach a section specifically for targeting. This is where you can define your audience based on location, gender, age, interests, and device type.
+
+4. **Detailed Options**: Look for options like 'Audience,' 'Demographics,' or 'Device Type' within this section to refine your targeting criteria.
+
+If you're still unable to find these settings, make sure you're in the correct part of the campaign setup process and that all necessary permissions are granted for your account.",{}
+web,WEBCHAT,b1988ef4660245c3a6ebbaa258bdc17f,zhou ,2025-08-09 08:23:14.835154,"In the positioning section, can I choose to cast on PC or mobile?",{}
+bot,WEBCHAT,BOT,BOT,2025-08-09 08:23:25.092592," Yes, in the positioning section of NewsBreak's Ad Manager, you can choose to target your ads specifically to either PC (desktop) or mobile devices. Here's how you can do it:
+
+1. **Access Ad Management**: Log into your Ad Management dashboard.
+
+2. **Create or Edit Campaign**: Start a new campaign by clicking 'Create Campaign' or edit an existing one.
+
+3. **Targeting Section**: As you proceed through the campaign setup, you'll find a section for audience targeting.
+
+4. **Device Type Selection**: Within the targeting options, look for device type settings where you can specify whether your ads should appear on desktop (PC) or mobile devices.
+
+Make sure to save your selections before moving on to finalize your campaign setup.",{}
+web,WEBCHAT,b1988ef4660245c3a6ebbaa258bdc17f,zhou ,2025-08-09 08:26:25.829759,I can't find the device type setting. Are you talking about this?,"{""image_list"": [{""image"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/cdfbd9da-3f98-48ee-aa1b-0484b9ddefa0/8fe58cd3afb943c287a5d73abf878cbf.png"", ""thumbnail"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/cdfbd9da-3f98-48ee-aa1b-0484b9ddefa0/8fe58cd3afb943c287a5d73abf878cbf_thumbnail.png"", ""is_ready"": true}]}"
+seachat_sys,WEBCHAT,BOT,BOT,2025-08-09 08:26:31.397086,"I can't find the device type setting. Are you talking about this?
+Yes, in the interface you provided, the ""Device"" section is likely where you should be able to specify the type of devices you want to target. 
+
+If there is an option labeled under ""Device"" that allows you to select between desktop (PC) and mobile, you can make your choice there. However, if you're not seeing specific options to choose the device type, it might be that the feature is not available in your current setup, or it could be located in another part of the interface.
+
+If the options still aren't clear, consider checking any additional dropdowns or settings related to positioning or placements. If you're unable to find the specific device type settings, reaching out to the support team for NewsBreak's Ad Manager would be a good next step.",
+bot,WEBCHAT,BOT,BOT,2025-08-09 08:26:49.407733," It seems like you're having trouble locating the device type settings in the NewsBreak Ad Manager interface. If you don't see a specific section labeled ""Device"" or options to select between desktop and mobile, it might be due to the current setup or version of the platform you're using.
+
+Here are a few things you can try:
+
+1. **Check for Dropdowns**: Look for any dropdown menus or additional settings related to positioning or placements that might contain device type options.
+
+2. **Explore Other Sections**: Sometimes, these settings might be under different sections like 'Audience' or 'Targeting.' Make sure to explore these areas thoroughly.
+
+3. **Contact Support**: If you're still unable to find the device type settings, it would be best to reach out to NewsBreak's support team at adsupport@newsbreak.com for further assistance.
+
+They should be able to provide more detailed guidance based on your specific account setup.",{}
+web,WEBCHAT,b1988ef4660245c3a6ebbaa258bdc17f,zhou ,2025-08-09 08:31:39.474454,Please help me open it,"{""image_list"": [{""image"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/cdfbd9da-3f98-48ee-aa1b-0484b9ddefa0/3fc3e0937c744f4d84d260fd863c418c.png"", ""thumbnail"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/cdfbd9da-3f98-48ee-aa1b-0484b9ddefa0/3fc3e0937c744f4d84d260fd863c418c_thumbnail.png"", ""is_ready"": true}]}"
+seachat_sys,WEBCHAT,BOT,BOT,2025-08-09 08:31:46.502284,"Please help me open it
+Based on the screenshot you provided, it appears you are in the ""Placements"" section of the NewsBreak Ads Manager. Here’s how to proceed:
+
+1. **Select Platform**: You see the option to choose between ""NewsBreak App"" or other traffic platforms. 
+   
+2. **Choose NewsBreak App**: If your goal is to target users specifically within the NewsBreak app, select that option.
+
+3. **Look for Additional Options**: After selecting the platform, look for any subsequent options related to device targeting (desktop or mobile). Sometimes these options may appear after you make a primary selection.
+
+4. **Targeting Options**: If you can't find the device targeting options within this section, it’s possible they might be located further down or in a separate targeting area.
+
+If you still can’t find it after following these steps, consider reaching out to the support team for more specific guidance on accessing device type settings.",
+bot,WEBCHAT,BOT,BOT,2025-08-09 08:31:57.748734," It seems like you're trying to access the device targeting options within the ""Placements"" section of the NewsBreak Ads Manager. Here are some steps you can follow to try and locate these settings:
+
+1. **Select Platform**: Make sure you've selected the ""NewsBreak App"" as your platform in the Placements section.
+
+2. **Explore Further Options**: After selecting the platform, check for any additional settings or dropdown menus that might allow you to specify device types, such as desktop or mobile.
+
+3. **Check Other Sections**: If you still can't find it, try exploring other sections related to audience targeting or placements, as sometimes these options might be located elsewhere in the interface.
+
+4. **Contact Support**: If you're unable to find the specific device type settings, I recommend reaching out to NewsBreak's support team at adsupport@newsbreak.com for more detailed assistance tailored to your account setup.",{}
+web,WEBCHAT,b1988ef4660245c3a6ebbaa258bdc17f,zhou ,2025-08-09 08:36:08.139210,I need to submit a ticket to custom exclude Audience Network traffic when creating an ad.,{}
+bot,WEBCHAT,BOT,BOT,2025-08-09 08:36:23.505976," To submit a ticket for custom exclusions, such as excluding Audience Network traffic when creating an ad, you can reach out to NewsBreak's support team. Here's how you can do it:
+
+1. **Email Support**: Send an email to adsupport@newsbreak.com.
+
+2. **Include Details**: In your email, make sure to include specific details about your request, such as the campaign name, ad ID (if applicable), and the specific exclusion you want to apply (e.g., excluding Audience Network traffic).
+
+3. **Subject Line**: Use a clear subject line like ""Custom Exclusion Request - Audience Network Traffic"" to ensure your request is directed appropriately.
+
+The support team will be able to assist you with setting up custom exclusions for your ad campaigns.",{}
+web,WEBCHAT,b1988ef4660245c3a6ebbaa258bdc17f,zhou ,2025-08-11 01:45:24.925577,Why did I spend $64 for two add-on purchases? How long is the learning period for an ad?,{}
+bot,WEBCHAT,BOT,BOT,2025-08-11 01:45:43.777465," To better understand why your ad spend is at a certain level, let's break it down:
+
+1. **Ad Spend**: The cost of your ad campaign can vary based on several factors such as targeting options, bidding strategy, and competition for ad space. If you notice higher costs, it might be due to increased competition or changes in your bidding settings.
+
+2. **Review Settings**: Double-check your campaign settings, including the daily budget and bid amounts. Make sure they align with your advertising goals.
+
+3. **Performance Monitoring**: Regularly review the performance of your ads in the Reporting tab to see how they are performing and make necessary adjustments.
+
+If you need further assistance or a detailed analysis of your ad spend, I recommend reaching out to our support team at adsupport@newsbreak.com.",{}

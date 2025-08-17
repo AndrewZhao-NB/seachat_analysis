@@ -1,0 +1,39 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-06-21 13:49:35.087000,,"{""recipient_id"": ""b5cd48ae-28a6-4f2d-b960-7e76e81a17e8"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-06-21 13:49:35.097000,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+web,WEBCHAT,27d286b0ae1248b38230617cded22668,John ,2025-06-21 13:49:35.107000,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""John""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""johnmckay843@gmail.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1936420419800506370""}]}"
+web,WEBCHAT,27d286b0ae1248b38230617cded22668,John ,2025-06-21 13:50:39.514318,hi,{}
+bot,WEBCHAT,BOT,BOT,2025-06-21 13:50:52.595343, Hello! How can I assist you today?,{}
+web,WEBCHAT,27d286b0ae1248b38230617cded22668,John ,2025-06-21 13:51:01.441047,"Exclusive NewsBreak Promo Just for YOU!
+Inbox
+
+Julianne - Digistore24 <hello@digistore24newsletter.com> Unsubscribe
+12:46 AM (18 hours ago)
+to me
+
+
+ds24_logo
+$2K in Free
+Ad Spend
+Learn More
+
+Hey Rahul,
+How does $2,000 in free ad spend sound?
+
+Pretty good, right?
+
+Well, that’s not all!
+
+We’ve partnered up with NewsBreak—the #1 local news app in the US—to bring you this exclusive opportunity:
+
+👉 $2,000 in ad credits valid for US traffic
+👉 Personalized onboarding with a dedicated NewsBreak ad expert to help you strategize and scale
+👉 Access to an audience of over 40 Million active users
+
+
+Not",{}
+web,WEBCHAT,27d286b0ae1248b38230617cded22668,John ,2025-06-21 13:51:08.001714,i got this emaik,{}
+bot,WEBCHAT,BOT,BOT,2025-06-21 13:51:11.544737," Hey there! It looks like you've received an exciting promo offer from Digistore24 in partnership with NewsBreak. If you have any questions about how to redeem the ad credits or need assistance with onboarding, feel free to ask! I'm here to help.",{}
+bot,WEBCHAT,BOT,BOT,2025-06-21 13:51:26.979872," Got it! If you have any questions about the email or need help with anything related to the promo offer, just let me know. I'm here to assist you!",{}
+web,WEBCHAT,27d286b0ae1248b38230617cded22668,John ,2025-06-21 13:51:29.232065,but credit isnt added to my account,{}
+bot,WEBCHAT,BOT,BOT,2025-06-21 13:51:44.240123," I'm sorry to hear that the ad credit hasn't been added to your account yet. To resolve this, I recommend reaching out to our Ad Support team at adsupport@newsbreak.com. They will be able to assist you with the promo offer and ensure that the credits are applied correctly.",{}

@@ -1,0 +1,14 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-01-14 22:47:47.095131,Welcome!,
+web,WEBCHAT,e61af90eebd949c781e65c54d0072150,Charley ,2025-01-14 22:48:21.712588,Why is my ad account locked?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-14 22:48:24.473629," Hey there! An ad account can get locked for a few reasons, like violating ad policies or issues with payment methods. I recommend checking your email for any notifications from Ad Support that might explain the reason. If you need more help, feel free to reach out to our support team!",{}
+web,WEBCHAT,e61af90eebd949c781e65c54d0072150,Charley ,2025-01-14 22:48:46.358168,How do I set up api token for reporting?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-14 22:48:48.955186," To set up an API token for reporting, you'll typically need to log into your account and navigate to the API settings section. From there, you should find an option to generate a new API token. If you have any specific platform in mind or need more detailed steps, let me know!",{}
+web,WEBCHAT,e61af90eebd949c781e65c54d0072150,Charley ,2025-01-14 22:49:05.004803,How do I set up API?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-14 22:49:10.505139," To set up the API, follow these steps: 
+1. **Create an Ad Account**: Make sure you have an ad account created in our Ad Manager.
+2. **Request Your Token**: Submit a request for your token by clicking 'Help' on the left side of your screen or contacting adsupport@newsbreak.com. Include your Organization ID in the request.
+3. **Obtain API Access**: Once your token request is approved, you'll receive an API key to authenticate your requests.
+4. **Authentication**: Use the access token in the HTTP Header field when making API requests.
+If you need more details or run into any issues, just let me know!",{}
+event_notify,WEBCHAT,azhar.sayed@newsbreak.com,Philip Pirrip,2025-01-15 23:40:43.172434,Azhar Sayed assigned this chat to Azhar Sayed.,"{""recipient_id"": ""b4a4807b680046ac8b7c40023c9a5445"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""event_notify"", ""event_type"": ""CONVERSATION_ASSIGNED"", ""message"": ""Azhar Sayed assigned this chat to Azhar Sayed.""}}}}"

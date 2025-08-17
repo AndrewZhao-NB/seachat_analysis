@@ -1,0 +1,68 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-08-07 18:18:55.612000,,"{""recipient_id"": ""302efcf5-f0ae-426a-85f4-fd4b0084d05d"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-08-07 18:18:55.622000,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+web,WEBCHAT,1a0b3eae0c1448ea8f9ef8939bd7d6ee,Randy ,2025-08-07 18:18:55.632000,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""Randy""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""support@randallcartwright.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1948056518344998913""}]}"
+web,WEBCHAT,1a0b3eae0c1448ea8f9ef8939bd7d6ee,Randy ,2025-08-07 18:19:07.502215,"I don't understand why my CPM's have gone thru the roof the last couple of days making CPC's go over $7 on 1 click and an average of $6.40 for 2 clicks, and blowing my budget up by 11 AM?",{}
+bot,WEBCHAT,BOT,BOT,2025-08-07 18:19:17.899479," It sounds like your campaign might be experiencing fluctuations due to the learning phase or changes in bidding strategies. Here are a few things you can check:
+
+1. **Learning Phase:** If your campaign is in the learning phase, it's normal to see some fluctuations. This phase typically completes after around 20-30 conversions.
+
+2. **Bidding Strategy:** Review your bidding strategy and consider using Max Conversion bidding during the learning phase to stabilize costs.
+
+3. **Budget Adjustments:** Ensure that you haven't made any significant budget changes recently, as this can impact performance.
+
+4. **Targeting Settings:** Double-check your targeting settings to ensure they align with your campaign goals.
+
+For more detailed guidance, you can refer to our article on [Maximize Conversions Best Practices](https://help.newsbreak.com/hc/en-us/articles/23055076590221-Maximize-Conversions-Best-Practices).
+
+If you need further assistance, feel free to reach out!",{}
+web,WEBCHAT,1a0b3eae0c1448ea8f9ef8939bd7d6ee,Randy ,2025-08-07 18:25:44.246888,None of that is the problem. The first 6 days my average CPC's were $0.25 and the last 2 days they've balloned up to an average of $ $0.77 because of the super high CPM's. I've never had a CPM on Taboola or Outbrain with CPC's anywhere near that amount and there's a much lower clickthru rate on those platfomrs.,{}
+bot,WEBCHAT,BOT,BOT,2025-08-07 18:26:19.168620," It seems like there might be a sudden change in the competitive landscape or audience targeting that's affecting your CPM and CPC rates. Here are a few things you can consider:
+
+1. **Competitive Bidding:** Check if there's increased competition for your targeted audience, which could drive up CPM rates.
+
+2. **Audience Targeting:** Review your audience targeting settings to ensure they haven't changed unexpectedly.
+
+3. **Ad Creative Performance:** Evaluate the performance of your ad creatives; sometimes changes in engagement can impact costs.
+
+4. **Platform Differences:** Keep in mind that Newsbreak's algorithm and audience may differ from Taboola or Outbrain, which can affect performance metrics.
+
+If these suggestions don't help, I recommend reaching out to our support team at adsupport@newsbreak.com for more personalized assistance.",{}
+web,WEBCHAT,1a0b3eae0c1448ea8f9ef8939bd7d6ee,Randy ,2025-08-07 18:28:36.922030,I'm not targeting any audience. I've got everything open and letting your algorymthem do the work. I guess there's no way to have a max cost per click or CPM,{}
+bot,WEBCHAT,BOT,BOT,2025-08-07 18:28:46.989492," When you leave targeting open, the algorithm does its best to optimize based on available data, but fluctuations can still occur. Unfortunately, Newsbreak doesn't offer a direct way to set a maximum CPC or CPM limit. However, you can try adjusting your bidding strategy:
+
+1. **Bidding Strategy:** Consider switching to tCPA bidding if you're looking to control costs more effectively.
+
+2. **Budget Management:** Monitor your daily budget closely and adjust it incrementally if needed.
+
+3. **Performance Monitoring:** Keep an eye on performance metrics and make adjustments as necessary.
+
+If you need further assistance or have specific concerns, feel free to contact our support team at adsupport@newsbreak.com.",{}
+web,WEBCHAT,1a0b3eae0c1448ea8f9ef8939bd7d6ee,Randy ,2025-08-07 18:29:11.241683,And how do I check the competition and ?Competitive Bidding,{}
+bot,WEBCHAT,BOT,BOT,2025-08-07 18:29:29.912337," To check competition and manage competitive bidding, you can follow these steps:
+
+1. **Analyze Performance Reports:** Use the reporting tools to analyze your campaign's performance metrics like CPM, CPC, and CTR. This can give you insights into how competitive your ad space is.
+
+2. **Monitor Industry Trends:** Keep an eye on industry trends and seasonal changes that might affect competition levels.
+
+3. **Adjust Bidding Strategy:** If you notice high competition, consider adjusting your bidding strategy to Target CPA (tCPA) for more control over costs.
+
+4. **Experiment with Ad Creatives:** Test different ad creatives to see which ones perform better in a competitive environment.
+
+For more detailed guidance on reporting and metrics, you can refer to our [Reporting Guide](https://help.newsbreak.com/hc/en-us/articles/18088532505485-Reporting-Guide).",{}
+web,WEBCHAT,1a0b3eae0c1448ea8f9ef8939bd7d6ee,Randy ,2025-08-07 18:34:06.990672,None of that info helps. How in the world anyone be able to monitor that info minute by minute. I'm very happy with my Click thru percentage rate and everything eles. It's the CPM's going from $10 one day to $150 the next. That's crazy?,{}
+bot,WEBCHAT,BOT,BOT,2025-08-07 18:34:40.216122," I understand how frustrating it can be to see such drastic changes in CPM. Here are a few additional steps you might consider:
+
+1. **Real-Time Monitoring:** While minute-by-minute monitoring isn't feasible, setting up alerts for significant changes in your metrics can help you respond quickly.
+
+2. **Daily Budget Caps:** Implement daily budget caps to prevent overspending due to unexpected CPM spikes.
+
+3. **Ad Scheduling:** Consider scheduling your ads during specific times when competition might be lower, potentially stabilizing CPM rates.
+
+4. **Consult Support:** If the issue persists, it might be beneficial to reach out directly to our support team at adsupport@newsbreak.com for a deeper analysis of your account and campaigns.
+
+These strategies can help manage fluctuations and maintain control over your ad spend.",{}
+web,WEBCHAT,1a0b3eae0c1448ea8f9ef8939bd7d6ee,Randy ,2025-08-07 18:38:17.738171,Ok. thanks. I'll have to contact support.,{}
+bot,WEBCHAT,BOT,BOT,2025-08-07 18:38:38.880996," You're welcome! If you need further assistance, don't hesitate to reach out to our support team at adsupport@newsbreak.com. They'll be able to provide more personalized help with your campaign issues. Have a great day!",{}
+web,WEBCHAT,1a0b3eae0c1448ea8f9ef8939bd7d6ee,Randy ,2025-08-07 18:41:01.399368,Thank you for your feedback. You can click the close icon below to close this widget.,"{""form_id"": ""cf69400b93794252b3a8edeb197d0bfa"", ""hidden_reply"": false, ""intent_name"": ""_csat_form_submit"", ""rating"": 2, ""comment"": ""Seems like it was AI responding with general answers and the only real help I got was to contact supports email.""}"
+bot,WEBCHAT,BOT,BOT,2025-08-07 18:41:21.497892, Thanks for contacting us and we want to hear from you!,{}

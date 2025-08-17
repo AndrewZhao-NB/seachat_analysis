@@ -1,0 +1,643 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-01-14 21:31:16.000235,Welcome!,
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-14 21:32:04.003794,how do I add a credit card on the file?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-14 21:32:09.599613," To add a credit card on file, just follow these steps: 1. Access the Billing Section in your account. 2. Click on 'add payment method.' 3. Provide your credit card information and save it. That’s it! You’re all set to go!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-14 21:32:37.119720,can we wire you the funds?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-14 21:32:39.845657," Yes, if you're an international advertiser and don't have a credit card, you can wire us funds. Once we confirm the wire, we can add credits to your account. Let me know if you need more details on where to send the wire!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-14 21:32:56.246669,"Can you adjust time zone in the platform?
+",{}
+bot,WEBCHAT,BOT,BOT,2025-01-14 21:32:59.276347," Currently, the platform is only set to Pacific Standard Time (PST). However, adjusting across different time zones is on our roadmap for the future. If you have any other questions or need help with something else, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-14 21:33:22.916039,how long does it take for an ad to get approved?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-14 21:33:28.638892," On average, we review ads within 4 hours on weekdays. On weekends, it can take up to 8 hours. If you have any other questions or need assistance with your ads, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-14 21:33:41.788317,can you request a manual review of the ad?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-14 21:33:44.730801," Unfortunately, there isn't a direct option to request a manual review of an ad. However, if your ad gets rejected and you believe it meets the guidelines, you can reach out to our support team for further assistance. Let me know if you need help with anything else!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-14 21:34:13.525577,do you provide api support for billing?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-14 21:34:16.086063," I'm sorry, but I don't have specific information about API support for billing. You might want to reach out to our support team directly for detailed inquiries regarding API functionalities. If there's anything else you need help with, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-14 21:34:31.815633,How do I integrate your platform with Redtrack?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-14 21:34:35.471916," To integrate our platform with Redtrack, you'll want to follow the API Integration Guide. Start by creating an ad account in our Ad Manager, then request your token by contacting adsupport@newsbreak.com with your Organization ID. If you need more specific steps or run into issues, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-14 21:34:52.356783,can you track post back via red track?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-14 21:34:55.388833," Yes, you can track postbacks via RedTrack! You'll need to set up a postback in your RedTrack account and then create a web event in our Ad Manager. Make sure to select 'RedTrack' as the 3rd party tracking service. If you need detailed steps, let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-14 21:35:17.398743,yes please give me details steps for the previous question,{}
+bot,WEBCHAT,BOT,BOT,2025-01-14 21:35:26.014733," Sure! Here are the detailed steps to track postbacks via RedTrack:
+1. **Log in to your RedTrack account** and click on 'Traffic channels.'
+2. Click '+ NEW FROM TEMPLATE' and search for NewsBreak. Once you click 'Add,' the NewsBreak Template should open up with the fields populated.
+3. Make sure to use the correct s2s URL, which looks like this: `https://business.newsbreak.com/tracking/attribute?callback={ref_id}&event_type={REPLACE}`. Replace `{REPLACE}` with your actual conversion event, like `complete_payment`.
+4. After setting that up, head over to your NewsBreak ad account.
+5. In the Ad Manager, go to 'Tools' > 'Event Management' > 'Web Events.'
+6. Click on 'Create/test web event.' Enter the event name, select your tracking type as ‘Postback,’ choose 'RedTrack' as the 3rd party tracking service, and select your conversion event.
+7. Follow any additional instructions provided in our Ad Manager to successfully save your event.
+And that's it! If you have any questions or need further assistance, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-14 21:36:10.977476,what macros are supported?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-14 21:36:14.370144," The supported macros for tracking in our platform include:
+- `__CALLBACK_PARAM__` for the callback parameter.
+- `__CLICK_ID__` for the unique click ID.
+- `__EVENT_TYPE__` to specify the type of event.
+Make sure to use these macros correctly in your postback URLs. If you need more details or have specific questions about using them, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-14 21:36:42.343944,what verticals are currently working well in your platform?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-14 21:36:49.082497," Currently, the verticals that are performing well on our platform include Health & Wellness, Finance, and E-commerce. These categories tend to attract a lot of engagement. If you have a specific vertical in mind or need more insights, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-14 21:37:14.774045,what image file types are supported?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-14 21:37:17.618686," We support several image file types on our platform, including JPEG, PNG, and GIF. Make sure your images meet the size requirements as well for optimal performance. If you have any other questions or need help with something else, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-14 21:37:39.870074,what is the best time of the day to launch a campaign?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-14 21:37:46.497347," The best time to launch a campaign typically depends on your target audience. However, many advertisers find that launching campaigns in the early morning or late afternoon during weekdays tends to yield better engagement. It's also a good idea to monitor your campaign performance and adjust based on when your audience is most active. If you need more specific advice or have other questions, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-14 21:38:23.847153,my campaigns performance dropped what should I do?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-14 21:38:28.311703," If your campaign's performance has dropped, here are a few steps you can take:
+1. **Review Targeting**: Check if your audience targeting is still relevant. Sometimes, adjusting your audience can help improve performance.
+2. **Analyze Ad Creative**: Look at your ad creatives. Are they still engaging? Consider A/B testing new variations to see what resonates better.
+3. **Adjust Bidding Strategy**: If you're using a bidding strategy, consider tweaking it to see if that helps improve results.
+4. **Check for External Factors**: Sometimes external factors like seasonality or market changes can impact performance.
+5. **Monitor Frequency**: If your ads are being shown too often to the same audience, it might lead to ad fatigue.
+6. **Consult Reports**: Use the reporting tools available in our platform to identify specific areas that may need improvement.
+If you need more detailed guidance or have specific metrics you'd like to discuss, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-14 21:39:26.293741,could you give me steps to add your pixel in Shopify?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-14 21:39:33.742481," Absolutely! Here are the steps to add our pixel to your Shopify store:
+1. **Log in to your Shopify Admin**: Go to your Shopify account.
+2. **Navigate to Online Store**: Click on 'Online Store' in the left sidebar.
+3. **Go to Themes**: Under 'Online Store', click on 'Themes'.
+4. **Edit Code**: Find the theme you want to edit, click on 'Actions', and then select 'Edit code'.
+5. **Add Pixel Code**: Look for the `theme.liquid` file under the 'Layout' section. Open it and paste your pixel code just before the closing `</head>` tag.
+6. **Save Changes**: After pasting the code, make sure to save your changes.
+7. **Test Your Pixel**: Use a tool like Facebook's Pixel Helper or similar tools to ensure that your pixel is firing correctly on your site.
+And that's it! If you have any questions or need further assistance, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-14 21:40:08.542842,"Auto insurance is performing well, going to start scaling it. Any tips for increasing budgets and maintaining full spend everyday?",{}
+bot,WEBCHAT,BOT,BOT,2025-01-14 21:40:20.862901," That's great to hear that your auto insurance campaigns are performing well! Here are some tips for scaling your budgets while maintaining full spend:
+1. **Gradual Budget Increases**: Increase your budget gradually (e.g., 20-30% at a time) to avoid sudden drops in performance.
+2. **Monitor Performance Metrics**: Keep an eye on key metrics like CPA (Cost Per Acquisition) and ROAS (Return on Ad Spend). Adjust budgets based on performance.
+3. **Expand Targeting**: Consider broadening your audience targeting or adding new segments to reach more potential customers.
+4. **Optimize Ad Creatives**: Regularly refresh your ad creatives to keep them engaging and relevant, which can help maintain high click-through rates.
+5. **Utilize Dayparting**: If you notice certain times of the day perform better, allocate more budget during those peak times.
+6. **Test New Channels**: If you're primarily focused on one channel, consider testing additional channels or placements to diversify traffic sources.
+7. **Set Up Automated Rules**: Use automated rules in your ad platform to adjust budgets based on performance thresholds automatically.
+If you need more specific strategies or have other questions, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-14 21:40:43.446460,want to start another leadgen product. what do you recommend for NB traffic?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-14 21:40:49.251233," For a lead generation product on NewsBreak traffic, I recommend focusing on the following strategies:
+1. **Targeted Audience Segmentation**: Make sure to define your target audience clearly. Use demographic and interest-based targeting to reach potential leads effectively.
+2. **Engaging Ad Creatives**: Create eye-catching and informative ad creatives that highlight the benefits of your lead gen product. Use strong calls-to-action (CTAs) to encourage sign-ups.
+3. **Landing Page Optimization**: Ensure your landing page is optimized for conversions. It should load quickly, be mobile-friendly, and have a clear value proposition.
+4. **Utilize Lead Magnets**: Offer something valuable in exchange for contact information, like an eBook, free trial, or exclusive content.
+5. **A/B Testing**: Test different ad formats and messaging to see what resonates best with your audience.
+6. **Retargeting Campaigns**: Set up retargeting campaigns for users who interacted with your ads but didn’t convert initially.
+7. **Monitor Performance Closely**: Keep an eye on your campaign metrics and adjust strategies based on what’s working best.
+If you need more specific recommendations or have questions about implementation, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-14 21:50:01.740530,how do I test a post back with ClickBank?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-14 21:50:06.410486," To test a postback with ClickBank, follow these steps:
+1. **Set Up Your Postback URL**: First, ensure you have your postback URL configured correctly in your ClickBank account. It should include the necessary macros for tracking.
+2. **Access Your ClickBank Account**: Log in to your ClickBank account and navigate to the 'Account Settings' section.
+3. **Find Postback Settings**: Look for the 'Postback' settings where you can enter your postback URL.
+4. **Use a Testing Tool**: You can use tools like Postman or any HTTP request testing tool to send a test request to your postback URL with sample data.
+5. **Check Response**: After sending the test request, check if you receive a successful response from your server or tracking platform.
+6. **Verify Data in Your Tracking Platform**: Finally, log into your tracking platform (like NewsBreak) and verify that the conversion data is being recorded correctly based on the test you performed.
+If you encounter any issues or need further assistance, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-15 23:34:10.428042,how long does it take for an ad to get approved?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-15 23:34:13.382574," The ad approval process usually takes between 1-2 business days, but sometimes it can be even quicker thanks to our awesome Ad Ops team!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-15 23:35:14.896866,what are the top verticals on news break?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-15 23:35:20.175775," I'm not sure about the specific top verticals on News Break, but they typically include categories like local news, entertainment, sports, and lifestyle. If you have a particular interest in mind, let me know and I can help you find more info!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-15 23:35:48.045171,what ad types do well in newsbreak?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-15 23:35:50.767783," On News Break, ad types that tend to perform well include native ads, video ads, and display ads. These formats are engaging and fit seamlessly into the user experience. If you want more details on specific placements or strategies, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-15 23:36:15.434302,what products do well on newsbreak?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-15 23:36:17.864672," While I don't have specific product data, generally, products related to local services, entertainment, and lifestyle tend to perform well on News Break. If you have a particular category in mind, I can help you find more targeted information!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-15 23:38:08.300506,what are the reasons for my ads rejection?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-15 23:38:12.844274," Ads can be rejected for various reasons, such as not adhering to advertising policies, typographical errors, or issues with conversion tracking. You'll receive specific details about the rejection via email from Ad Support. If you want to avoid future rejections, it's a good idea to familiarize yourself with NewsBreak's ad policies before submitting your ads!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-15 23:41:12.430558,can I talk to a human?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-15 23:41:15.953917," I totally understand! If you need to speak with a human, you can reach out to our support team at support@newsbreak.com. They’ll be happy to assist you further!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-15 23:48:11.030955,can I do a guest post?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-15 23:48:14.802062," Currently, News Break doesn't have a guest posting option. However, if you have content ideas or want to collaborate, you might consider reaching out to our support team for more information on potential opportunities!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-15 23:53:27.350505,how do I get an api token?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-15 23:53:32.885208," To get an API token, you'll need to create an ad account in our Ad Manager first. After that, submit a request for your token by clicking 'Help' on the left side of your screen or by emailing adsupport@newsbreak.com. Make sure to include your Organization ID in the request!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-16 00:31:39.969086,how do I integrate red track with newsbreak for a post back?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-16 00:31:43.504632," To integrate RedTrack with NewsBreak for a postback, follow these steps: 
+1. In your NewsBreak ad account, go to the Event Management section. 
+2. Click on 'Create/test web event.' 
+3. Enter the event name and select 'Postback' as your tracking type. 
+4. Choose 'RedTrack' as the 3rd party tracking service and select your conversion event. 
+5. Follow the instructions in our Ad Manager to save your event successfully.
+If you need more details, check out our help article on setting up a RedTrack postback!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-16 00:32:29.575332,what are the instructions to integrate a post back for red track on news break?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-16 00:32:34.996387," Here are the instructions to integrate a postback for RedTrack on NewsBreak:
+1. Log in to your RedTrack account and click on 'Traffic channels.'
+2. Click '+ NEW FROM TEMPLATE' and search for NewsBreak.
+3. Once you click 'Add,' the NewsBreak Template should open with the fields populated.
+4. Use the following s2s URL: https://business.newsbreak.com/tracking/attribute?callback={ref_id}&event_type={REPLACE}. Replace {REPLACE} with your actual conversion event, like complete_payment.
+5. Finally, head over to your NewsBreak ad account, go to Event Management, and select 'Create/test web event.' Enter the event name, choose 'Postback,' select 'RedTrack' as the tracking service, and follow the instructions to save your event.
+For more details, you can refer to our help article on setting up a RedTrack postback!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-16 20:00:40.596972,How is medicare running on NB right now. Can you share it's benchmarks too and creative type that's working for it. ,{}
+bot,WEBCHAT,BOT,BOT,2025-01-16 20:00:46.564707," I don't have specific benchmarks for Medicare campaigns on News Break right now, but generally, broad native-style images and horizontal videos tend to perform well. It's also a good idea to test different ad creatives to see what resonates best with your audience. If you want more detailed strategies or insights, I recommend checking out our tCPA Best Practices guide for advanced strategies on maximizing ad performance. Let me know if you need help with anything else!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-16 23:10:49.945407,"Hi. I just submitted a campaign for approval. It was rejected and says that the landing page doesn't have terms and conditions.
+I have a tab called ""guarantee"" where the terms and conditions are inclu",{}
+bot,WEBCHAT,BOT,BOT,2025-01-16 23:10:53.118304," Hey there! It sounds like your campaign got flagged because the terms and conditions need to be easily accessible. Even if they're in a tab called ""guarantee,"" it's best to have a dedicated link for terms and conditions that’s clearly visible on the landing page. Try adding a direct link to the terms and conditions in the footer or somewhere prominent on your page. Once you make those changes, resubmit your campaign for approval. If you need more help, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-21 20:20:40.142935,my spend does not look accurate for today,{}
+bot,WEBCHAT,BOT,BOT,2025-01-21 20:20:50.720422," Hey there! If your spend doesn't look accurate, it could be due to a few reasons. First, check if your campaign is still in the learning phase, as this can cause fluctuations. Also, make sure to verify the launch date and budget settings in your ad set. If everything seems fine but the issue persists, you might want to reach out to our support team for further assistance. Let me know if you need help with anything else!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-21 21:54:10.024214,could you give me steps to integrate a news break post back with Voluum?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-21 21:54:14.916237," Sure! To integrate a NewsBreak postback with Voluum, you can follow these steps:
+1. **Log into your Voluum account** and navigate to the 'Traffic Sources' section.
+2. **Add a new traffic source** and select 'Custom' as the type.
+3. In the settings, you'll need to enter the postback URL provided by NewsBreak. This usually looks something like this: `https://your_postback_url?clickid={clickid}&status={status}`.
+4. Make sure to replace placeholders with actual parameters that NewsBreak uses for tracking.
+5. Save your settings and test the integration to ensure everything is working correctly.
+If you run into any issues or need more detailed instructions, feel free to reach out! You can also check out our API Integration Guide for more info.",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-21 22:02:30.655833,could you give me steps to integrate a news break post back with Voluum?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-21 22:02:35.805853," Absolutely! Here are the steps to integrate a NewsBreak postback with Voluum:
+1. **Log into your Voluum account** and go to the 'Traffic Sources' section.
+2. Click on **'Create Traffic Source'** and select 'NewsBreak' from the list.
+3. In the settings, you’ll need to fill in the required fields, including the **Traffic Source Postback URL**. This URL is generated in your NewsBreak account.
+4. To get your NewsBreak Postback URL, go to **Event Management** in your NewsBreak account, create a new event, and select Postback as the type.
+5. After setting up your event, copy the generated Postback URL and paste it into Voluum's Traffic Source settings.
+6. Make sure to test your integration by using the Test Postback feature in NewsBreak Event Manager to ensure everything is working correctly.
+For more detailed instructions, you can check out this article: [How to set up a Voluum Postback on NewsBreak](https://help.newsbreak.com/hc/en-us/articles/24825901083277-How-to-set-up-a-Voluum-Postback-on-NewsBreak). Let me know if you need any more help!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-21 22:03:08.599001,how do I integrate red track post back with news break?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-21 22:03:14.423404," To integrate a RedTrack postback with NewsBreak, follow these steps:
+1. **Log into your RedTrack account** and navigate to the 'Traffic Sources' section.
+2. Click on **'Add Traffic Source'** and select 'Custom'.
+3. In the settings, enter the required details for NewsBreak, including the Postback URL that you will get from your NewsBreak account.
+4. To obtain your NewsBreak Postback URL, go to **Event Management** in your NewsBreak account and create a new event, selecting Postback as the type.
+5. After setting up your event, copy the generated Postback URL and paste it into RedTrack's Traffic Source settings.
+6. Make sure to test the integration by using the Test Postback feature in NewsBreak Event Manager to confirm everything is working properly.
+If you need more detailed guidance, feel free to ask! You can also refer to this article for additional help: [How to set up a RedTrack Postback on NewsBreak](https://help.newsbreak.com/hc/en-us/articles/24825901083277-How-to-set-up-a-RedTrack-Postback-on-NewsBreak).",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-21 22:03:58.052495,steps to get an api token?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-21 22:04:04.204226," To get an API token, follow these steps:
+1. **Log into your NewsBreak account**.
+2. Navigate to the **API section** in your account settings or dashboard.
+3. Look for an option that says **'Generate API Token'** or similar.
+4. Click on it, and you may need to provide some information or confirm your request.
+5. Once generated, make sure to copy and store your API token securely, as you will need it for authentication in your API requests.
+If you have any trouble finding the API section or generating the token, let me know! I’m here to help.",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-21 22:04:29.464352,which map partners are you integrated with?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-21 22:04:32.415363," We are integrated with several map partners to enhance our services. Some of the key partners include Google Maps, Mapbox, and OpenStreetMap. These integrations help us provide accurate location data and improve user experience. If you have a specific partner in mind or need more details, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-21 22:04:52.221766,which mmp partners are you integrated with?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-21 22:04:55.139738," We are integrated with several Mobile Measurement Partners (MMPs) to help track and optimize your campaigns. Some of the key MMP partners include AppsFlyer, Adjust, and Branch. These integrations allow for better tracking of user acquisition and campaign performance. If you need more specific information or have a particular MMP in mind, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-21 22:05:25.851480,what are the tracking platforms currently available for post back in your system?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-21 22:05:28.800598," Currently, the tracking platforms available for postback in our system include AppsFlyer and Adjust. These platforms allow you to track your campaigns effectively and manage postbacks seamlessly. If you need help with setting up or have any other questions, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-21 22:07:54.187329,is delivery based on my targeting or my current location?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-21 22:07:57.255346," Delivery is primarily based on your targeting settings. This means that the audience you choose to target will determine who sees your ads. However, your current location can also play a role, especially if you have location-based targeting enabled. If you want to adjust your targeting or need help with specific settings, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-21 22:08:10.187106,what timezone are your reports in?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-21 22:08:13.804156," Our reports are typically in Pacific Time (PT). This means that all the data and metrics you see will be aligned with that timezone. If you have any more questions about reporting or need further assistance, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-21 22:08:35.118939,what objectives does your api support?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-21 22:08:39.202092," Our API supports several objectives to help you optimize your campaigns. These include:
+1. **Tracking Conversions** - Monitor the performance of your campaigns.
+2. **Managing Ad Creatives** - Upload and manage your ad creatives programmatically.
+3. **Reporting** - Access detailed reports on campaign performance and metrics.
+4. **Audience Targeting** - Set up and manage audience segments for better targeting.
+If you need more specific details about any of these objectives or how to implement them, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-21 22:09:02.025004,is kochava supported by your ad network?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-21 22:09:06.202718," Yes, Kochava is supported by our ad network. You can integrate Kochava for tracking and optimizing your campaigns effectively. If you need help with the integration process or have any other questions, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-21 22:20:13.221993,how do I setup conversion tracking?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-21 22:20:20.149536," To set up conversion tracking, follow these steps:
+1. **Log into your NewsBreak account** and navigate to the **Ad Manager**.
+2. Go to the **Event Management** section.
+3. Click on **Create New Event** and select the type of conversion you want to track (like purchases, sign-ups, etc.).
+4. Fill in the required details for your event, including naming it and specifying any parameters needed.
+5. If you're using a pixel for tracking, make sure to embed the provided JavaScript code snippet on your website where the conversion occurs.
+6. After setting everything up, use the 'Go Test' feature in Event Management to ensure that your conversion tracking is working correctly.
+For more detailed guidance, you can refer to this article: [Introduction to tCPA](https://help.newsbreak.com/hc/en-us/articles/17827591199757-Introduction-to-tCPA). Let me know if you need any more help!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-21 22:24:55.900686,how do I setup conversion tracking step by step?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-21 22:25:06.183405," Here’s a step-by-step guide to set up conversion tracking:
+1. **Log into your NewsBreak account**: Start by accessing your account on the NewsBreak platform.
+2. **Navigate to Ad Manager**: Go to the Ad Manager section from your dashboard.
+3. **Access Event Management**: Click on the 'Event Management' tab where you can create and manage your conversion events.
+4. **Create a New Event**: Click on the 'Create New Event' button. You’ll need to choose what type of conversion you want to track (like purchases, sign-ups, etc.).
+5. **Fill in Event Details**: Provide a name for your event and any necessary parameters that define the conversion (like value, currency, etc.).
+6. **Select Tracking Method**: Choose whether you want to use a pixel or postback for tracking conversions.
+   - If using a pixel, you will receive a JavaScript code snippet that needs to be added to your website's code where the conversion happens.
+   - If using postback, make sure you have the correct URL set up in your tracking platform (like RedTrack or Kochava).
+7. **Test Your Setup**: Use the 'Go Test' feature in Event Management to ensure that everything is working correctly and that conversions are being tracked as expected.
+8. **Save Your Event**: Once everything is set up and tested successfully, save your event settings.
+For more detailed information, check out this article: [How to set up an Everflow Postback on NewsBreak](https://help.newsbreak.com/hc/en-us/articles/30938725150733-How-to-setup-a-Newsbreak-Postback-on-BeMob). If you have any questions along the way, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:44:01.265419,"How can I resolve a ""User Account on Hold"" issue?",{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:44:04.494430," To resolve a ""User Account on Hold"" issue, you'll need to check your email for any notifications from us regarding the hold. Often, it could be due to verification issues or policy violations. If you find an email, follow the instructions provided there. If you don't see anything, please reach out to our support team at support@newsbreak.com for further assistance. They can help clarify the situation and guide you on how to lift the hold.",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:44:48.824933,Can you help me access my account?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:44:51.928605," Sure! To access your account, go to the News Break login page and enter your email and password. If you've forgotten your password, click on the ""Forgot Password?"" link to reset it. If you're still having trouble, let me know what specific issue you're facing, and I'll do my best to help you out!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:45:31.119347,How do I update my account details?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:45:34.137184," To update your account details, open the News Break app and go to the ""Me"" tab. From there, select ""Edit Profile"" where you can change your information like your name, email, and profile picture. Make sure to save any changes you make! If you need more detailed steps, check out this article: [How to create an account or log in](https://help.newsbreak.com/hc/en-us/articles/4417483895821-How-to-create-an-account-or-log-in).",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:45:55.839716,I need help with general account support.,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:45:59.862627," No problem! For general account support, you can visit our Help Center where you'll find articles on various topics like creating an account, logging in, and managing your profile. If you have a specific issue or question, feel free to ask, and I'll help you out! Here's the link to the Help Center: [News Break Help Center](https://help.newsbreak.com/hc/en-us).",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:46:24.588432,"Why was my ad rejected, and how can I fix it?",{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:46:29.395865," I'm sorry to hear your ad was rejected! Usually, ads get rejected due to policy violations or not meeting the content guidelines. To fix it, review the rejection notice you received for specific reasons. You can then make the necessary adjustments and resubmit your ad. If you need more detailed guidance, check out this article: [My ad got rejected? What’s next](https://help.newsbreak.com/hc/en-us/articles/18085960681101-My-ad-got-rejected-What-s-next). Let me know if you have any other questions!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:46:52.863057,How do I submit an ad for approval?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:46:57.367618," To submit an ad for approval, you'll need to create your ad in the News Break advertising platform. Once you've designed your ad and filled in all the required information, look for the option to submit it for review. Make sure to double-check that your ad complies with our advertising policies before submitting. If you want more detailed steps, you can refer to this article: [Submitting Ads](https://help.newsbreak.com/hc/en-us/articles/18085960681101-My-ad-got-rejected-What-s-next). Let me know if you need any more help!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:47:23.196796,Can I check the status of my ad?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:47:26.281292," Yes, you can check the status of your ad! Just log into your News Break advertising account and navigate to the 'Ad Management' section. There, you'll find a list of your ads along with their current statuses. If you have any specific questions about a particular ad, feel free to ask! If you need more detailed instructions, check out this article: [How to track the performance of my ads](https://help.newsbreak.com/hc/en-us/articles/17618196971149-How-to-create-your-first-ad).",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:47:58.401051,What are the guidelines for ad approval?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:48:01.850273," The guidelines for ad approval typically include ensuring that your ad content complies with our advertising policies, which cover aspects like prohibited content, misleading information, and appropriate imagery. It's important to avoid any claims that can't be substantiated and to ensure your ad is relevant to the audience. For a detailed overview of the specific guidelines, you can check out this article: [Ad Approval Guidelines](https://help.newsbreak.com/hc/en-us/articles/18085960681101-My-ad-got-rejected-What-s-next). If you have more questions or need clarification on anything specific, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:48:48.563288,"My ad says ""About to go live"" – what does that mean?",{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:48:51.284403," When your ad says ""About to go live,"" it means that your ad is in the final stages of the approval process and will soon be active for viewers. This usually happens after your ad has been reviewed and is compliant with our guidelines. Once it's officially live, you'll start seeing performance metrics. If you have any more questions about this or need further assistance, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:49:13.880424,I have a question about my billing or payment.,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:49:17.497130," Sure! For questions about billing or payment, you can check your account settings in the News Break advertising platform. If you're facing issues like payment failures or need to update your payment method, make sure to contact your bank or add a different payment method. You can also refer to this article for more details: [Billing Guide](https://help.newsbreak.com/hc/en-us/articles/17821681919757-Billing-Guide). If you have a specific question, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:49:42.376555,"""How can I pay my outstanding invoice?
+""",{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:49:47.312726," To pay your outstanding invoice, log into your News Break advertising account and navigate to the billing section. There, you should see your invoices along with options to make a payment. You can choose to pay via credit card or any other available payment methods. If you need more detailed instructions, check out this article: [Billing Guide](https://help.newsbreak.com/hc/en-us/articles/17821681919757-Billing-Guide). If you have any other questions, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:50:23.049449,Why was my payment declined?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:50:26.467566," If your payment was declined, it could be due to several reasons such as insufficient funds, an expired credit card, or issues with your bank. I recommend checking with your bank to see if there are any restrictions on your account. You can also try adding a different payment method in your News Break advertising account. If you need more help or specific guidance, let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:50:51.961772,Where can I find my payment history?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:50:55.250355," You can find your payment history by logging into your News Break advertising account and navigating to the billing section. There, you should see an option for 'Payment History' where all your past transactions will be listed. If you need more detailed steps, feel free to ask or check out this article: [Billing Guide](https://help.newsbreak.com/hc/en-us/articles/17821681919757-Billing-Guide). Let me know if there's anything else I can help with!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:51:16.944687,How do I post on your site?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:51:22.104495," To post on News Break, you'll need to create an account if you haven't already. Once you're logged in, look for the option to create a new post or article. You can then write your content, add images, and publish it for others to see. If you need more detailed instructions or tips on how to make your posts stand out, just let me know! Here's a link to our Help Center for more information: [News Break Help Center](https://help.newsbreak.com/hc/en-us).",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:51:46.002089,Can I publish articles on your platform?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:51:50.426752," Yes, you can publish articles on the News Break platform! Once you create an account and log in, you'll have the option to write and submit your articles. Just make sure to follow our content guidelines to ensure your articles get approved. If you need more details on how to get started or any specific tips, feel free to ask! You can also check out our Help Center for more information: [News Break Help Center](https://help.newsbreak.com/hc/en-us).",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:52:21.489215,What is the price for guest posting on your website?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:52:24.365322," Currently, News Break does not offer guest posting as a paid service. However, you can publish your articles for free by creating an account and following our submission guidelines. If you have any specific questions about publishing or need more information, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:52:49.452638,What are the requirements for submitting guest posts?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:52:55.686822," While News Break doesn't specifically have a guest posting feature, if you're looking to submit articles, there are some general requirements you should follow. Your content should be original, relevant to our audience, and adhere to our community guidelines. Make sure to avoid any promotional or spammy content. If you want more detailed information on what we look for in submissions, feel free to ask or check out our Help Center: [News Break Help Center](https://help.newsbreak.com/hc/en-us).",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:53:21.452684,Can I post a pre-written article?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:53:24.336981," Yes, you can post a pre-written article on News Break as long as it is original content and adheres to our guidelines. Make sure that the article is relevant to our audience and does not contain any promotional or spammy material. If you have any specific questions about the submission process or need help with your article, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:53:49.851391,I need help with a technical issue.,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:53:52.760600," I’m here to help! Could you please provide more details about the technical issue you're facing? Whether it's related to posting, account access, or something else, just let me know and I'll do my best to assist you!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:54:19.696530,account access,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:54:25.141679," If you're having trouble accessing your account, here are a few steps you can try: 
+1. Make sure you're using the correct email and password. If you've forgotten your password, you can reset it by clicking on 'Forgot Password?' on the login page.
+2. Check if your account is locked or suspended due to any policy violations.
+3. If you're still having issues, you can reach out to our support team for further assistance. 
+For more detailed instructions, check out this article: [How to create an account or log in](https://help.newsbreak.com/hc/en-us/articles/4417483895821-How-to-create-an-account-or-log-in). Let me know if you need anything else!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:54:40.842960,How do I troubleshoot common problems?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:54:44.399433," To troubleshoot common problems on News Break, you can follow these general steps:
+1. **Check Your Internet Connection**: Ensure that you have a stable internet connection.
+2. **Clear Cache and Cookies**: Sometimes, clearing your browser's cache and cookies can resolve loading issues.
+3. **Update Your Browser**: Make sure you're using the latest version of your web browser for optimal performance.
+4. **Disable Extensions**: Browser extensions can sometimes interfere with website functionality, so try disabling them temporarily.
+5. **Restart Your Device**: A simple restart can often fix many issues.
+If you're still having trouble after trying these steps, feel free to provide more details about the specific problem you're facing, and I'll be happy to help further! You can also check out our Help Center for more troubleshooting tips: [News Break Help Center](https://help.newsbreak.com/hc/en-us).",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:55:14.676599,My issue is not listed – can I contact support?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:55:18.527147," Absolutely! If your issue isn't listed or if you need more personalized assistance, you can contact our support team directly. Just send an email to support@newsbreak.com with a detailed description of your problem, and they'll get back to you as soon as possible. Let me know if there's anything else I can help with in the meantime!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:55:47.468151,I need assistance with accessing a specific feature.,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:55:54.281229," Sure thing! Could you please let me know which specific feature you're trying to access? Once I have more details, I can provide you with the right guidance or instructions to help you out!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:56:20.066099,ai generated video,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:56:22.612977," If you're looking to access or use AI-generated video features on News Break, could you clarify what specific assistance you need? Are you trying to create an AI-generated video, or do you have questions about how it works? Let me know so I can help you better!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:56:30.076122,yes,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:56:33.193285," Got it! To create an AI-generated video, you typically need to use the AI-Assisted Creative Tool available on our platform. This tool helps you generate video content based on your input. If you need detailed instructions on how to use this feature, I recommend checking out this article: [How to Use AI-Assisted Creative Tool](https://help.newsbreak.com/hc/en-us/articles/27640676661517-How-to-Use-AI-Assisted-Creative-Tool). If you have any specific questions or run into issues while using it, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:57:01.455190,Can you tell me about advertising rates and options?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:57:04.803115," Sure! News Break offers various advertising options, including display ads, newsletter ads, and carousel ads. The rates can vary based on the type of ad and your targeting preferences. For detailed information about our advertising rates and options, I recommend checking out our advertising section on the Help Center or contacting our support team directly at adsupport@newsbreak.com for personalized assistance. If you have any specific questions about a particular ad type, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:57:24.988175,I have a question that’s not listed here.,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:57:28.366879," No problem at all! If you have a question that's not listed, feel free to ask it here, and I'll do my best to help you out. If it's something more specific or requires detailed assistance, I can also guide you on how to contact our support team for further help. Just let me know what you need!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:57:52.554670,"What does ""Your ads are paused"" mean?",{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:57:55.319187," Your ads are paused"" means that your advertising campaigns are currently not active and won't be shown to users. This can happen for a few reasons, such as reaching your budget limit, manual pausing by you, or issues with your payment method. To reactivate your ads, you can go to your ad management dashboard and select the option to resume them. If you need more detailed instructions on how to do this, let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:58:19.052247,I need to attend a training session – how do I sign up?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:58:22.046244," To sign up for a training session, you typically need to visit our training or events page on the News Break website. There, you should find a list of upcoming sessions along with registration details. If you have trouble finding it or need specific information about a particular session, let me know and I can help guide you further!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 21:58:46.322009,Can you tell me more about your services?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 21:58:50.612511," Of course! News Break offers a variety of services, including news aggregation, personalized content delivery, and advertising solutions for businesses. Our platform allows users to stay updated with local news and trending stories tailored to their interests. For advertisers, we provide options like display ads and sponsored content to reach a targeted audience effectively. If you have specific services in mind that you'd like to know more about, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 22:36:48.265962,"I am strugulling trying to activate an Ad 
+''Test pixel integration''
+''You haven’t selected an event. Ads won’t be delivered until you select an event to track.''
+''Create/test web event''
+I have loo",{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 22:36:54.232260," It sounds like you're having trouble with the pixel integration for your ads. To resolve this, you'll need to select an event to track before your ads can be delivered. Here’s how you can do it:
+1. **Log in to your Ad Manager account**.
+2. Go to **Tools** and select **Event Management**.
+3. Click on **Create/Test web event**.
+4. Name your event and choose the type of conversion event you want to track.
+5. Follow the 3-step process to integrate your Pixel or Postback.
+6. Make sure to test the Pixel using the ‘Go test’ feature at the bottom of the page, and ensure you see ‘Test result: successful.’
+7. Save your changes and proceed with setting up your ad.
+If you need more detailed guidance, check out this article: [Introduction to Multi-Event Tracking](https://help.newsbreak.com/hc/en-us/articles/23053537846669-Introduction-to-Multi-Event-Tracking). Let me know if you have any other questions or need further assistance!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-22 23:53:08.241965,Shopify pixel issue,{}
+bot,WEBCHAT,BOT,BOT,2025-01-22 23:53:13.923044," Got it! If you're having issues with the NewsBreak Pixel on Shopify, here’s what you can do:
+1. **Log into your Shopify account** and navigate to **Tools > Ad Manager > Event Management**.
+2. Choose **Pixel** as your tracking type and select **Shopify** as the integration method.
+3. Specify your event type and fill in any required fields. This will generate the code you need.
+4. Copy the base code provided in Step 1 and embed it into your Shopify store.
+5. Once integrated, you can test it in Ad Manager or inform your account manager to verify the integration.
+For more detailed instructions, check out this article: [How to install a NewsBreak Pixel on Shopify](https://help.newsbreak.com/hc/en-us/articles/18551604763405-How-to-install-a-NewsBreak-Pixel-on-Shopify). If you're still facing issues, let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-23 00:00:21.355044,issue with tracking,{}
+bot,WEBCHAT,BOT,BOT,2025-01-23 00:00:24.869845," I understand you're having an issue with tracking. Could you please provide more details about the specific tracking issue you're facing? Are you having trouble with the NewsBreak Pixel, or is it related to a different tracking platform? The more information you give me, the better I can assist you!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-23 00:00:37.616699,with a postback,{}
+bot,WEBCHAT,BOT,BOT,2025-01-23 00:00:41.925795," If you're having issues with a Postback, here are some steps you can follow to troubleshoot:
+1. **Check your Postback URL**: Make sure that the URL is correctly formatted and matches what is required by NewsBreak.
+2. **Verify parameters**: Ensure that all necessary parameters are included in your Postback request. Missing or incorrect parameters can cause tracking issues.
+3. **Test the Postback**: Use a tool like Postman to send a test request to your Postback URL and see if you receive the expected response.
+4. **Integration settings**: Double-check your integration settings in the Ad Manager to ensure everything is set up correctly.
+If you need more detailed guidance on setting up or troubleshooting a Postback, check out this article: [How to set up a RedTrack Postback on NewsBreak](https://help.newsbreak.com/hc/en-us/articles/25515090832013-How-to-set-up-a-RedTrack-Postback-on-NewsBreak). Let me know if you have any other questions or need further assistance!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-23 22:33:09.107447,When do the funds come out? Is it always the second week of the month for the creator fund?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-23 22:33:12.863784," Hey there! The funds for the creator fund are typically disbursed on a monthly basis, but the exact timing can vary. It's not always guaranteed to be the second week of the month. If you want more specific details, I recommend checking out our Billing Guide for more info on payment schedules. You can find it here: https://help.newsbreak.com/hc/en-us/articles/17821681919757-Billing-Guide.",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-23 22:34:09.945036,"Do you have a library of ads that people can reference when it comes to the GOOD, the BAD or the UGLY!
+",{}
+bot,WEBCHAT,BOT,BOT,2025-01-23 22:34:12.819502," I totally get what you're looking for! Unfortunately, we don't have a specific library of ads categorized as the GOOD, the BAD, or the UGLY. However, I can suggest checking out our resources on ad best practices and guidelines to help you create effective ads. If you have any specific questions about ad creation or performance, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-23 22:35:28.321518,"Thanks for the info, Are the ads scanned by a bot or by a live person?",{}
+bot,WEBCHAT,BOT,BOT,2025-01-23 22:35:31.207252," You're welcome! Ads are typically reviewed by a combination of automated systems and live people. The bots help with initial scans to catch any obvious issues, but human reviewers also check the ads to ensure they meet our guidelines. If you have more questions about the ad review process, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-23 22:36:50.678130,"Is it necessary to create a unique event id (conversion event) for every different Ad account? I'm asking from the optimization point of view.
+",{}
+bot,WEBCHAT,BOT,BOT,2025-01-23 22:36:54.152820," Great question! Yes, it's generally a good practice to create a unique event ID for each different ad account. This helps in tracking and optimizing your campaigns more effectively since each account may have different goals and audiences. If you want to dive deeper into conversion tracking and best practices, check out our article on Target ROAS here: https://help.newsbreak.com/hc/en-us/articles/31173203587085-Introduction-to-Target-ROAS.",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-23 22:38:18.382037,"Is it critical to set the daily budget to minimum $50 for ""Max Conversions""? Or is it ok to set min. $30 per ad set?
+",{}
+bot,WEBCHAT,BOT,BOT,2025-01-23 22:38:21.356255," For the ""Max Conversions"" bidding strategy, it's generally recommended to set a daily budget of at least $50 to optimize performance effectively. However, you can start with a minimum of $30 per ad set if you're testing or just starting out. Just keep in mind that lower budgets might limit the data you can gather for optimization. If you want more details on budgeting strategies, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-23 22:39:39.603263,Can I ask for a review when an ad is rejected?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-23 22:39:42.587629," Absolutely! If your ad gets rejected, you can request a review of the decision. Just follow the instructions provided in the rejection notice, and our team will take another look at it. If you need help with the process or have any other questions, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-23 22:40:46.891484,"How long is the ""Learning in progress"" for new campaigns?
+",{}
+bot,WEBCHAT,BOT,BOT,2025-01-23 22:40:51.243990," The ""Learning in progress"" phase for new campaigns typically lasts about 7 days. During this time, the system is gathering data to optimize your ad delivery. After this period, you should start seeing more stable performance as the campaign learns from the data collected. If you have more questions about campaign optimization, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-23 22:41:44.307283,"Best creative practices?
+",{}
+bot,WEBCHAT,BOT,BOT,2025-01-23 22:41:48.459532," When it comes to creative best practices, here are some key tips: 
+1. **Test Different Formats**: Use both vertical (9x16) and horizontal (16x9) images and videos, and separate them into different ad sets for better performance.
+2. **Engaging Content**: Create native-style images that spark curiosity and engagement. 
+3. **Video Length**: Keep videos between 15-30 seconds for optimal engagement, but if you want to go longer, consider directing users to a landing page.
+4. **A/B Testing**: Experiment with different creative angles like testimonials or product showcases, and keep the old ads running alongside new ones for comparison.
+For more detailed insights, check out our article on Ad Creative Best Practices here: https://help.newsbreak.com/hc/en-us/articles/20676690598029-Ad-Creative-Best-Practices-and-A-B-Testing.",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-23 22:43:02.906450,"In e-Commerce is there an ad format that enjoys the most success?  Image ads, carousel ads or video ads?
+",{}
+bot,WEBCHAT,BOT,BOT,2025-01-23 22:43:08.542719," In e-commerce, carousel ads tend to enjoy a lot of success because they allow you to showcase multiple products or features in one ad. This format encourages users to swipe through and engage with different items, which can lead to higher conversion rates. However, video ads are also powerful for storytelling and demonstrating product use. Ultimately, the best format can depend on your specific audience and goals, so it's worth testing different types to see what works best for you! If you need more tips on ad formats, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-23 22:44:10.884461,"Do you recommend all creative styles have the same ad set? UGC / Static in the same ad sets?
+",{}
+bot,WEBCHAT,BOT,BOT,2025-01-23 22:44:13.829204," It's generally better to separate different creative styles into their own ad sets. This way, you can more accurately track performance and optimize based on how each style is doing. For example, user-generated content (UGC) might perform differently than static images, so keeping them in separate ad sets allows for clearer insights and adjustments. If you have more questions about structuring your campaigns, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-23 22:45:27.192642,"I can not get the pixel to work/ I have tried a few times and it just keeps spinning and testing
+",{}
+bot,WEBCHAT,BOT,BOT,2025-01-23 22:45:30.742467," I'm sorry to hear you're having trouble with the pixel! First, can you let me know which tracking platform or service you're using for the pixel? This will help me provide more specific guidance. In the meantime, you can refer to our article on how to install a NewsBreak Pixel on Shopify for detailed instructions: https://help.newsbreak.com/hc/en-us/articles/18551604763405-How-to-install-a-NewsBreak-Pixel-on-Shopify.",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-23 22:46:22.274710,Scale budget how much daily?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-23 22:46:25.387519," When scaling your budget, a good rule of thumb is to increase it by about 20-30% at a time. This allows the algorithm to adjust without causing too much disruption to your campaign's performance. If you're seeing positive results, you can gradually scale up more aggressively, but always monitor the performance closely after each increase. If you have specific goals or need more tailored advice, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-23 22:47:38.533157,"How does the” industry” change performance when setting up an ad account?
+",{}
+bot,WEBCHAT,BOT,BOT,2025-01-23 22:47:41.665287," The industry you select when setting up an ad account can significantly impact performance because it helps the ad platform optimize your campaigns for the right audience. Different industries have varying audience behaviors, interests, and competition levels. By choosing the correct industry, you ensure that your ads are shown to users who are more likely to engage with your content and convert. If you need more insights on how to choose the right industry or optimize your campaigns, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-23 22:48:50.373407,"For Search Arbitrage you said the recommended minimum budget per ad set is $60. If I set the budget to $30, my 2-3 ad sets perform worse?
+",{}
+bot,WEBCHAT,BOT,BOT,2025-01-23 22:48:53.629511," Yes, setting a lower budget like $30 per ad set can lead to worse performance, especially in search arbitrage. A minimum budget of $60 is recommended because it allows the algorithm to gather enough data for optimization and reach a more significant audience. With a lower budget, your ads may not get enough impressions or clicks to perform effectively. If you're testing or just starting out, you might see some results, but for better performance, it's best to stick with the recommended budget. If you have more questions about budgeting strategies, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-23 22:49:58.580812,"With a CPA not available yet, what budget would you recommend. Mine is set at $25 per ad set
+",{}
+bot,WEBCHAT,BOT,BOT,2025-01-23 22:50:01.910490," If your CPA isn't available yet, it's a good idea to set your budget at least 5-10 times your expected CPA goal. Since you currently have it set at $25 per ad set, you might want to consider increasing it to around $50-$100 if possible. This will give the algorithm enough room to optimize and gather data effectively. If you're just starting out, you can keep it at $25 for now but be prepared to adjust as you see performance data come in. Let me know if you need more help with this!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-24 20:19:11.495339,"Why was my ad rejected, and how can I fix it?",{}
+bot,WEBCHAT,BOT,BOT,2025-01-24 20:19:17.958688," Hey there! Your ad might have been rejected for a few reasons, like issues with conversion tracking or typographical errors. To fix it, check your email for a message from Ad Support with the subject 'Urgent: Ad Rejected - Action Required.' It will detail why your ad was rejected. Once you know the issue, make the necessary changes and resubmit your ad to adsupport@newsbreak.com. If you need more info, you can check out this article: [My ad got rejected. What's next?](https://help.newsbreak.com/hc/en-us/articles/18085960681101-My-ad-got-rejected-What-s-next).",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 00:10:21.636683,"Hey guys, so we’re spending about $200-300 a day right now trying to let the campaign optimize itself like you suggested. Would you mind taking a look at our settings and just making sure that it is o",{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 00:10:25.290351," Hey! I can’t directly check your settings, but I can definitely help you with some tips! Make sure your target audience is well-defined and that your ad creative is optimized for engagement. Also, keep an eye on your campaign's performance daily to see if any adjustments are needed. If you're looking for best practices, check out this article: [Maximize Conversions - Best Practices](https://help.newsbreak.com/hc/en-us/articles/23055076590221-Maximize-Conversions-Best-Practices). Let me know if you have any specific questions!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 19:48:41.836563,How do I post on your site?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 19:48:47.514176," To post on News Break, you'll need to create an account first. Once you're logged in, look for the 'Create' button or a similar option on the homepage. From there, you can write your article or post and add any images if you'd like. After you're done, just hit 'Publish'! If you need more detailed steps, check out our help center for guidance. Let me know if you have any other questions!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 19:50:40.502109,What is the price for guest posting on your website?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 19:50:43.464434," Thanks for your interest! Unfortunately, we don't accept any sponsored guest posts on our website. If you're looking to advertise on NewsBreak, you can reach out to advertising@newsbreak.com for more information. Let me know if you have any other questions!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 19:51:03.276242,Can I publish articles on your platform?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 19:51:06.672081," Yes, you can publish articles on our platform! Just create an account, and once you're logged in, you'll find options to write and publish your content. If you have any specific questions about the process, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 19:51:24.600205,What is the price for guest posting on your website?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 19:51:43.338188," I appreciate your interest! However, we don't accept any sponsored guest posts on our website. If you're interested in advertising on NewsBreak, you can reach out to advertising@newsbreak.com for more details. Let me know if there's anything else I can help with!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 19:52:17.766944,What are the requirements for submitting guest posts?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 19:52:22.754821," Thanks for asking! Unfortunately, we don't accept any sponsored guest posts on our platform, so there aren't specific requirements for that. If you're interested in advertising instead, you can reach out to advertising@newsbreak.com for more information. Let me know if you have any other questions!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 19:52:35.992068,Can I post a pre-written article?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 19:52:40.509357," Thanks for your interest! Unfortunately, we don't accept pre-written articles for posting. If you're looking to advertise on NewsBreak, you can reach out to advertising@newsbreak.com for more information. If you have any other questions, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 21:29:21.637936,I need help with a technical issue,{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 21:29:25.534055," Sure thing! Can you tell me more about the technical issue you're facing? That way, I can help you better.",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 21:29:34.021904,its about ad policy,{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 21:29:38.105751," Got it! Are you looking for information on ad approval, rejection, or something else related to the ad policy? Let me know so I can assist you more specifically!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 21:29:44.584929,rejection,{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 21:29:52.088560," If your ad got rejected, you'll want to check your email for a message from Ad Support with the subject line ‘Urgent: Ad Rejected - Action Required.’ It will detail the specific reason for the rejection. You can fix the issues mentioned and resubmit your ad. If you think the rejection was a mistake, you can appeal by emailing adsupport@newsbreak.com. For more details, check out this article: [My ad got rejected. What's next?](https://help.newsbreak.com/hc/en-us/articles/18085960681101-My-ad-got-rejected-What-s-next).",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 21:30:00.882978,I did not get an email,{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 21:30:09.082481," Oh no! If you didn't receive an email about the rejection, I recommend checking your spam or junk folder just in case it ended up there. If you still can't find it, you might want to reach out to Ad Support directly at adsupport@newsbreak.com for clarification on your ad status. Let me know if you need any more help!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 21:30:22.738722,can I talk to a live agent?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 21:30:25.737766," I totally understand wanting to speak with a live agent! Unfortunately, I can't connect you directly, but you can reach out to our support team at support@newsbreak.com. They should be able to assist you further. If there's anything else I can help with in the meantime, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 21:55:14.702870,"When I test an event it keeps spinning, what should I do?",{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 21:55:17.287360," It sounds like you're having trouble with an event test. Can you let me know what tracking platform or service you're using for the event? That way, I can provide more specific guidance to help you out!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 21:55:34.950580,Shopify,{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 21:55:38.971479," Thanks for the info! If your event test is just spinning on Shopify, try these steps:
+1. Make sure your NewsBreak Pixel is correctly installed on your Shopify store. You can refer to this article for guidance: [How to install a NewsBreak Pixel on Shopify](https://help.newsbreak.com/hc/en-us/articles/18551604763405-How-to-install-a-NewsBreak-Pixel-on-Shopify).
+2. Check if there are any browser extensions or ad blockers that might be interfering with the testing process.
+3. Clear your browser cache and cookies, then try testing the event again.
+If it still doesn't work, you might want to reach out to support for further assistance!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 22:29:28.959765,can I talk to a live agent?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 22:29:31.857270," I understand that you'd like to talk to a live agent! While I can't connect you directly, you can reach out to our support team at support@newsbreak.com. They’ll be able to assist you further. If there's anything else I can help with, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 22:29:48.007224,I need help with ad policy,{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 22:29:50.482591," Sure! What specific aspect of the ad policy do you need help with? Are you looking for information on ad approval, rejection, or something else? Let me know so I can assist you better!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 22:30:00.547906,I don't like the rejection reason,{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 22:30:04.170694," I get that! If you believe the rejection reason is incorrect or unfair, you can appeal the decision. Just email adsupport@newsbreak.com and explain your situation. Make sure to include any relevant details that support your case. If you need more info on the appeal process, check out this article: [My ad got rejected. What's next?](https://help.newsbreak.com/hc/en-us/articles/18085960681101-My-ad-got-rejected-What-s-next). Let me know if there's anything else I can help with!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 22:30:21.453492,can I talk to someone about the ads rejection and can it be resubmitted?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 22:30:24.375997," Absolutely! You can reach out to our Ad Support team at adsupport@newsbreak.com to discuss the ad rejection. They can provide more details and help you understand the next steps. As for resubmitting, yes, once you've addressed the issues mentioned in the rejection email, you can resubmit your ad. Just make sure to follow any specific guidelines provided in that email. If you need more help, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 23:25:16.722034,Can I publish articles on your platform,{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 23:25:20.053916," Yes, you can publish articles on NewsBreak! If you're interested in becoming a contributor, you'll need to sign up for an account and follow the guidelines for submitting your content. If you need more specific information on how to get started, let me know and I can help with that!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 23:25:34.774281,How do I post on your site,{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 23:25:39.398829," To post on NewsBreak, you'll need to become a contributor. First, sign up at the NewsBreak Contributor Network. Once you're approved, you can start submitting your articles. If you want more detailed steps or have any questions about the process, feel free to ask! You can also check out this link for more info: [How to contribute & earn on NewsBreak](https://help.newsbreak.com/hc/en-us/articles/4417484346381-How-to-contribute-earn-on-NewsBreak).",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 23:27:53.772199,🙋 Live Agent,"{""payload"": ""/live_agent""}"
+bot,WEBCHAT,BOT,BOT,2025-01-28 23:27:56.790751,Transferring...,"{""recipient_id"": ""66040214e4a641a4a557be5ab8a88f87"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""transfer"", ""message_above"": ""Agents are offline right now, but your messages are sent to them."", ""message_below"": ""An agent has been notified and will respond as soon as possible."", ""summary"": ""The user reaches out for assistance with a technical issue related to ad policy, specifically regarding an ad rejection. The agent provides guidance on checking for an email from Ad Support and suggests appealing the rejection if the user believes it was incorrect. The user expresses a desire to speak with a live agent, but the assistant directs them to contact support via email instead. The conversation continues with the user experiencing issues testing an event on Shopify, and the agent offers troubleshooting steps. The user also inquires about publishing articles on the platform, and the agent explains how to become a contributor and submit content.""}}}}"
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 23:28:15.120509,How do I post on your site,{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 23:28:35.013116,🙋 AI Agent,"{""payload"": ""/ai_agent""}"
+event_notify,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-01-28 23:28:35.277627,You are talking with an AI agent.,"{""recipient_id"": ""c1ee6b53bd04462ca53cca5037961b7c"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""event_notify"", ""event_type"": ""TALKING_TO_AI_AGENT_NOW"", ""message"": ""You are talking with an AI agent.""}}}}"
+event_notify,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-01-28 23:28:35.475780,,"{""recipient_id"": ""c1ee6b53bd04462ca53cca5037961b7c"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""event_notify"", ""event_type"": ""CONVERSATION_COMPLETED"", ""message"": ""The user is now talking with the AI Agent.""}}}}"
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 23:28:39.904292,How do I post on your site,{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 23:28:44.107449," Thanks for your interest in posting on our site! Unfortunately, we don't accept sponsored guest posts. However, if you're looking to publish articles, you can partner with us as a publisher. Just check out this link for more info: https://publishers.newsbreak.",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 23:28:57.022217,Can I publish articles on your platform,{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 23:28:59.454637," Yes, you can publish articles on our platform by partnering with us as a publisher. If you're interested, please visit this link for more details: https://publishers.newsbreak.",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 23:33:38.570341,How do I post on your site?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 23:33:40.997919," To post on our site, you need to partner with us as a publisher. Unfortunately, we don't accept sponsored guest posts. For more information on how to get started, check out this link: https://publishers.newsbreak.",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-28 23:53:29.810923,I need help from a live agent,{}
+bot,WEBCHAT,BOT,BOT,2025-01-28 23:53:32.526658," I understand you need help from a live agent! Unfortunately, I can't connect you directly, but I recommend reaching out to our support team at support@newsbreak.com. They'll be able to assist you further!",{}
+event_notify,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-01-29 00:06:40.943172,Azhar Sayed is talking to you.,"{""recipient_id"": ""c1ee6b53bd04462ca53cca5037961b7c"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""event_notify"", ""event_type"": ""AGENT_JOINED"", ""message"": ""Azhar Sayed is talking to you.""}}}}"
+dashboard,WEBCHAT,azhar.sayed@newsbreak.com,Philip Pirrip,2025-01-29 00:06:41.443172,live agent,
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 00:06:55.026666,🙋 AI Agent,"{""payload"": ""/ai_agent""}"
+event_notify,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-01-29 00:06:55.316496,You are talking with an AI agent.,"{""recipient_id"": ""c1ee6b53bd04462ca53cca5037961b7c"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""event_notify"", ""event_type"": ""TALKING_TO_AI_AGENT_NOW"", ""message"": ""You are talking with an AI agent.""}}}}"
+event_notify,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-01-29 00:06:55.545201,,"{""recipient_id"": ""c1ee6b53bd04462ca53cca5037961b7c"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""event_notify"", ""event_type"": ""CONVERSATION_COMPLETED"", ""message"": ""The user is now talking with the AI Agent.""}}}}"
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 00:07:03.887209,Can I talk to a live agent?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 00:07:08.716878," I totally get that you want to speak with a live agent! While I can't connect you directly, you can reach out to our support team at support@newsbreak.com for assistance. They'll be happy to help!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 00:17:36.416193,I am having trouble with event tracking,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 00:17:39.947065," I'm here to help! Can you let me know which tracking platform or service you're using for your event tracking? Once I have that info, I can provide more specific guidance.",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 00:17:55.346761,its for a pixel,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 00:17:57.788605," Got it! How is your pixel implemented? Are you using Custom Code, Google Tag Manager (GTM), or Shopify Integration? Let me know so I can help you troubleshoot the issue!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 00:18:06.043608,its a custom code,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 00:18:12.865760," Thanks for the info! Here are some steps to troubleshoot your custom pixel code:
+1. Make sure the base pixel code is added to your landing page URL.
+2. Ensure that the custom pixel code is placed on the event page where the user action takes place.
+3. Perform the action that should trigger the pixel (for example, if it's a complete_payment event, simulate purchasing a product).
+4. If the pixel doesn't fire, try these steps again. If it still doesn't work, you can reach out to adsupport@newsbreak.com for further assistance.
+If you need more detailed guidance, check out this article: https://help.newsbreak.com/hc/en-us/articles/18551604763405-How-to-install-a-NewsBreak-Pixel-on-Shopify.",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 00:18:26.377488,"actually it is Shopify,my bad!",{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 00:18:30.300866," No problem at all! Here’s how to troubleshoot your NewsBreak Pixel on Shopify:
+1. Ensure that the customer event is correctly configured in your Shopify account.
+2. Test the event in both Shopify and NewsBreak to make sure it triggers correctly.
+3. For a complete_payment event, simulate a product purchase to verify the setup.
+If you need detailed instructions on how to install the pixel, check out this article: https://help.newsbreak.com/hc/en-us/articles/18551604763405-How-to-install-a-NewsBreak-Pixel-on-Shopify. Let me know if you need more help!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 00:18:46.196603,do you have any more steps for me to check?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 00:18:54.578403," Absolutely! Here are some additional steps you can check for your Shopify pixel setup:
+1. **Check Pixel Code Placement**: Make sure the base pixel code is correctly placed in the theme.liquid file or the specific page where you want to track events.
+2. **Event Configuration**: Double-check that you've selected the correct event type in your Shopify settings (like complete_payment or checkout_completed).
+3. **Browser Console**: Open your browser's developer tools (usually F12) and check the console for any errors related to the pixel code.
+4. **Test Events**: Use tools like Facebook Pixel Helper or Google Tag Assistant to see if your pixel is firing correctly when you perform actions on your site.
+5. **Contact Support**: If everything seems right but it still doesn't work, consider reaching out to adsupport@newsbreak.com for more specialized help.
+If you need more detailed guidance, refer back to this article: https://help.newsbreak.com/hc/en-us/articles/18551604763405-How-to-install-a-NewsBreak-Pixel-on-Shopify.",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 00:19:03.775922,I think I may need more help,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 00:19:06.500677," I understand! If you're still having trouble, I recommend reaching out to our support team at adsupport@newsbreak.com. They can provide more specialized assistance for your pixel issues. Don't hesitate to ask them any specific questions you have!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 00:19:17.391802,is there a live agent I can talk to?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 00:19:19.988477," I get that you want to talk to a live agent! While I can't connect you directly, you can reach out to our support team at support@newsbreak.com. They’ll be able to assist you with your concerns!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 18:09:49.867958,"How can I pay my outstanding invoice?
+",{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 18:09:53.899395," To pay your outstanding invoice, you can log into your account and navigate to the billing section. There, you should find options to view and pay your invoices. If you need more detailed instructions, check out this article: https://help.newsbreak.com/hc/en-us/articles/17821681919757-Billing-Guide. Let me know if you have any other questions!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 18:10:56.775487,"How can I pay my outstanding invoice?
+",{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 18:11:08.605748," To pay your outstanding invoice, follow these steps:
+1. Log into your NewsBreak account.
+2. Go to the Billing Section.
+3. Look for your outstanding invoices and select the one you want to pay.
+4. Choose your payment method and complete the payment process.
+If you need more detailed guidance, check out this article: https://help.newsbreak.com/hc/en-us/articles/17821681919757-Billing-Guide. Let me know if you need any more help!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 19:02:34.311883,I have a question about my billing or payment.,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 19:02:41.625717," Sure thing! What specific question do you have about your billing or payment? Let me know, and I'll do my best to help you out!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 19:02:50.485443,its about my billing,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 19:02:57.379137," Got it! Can you provide more details about your billing question? Are you looking for information on how to pay an invoice, dispute a charge, or something else? Let me know so I can assist you better!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 19:04:33.476838,"My ad says ""About to go live"" – what does that mean?",{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 19:04:36.525539," When your ad says ""About to go live,"" it means that your ad is in the final stages of approval and will be active soon. This usually happens after you've submitted your ad for review. Once it's approved, it will start running based on your selected schedule. If you have any concerns about the timing or need more details, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 19:05:15.540107,What are the guidelines for ad approval?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 19:05:19.671626," The guidelines for ad approval typically include:
+1. **Content Quality**: Your ad should have clear, high-quality images or videos and well-written text.
+2. **Relevance**: The ad content must be relevant to the audience you are targeting.
+3. **Compliance**: Ensure your ad complies with all advertising policies and regulations set by NewsBreak.
+4. **No Misleading Information**: Avoid any false claims or misleading information in your ads.
+5. **Targeting Accuracy**: Make sure your targeting settings align with the content of your ad.
+If you want more detailed information, check out this article: https://help.newsbreak.com/hc/en-us/articles/18085960681101-My-ad-got-rejected-What-s-next. Let me know if you have any other questions!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 19:10:55.875231,Can I check the status of my ad?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 19:11:01.978341," Yes, you can check the status of your ad! Just log into your NewsBreak account and navigate to the Ad Management section. There, you’ll see all your ads along with their current statuses, whether they’re pending approval, live, or rejected. If you need more detailed steps, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 19:11:53.417632,"Why was my ad rejected, and how can I fix it?",{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 19:12:13.843728," Your ad may have been rejected for various reasons, such as not meeting the advertising policies, having typographical errors, or issues with conversion tracking. To fix it:
+1. **Check Your Email**: Ad Support usually sends an email explaining why your ad was rejected.
+2. **Review Policies**: Familiarize yourself with NewsBreak’s advertising policies to ensure your new ad complies.
+3. **Make Necessary Changes**: If the rejection was due to specific content issues, revise your ad accordingly.
+4. **Resubmit**: Once you've made the changes, you can resubmit your ad for approval.
+For more detailed guidance, check out this article: https://help.newsbreak.com/hc/en-us/articles/18085960681101-My-ad-got-rejected-What-s-next. Let me know if you need further assistance!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 19:13:14.223081,I need help with general account support.,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 19:13:16.935285," I can help with that! What specific issue are you facing with your account? Are you having trouble logging in, updating your information, or something else? Let me know so I can assist you better!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 19:13:30.314299,pixel,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 19:13:33.746037," Could you provide a bit more detail about the issue you're experiencing with the pixel? For example, what tracking platform or service are you using for the pixel? This will help me give you more specific guidance!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 19:13:44.061098,its redtrack,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 19:13:50.673964," Thanks for the info! If you're using RedTrack with your pixel, here are some steps to troubleshoot:
+1. **Check Pixel Implementation**: Ensure that the pixel code is correctly implemented on your landing page and event pages.
+2. **Test the Pixel**: Use RedTrack's testing tools to see if the pixel is firing correctly when actions are taken on your site.
+3. **Review Event Configuration**: Make sure that the events you want to track are properly set up in RedTrack.
+4. **Contact Support**: If everything seems correct but it's still not working, reach out to RedTrack support for further assistance.
+If you need more detailed instructions, you can refer to this article: https://help.newsbreak.com/hc/en-us/articles/18551604763405-How-to-install-a-NewsBreak-Pixel-on-Shopify. Let me know if you have any other questions!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 19:19:11.903211,What are the guidelines for ad approval?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 19:19:19.731986," The guidelines for ad approval generally include the following:
+1. **Content Quality**: Ensure your ad has high-quality images or videos and clear, concise text.
+2. **Relevance**: The content of your ad should be relevant to the audience you are targeting.
+3. **Compliance**: Your ad must comply with all advertising policies and regulations set by NewsBreak.
+4. **No Misleading Information**: Avoid any false claims or misleading information in your ads.
+5. **Targeting Accuracy**: Make sure your targeting settings align with the content of your ad.
+If you want more detailed information, check out this article: https://help.newsbreak.com/hc/en-us/articles/18085960681101-My-ad-got-rejected-What-s-next. Let me know if you have any other questions!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 19:20:44.116271,What are the guidelines for ad approval?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 19:20:48.032248," The guidelines for ad approval typically include:
+1. **Content Quality**: Your ad should have clear, high-quality images or videos and well-written text.
+2. **Relevance**: The ad content must be relevant to the audience you are targeting.
+3. **Compliance**: Ensure your ad complies with all advertising policies and regulations set by NewsBreak.
+4. **No Misleading Information**: Avoid any false claims or misleading information in your ads.
+5. **Targeting Accuracy**: Make sure your targeting settings align with the content of your ad.
+For more detailed information, you can refer to this article: https://help.newsbreak.com/hc/en-us/articles/18085960681101-My-ad-got-rejected-What-s-next. Let me know if you have any other questions!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 19:22:36.899370,What are the guidelines for ad approval?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 19:22:43.323635," The guidelines for ad approval generally include the following:
+1. **Content Quality**: Ensure your ad has high-quality images or videos and clear, concise text.
+2. **Relevance**: The content of your ad should be relevant to the audience you are targeting.
+3. **Compliance**: Your ad must comply with all advertising policies and regulations set by NewsBreak.
+4. **No Misleading Information**: Avoid any false claims or misleading information in your ads.
+5. **Targeting Accuracy**: Make sure your targeting settings align with the content of your ad.
+If you want more detailed information, check out this article: https://help.newsbreak.com/hc/en-us/articles/18085960681101-My-ad-got-rejected-What-s-next. Let me know if you have any other questions!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 19:24:03.302664,What are the guidelines for ad approval?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 19:24:07.844550," The guidelines for ad approval typically include:
+1. **Content Quality**: Your ad should have clear, high-quality images or videos and well-written text.
+2. **Relevance**: The ad content must be relevant to the audience you are targeting.
+3. **Compliance**: Ensure your ad complies with all advertising policies and regulations set by NewsBreak.
+4. **No Misleading Information**: Avoid any false claims or misleading information in your ads.
+5. **Targeting Accuracy**: Make sure your targeting settings align with the content of your ad.
+For more detailed information, you can refer to this article: https://help.newsbreak.com/hc/en-us/articles/18085960681101-My-ad-got-rejected-What-s-next. Let me know if you have any other questions!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 19:25:08.645029,What are the guidelines for ad approval?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 19:25:21.003762," The guidelines for ad approval generally include the following:
+1. **Content Quality**: Ensure your ad has high-quality images or videos and clear, concise text.
+2. **Relevance**: The content of your ad should be relevant to the audience you are targeting.
+3. **Compliance**: Your ad must comply with all advertising policies and regulations set by NewsBreak.
+4. **No Misleading Information**: Avoid any false claims or misleading information in your ads.
+5. **Targeting Accuracy**: Make sure your targeting settings align with the content of your ad.
+For more detailed information, you can refer to this article: https://help.newsbreak.com/hc/en-us/articles/18085960681101-My-ad-got-rejected-What-s-next. Let me know if you have any other questions!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 19:26:54.112031,How do I post on your site?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 19:27:19.716004," To post on NewsBreak, you'll need to follow these steps:
+1. **Create an Account**: If you haven't already, sign up for a NewsBreak account.
+2. **Log In**: Once your account is created, log in to your account.
+3. **Navigate to the Posting Section**: Look for the option to create a new post or article on your dashboard.
+4. **Write Your Content**: Enter your text, add images or videos if needed, and make sure it follows our content guidelines.
+5. **Submit for Review**: After you're satisfied with your post, submit it for review. It will be checked before going live.
+If you need more detailed instructions or have specific questions about posting, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 19:28:04.610345,Ho do I Post on your site?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 19:28:11.447895," To post on NewsBreak, follow these steps:
+1. **Create an Account**: If you haven't done so, sign up for a NewsBreak account.
+2. **Log In**: Once your account is set up, log in to your account.
+3. **Find the Posting Section**: Look for the option to create a new post or article on your dashboard.
+4. **Write Your Content**: Enter your text and add any images or videos you want to include, ensuring it meets our content guidelines.
+5. **Submit for Review**: After you're happy with your post, submit it for review before it goes live.
+If you need more detailed instructions or have specific questions about posting, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 19:32:01.197627,How do I post on your site?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 19:32:12.192309," To post on NewsBreak, you can follow these steps:
+1. **Create an Account**: If you haven't already, sign up for a NewsBreak account.
+2. **Log In**: Once your account is created, log in to your account.
+3. **Navigate to the Posting Section**: Look for the option to create a new post or article on your dashboard.
+4. **Write Your Content**: Enter your text, add images or videos if needed, and ensure it follows our content guidelines.
+5. **Submit for Review**: After you're satisfied with your post, submit it for review. It will be checked before going live.
+If you need more detailed instructions or have specific questions about posting, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 22:08:17.438647,I have a question about ad policy,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 22:08:22.404393, Sure! What specific question do you have about the ad policy? This will help me provide you with the most accurate information.,{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 22:08:44.621174,can I run sweepstakes?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 22:08:50.057842," Running sweepstakes is generally allowed, but there are specific guidelines you need to follow. Here are a few key points:
+1. **Compliance with Laws**: Ensure that your sweepstakes complies with all applicable laws and regulations.
+2. **Clear Rules**: Provide clear rules and eligibility requirements for participants.
+3. **No Purchase Necessary**: If applicable, make sure to include that no purchase is necessary to enter.
+4. **Ad Content**: The ad promoting your sweepstakes must adhere to NewsBreak's advertising policies.
+For more detailed information, you can refer to our Ad Policy here: https://help.newsbreak.com/hc/en-us/articles/aaa1391ce75349cb86be3d5b7e92104e-Ad-Policy. Let me know if you have any other questions!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 22:49:45.764187,🙋 Live Agent,"{""payload"": ""/live_agent""}"
+bot,WEBCHAT,BOT,BOT,2025-01-29 22:49:55.543180,Transferring...,"{""recipient_id"": ""66040214e4a641a4a557be5ab8a88f87"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""transfer"", ""message_above"": ""Agents are offline right now, but your messages are sent to them."", ""message_below"": ""An agent has been notified and will respond as soon as possible."", ""summary"": ""The user engages with the agent to seek assistance regarding various topics related to advertising and account management on NewsBreak. They inquire about troubleshooting a pixel issue, guidelines for ad approval, the status of their ads, and how to post on the site. The agent provides detailed steps for each inquiry, including troubleshooting tips for pixel issues, guidelines for ad content, and instructions on posting articles. The user also asks about running sweepstakes and is informed about compliance requirements. Throughout the conversation, the agent offers links to relevant articles for further assistance and encourages the user to reach out for more help if needed.""}}}}"
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 23:10:29.125208,Can I post on your site?,{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 23:10:53.888623,Can I post on your site?,{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 23:11:16.601015,🙋 AI Agent,"{""payload"": ""/ai_agent""}"
+event_notify,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-01-29 23:11:16.864765,You are talking with an AI agent.,"{""recipient_id"": ""c1ee6b53bd04462ca53cca5037961b7c"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""event_notify"", ""event_type"": ""TALKING_TO_AI_AGENT_NOW"", ""message"": ""You are talking with an AI agent.""}}}}"
+event_notify,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-01-29 23:11:17.067057,,"{""recipient_id"": ""c1ee6b53bd04462ca53cca5037961b7c"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""event_notify"", ""event_type"": ""CONVERSATION_COMPLETED"", ""message"": ""The user is now talking with the AI Agent.""}}}}"
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 23:11:26.475083,Can I post on your site?,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 23:11:31.143081," Thanks for your interest in posting on our site! Unfortunately, we don't accept sponsored guest posts. If you're looking to advertise on NewsBreak, you can check out admanager.newsbreak.com for more info.",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 23:36:44.582007,I have questions about pixel,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 23:36:49.301996, Sure! What specific questions do you have about the pixel? Are you using a particular tracking platform or service for it?,{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 23:36:57.267054,I am using a custom code,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 23:37:05.029923," Got it! If you're using custom code for your pixel, make sure the base pixel code is added to your landing page URL and that the custom pixel code is placed on the event page where the user action occurs. After that, perform the action that should trigger the pixel. If it doesn't fire, double-check those steps. If you still have issues, feel free to reach out to adsupport@newsbreak.com for help! You can also refer to our debugging guide [here](https://help.newsbreak.com/hc/en-us/articles/55a5b985b8db4f04a519f1bc168d6987).",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 23:38:46.659246,can you compile our chat history so far and send an email to adsupport@newsbreak.com,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 23:38:56.565722," I can't send emails directly, but I can help you compile the chat history! Here's a summary:
+1. You asked about posting on the site.
+2. I informed you that we don't accept sponsored guest posts and directed you to admanager.newsbreak.com for advertising info.
+3. You mentioned having questions about the pixel.
+4. I asked for specifics and you said you're using custom code.
+5. I provided troubleshooting steps for your pixel setup and suggested contacting adsupport@newsbreak.com if issues persist.
+You can copy this summary and send it in an email to adsupport@newsbreak.com if you'd like!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 23:53:57.841481,🙋 Live Agent,"{""payload"": ""/live_agent""}"
+bot,WEBCHAT,BOT,BOT,2025-01-29 23:54:01.704937,Transferring...,"{""recipient_id"": ""66040214e4a641a4a557be5ab8a88f87"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""transfer"", ""message_above"": ""Agents are offline right now, but your messages are sent to them."", ""message_below"": ""An agent has been notified and will respond as soon as possible."", ""summary"": ""The user inquires about posting on the site, and the agent informs them that sponsored guest posts are not accepted but provides a link for advertising information. The user then asks about pixel tracking, specifying they are using custom code. The agent offers troubleshooting steps for setting up the pixel and suggests contacting support if issues continue. Finally, the user requests a summary of their chat history to send via email, and the agent compiles the conversation for them to copy.""}}}}"
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 23:54:34.589229,ad support requested for pixel,{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 23:54:42.627278,🙋 AI Agent,"{""payload"": ""/ai_agent""}"
+event_notify,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-01-29 23:54:42.883657,You are talking with an AI agent.,"{""recipient_id"": ""c1ee6b53bd04462ca53cca5037961b7c"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""event_notify"", ""event_type"": ""TALKING_TO_AI_AGENT_NOW"", ""message"": ""You are talking with an AI agent.""}}}}"
+event_notify,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-01-29 23:54:43.089363,,"{""recipient_id"": ""c1ee6b53bd04462ca53cca5037961b7c"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""event_notify"", ""event_type"": ""CONVERSATION_COMPLETED"", ""message"": ""The user is now talking with the AI Agent.""}}}}"
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 23:54:52.994488,ad support requested for pixel,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 23:54:58.656983," It sounds like you need some assistance with your pixel setup. Since you're using custom code, could you let me know what specific issues you're facing? This will help me provide the best support. If you want, I can also send an email to ad support for you!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 23:55:10.198867,event not saving,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 23:55:16.858275," Got it! Can you tell me if you're using Pixel Tracking or Postback Tracking? Also, what platform are you implementing the pixel on? This info will help me guide you better!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-29 23:57:05.881670,I need additional help,{}
+bot,WEBCHAT,BOT,BOT,2025-01-29 23:57:12.993515,"I've sent an email to ad support for you regarding the issues with your pixel setup. They should get back to you soon! In the meantime, if you have any specific questions or need further assistance, just let me know!",{}
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-01-30 22:41:01.038647,,"{""recipient_id"": ""c1ee6b53bd04462ca53cca5037961b7c"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": true, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Phone"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-phone.svg"", ""is_required"": false, ""entity_name"": ""_PHONE""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-30 22:41:22.230771,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""az""}, {""title"": ""Phone"", ""entity_name"": ""_PHONE"", ""value"": ""+1""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""azhar.sayed@newsbreak.com""}]}"
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-30 22:41:35.244489,I need help with your ad policy,{}
+bot,WEBCHAT,BOT,BOT,2025-01-30 22:41:45.859474," Sure! Could you please specify what aspect of the ad policy you need help with? For example, are you looking for information on ad rejections or guidelines for creating ads? This will help me direct you to the right resources!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-30 22:41:59.573217,I wanted to check if sweepstakes are allowed,{}
+bot,WEBCHAT,BOT,BOT,2025-01-30 22:42:12.874145," Sweepstakes can have specific guidelines under our ad policy. I recommend checking out our Ad Policy document for detailed information on what's allowed and any restrictions that may apply. You can find it here: [Ad Policy](https://help.newsbreak.com/hc/en-us/articles/25362604231053-Ad-Policy). If you have more questions after reviewing, feel free to ask!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-01-30 22:44:17.603567,I need more help,{}
+bot,WEBCHAT,BOT,BOT,2025-01-30 22:44:27.573903,"I've sent another email to ad support asking for clarification on whether sweepstakes are allowed. They'll get back to you as soon as they can! If there's anything else you need in the meantime, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-02-04 21:29:17.030885,"Can you suggest us what kind of creatives are performing well for windows, and what's are the current benchmarks for it. ",{}
+bot,WEBCHAT,BOT,BOT,2025-02-04 21:29:33.849918," Hey there! For Windows creatives, it's best to test both vertical and horizontal images (9x16 and 16x9) and separate them into different ad sets. Native-style images that spark curiosity tend to perform well. As for video, 9x16 UGC-style videos usually get high engagement, and shorter videos (15-30 seconds) are recommended. Unfortunately, I don't have specific benchmarks for performance, but A/B testing can help you find what works best for your audience! If you want more detailed info, check out this article: [Ad Creative Best Practices](https://help.newsbreak.com/hc/en-us/articles/20676690598029-Ad-Creative-Best-Practices-and-A-B-Testing).",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-02-05 18:37:53.411180,are sweepstakes allowed?,{}
+bot,WEBCHAT,BOT,BOT,2025-02-05 18:37:59.691906," Hey there! Sweepstakes can be a bit tricky. They are generally allowed, but there are specific rules and regulations that you need to follow. I recommend checking out our policy document for detailed guidelines on sweepstakes. You can find it here: [Sweepstakes Policy](https://help.newsbreak.com/hc/en-us/articles/30583360253325-Search-Arbitrage-Ad-Policy-and-Guide). Let me know if you have any other questions!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-02-05 18:40:56.392867,are sweepstakes allowed?,{}
+bot,WEBCHAT,BOT,BOT,2025-02-05 18:41:02.519029," Sweepstakes are generally not allowed, but there are specific rules and regulations that you need to follow. I recommend checking out our policy document for detailed guidelines on sweepstakes. You can find it here: [Sweepstakes Policy](https://help.newsbreak.com/hc/en-us/articles/30583360253325-Search-Arbitrage-Ad-Policy-and-Guide). If you have more questions, feel free to ask!",{}
+event_notify,WEBCHAT,azhar.sayed@newsbreak.com,Philip Pirrip,2025-02-05 19:19:46.372184,Azhar Sayed is talking to you.,"{""recipient_id"": ""c1ee6b53bd04462ca53cca5037961b7c"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""event_notify"", ""event_type"": ""AGENT_JOINED"", ""message"": ""Azhar Sayed is talking to you.""}}}}"
+event_notify,WEBCHAT,azhar.sayed@newsbreak.com,Philip Pirrip,2025-02-05 19:19:46.599121,,"{""recipient_id"": ""c1ee6b53bd04462ca53cca5037961b7c"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""event_notify"", ""event_type"": ""CONVERSATION_REACTIVATE"", ""message"": ""Azhar Sayed reactivated the conversation.""}}}}"
+event_notify,WEBCHAT,azhar.sayed@newsbreak.com,Philip Pirrip,2025-02-05 19:19:52.741979,Azhar Sayed left the conversation.,"{""recipient_id"": ""c1ee6b53bd04462ca53cca5037961b7c"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""event_notify"", ""event_type"": ""AGENT_LEFT"", ""message"": ""Azhar Sayed left the conversation.""}}}}"
+event_notify,WEBCHAT,azhar.sayed@newsbreak.com,Philip Pirrip,2025-02-05 19:19:52.950216,,"{""recipient_id"": ""c1ee6b53bd04462ca53cca5037961b7c"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""event_notify"", ""event_type"": ""CONVERSATION_COMPLETED"", ""message"": ""Azhar Sayed completed the conversation.""}}}}"
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-02-05 23:08:46.117022,I need more help,{}
+bot,WEBCHAT,BOT,BOT,2025-02-05 23:08:52.833333,"I've sent an email to our support team for you! They'll get back to you with more help regarding your questions. If there's anything else you need in the meantime, just let me know!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-02-06 23:13:20.833316,Hey I have a question about event tracking,{}
+bot,WEBCHAT,BOT,BOT,2025-02-06 23:13:27.675446, Hey there! What specific question do you have about event tracking? Are you looking for help with setting it up or troubleshooting an issue?,{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-02-06 23:13:41.382639,need help with pixel,{}
+bot,WEBCHAT,BOT,BOT,2025-02-06 23:13:53.383443," Got it! Can you tell me how you're implementing the pixel? Are you using custom code, Google Tag Manager, or something else? This will help me guide you better!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-02-06 23:13:59.603861,shopify,{}
+bot,WEBCHAT,BOT,BOT,2025-02-06 23:14:08.655652," Thanks for the info! To integrate the NewsBreak Pixel into your Shopify store, follow these steps:
+1. Log into your NewsBreak account and navigate to Tools > Ad Manager > Event Management.
+2. Choose 'Pixel' as your tracking type and 'Shopify' as the integration method. Specify your event type and turn on Event value if needed.
+3. Copy your base code generated in Step 1.
+4. In your Shopify account, go to Settings > Customer events.
+5. Create a unique name for your pixel and click 'Add pixel' to open the event editor.
+6. Paste your custom JavaScript pixel code into the Code window.
+7. Once integrated, you can test it in Ad Manager or inform your account manager that the integration is complete for verification.
+For more detailed instructions, check out this article: [How to install a NewsBreak Pixel on Shopify](https://help.newsbreak.com/hc/en-us/articles/18551604763405-How-to-install-a-NewsBreak-Pixel-on-Shopify). Let me know if you need further assistance!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-02-06 23:19:26.915753,🙋 Live Agent,"{""payload"": ""/live_agent""}"
+bot,WEBCHAT,BOT,BOT,2025-02-06 23:19:31.641082,Connecting you to a live agent. Please hold.,"{""recipient_id"": ""66040214e4a641a4a557be5ab8a88f87"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""transfer"", ""message_above"": ""Successfully transferred to a live agent!"", ""message_below"": ""Now you can talk to the agent."", ""summary"": ""The user reaches out for assistance with event tracking, specifically regarding the implementation of a pixel on their Shopify store. The agent asks clarifying questions to understand the user's setup and then provides detailed step-by-step instructions for integrating the NewsBreak Pixel into Shopify. The agent also offers a link to further resources and invites the user to ask for additional help if needed.""}}}}"
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-02-06 23:20:38.462420,🙋 AI Agent,"{""payload"": ""/ai_agent""}"
+event_notify,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-02-06 23:20:38.892795,You are talking with an AI agent.,"{""recipient_id"": ""c1ee6b53bd04462ca53cca5037961b7c"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""event_notify"", ""event_type"": ""TALKING_TO_AI_AGENT_NOW"", ""message"": ""You are talking with an AI agent.""}}}}"
+event_notify,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-02-06 23:20:39.125671,,"{""recipient_id"": ""c1ee6b53bd04462ca53cca5037961b7c"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""event_notify"", ""event_type"": ""CONVERSATION_COMPLETED"", ""message"": ""The user is now talking with the AI Agent.""}}}}"
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-02-06 23:21:16.431826,I need more help,{}
+bot,WEBCHAT,BOT,BOT,2025-02-06 23:21:25.111346,"I just sent an email to our support team for you! If you can share more details about what you need help with, I can assist you right here too!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-02-07 00:22:21.894668,I still need more help did you file a jira for me?,{}
+bot,WEBCHAT,BOT,BOT,2025-02-07 00:22:30.941038,"I've sent another email to our support team to check if a Jira ticket was filed for you. In the meantime, if you can provide more details about your issue, I’d be happy to help out!",{}
+web,WEBCHAT,f33f94e2129e455bbbd7458a926616b9,az ,2025-02-07 00:27:21.167741,Please file a support jira for me,{}
+bot,WEBCHAT,BOT,BOT,2025-02-07 00:27:28.730667,"I've just sent a request to file a support Jira ticket for you! If you can share the details of the issue, I can make sure they get included in the ticket.",{}

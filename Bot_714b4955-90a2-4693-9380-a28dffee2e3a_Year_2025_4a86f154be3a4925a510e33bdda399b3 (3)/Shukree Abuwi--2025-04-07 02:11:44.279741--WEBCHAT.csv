@@ -1,0 +1,35 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-04-07 02:11:44.972253,,"{""recipient_id"": ""24880672-7c80-4cf1-b0f6-0e0d36036c88"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-04-07 02:11:45.624992,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-04-07 02:11:46.143510,,"{""recipient_id"": ""24880672-7c80-4cf1-b0f6-0e0d36036c88"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+web,WEBCHAT,d5114e737de64496bb57383874814148,Shukree Abuwi ,2025-04-07 02:13:24.626435,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""Shukree Abuwi""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""shukree@nogigiddy.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1902291225375174657""}]}"
+web,WEBCHAT,d5114e737de64496bb57383874814148,Shukree Abuwi ,2025-04-07 02:13:37.358838,"Subject: Inquiry About Invoicing for High Monthly Spend
+
+Hello ,
+
+We are interested in significantly scaling our advertising efforts with NewsBreak and anticipate monthly spending of $50,000 or more. Could you please confirm if invoicing is available for this level of spend?
+
+We're eager to ramp up quickly upon confirmation.
+
+Thanks in advance—I look forward to your response.
+
+Best regards,
+
+Shukree Abuwi
+CTO
+NoGigiddy
+470-815-1332
+shukree@nogigiddy.com",{}
+bot,WEBCHAT,BOT,BOT,2025-04-07 02:13:48.966226," Hi Shukree,
+Thank you for reaching out and showing interest in scaling your advertising efforts with NewsBreak. For high monthly spending, such as $50,000 or more, we recommend using our Autopay method where you store a credit card on file and are charged when the billing threshold is met or at the end of the month. Unfortunately, we do not offer invoicing as a payment option.
+For more details on billing options, please refer to our Billing Guide: [Billing Guide](https://help.newsbreak.com/hc/en-us/articles/17821681919757-Billing-Guide)
+If you have any further questions or need assistance with setting up your account, feel free to reach out.
+Best regards,
+NewsBreak Ad Support",{}
+web,WEBCHAT,d5114e737de64496bb57383874814148,Shukree Abuwi ,2025-04-07 02:14:05.976346,How do we increase the billing threshold,{}
+bot,WEBCHAT,BOT,BOT,2025-04-07 02:14:19.845227," Hi Shukree,
+To increase the billing threshold, you need to spend more on the platform. Our billing threshold automatically adjusts based on your payment history and spending patterns. As you continue to spend more, the threshold will gradually increase.
+For more information on how billing works, please refer to our Billing Guide: [Billing Guide](https://help.newsbreak.com/hc/en-us/articles/17821681919757-Billing-Guide)
+If you have any further questions or need assistance, feel free to reach out.
+Best regards,
+NewsBreak Ad Support",{}

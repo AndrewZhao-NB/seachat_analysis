@@ -1,0 +1,86 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-05-15 11:34:55.283855,,"{""recipient_id"": ""ca5893fa-1934-46ec-a920-6ba07ff341a2"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-05-15 11:34:55.766911,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-05-15 11:34:57.060126,,"{""recipient_id"": ""ca5893fa-1934-46ec-a920-6ba07ff341a2"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-05-22 19:06:04.589058,,"{""recipient_id"": ""ca5893fa-1934-46ec-a920-6ba07ff341a2"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+web,WEBCHAT,1873e85f7255457189c51b148eb24c5e,Prince ,2025-05-22 19:06:21.068884,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""Prince""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""prince@z1tech.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1920729879105359873""}]}"
+web,WEBCHAT,1873e85f7255457189c51b148eb24c5e,Prince ,2025-05-22 19:06:49.083629,I need support with my newsbreak account ,{}
+bot,WEBCHAT,BOT,BOT,2025-05-22 19:06:55.456288," Sure, I'd be happy to help with your NewsBreak account! Could you please let me know what specific issue you're facing? Whether it's related to logging in, privacy settings, or something else, I'm here to assist you.",{}
+web,WEBCHAT,1873e85f7255457189c51b148eb24c5e,Prince ,2025-05-22 19:07:30.581963,"Why are my CPMs not stable, they are changed everyday",{}
+bot,WEBCHAT,BOT,BOT,2025-05-22 19:07:45.177580," Fluctuations in CPM (Cost Per Mille) can be influenced by several factors such as changes in demand, competition, targeting settings, and even the time of year. To better understand the issue, could you provide more details about your campaign? For example, have there been any recent changes to your targeting or budget settings? Also, when did you start noticing these fluctuations?",{}
+web,WEBCHAT,1873e85f7255457189c51b148eb24c5e,Prince ,2025-05-22 19:08:30.477929,On my same set of ads the CPMs are fluctuating on a daily bais,{}
+bot,WEBCHAT,BOT,BOT,2025-05-22 19:08:48.641986," Daily fluctuations in CPMs can be common, especially during the learning phase of a campaign. During this time, the system is gathering data to optimize performance, which can lead to some variability. It's important to look at weekly performance rather than daily to get a better understanding of trends. If your campaign is still in the learning phase, it might take some time for things to stabilize. Have you checked if your campaign is still in this phase?",{}
+web,WEBCHAT,1873e85f7255457189c51b148eb24c5e,Prince ,2025-05-22 19:09:59.546488,And why is my CPC fluctuating on a daily basis?,{}
+bot,WEBCHAT,BOT,BOT,2025-05-22 19:10:28.663315," Daily fluctuations in CPC (Cost Per Click) can occur due to several factors, including changes in competition, audience engagement, and ad performance. If your campaign is in the learning phase, it's normal to see some variability as the system optimizes based on recent data. It's recommended to review weekly performance for a more accurate assessment. Have you made any recent changes to your campaign settings that might affect CPC?",{}
+web,WEBCHAT,1873e85f7255457189c51b148eb24c5e,Prince ,2025-05-22 19:11:42.304329,Does our audience bucket reset daily on newsbreak when we on or off our campaigns?,{}
+bot,WEBCHAT,BOT,BOT,2025-05-22 19:12:09.491134," On NewsBreak, the audience bucket does not reset daily when you turn your campaigns on or off. However, frequent changes to your campaign settings can impact the learning phase and optimization process. It's best to allow the system some time to gather data and optimize effectively without making too many adjustments. If you have more questions about how this works, feel free to ask!",{}
+web,WEBCHAT,1873e85f7255457189c51b148eb24c5e,Prince ,2025-05-22 19:12:45.369773,How does the bidding work in newsbreak ?,{}
+bot,WEBCHAT,BOT,BOT,2025-05-22 19:12:58.406968," NewsBreak offers several bidding strategies to optimize your ad campaigns. One popular option is 'Maximize Conversions,' which automatically optimizes bids to get as many conversions as possible within your specified daily budget. This strategy uses dynamic bidding and AI-driven optimizations to expand the reach of your ads and secure the highest number of conversions efficiently. Other options include CPC, CPM, and tCPA campaigns. Each strategy has its own benefits, so you can choose based on your specific goals. If you want more details on a particular strategy, let me know!",{}
+web,WEBCHAT,1873e85f7255457189c51b148eb24c5e,Prince ,2025-05-22 19:13:44.252857,Yes share me ore details,{}
+bot,WEBCHAT,BOT,BOT,2025-05-22 19:13:58.971459," Certainly! Here's a brief overview of some bidding strategies on NewsBreak:
+
+1. **Maximize Conversions**: This strategy is designed to spend your daily budget predictably while delivering as many conversions as possible. It uses AI and machine learning to optimize bids dynamically, expanding the reach of your ads.
+
+2. **Target CPA (Cost-Per-Acquisition)**: With this strategy, you set a specific cost target for each conversion, and the Ad Manager adjusts your bids to achieve that target cost.
+
+3. **CPC (Cost Per Click)**: You pay for each click on your ad, allowing you to control costs based on user engagement.
+
+4. **CPM (Cost Per Mille)**: You pay for every thousand impressions, which can be useful for increasing brand awareness.
+
+Each strategy has its advantages depending on your campaign goals, whether it's maximizing conversions or controlling costs per acquisition. If you need more detailed guidance on setting up these strategies, feel free to ask!",{}
+web,WEBCHAT,1873e85f7255457189c51b148eb24c5e,Prince ,2025-05-22 19:17:25.012002,Share me the strategy to create a successful campaign ,{}
+bot,WEBCHAT,BOT,BOT,2025-05-22 19:17:51.224143," Creating a successful campaign on NewsBreak involves several key steps:
+
+1. **Define Your Objective**: Start by clearly defining what you want to achieve with your campaign, such as conversions, brand awareness, or app installs.
+
+2. **Targeting**: Use precise targeting options to reach your desired audience. Consider factors like location, demographics, and interests.
+
+3. **Budget and Bidding**: Set a realistic budget and choose a bidding strategy that aligns with your goals. For example, use 'Maximize Conversions' if you're focused on getting the most conversions within your budget.
+
+4. **Creative Design**: Develop engaging ad creatives that capture attention and convey your message effectively. A/B testing different creatives can help identify what works best.
+
+5. **Monitor and Optimize**: Regularly review campaign performance data to identify areas for improvement. Adjust targeting, bids, or creatives as needed to enhance results.
+
+6. **Leverage Best Practices**: Follow best practices for ad setup and optimization to maximize performance.
+
+For more detailed guidance on each step, you can refer to our [Campaign Set-Up Guide](https://help.newsbreak.com/hc/en-us/articles/23055076590221-Maximize-Conversions-Best-Practices). Let me know if you have any specific questions!",{}
+web,WEBCHAT,1873e85f7255457189c51b148eb24c5e,Prince ,2025-05-22 19:28:49.651668,Can I connect with someone from newsbreak ?,{}
+bot,WEBCHAT,BOT,BOT,2025-05-22 19:29:21.967171," If you're looking to connect with someone from NewsBreak, you can reach out to our support team via email at adsupport@newsbreak.com. They can assist you with any specific inquiries or issues you might have. If you're interested in having a dedicated account manager, please note that this is reserved for advertisers who meet a daily spend threshold of $1,000 or more. Let me know if there's anything else I can help with!",{}
+web,WEBCHAT,1873e85f7255457189c51b148eb24c5e,Prince ,2025-05-22 20:21:49.659242,How much time will it take to get the campaigns optimized?,{}
+bot,WEBCHAT,BOT,BOT,2025-05-22 20:22:00.492265," The time it takes for a campaign to become fully optimized can vary based on several factors, including the complexity of your targeting, the amount of data being collected, and the bidding strategy used. Generally, it can take a few days to a couple of weeks for the system to gather enough data and optimize effectively. During this period, it's important to avoid making frequent changes to your campaign settings, as this can reset the learning phase. Monitoring performance and making gradual adjustments based on insights can help in achieving optimal results.",{}
+web,WEBCHAT,1873e85f7255457189c51b148eb24c5e,Prince ,2025-05-22 20:23:36.810718,If I am running a conversion campaign then what the minimum number NB asks to have a stable lead gen flow?,{}
+bot,WEBCHAT,BOT,BOT,2025-05-22 20:23:44.971984," For a conversion campaign on NewsBreak, it's recommended to achieve at least 20-30 conversions during the learning phase to help stabilize the lead generation flow. This allows the system to gather enough data to optimize effectively. Once this threshold is met, your campaign should start performing more consistently. If you have any more questions or need further assistance, feel free to ask!",{}
+web,WEBCHAT,1873e85f7255457189c51b148eb24c5e,Prince ,2025-05-22 20:24:55.055843,"That is per campaign, per adset, per ad  or per ad account ?",{}
+bot,WEBCHAT,BOT,BOT,2025-05-22 20:25:03.577830," The recommendation of achieving 20-30 conversions is typically per ad set. This helps ensure that each ad set has enough data for the system to optimize effectively. By focusing on individual ad sets, you can better identify which targeting and creative combinations are working best for your campaign. If you have more questions about optimizing your campaigns, feel free to ask!",{}
+web,WEBCHAT,1873e85f7255457189c51b148eb24c5e,Prince ,2025-05-22 20:27:36.607005,My ad account is all new is it possible to get profitable conversions without any old data or history?,{}
+bot,WEBCHAT,BOT,BOT,2025-05-22 20:27:51.770123," Starting with a new ad account can be challenging, but it's definitely possible to achieve profitable conversions without old data or history. Here are some tips to help you get started:
+
+1. **Set Clear Goals**: Define your conversion goals clearly and set realistic expectations for your campaign.
+
+2. **Targeting**: Use precise targeting options to reach the right audience from the start.
+
+3. **Creative Testing**: Test different ad creatives to see which ones resonate best with your audience.
+
+4. **Bidding Strategy**: Consider using 'Maximize Conversions' bidding strategy initially, as it helps optimize for conversions even without historical data.
+
+5. **Monitor and Adjust**: Regularly review performance data and make adjustments as needed based on insights.
+
+6. **Patience and Learning Phase**: Allow time for the learning phase, where the system gathers data to optimize effectively.
+
+If you need more detailed guidance or have specific questions, feel free to ask!",{}
+web,WEBCHAT,1873e85f7255457189c51b148eb24c5e,Prince ,2025-05-22 20:30:29.358667,"But I have no patience & I want my ads to perform as soon as possible. I have like 4 campaigns, each campaign have 4-5 adsets & 1 ad in each of them. I want them to perform any how ",{}
+bot,WEBCHAT,BOT,BOT,2025-05-22 20:31:01.408614," I understand the urgency to get your campaigns performing well quickly. Here are some strategies you can implement to potentially speed up the optimization process:
+
+1. **Maximize Conversions Bidding**: Start with the 'Maximize Conversions' bidding strategy. This approach helps gather data quickly and optimizes for conversions, which can help you exit the learning phase faster.
+
+2. **Broad Targeting**: Initially, use broad targeting options to allow the system to gather more data and identify effective audience segments.
+
+3. **Increase Budget Gradually**: Once your campaign starts showing positive results, consider gradually increasing your daily budget by up to 50% every 2-3 days to scale up without disrupting the learning phase.
+
+4. **Test Different Creatives**: Experiment with different ad creatives and messages to see which ones perform best with your target audience.
+
+5. **Monitor Performance**: Keep an eye on performance metrics and make data-driven adjustments as needed, but avoid making too many changes during the initial learning phase.
+
+6. **Patience is Key**: While it's understandable that you want quick results, remember that it typically takes about 20-30 conversions for a campaign to stabilize and exit the learning phase.
+
+For more detailed guidance on setting up a successful campaign, check out our [Campaign Best Practices Guide](https://help.newsbreak.com/hc/en-us/articles/23055076590221-Maximize-Conversions-Best-Practices). Let me know if there's anything else I can assist you with!",{}

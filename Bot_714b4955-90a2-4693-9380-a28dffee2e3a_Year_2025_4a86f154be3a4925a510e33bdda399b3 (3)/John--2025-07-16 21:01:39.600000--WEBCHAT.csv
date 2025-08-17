@@ -1,0 +1,138 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-07-16 21:01:39.600000,,"{""recipient_id"": ""b61d1da9-19ee-470d-ad28-e63a082c6017"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-07-16 21:01:39.610000,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+web,WEBCHAT,6cc0b870ac9b4ac98051e30bea3814dc,John ,2025-07-16 21:01:39.620000,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""John""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""genainecom@gmail.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1944455131971219458""}]}"
+web,WEBCHAT,6cc0b870ac9b4ac98051e30bea3814dc,John ,2025-07-16 21:01:48.934355,hi,{}
+bot,WEBCHAT,BOT,BOT,2025-07-16 21:01:54.643871, Hello! How can I assist you today?,{}
+web,WEBCHAT,6cc0b870ac9b4ac98051e30bea3814dc,John ,2025-07-16 21:02:18.078637,for some reason event for my next.js project does not work,{}
+bot,WEBCHAT,BOT,BOT,2025-07-16 21:02:27.892287, I'm sorry to hear that you're having trouble with event tracking in your Next.js project. Could you please let me know which tracking platform you are using? This will help me provide more specific guidance.,{}
+web,WEBCHAT,6cc0b870ac9b4ac98051e30bea3814dc,John ,2025-07-16 21:07:35.187951,this one,"{""image_list"": [{""image"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/b61d1da9-19ee-470d-ad28-e63a082c6017/f72111fa963f4783b794abd4d5e724a0.png"", ""thumbnail"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/b61d1da9-19ee-470d-ad28-e63a082c6017/f72111fa963f4783b794abd4d5e724a0_thumbnail.png"", ""is_ready"": true}]}"
+seachat_sys,WEBCHAT,BOT,BOT,2025-07-16 21:07:45.035738,"this one
+It looks like you're trying to set up event tracking in the NewsBreak Ad Manager. Here are a few steps to troubleshoot the issue:
+
+1. **Pixel Integration**: Make sure you have correctly integrated the NewsBreak Pixel into your Next.js application. Check that the pixel code is placed in the appropriate location, usually in the `<head>` or as a part of specific components.
+
+2. **Event Name**: Ensure that the event name (`test123` in your case) is correctly set and that it matches the expected format in the NewsBreak documentation.
+
+3. **Event Type**: Confirm that you have selected the correct event tracking type (Pixel or Postback). If you're unsure, consult the documentation for your specific use case.
+
+4. **Conversion Events**: Verify that the conversion event you selected (like ""Complete Payment"") is properly set up in conjunction with your application's logic. Ensure that the event fires at the right moment in your application.
+
+5. **Testing Tools**: Use browser developer tools to debug and view network requests. Check if the pixel requests are being sent when events occur.
+
+6. **Documentation**: Refer to the official NewsBreak documentation for specific integration steps and best practices.
+
+7. **Console Errors**: Check the console for any JavaScript errors or warnings that might affect the tracking.
+
+If you're still experiencing issues after these checks, please provide more details about how you've set up the integration.",
+bot,WEBCHAT,BOT,BOT,2025-07-16 21:07:58.324869," Thanks for sharing the details! Let's go through some specific steps to troubleshoot your event tracking issue with NewsBreak in your Next.js project:
+
+1. **Pixel Integration**: Ensure that the NewsBreak Pixel is correctly placed in your Next.js application. It should be in the `<head>` section or within specific components where you want to track events.
+
+2. **Event Name and Type**: Double-check that the event name and type are correctly configured according to NewsBreak's documentation. Make sure they match exactly as expected.
+
+3. **Conversion Events**: Verify that conversion events like ""Complete Payment"" are set up properly and trigger at the right time in your app's flow.
+
+4. **Testing Tools**: Use browser developer tools to inspect network requests and confirm if pixel requests are being sent when events occur.
+
+5. **Console Errors**: Look for any JavaScript errors or warnings in the console that might interfere with tracking.
+
+If you've gone through these steps and still face issues, please let me know more about how you've set up the integration, or you can reach out to adsupport@newsbreak.com for further assistance.",{}
+web,WEBCHAT,6cc0b870ac9b4ac98051e30bea3814dc,John ,2025-07-16 21:09:39.063295,"I’ve created a web event with Pixel ID: ID-1944455131971219458 and integrated the provided base code into my Next.js site.
+
+The script loads correctly, `window.nbpix` exists, and the event is triggered. However, the function is still in the queue mode (`p.queue.push(arguments)`) and never sends actual tracking requests. No outbound requests are made to your tracking endpoint.
+
+Can you please confirm if my pixel is fully activated on your end? If not, what’s needed to finalize it?",{}
+bot,WEBCHAT,BOT,BOT,2025-07-16 21:09:59.975650," It sounds like you've done a great job integrating the pixel into your Next.js site. Since the script loads correctly and `window.nbpix` exists, but the function remains in queue mode, it might be an issue with activation on our end.
+
+To confirm if your pixel is fully activated, I recommend reaching out to adsupport@newsbreak.com with your Pixel ID: ID-1944455131971219458. They can verify the activation status and guide you on any additional steps needed to finalize it.
+
+In the meantime, ensure that all necessary configurations are set up correctly in your NewsBreak Ad Manager account.",{}
+web,WEBCHAT,6cc0b870ac9b4ac98051e30bea3814dc,John ,2025-07-16 21:12:34.479156,also i can see that on network everetsing looks goood,"{""image_list"": [{""image"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/b61d1da9-19ee-470d-ad28-e63a082c6017/45a89371ff7c4a3a801d6187ede545ed.png"", ""thumbnail"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/b61d1da9-19ee-470d-ad28-e63a082c6017/45a89371ff7c4a3a801d6187ede545ed_thumbnail.png"", ""is_ready"": true}]}"
+seachat_sys,WEBCHAT,BOT,BOT,2025-07-16 21:12:45.085409,"also i can see that on network everetsing looks goood
+It looks like the pixel script is loading successfully, as indicated by the 200 OK response. If the script is properly integrated and `window.nbpix` is available, but events are still queued and not sent, this typically suggests that the pixel may not be fully activated on the server side.
+
+Here are a few additional steps you can take:
+
+1. **Check Activation Status**: As mentioned earlier, contacting adsupport@newsbreak.com with your Pixel ID will help confirm whether your pixel is fully activated. They can provide insights into any potential issues on their end.
+
+2. **Inspect Script Configuration**: Ensure that the configuration for the pixel setup is exactly as specified in the documentation. Any discrepancies might prevent events from being sent.
+
+3. **Network Conditions**: Sometimes, network conditions or ad blockers can interfere with tracking requests. Make sure there are no ad blockers enabled when testing.
+
+4. **Test Event Triggering**: Make sure that your events are being triggered correctly and that you're calling the appropriate methods on `window.nbpix` for event logging.
+
+5. **Console Logs**: You can add console logs in your event logging functions to confirm that they are being executed and investigate any potential errors.
+
+If all else fails, the support team will be the best resource for resolving any activation or configuration issues related to the NewsBreak Pixel.",
+bot,WEBCHAT,BOT,BOT,2025-07-16 21:12:59.771768," It seems like you've covered a lot of ground in troubleshooting the pixel integration. Here are some additional steps and considerations:
+
+1. **Activation Status**: Definitely reach out to adsupport@newsbreak.com with your Pixel ID: ID-1944455131971219458 to confirm activation status on the server side.
+
+2. **Script Configuration**: Double-check that your pixel setup matches the documentation exactly, as any discrepancies can affect event transmission.
+
+3. **Network Conditions**: Ensure no ad blockers or network restrictions are interfering with tracking requests during testing.
+
+4. **Event Triggering**: Verify that events are triggered correctly and you're using the right methods on `window.nbpix` for logging events.
+
+5. **Console Logs**: Implement console logs within your event functions to ensure they execute properly and identify any errors.
+
+If these steps don't resolve the issue, contacting support will be crucial for further assistance.",{}
+web,WEBCHAT,6cc0b870ac9b4ac98051e30bea3814dc,John ,2025-07-16 21:13:29.877798,but here nothing,"{""image_list"": [{""image"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/b61d1da9-19ee-470d-ad28-e63a082c6017/2752feabbc4b4ff8ae3472e77130dd3f.png"", ""thumbnail"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/b61d1da9-19ee-470d-ad28-e63a082c6017/2752feabbc4b4ff8ae3472e77130dd3f_thumbnail.png"", ""is_ready"": true}]}"
+seachat_sys,WEBCHAT,BOT,BOT,2025-07-16 21:13:39.162400,"but here nothing
+It looks like your testing session isn't picking up any responses for either the pixel base code or the conversion event tracking code. Here are some steps you can take to troubleshoot further:
+
+1. **Correct URL**: Make sure the URL you're testing with corresponds to the site where the pixel is implemented.
+
+2. **Integration Verification**: Revisit your integration in the Next.js application. Ensure that the pixel code is placed in the appropriate component or page and is rendering correctly.
+
+3. **JavaScript Errors**: Open your browser's developer console and check for any JavaScript errors that may impact the pixel execution.
+
+4. **Test Environment**: Ensure you're testing in a live environment rather than a local development setup if that's applicable. Sometimes, test pixels require a production-like environment.
+
+5. **Pixel Activation**: As mentioned earlier, contact adsupport@newsbreak.com to verify the pixel's activation status. This is crucial if no responses are showing up in the test.
+
+If you've gone through these steps and are still not seeing results, reach out to support for further assistance. They can provide insights specific to your pixel setup.",
+bot,WEBCHAT,BOT,BOT,2025-07-16 21:13:50.489064," It seems like you're facing challenges with the pixel not picking up responses. Here are some steps to help troubleshoot:
+
+1. **Correct URL**: Ensure the URL you're testing matches the site where the pixel is implemented.
+
+2. **Integration Verification**: Double-check your Next.js integration to confirm that the pixel code is correctly placed and rendering in the right component or page.
+
+3. **JavaScript Errors**: Use your browser's developer console to look for any JavaScript errors that might affect pixel execution.
+
+4. **Test Environment**: Make sure you're testing in a live environment rather than a local setup, as test pixels often need a production-like environment.
+
+5. **Pixel Activation**: Contact adsupport@newsbreak.com with your Pixel ID to verify activation status, especially if no responses are appearing during tests.
+
+If these steps don't resolve the issue, reaching out to support will be essential for more tailored assistance.",{}
+web,WEBCHAT,6cc0b870ac9b4ac98051e30bea3814dc,John ,2025-07-16 21:27:07.117423,soo I should activate my Pixel ID?,"{""image_list"": [{""image"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/b61d1da9-19ee-470d-ad28-e63a082c6017/a5a38a48924d4dbbb413b72eebb2629e.png"", ""thumbnail"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/b61d1da9-19ee-470d-ad28-e63a082c6017/a5a38a48924d4dbbb413b72eebb2629e_thumbnail.png"", ""is_ready"": true}]}"
+seachat_sys,WEBCHAT,BOT,BOT,2025-07-16 21:27:16.548171,"soo I should activate my Pixel ID?
+Based on the error message and the fact that the pixel isn't sending data, it does appear that your Pixel ID may need to be activated. The `404` error suggests that the request sent to the server is not finding the expected endpoint, which could be a result of the pixel not being properly set up or activated on the NewsBreak side.
+
+Here’s what you can do:
+
+1. **Activate Pixel**: If you haven't done so already, reach out to adsupport@newsbreak.com to confirm if your Pixel ID needs activation.
+
+2. **Check Pixel Code**: Review your pixel implementation to ensure all required parameters and settings match the documentation correctly.
+
+3. **Testing Environment**: Make sure you're testing on a live environment, as local setups may not process events correctly.
+
+4. **Console Errors**: The errors in your console seem related to the script execution. Correct any JavaScript errors that appear to be blocking the pixel from functioning.
+
+5. **Debugging**: Try logging messages or adding breakpoints in your code to see where things might be breaking.
+
+If after checking these points you're still facing issues, the support team will provide the most accurate information regarding your pixel's activation status.",
+bot,WEBCHAT,BOT,BOT,2025-07-16 21:27:33.537026," Yes, it seems like your Pixel ID might need activation. Here are the steps you can take:
+
+1. **Activate Pixel**: Contact adsupport@newsbreak.com with your Pixel ID to confirm if it needs activation.
+
+2. **Check Pixel Code**: Ensure your pixel implementation matches the documentation, including all required parameters and settings.
+
+3. **Testing Environment**: Verify that you're testing in a live environment, as local setups might not process events correctly.
+
+4. **Console Errors**: Address any JavaScript errors in the console that could be blocking the pixel from functioning properly.
+
+5. **Debugging**: Use logging or breakpoints in your code to identify where issues might be occurring.
+
+If these steps don't resolve the issue, reaching out to support will help clarify your pixel's activation status and provide further assistance.",{}

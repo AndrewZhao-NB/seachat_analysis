@@ -1,0 +1,27 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-06-20 07:49:29.362000,,"{""recipient_id"": ""050fdf95-041e-470d-a93f-4874a83c93e6"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-06-20 07:49:29.372000,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+web,WEBCHAT,3de303a828cf488fb887af4abffb7c0c,Stefan ,2025-06-20 07:49:29.382000,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""Stefan""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""insta@bugginginguide.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1935966247383101442""}]}"
+web,WEBCHAT,3de303a828cf488fb887af4abffb7c0c,Stefan ,2025-06-20 07:50:22.278663,"Hi!
+I have accidentally sent a wrong version of the website for verification. 
+
+The site is not
+
+https://www.bugin-guide.com
+
+but instead it is 
+
+https://www.bugin-guide.com/gg-main/
+
+can you please update it in the application for verification?
+
+Thank you!",{}
+bot,WEBCHAT,BOT,BOT,2025-06-20 07:50:36.492425," Hi! I understand the need to update your website information for verification. Unfortunately, I can't make changes directly to your application. However, you can email our support team at adsupport@newsbreak.com with the correct website URL and any other relevant details. They will assist you in updating your application for verification. Let me know if there's anything else I can help with!",{}
+web,WEBCHAT,3de303a828cf488fb887af4abffb7c0c,Stefan ,2025-06-20 07:50:57.939036,can you give me a human?,{}
+bot,WEBCHAT,BOT,BOT,2025-06-20 07:51:05.020730," I'm here to help with whatever you need! Let me know your question, and I'll do my best to assist you right away.",{}
+web,WEBCHAT,3de303a828cf488fb887af4abffb7c0c,Stefan ,2025-06-20 07:51:14.316045,give me a human please,{}
+bot,WEBCHAT,BOT,BOT,2025-06-20 07:51:27.879795," I understand you're looking for assistance. Please let me know your question or issue, and I'll do my best to help you out!",{}
+web,WEBCHAT,3de303a828cf488fb887af4abffb7c0c,Stefan ,2025-06-26 07:25:47.540968,"Hi there, ad set is ready and unfortunately campaign says no active ad sets warning",{}
+bot,WEBCHAT,BOT,BOT,2025-06-26 07:26:07.396156," Hi there! It sounds like your campaign is experiencing an issue with active ad sets. Could you please check if the ad set status is correctly set to active? Also, ensure that there are no errors in targeting or budget settings. If everything seems fine, try using the diagnosis tool under the “Status” column in your ad sets for more insights. If you need further assistance, feel free to reach out to adsupport@newsbreak.com.",{}
+web,WEBCHAT,3de303a828cf488fb887af4abffb7c0c,Stefan ,2025-07-07 09:40:55.577006,how can I download bills history?,{}
+bot,WEBCHAT,BOT,BOT,2025-07-07 09:41:02.830478," To download your billing history, you can access the 'Billing' section in your NewsBreak account. Unfortunately, the specific steps to download billing history aren't detailed in the available resources. If you need further assistance, please contact adsupport@newsbreak.com for help.",{}

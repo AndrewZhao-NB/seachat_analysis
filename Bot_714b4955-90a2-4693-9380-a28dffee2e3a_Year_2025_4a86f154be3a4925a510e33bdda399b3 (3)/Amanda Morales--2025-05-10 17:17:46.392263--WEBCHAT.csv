@@ -1,0 +1,25 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-05-10 17:17:46.991601,,"{""recipient_id"": ""61b57e66-9daf-40ab-81cd-9fcd9c011ca6"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-05-10 17:17:47.500433,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-05-10 17:17:48.646162,,"{""recipient_id"": ""61b57e66-9daf-40ab-81cd-9fcd9c011ca6"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+web,WEBCHAT,fa439270cf89492986bc562749e5c68b,Amanda Morales ,2025-05-10 17:18:02.291353,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""Amanda Morales""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""perla8gmerrih@hotmail.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1920928822031306754""}]}"
+web,WEBCHAT,fa439270cf89492986bc562749e5c68b,Amanda Morales ,2025-05-10 17:18:08.418347,"Hello, my ad is still stuck in review",{}
+bot,WEBCHAT,BOT,BOT,2025-05-10 17:18:15.942232," Hi there! If your ad is still under review, it might be due to the standard approval process which usually takes between 1-2 business days. If your account is new, we might need some additional information for business verification. Could you please provide the following details?
+- Company's full address
+- Company's legal entity name
+- Account Email
+- Company's EHID or DUNS number
+- Primary contact person's name
+- Company's phone number
+Once you provide this information, I can help you further!",{}
+web,WEBCHAT,fa439270cf89492986bc562749e5c68b,Amanda Morales ,2025-05-10 17:19:11.148121,"84-4607767
+AMANDA MORALES
+1245 SW 90TH AVE 
+miami, FL 33174
+ONLINE 4YOU, INC
+perla8gmerrih@hotmail.com
+786-402-4203",{}
+bot,WEBCHAT,BOT,BOT,2025-05-10 17:19:21.344984,"Thank you for providing the details. I've forwarded your information for business verification. Our team will review it and get back to you soon. If you have any other questions, feel free to ask!",{}
+bot,WEBCHAT,BOT,BOT,2025-05-10 17:19:26.732690,"Thank you for providing the details. I've forwarded your information for business verification. Our team will review it and get back to you soon. If you have any other questions, feel free to ask!",{}
+web,WEBCHAT,fa439270cf89492986bc562749e5c68b,Amanda Morales ,2025-05-10 17:20:47.001320,thank you,{}
+bot,WEBCHAT,BOT,BOT,2025-05-10 17:20:53.253049," You're welcome! If you need any more help, just let me know. Have a great day!",{}

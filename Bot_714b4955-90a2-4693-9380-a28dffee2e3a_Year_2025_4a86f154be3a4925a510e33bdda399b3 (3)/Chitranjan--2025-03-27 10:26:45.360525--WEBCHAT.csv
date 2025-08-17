@@ -1,0 +1,84 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-03-27 10:26:45.886969,,"{""recipient_id"": ""d2e11b2e-df84-45ec-b7fc-50307c3111f0"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-03-27 10:26:46.448713,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-03-27 10:26:47.696357,,"{""recipient_id"": ""d2e11b2e-df84-45ec-b7fc-50307c3111f0"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+web,WEBCHAT,e0290efe6c0541ebb7858fcd57fc5b95,Chitranjan ,2025-03-27 10:29:44.191281,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""Chitranjan""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""chitranjan.kumar@themaverickventures.us""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1897561309071896577""}]}"
+web,WEBCHAT,e0290efe6c0541ebb7858fcd57fc5b95,Chitranjan ,2025-03-27 10:30:06.711955,"Hi Team, I want to track only 1 conversion per click ?",{}
+bot,WEBCHAT,BOT,BOT,2025-03-27 10:30:16.214550," Hi there! To track only one conversion per click, you can set up your NewsBreak pixel to track a single event. For detailed instructions on setting up custom pixels and ensuring that only one conversion is tracked per click, please refer to this article: [How to install a NewsBreak Pixel on Shopify](https://help.newsbreak.com/hc/en-us/articles/18551604763405-How-to-install-a-NewsBreak-Pixel-on-Shopify). If you need further assistance, feel free to ask!",{}
+web,WEBCHAT,e0290efe6c0541ebb7858fcd57fc5b95,Chitranjan ,2025-03-27 10:30:35.444057,I am using postback tracking using clickflare,{}
+web,WEBCHAT,e0290efe6c0541ebb7858fcd57fc5b95,Chitranjan ,2025-03-27 10:30:41.348441,how can I do it there?,{}
+bot,WEBCHAT,BOT,BOT,2025-03-27 10:30:42.675368," Got it! For postback tracking using ClickFlare, you can follow the steps to integrate a NewsBreak postback. Here's a helpful article that outlines the process: [How to Integrate a NewsBreak Postback with Tune](https://help.newsbreak.com/hc/en-us/articles/28417055489037-How-to-Integrate-a-NewsBreak-Postback-with-Tune). Although this article is for Tune, the steps are similar for ClickFlare. If you need specific instructions or further assistance, please let me know!",{}
+bot,WEBCHAT,BOT,BOT,2025-03-27 10:30:48.468020," Got it! Since you're using postback tracking with Clickflare, you'll need to set up your conversion event in NewsBreak Ad Manager. Here's how you can do it:
+1. Log into your NewsBreak ad account.
+2. Go to the Event Management section and select 'Create/test web event.'
+3. Enter the event name and select your tracking type as 'Postback.'
+4. Choose 'Clickflare' as the 3rd party tracking service and select your conversion event.
+5. Follow the instructions in our Ad Manager to successfully save your event.
+For more detailed information, please refer to this article: [How to set up a RedTrack Postback on NewsBreak](https://help.newsbreak.com/hc/en-us/articles/25515090832013-How-to-set-up-a-RedTrack-Postback-on-NewsBreak). Although it's for RedTrack, the steps are similar for Clickflare.
+If you need further assistance, feel free to ask!",{}
+web,WEBCHAT,e0290efe6c0541ebb7858fcd57fc5b95,Chitranjan ,2025-03-27 10:31:22.122322,"I did the same, but I could not find an option to track only 1 conversion per clickid",{}
+bot,WEBCHAT,BOT,BOT,2025-03-27 10:31:36.101462," I understand. To ensure that only one conversion is tracked per click ID using Clickflare, you need to set up deduplication rules in your Clickflare account. Here’s how you can do it:
+1. Log into your Clickflare account.
+2. Go to the 'Campaigns' section and select the campaign you want to edit.
+3. Navigate to the 'Postback URL' settings for that campaign.
+4. Add a deduplication parameter to your postback URL, such as `&dedupe=1` or similar, depending on Clickflare's specific requirements.
+5. Save your changes and test the setup to ensure it works correctly.
+For more detailed instructions, please refer to this article: [How to Integrate a NewsBreak Postback with Clickflare](https://help.newsbreak.com/hc/en-us/articles/28421919800845-How-to-Integrate-a-NewsBreak-Postback-with-Clickflare).
+If you need further assistance, feel free to ask!",{}
+web,WEBCHAT,e0290efe6c0541ebb7858fcd57fc5b95,Chitranjan ,2025-03-27 10:33:11.833619,"clickflare is suggesting me to pass timestamp as a transaction ID to deduplicate conversions
+
+what parameter can I use to pass txid's?",{}
+bot,WEBCHAT,BOT,BOT,2025-03-27 10:33:22.674947," To pass a timestamp as a transaction ID for deduplication in Clickflare, you can use the `txid` parameter in your postback URL. Here’s how you can set it up:
+1. Log into your Clickflare account.
+2. Go to the 'Campaigns' section and select the campaign you want to edit.
+3. Navigate to the 'Postback URL' settings for that campaign.
+4. Modify your postback URL to include the `txid` parameter with a timestamp value, like this: `&txid={timestamp}`.
+5. Save your changes and test the setup to ensure it works correctly.
+For more detailed instructions, please refer to this article: [How to Integrate a NewsBreak Postback with Clickflare](https://help.newsbreak.com/hc/en-us/articles/28421919800845-How-to-Integrate-a-NewsBreak-Postback-with-Clickflare).
+If you need further assistance, feel free to ask!",{}
+web,WEBCHAT,e0290efe6c0541ebb7858fcd57fc5b95,Chitranjan ,2025-03-28 08:47:35.124702,"Hi team
+
+on your advice, yesterday we used dedupe=1 in our postbacks but still I see duplicate conversions in newsbreak",{}
+bot,WEBCHAT,BOT,BOT,2025-03-28 08:47:43.722260, Hi there! I'm sorry to hear that you're still seeing duplicate conversions despite using dedupe=1 in your postbacks. Could you please confirm which tracking platform or service you are using for the postbacks? This will help me provide more specific guidance.,{}
+web,WEBCHAT,e0290efe6c0541ebb7858fcd57fc5b95,Chitranjan ,2025-03-28 08:47:53.766097,clickflare,{}
+bot,WEBCHAT,BOT,BOT,2025-03-28 08:48:01.729070," Thanks for confirming that you're using Clickflare. To help you resolve the issue with duplicate conversions, please follow these steps to ensure your postback setup is correct:
+1. Make sure you are passing a unique transaction ID for each conversion. Clickflare suggests using a timestamp as the transaction ID to deduplicate conversions.
+2. Verify that the dedupe parameter is correctly set in your postback URL.
+3. Double-check that your postback URL is correctly implemented in NewsBreak's event management system.
+For more detailed instructions, you can refer to this article: [How to integrate a general NewsBreak Postback](https://help.newsbreak.com/hc/en-us/articles/25226963388813-How-to-integrate-a-general-NewsBreak-Postback).
+If you continue to experience issues, please let me know and I can assist further.",{}
+web,WEBCHAT,e0290efe6c0541ebb7858fcd57fc5b95,Chitranjan ,2025-03-28 08:51:21.367543,http://business.newsbreak.com/tracking/attribute?callback={external_id}&event_type=complete_registration&dedupe=1,{}
+bot,WEBCHAT,BOT,BOT,2025-03-28 08:51:29.463770," Thanks for sharing your postback URL. It looks like the dedupe parameter is correctly set. Here are a few things to check to ensure everything is working properly:
+1. Ensure that `{external_id}` is being replaced with a unique transaction ID for each conversion, such as a timestamp.
+2. Verify that the event type `complete_registration` matches the event you want to track.
+3. Make sure that the NewsBreak Event Test is passing without errors.
+For more detailed instructions on setting up a NewsBreak Postback with Clickflare, please refer to this article: [How to Integrate a NewsBreak Postback with Clickflare](https://help.newsbreak.com/hc/en-us/articles/28421919800845-How-to-Integrate-a-NewsBreak-Postback-with-Clickflare).
+If you continue to experience issues, please let me know and I can assist further.",{}
+web,WEBCHAT,e0290efe6c0541ebb7858fcd57fc5b95,Chitranjan ,2025-03-28 08:52:46.066018,external ID is actually newsbreak cid,{}
+bot,WEBCHAT,BOT,BOT,2025-03-28 08:52:54.207278," Got it, thanks for clarifying that the external ID is actually the NewsBreak Click ID. Here are a few steps to ensure your setup is correct:
+1. Make sure that the `callback` parameter in your postback URL is correctly populated with the NewsBreak Click ID.
+2. Ensure that each conversion event has a unique Click ID to avoid duplicates.
+3. Double-check that the dedupe parameter is set to 1 in your postback URL.
+Your postback URL should look something like this:
+```
+http://business.newsbreak.com/tracking/attribute?callback={newsbreak_cid}&event_type=complete_registration&dedupe=1
+```
+For more detailed instructions, you can refer to this article: [How to integrate a general NewsBreak Postback](https://help.newsbreak.com/hc/en-us/articles/25226963388813-How-to-integrate-a-general-NewsBreak-Postback).
+If you continue to experience issues, please let me know and I can assist further.",{}
+web,WEBCHAT,e0290efe6c0541ebb7858fcd57fc5b95,Chitranjan ,2025-03-28 08:58:34.860773,"yes, it is exactly same",{}
+bot,WEBCHAT,BOT,BOT,2025-03-28 08:58:48.048424," Thanks for confirming that your postback URL is set up correctly. Since you're still seeing duplicate conversions, here are a few additional steps to troubleshoot the issue:
+1. **Verify Unique Click IDs:** Ensure that each conversion event has a unique NewsBreak Click ID (`newsbreak_cid`). Duplicate Click IDs can cause multiple conversions to be recorded for the same click.
+2. **Check Timestamp:** If possible, include a timestamp in your transaction ID to ensure uniqueness.
+3. **Review Logs:** Check your server logs to ensure that the postback requests are being sent correctly and only once per conversion event.
+4. **Contact Support:** If you've verified all the above and still see duplicates, it might be helpful to contact NewsBreak support for further assistance.
+If you need more detailed guidance, please refer to this article: [How to integrate a general NewsBreak Postback](https://help.newsbreak.com/hc/en-us/articles/25226963388813-How-to-integrate-a-general-NewsBreak-Postback).
+If you continue experiencing issues, please let me know and I can assist further.",{}
+web,WEBCHAT,e0290efe6c0541ebb7858fcd57fc5b95,Chitranjan ,2025-03-28 09:00:23.360292,"I checked and found multiple conversions being fired on same clickID, can we somehow deduplicated those conversions on newsbreak?
+
+or if there is an option to track only 1 conversion per newsbreak clickID",{}
+bot,WEBCHAT,BOT,BOT,2025-03-28 09:00:47.094482," Thanks for checking the Click IDs. To deduplicate conversions on NewsBreak or track only one conversion per Click ID, you can follow these steps:
+1. **Use the dedupe parameter:** Ensure that the dedupe parameter is set to 1 in your postback URL, which you have already done.
+2. **Pass a unique transaction ID:** Use a timestamp or another unique identifier as the transaction ID to ensure each conversion is unique.
+3. **Limit conversions per Click ID:** You can configure your tracking setup to limit conversions to one per NewsBreak Click ID (`newsbreak_cid`). This might require adjustments on your tracking platform (Clickflare) to ensure it only fires one conversion per Click ID.
+For more detailed instructions, please refer to this article: [How to integrate a general NewsBreak Postback](https://help.newsbreak.com/hc/en-us/articles/25226963388813-How-to-integrate-a-general-NewsBreak-Postback).
+If you continue experiencing issues, please let me know and I can assist further.",{}

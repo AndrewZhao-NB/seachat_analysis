@@ -1,0 +1,98 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-07-09 13:47:54.280000,,"{""recipient_id"": ""ba97a71d-f52a-4419-b467-5eb88266d97c"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-07-09 13:47:54.290000,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+web,WEBCHAT,5acfd4717ff84027b5c86953dd024671,Iris ,2025-07-09 13:47:54.300000,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""Iris""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""xx5cc6@outlook.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1942173221448863745""}]}"
+web,WEBCHAT,5acfd4717ff84027b5c86953dd024671,Iris ,2025-07-09 13:49:27.096771,"Setting up the pixel, it keeps getting stuck here and won't click save. Do I need the store to be out of order to be able to select it?","{""image_list"": [{""image"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/ba97a71d-f52a-4419-b467-5eb88266d97c/a7c4ad87bf14436b8054622a09a90918.png"", ""thumbnail"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/ba97a71d-f52a-4419-b467-5eb88266d97c/a7c4ad87bf14436b8054622a09a90918_thumbnail.png"", ""is_ready"": true}]}"
+seachat_sys,WEBCHAT,BOT,BOT,2025-07-09 13:49:34.686561,"Setting up the pixel, it keeps getting stuck here and won't click save. Do I need the store to be out of order to be able to select it?
+It seems like you’re experiencing a problem with the pixel setup, where the ""Save"" button isn't being activated. Here are a few steps you can try to troubleshoot the issue:
+
+1. **Check Test URL**: Ensure that the Test URL you entered is valid and correctly formatted. There may be restrictions on which URLs can be used, so double-check that it meets the necessary criteria.
+
+2. **Complete the Testing**: Make sure all steps in the testing process have been completed. Sometimes, the ""Save"" option won’t activate until the event testing is fully finished, or if there are errors that need addressing.
+
+3. **Browser Compatibility**: Try using a different web browser or clearing the cache of your current browser. This can resolve issues caused by cached data.
+
+4. **Pop-up Blockers**: Ensure that any pop-up blockers or ad blockers are disabled. These can interfere with the testing process.
+
+5. **Order Status**: While the store itself does not necessarily have to be out of order, if you’re testing specific events (like a checkout), any transaction-related functions should be operational to trigger all necessary events.
+
+6. **Refresh & Retry**: Sometimes, simply refreshing the page and re-entering the necessary details can resolve the issue.
+
+If you continue to face problems, consider reaching out to support for the pixel integration tool you are using.",
+bot,WEBCHAT,BOT,BOT,2025-07-09 13:49:44.349785," It sounds like you're having trouble with the pixel setup. Let's try to narrow down the issue:
+
+1. **Test URL**: Double-check that your Test URL is correctly formatted and valid.
+
+2. **Complete Testing**: Ensure all testing steps are completed, as the ""Save"" button might not activate until everything is finished.
+
+3. **Browser Compatibility**: Try switching browsers or clearing your cache to see if that helps.
+
+4. **Pop-up Blockers**: Disable any pop-up or ad blockers that might be interfering.
+
+5. **Order Status**: Your store doesn't need to be out of order, but transaction-related functions should be operational for event testing.
+
+6. **Refresh & Retry**: Refreshing the page and re-entering details can sometimes resolve issues.
+
+If these steps don't help, you might want to contact support for further assistance with your pixel integration tool.",{}
+web,WEBCHAT,5acfd4717ff84027b5c86953dd024671,Iris ,2025-07-09 13:49:51.874947,,"{""image_list"": [{""image"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/ba97a71d-f52a-4419-b467-5eb88266d97c/c2bfc822f43646cf9ae4a287393c6856.png"", ""thumbnail"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/ba97a71d-f52a-4419-b467-5eb88266d97c/c2bfc822f43646cf9ae4a287393c6856_thumbnail.png"", ""is_ready"": true}]}"
+seachat_sys,WEBCHAT,BOT,BOT,2025-07-09 13:50:41.215536,"It seems you're trying to set up a pixel and are stuck on saving the settings. Here are a few steps to troubleshoot the issue based on the screenshot:
+
+1. **Test URL Entry**: Make sure the URL you entered in the ""Test URL"" field is correctly formatted and includes ""http://"" or ""https://"". 
+
+2. **Completion of Testing**: Ensure that the testing process has finished. Sometimes the ""Save"" button will remain inactive until all necessary checks are complete.
+
+3. **Wait for Processing**: If it’s showing ""Testing conversion event tracking code,"" wait until this process is fully completed before attempting to click ""Save.""
+
+4. **Browser Issues**: If the issue persists, try using a different browser or clearing the cache in your current browser.
+
+5. **Disable Extensions**: Temporarily disable any browser extensions, particularly ad blockers or privacy-enhancing tools that might interfere with the page's functionality.
+
+6. **Refreshing the Page**: If you still can't click ""Save,"" try refreshing the page, re-entering the necessary information, and then look for the Save button again.
+
+If none of these solutions work, it may be helpful to reach out to the support team for the pixel tool you're using for further assistance.",
+bot,WEBCHAT,BOT,BOT,2025-07-09 13:50:55.243856," It looks like you're having trouble saving your pixel settings. Let's go through some troubleshooting steps:
+
+1. **Test URL Entry**: Ensure your Test URL is correctly formatted with ""http://"" or ""https://"".
+
+2. **Completion of Testing**: Make sure all testing steps are completed, as the ""Save"" button might not activate until everything is finished.
+
+3. **Wait for Processing**: If it's showing ""Testing conversion event tracking code,"" wait for this process to complete before clicking ""Save.""
+
+4. **Browser Issues**: Try using a different browser or clearing your cache.
+
+5. **Disable Extensions**: Temporarily disable any browser extensions, especially ad blockers or privacy tools that might interfere.
+
+6. **Refreshing the Page**: Refresh the page, re-enter the information, and try clicking ""Save"" again.
+
+If these steps don't resolve the issue, consider reaching out to support for further assistance with your pixel tool.",{}
+web,WEBCHAT,5acfd4717ff84027b5c86953dd024671,Iris ,2025-07-09 14:20:43.466427,,"{""image_list"": [{""image"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/ba97a71d-f52a-4419-b467-5eb88266d97c/3f9aa9d7fc044c4da52ab3ffc2981e36.png"", ""thumbnail"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/ba97a71d-f52a-4419-b467-5eb88266d97c/3f9aa9d7fc044c4da52ab3ffc2981e36_thumbnail.png"", ""is_ready"": true}]}"
+seachat_sys,WEBCHAT,BOT,BOT,2025-07-09 14:20:51.836872,"It looks like you’re currently in the pixel setup process and stuck while testing the conversion event tracking code. Here are a few suggestions to try and resolve the issue:
+
+1. **Ensure Valid URL**: Make sure the URL you’ve entered is correctly formatted and accessible.
+
+2. **Wait for Processing**: If it shows “Testing conversion event tracking code,” wait for this process to complete. The ""Save"" button may remain inactive until testing is fully finished.
+
+3. **Check Test Session Status**: The test session will reset after a specific time; if you're close to that limit, consider resetting the test.
+
+4. **Browser Refresh**: Refresh the page to see if that helps activate the ""Save"" button.
+
+5. **Try Another Browser**: Sometimes switching browsers or clearing the current browser's cache can resolve such issues.
+
+6. **Disable Extensions**: Temporarily turn off any extensions that may interfere with functionality, like ad blockers.
+
+If these steps don’t work, reaching out to the support team for your pixel tool may be necessary for further assistance.",
+bot,WEBCHAT,BOT,BOT,2025-07-09 14:21:07.879289," It seems you're having trouble with the pixel setup during the conversion event tracking code testing. Here are some steps to help you out:
+
+1. **Ensure Valid URL**: Double-check that your URL is correctly formatted and accessible.
+
+2. **Wait for Processing**: If it's showing ""Testing conversion event tracking code,"" wait for this process to complete before trying to click ""Save.""
+
+3. **Check Test Session Status**: If you're nearing the test session limit, consider resetting the test.
+
+4. **Browser Refresh**: Refresh the page to see if it activates the ""Save"" button.
+
+5. **Try Another Browser**: Switching browsers or clearing your current browser's cache might resolve the issue.
+
+6. **Disable Extensions**: Temporarily disable any extensions, like ad blockers, that might interfere with functionality.
+
+If these steps don't resolve your issue, reaching out to support for your pixel tool may be necessary.",{}

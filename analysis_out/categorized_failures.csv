@@ -1,0 +1,10 @@
+failure_category,count,percentage
+feature-not-available,26,26.0
+missing-user-info,23,23.0
+form-submission,20,20.0
+requires-human-intervention,9,9.0
+technical-limitations,7,7.000000000000001
+other,2,2.0
+user-abandoned,1,1.0
+policy-restrictions,1,1.0
+bot-error,1,1.0

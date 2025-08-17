@@ -1,0 +1,30 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-06-30 23:07:29.304000,,"{""recipient_id"": ""55ad0090-e7a4-4aea-9209-b528e7a8a266"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-06-30 23:07:29.314000,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+web,WEBCHAT,ded1940ab0aa47548a30cae67f896540,Danny Greeson ,2025-06-30 23:07:29.324000,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""Danny Greeson""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""danny@equoto.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1919762617834438658""}]}"
+web,WEBCHAT,ded1940ab0aa47548a30cae67f896540,Danny Greeson ,2025-06-30 23:07:49.081086,I'm wondering why we didn't get any traffic today?,{}
+bot,WEBCHAT,BOT,BOT,2025-06-30 23:08:01.784299," To help you figure out why there might be no traffic today, let's check a few things: 
+- When did your campaign start? 
+- What bidding type are you using? 
+- Have there been any recent changes to your targeting or budget settings in the last 72 hours? 
+Once we have this information, we can look into it further and suggest an action plan. Let me know!",{}
+web,WEBCHAT,ded1940ab0aa47548a30cae67f896540,Danny Greeson ,2025-06-30 23:08:38.681814,It started last friday,{}
+bot,WEBCHAT,BOT,BOT,2025-06-30 23:08:50.315836," Thanks for the info! Since your campaign started last Friday, let's consider a few possibilities:
+
+1. **Learning Phase**: Your ad sets might still be in the learning phase, which typically completes after around 20-30 conversions. During this time, minimal changes should be made to avoid disrupting the process.
+
+2. **Bidding Strategy**: Are you using Max Conversion bidding? This strategy can help get through the learning phase faster.
+
+3. **Targeting and Budget**: Double-check your targeting settings and budget to ensure they align with your goals.
+
+If you've already checked these factors and still see no traffic, it might be worth reviewing any recent changes or reaching out to our support team at adsupport@newsbreak.com for further assistance.",{}
+web,WEBCHAT,ded1940ab0aa47548a30cae67f896540,Danny Greeson ,2025-06-30 23:10:39.826555,"where can I view campaign settings?   When I click on Ad Management, I just get to one screen that does not show targets, caps, etc",{}
+bot,WEBCHAT,BOT,BOT,2025-06-30 23:10:50.544974," To view your campaign settings, including targets and caps, follow these steps:
+
+1. **Navigate to the Ad Management Section**: Make sure you're in the correct section where you manage your ads.
+
+2. **Select the Specific Campaign**: Click on the campaign you want to review.
+
+3. **Edit Campaign Settings**: Once you're in the campaign view, look for an 'Edit' button or option that allows you to modify settings like targeting and budget caps.
+
+If you're still having trouble finding these options, it might be helpful to check if there are any filters applied that could be limiting what you see. If issues persist, feel free to reach out to adsupport@newsbreak.com for more detailed assistance.",{}

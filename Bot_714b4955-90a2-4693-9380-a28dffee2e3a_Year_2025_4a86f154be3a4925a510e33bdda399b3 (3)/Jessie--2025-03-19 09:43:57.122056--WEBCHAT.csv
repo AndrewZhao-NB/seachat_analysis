@@ -1,0 +1,25 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-03-19 09:43:57.628071,,"{""recipient_id"": ""e6f2adc6-8121-4be4-a4c5-aa701350a2b7"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-03-19 09:43:58.114373,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-03-19 09:44:00.982778,,"{""recipient_id"": ""e6f2adc6-8121-4be4-a4c5-aa701350a2b7"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+web,WEBCHAT,a58559945f1b4dc6b6d34ca0a92d700f,Jessie ,2025-03-19 09:44:14.580386,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""Jessie""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""oq28nm84@outlook.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1902273524362747906""}]}"
+web,WEBCHAT,a58559945f1b4dc6b6d34ca0a92d700f,Jessie ,2025-03-19 09:47:35.883789,怎么切换账户语言,{}
+bot,WEBCHAT,BOT,BOT,2025-03-19 09:47:42.377376," 您可以通过以下步骤切换账户语言：
+1. 打开NewsBreak应用。
+2. 点击右下角的“我”标签。
+3. 在“我”标签中找到语言设置选项。
+4. 选择您希望使用的语言。
+更多详细信息，请参考此帮助文章：https://help.newsbreak.com/hc/ja/articles/4414622924301-News-Break%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AF%E4%BB%96%E3%81%AE%E8%A8%80%E8%AA%9E%E3%81%AB%E8%A8%AD%E5%AE%9A%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%A7%E3%81%A7%E3%B1%B1",{}
+web,WEBCHAT,a58559945f1b4dc6b6d34ca0a92d700f,Jessie ,2025-03-19 10:02:56.861912,账户语言可以切换为中文吗,{}
+bot,WEBCHAT,BOT,BOT,2025-03-19 10:03:10.987228," 是的，您可以将账户语言切换为中文。请按照以下步骤操作：
+1. 打开NewsBreak应用。
+2. 点击右下角的“我”标签。
+3. 在“我”标签中找到语言设置选项。
+4. 选择中文作为您的语言。
+更多详细信息，请参考此帮助文章：https://help.newsbreak.com/hc/ja/articles/4414622924301-News-Break%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AF%E4%BB%96%E3%81%AE%E8%A8%80%E8%AA%9E%E3%81%AB%E8%A8%B1",{}
+web,WEBCHAT,a58559945f1b4dc6b6d34ca0a92d700f,Jessie ,2025-03-19 10:04:01.443346,怎么打开NewsBreak应用,{}
+bot,WEBCHAT,BOT,BOT,2025-03-19 10:04:09.309833," 要打开NewsBreak应用，请按照以下步骤操作：
+1. 在您的手机上找到并点击NewsBreak应用图标。
+2. 如果您还没有安装NewsBreak应用，可以前往应用商店（如App Store或Google Play）搜索“NewsBreak”并下载安装。
+3. 安装完成后，点击应用图标即可打开。
+如果您有任何其他问题，请随时告诉我！",{}

@@ -1,0 +1,92 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-06-11 16:42:43.588000,,"{""recipient_id"": ""03555e58-5344-45d1-8f30-98b643178e78"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-06-11 16:42:43.598000,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+web,WEBCHAT,cdb2a54ee7da4f50b5d41422b6e9d574,alen ,2025-06-11 16:42:43.608000,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""alen""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""nj21665@gmail.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1896275788839297026""}]}"
+web,WEBCHAT,cdb2a54ee7da4f50b5d41422b6e9d574,alen ,2025-06-11 16:43:04.070579,"hi, we cant target interests in the ads before?",{}
+bot,WEBCHAT,BOT,BOT,2025-06-11 16:43:14.461270," Hey there! Yes, you can target interests in your ads. NewsBreak offers interest-based targeting along with demographics and location-based options. This allows you to tailor your ads to specific audiences based on their interests, which can help improve the effectiveness of your campaigns.",{}
+web,WEBCHAT,cdb2a54ee7da4f50b5d41422b6e9d574,alen ,2025-06-11 16:45:24.880214,"i dont see it.
+",{}
+bot,WEBCHAT,BOT,BOT,2025-06-11 16:45:37.582363," If you're having trouble finding the interest targeting option, make sure you're in the Ad Set stage of your campaign creation. This is where you can select your audience based on location, gender, age, user interest, and more. If it's still not visible, try refreshing the page or checking if there are any updates needed for your browser.",{}
+web,WEBCHAT,cdb2a54ee7da4f50b5d41422b6e9d574,alen ,2025-06-11 17:02:08.372689,here is a screeshot of ads set,{}
+web,WEBCHAT,cdb2a54ee7da4f50b5d41422b6e9d574,alen ,2025-06-11 17:02:09.114085,,"{""image"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/03555e58-5344-45d1-8f30-98b643178e78/68e3daf0edff45d0804391d2c1a8f980.png"", ""thumbnail"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/03555e58-5344-45d1-8f30-98b643178e78/68e3daf0edff45d0804391d2c1a8f980_thumbnail.png""}"
+web,WEBCHAT,cdb2a54ee7da4f50b5d41422b6e9d574,alen ,2025-06-11 17:02:09.138366,,"{""image"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/03555e58-5344-45d1-8f30-98b643178e78/68e3daf0edff45d0804391d2c1a8f980.png"", ""thumbnail"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/03555e58-5344-45d1-8f30-98b643178e78/68e3daf0edff45d0804391d2c1a8f980_thumbnail.png""}"
+seachat_sys,WEBCHAT,BOT,BOT,2025-06-11 17:02:13.329318,"The user has uploaded an image of an advertisement management interface displaying options for targeting, audience demographics, delivery settings, and budget management.",
+seachat_sys,WEBCHAT,BOT,BOT,2025-06-11 17:02:13.441297,"The user has uploaded an image of an ad management interface, showcasing various settings for targeting, delivery, and demographics.",
+bot,WEBCHAT,BOT,BOT,2025-06-11 17:02:18.324354," It seems like you've mentioned a screenshot, but I can't view images directly. Could you describe what you're seeing or any specific issues you're encountering? This way, I can help guide you through the process.",{}
+bot,WEBCHAT,BOT,BOT,2025-06-11 17:02:22.511434," Thanks for sharing the screenshot! It looks like you're in the right place. To target interests, you should see an option to select 'Interests' under the targeting settings. If it's not visible, it might be due to a specific campaign type or objective that doesn't support interest targeting. Double-check your campaign objective and ensure it's set to one that allows interest-based targeting.",{}
+bot,WEBCHAT,BOT,BOT,2025-06-11 17:02:23.480399," Thanks for sharing the screenshot! It looks like you're in the right place. To target interests, you should see an option to select 'user interest' or similar under the targeting section. If it's not visible, it might be a display issue or a setting that needs to be enabled. Try checking for any hidden options or settings that might need adjustment.",{}
+web,WEBCHAT,cdb2a54ee7da4f50b5d41422b6e9d574,alen ,2025-06-11 17:05:20.111870,"no there, are you sure Newsbreak didnt remove it overall?",{}
+bot,WEBCHAT,BOT,BOT,2025-06-11 17:05:29.907458," Interest targeting should still be available in NewsBreak ads. If you're unable to find it, there might be a temporary issue or update affecting its visibility. I recommend checking for any recent updates or changes in the platform settings. If the problem persists, you can reach out to adsupport@newsbreak.com for further assistance.",{}
+web,WEBCHAT,cdb2a54ee7da4f50b5d41422b6e9d574,alen ,2025-06-13 12:49:41.538607,why are the video ad cps so high. my cpm is $395.82,{}
+bot,WEBCHAT,BOT,BOT,2025-06-13 12:49:50.985309," It sounds like you're experiencing high costs with your video ad campaigns. There could be several factors contributing to this:
+
+1. **Targeting**: If your targeting is too narrow, it might lead to higher costs. Consider broadening your audience.
+2. **Bidding Strategy**: Review your bidding strategy to ensure it's aligned with your campaign goals.
+3. **Ad Quality**: High-quality and engaging ads tend to perform better and can reduce costs over time.
+4. **Learning Phase**: If your campaign is still in the learning phase, you might see fluctuations in performance and cost.
+
+For more detailed insights, you might want to check out our [Maximize Conversions Best Practices](https://help.newsbreak.com/hc/en-us/articles/23055076590221-Maximize-Conversions-Best-Practices) article.",{}
+web,WEBCHAT,cdb2a54ee7da4f50b5d41422b6e9d574,alen ,2025-06-13 12:50:53.261523,what are average cpm video and image ads?,{}
+bot,WEBCHAT,BOT,BOT,2025-06-13 12:51:02.475838," The average CPM for video and image ads can vary based on several factors such as industry, audience targeting, and ad quality. However, generally speaking, video ads tend to have a higher CPM compared to image ads due to their engaging nature and higher production costs. For specific benchmarks or averages, it would be best to refer to industry reports or your platform's analytics for the most accurate data.",{}
+web,WEBCHAT,cdb2a54ee7da4f50b5d41422b6e9d574,alen ,2025-06-13 12:52:34.150543,"can i optimize to reduce cpm cost? my audience is health relate BUT since i dont have the option to target interests like before, im assuming the algorithm is doing it otherwise it broad.",{}
+bot,WEBCHAT,BOT,BOT,2025-06-13 12:52:49.356536," Yes, you can optimize your campaigns to potentially reduce CPM costs even with broad targeting. Here are some strategies you might consider:
+
+1. **Creative Testing**: Experiment with different ad creatives to see which ones resonate best with your audience. High engagement can lead to lower CPMs.
+
+2. **Ad Scheduling**: Run your ads during peak times when your target audience is most active.
+
+3. **A/B Testing**: Continuously test different ad variations and optimize based on performance.
+
+4. **Budget Allocation**: Adjust your budget allocation based on the performance of different ad sets.
+
+5. **Monitor Performance**: Regularly review your ad performance and make necessary adjustments to improve results.
+
+For more detailed guidance, you can refer to our [Ad Creative Best Practices and A/B Testing](https://help.newsbreak.com/hc/en-us/articles/20676690598029-Ad-Creative-Best-Practices-and-A-B-Testing) article.",{}
+web,WEBCHAT,cdb2a54ee7da4f50b5d41422b6e9d574,alen ,2025-06-17 14:04:16.307130,why is my cpm so expensive. worse than google ads,{}
+bot,WEBCHAT,BOT,BOT,2025-06-17 14:04:28.274283," I understand you're concerned about the high CPM costs. Let's try to optimize it! Could you share more details about your current campaign settings, such as targeting options, ad placements, and any recent changes you've made? This will help me provide more specific advice.",{}
+web,WEBCHAT,cdb2a54ee7da4f50b5d41422b6e9d574,alen ,2025-06-17 14:06:15.239680,"Conversion event: Complete_payment, Women, 45-64. I haven't made any changes. yesterday my cpm averege was $5.00",{}
+bot,WEBCHAT,BOT,BOT,2025-06-17 14:07:13.966135," Thanks for sharing those details! Since your CPM has increased significantly, it might be due to changes in the competitive landscape or audience saturation. Here are a few tips to help optimize your CPM:
+
+1. **Refine Targeting**: Consider narrowing down your audience further or testing different demographics.
+2. **Ad Scheduling**: Ensure your ads are running during peak hours when your target audience is most active.
+3. **Creative Optimization**: Experiment with different ad creatives to see which ones resonate better with your audience.
+4. **Budget Adjustments**: Review and adjust your budget allocation to ensure it's aligned with your campaign goals.
+
+Regularly monitoring and making small adjustments can help improve performance over time.",{}
+web,WEBCHAT,cdb2a54ee7da4f50b5d41422b6e9d574,alen ,2025-06-17 14:07:54.984662,what is an average cpm for ecom product supposed to be?,{}
+bot,WEBCHAT,BOT,BOT,2025-06-17 14:08:10.368381," The average CPM for e-commerce products can vary widely depending on factors like the platform, target audience, and competition. Generally, CPMs can range from $5 to $15, but it's important to focus on optimizing your campaigns for better performance rather than just aiming for a specific CPM. Testing different strategies and monitoring your results will help you find the most cost-effective approach for your specific product and audience.",{}
+web,WEBCHAT,cdb2a54ee7da4f50b5d41422b6e9d574,alen ,2025-06-17 14:13:09.810534,so why does my cpm jump to $400 at times? who can i talk to? i emailed support twice but they never responded,{}
+bot,WEBCHAT,BOT,BOT,2025-06-17 14:13:30.756627," I'm sorry to hear that you're experiencing such high CPMs and haven't received a response from support. It's possible that the CPM spikes are due to increased competition or changes in your audience targeting. To address this, you can try:
+
+1. **Reviewing Targeting Options**: Ensure your targeting is as precise as possible.
+2. **Adjusting Bidding Strategy**: Consider experimenting with different bidding strategies to find a more cost-effective approach.
+3. **Monitoring Competitors**: Keep an eye on competitor activity which might be affecting your CPM.
+
+For further assistance, please email adsupport@newsbreak.com with detailed information about your issue, and they should be able to help you out.",{}
+web,WEBCHAT,cdb2a54ee7da4f50b5d41422b6e9d574,alen ,2025-06-17 14:14:29.461197,can you write me an email i can copy paste to support highlighting my problem?,{}
+bot,WEBCHAT,BOT,BOT,2025-06-17 14:14:40.626894," Sure! Here's a draft you can use:
+
+---
+
+Subject: Urgent Assistance Required for High CPM Issue
+
+Hi News Break Support Team,
+
+I hope this message finds you well. I am writing to seek urgent assistance regarding an issue with my ad campaigns on your platform. Despite maintaining consistent settings, my CPM has unexpectedly spiked to $400 at times, which is significantly higher than expected and worse than other platforms like Google Ads.
+
+Here are some details about my campaign:
+- **Conversion Event**: Complete_payment
+- **Target Audience**: Women, ages 45-64
+- **Previous Average CPM**: $5.00
+- **Current Issue**: Sudden spikes in CPM reaching $400 without any changes made to the campaign settings.
+
+I have emailed support twice but have not received a response yet. I would appreciate any guidance or solutions you can provide to help resolve this issue promptly.
+
+Thank you for your attention to this matter.
+
+Best regards,
+[Your Name]
+[Your Contact Information]
+[Your Account Details]
+---
+Feel free to customize it further if needed!",{}

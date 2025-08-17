@@ -1,0 +1,618 @@
+improvement,count
+no-improvement-needed-user-abandoned,549
+bot-handled-perfectly,251
+add-cancellation-workflow,19
+implement-cancellation-workflow,15
+add-cancellation-processing-feature,9
+integrate-cancellation-workflow,8
+add-cancellation-processing-capability,6
+add-cancellation-processing-workflow,6
+integrate cancellation processing workflow,3
+implement-live-agent-transfer-capability,3
+integrate account verification process within chatbot,2
+integrate-ad-review-status-check,2
+implement-web-event-deletion-feature,2
+implement-ad-cancellation-feature,2
+implement-direct-escalation-to-human-support,2
+implement-automated-verification-system,2
+integrate direct account verification process,2
+implement-live-chat-feature,2
+integrate account verification workflow,2
+integrate system to provide specific rejection reasons directly,2
+implement-human-agent-transfer-capability,2
+implement direct chat escalation to human agent,2
+integrate refund processing system,2
+implement-direct-account-cancellation-feature,2
+implement-direct-human-escalation-feature,2
+implement direct permission management or automated troubleshooting for permission issues,1
+implement event deletion functionality in Event Management,1
+integrate direct support ticket creation for account issues,1
+implement ads account closure workflow or provide direct instructions,1
+improve-navigation-guidance-based-on-account-setup,1
+integrate-business-verification-workflow,1
+integrate campaign diagnostics tool to identify spending issues,1
+enhance-bot-contextual-understanding-to-handle-non-standard-input,1
+implement ad approval workflow,1
+implement-direct-escalation-to-human-support-for-technical-issues,1
+clarify ad credit eligibility and restrictions in user interface,1
+integrate document submission feature for verification,1
+implement a system to confirm email delivery and resend if necessary,1
+implement-ad-review-expedition-feature,1
+integrate automated account verification system,1
+implement-live-chat-transfer-capability,1
+add-integration-instructions-for-clickmagick,1
+integrate-log-access-or-direct-human-support,1
+implement dynamic response system to adapt instructions based on user feedback,1
+integrate pixel management functionality or provide accurate guidance,1
+enhance bot's ability to diagnose and resolve save issues in postback settings,1
+provide-specific-memory-size-guidance,1
+enhance-bot-to-diagnose-url-formatting-errors,1
+integrate live chat feature for direct human assistance,1
+integrate with billing system API to allow direct payment issue resolution,1
+integrate-api-schema-access-or-enhance-documentation-links,1
+enhance bot's capability to troubleshoot technical issues and provide accurate navigation instructions,1
+integrate-live-agent-chat,1
+implement direct support for troubleshooting pixel integration issues,1
+integrate ad appeal submission process,1
+implement-request-reopening-feature,1
+offer introductory sessions or consultations for new users below spend threshold,1
+implement a cancellation processing workflow,1
+implement a diagnostic tool for ad scheduling issues,1
+enable direct pixel access through bot,1
+integrate system to allow bots to access and analyze campaign data for discrepancies,1
+implement a system to verify ad spend automatically or provide a direct contact option for potential high spenders,1
+provide-detailed-traffic-source-information,1
+implement real-time content validation to prevent duplicate uploads,1
+integrate direct time zone modification feature in AdManager,1
+enhance bot's ability to distinguish between mobile and web traffic requests and provide accurate guidance for desktop ad campaigns,1
+integrate invoice retrieval feature in user account,1
+integrate with campaign management system to allow direct adjustments,1
+integrate desktop targeting options directly into the campaign setup process,1
+develop-weebly-specific-integration-guide,1
+add-support-ticket-creation-feature,1
+implement-direct-url-validation-feature,1
+integrate-access-to-company-legal-information-or-direct-contact-protocol,1
+integrate-raster-validation-tool,1
+integrate direct communication channel with ad approval team,1
+integrate invoice generation feature into the bot,1
+integrate-ad-scheduling-setup-capability,1
+reduce-redundant-responses,1
+integrate direct support for resolving access issues with reports,1
+integrate-live-chat-support-escalation,1
+implement direct profile resolution or escalation workflow,1
+implement-expedited-review-process,1
+provide-step-by-step-upload-instructions,1
+integrate-invoice-generation-system,1
+add email change workflow,1
+implement remote pixel verification tool or provide direct support access,1
+implement ad credit transfer feature or provide alternative solutions,1
+integrate a system for direct URL verification and ad status updates,1
+add detailed troubleshooting steps for custom code pixel installation,1
+implement a workflow for individual account verification directly through the bot,1
+implement ad account deletion feature,1
+integrate with billing system API to handle refund requests,1
+add-specific-instructions-for-wix-integration,1
+implement direct chat escalation to human support,1
+integrate URL analysis tool to provide specific feedback on landing page issues,1
+integrate with user account systems to provide billing and event tracking support,1
+integrate direct verification processing capability,1
+implement automated business verification system,1
+add-advertisement-cancellation-feature,1
+integrate account status check and ad flagging resolution workflow,1
+add-option-for-ad-placement-customization,1
+integrate-ad-credit-explanation,1
+implement-clarification-dialogue-for-ambiguous-requests,1
+integrate-campaign-status-checking-feature,1
+add-direct-human-escalation-option,1
+integrate-promotional-credit-information,1
+integrate ad scheduling modification capability,1
+integrate account management system to allow bot to unlock accounts or provide more detailed account status,1
+add-direct-human-assistance-option,1
+implement direct guidance or interface for tax number submission,1
+integrate promotional code issuance and tracking system,1
+integrate image analysis tool for configuration troubleshooting,1
+add capability to process verification requests directly in chat,1
+integrate direct profile verification capability,1
+implement direct troubleshooting support for integration issues with third-party platforms like RedTrack,1
+implement a system to prioritize verification requests,1
+integrate system to provide specific ad rejection reasons and detailed tracking setup instructions,1
+implement direct support escalation feature,1
+implement live agent escalation feature,1
+integrate technical troubleshooting workflow,1
+integrate-cancellation-processing-system,1
+integrate a system to handle custom code issues or escalate to human support automatically,1
+integrate-url-validation-tool-and-appeal-submission-system,1
+implement-cancel-agent-connection-feature,1
+integrate with reporting systems to provide ad spending insights,1
+implement direct communication with ad review team or provide status updates,1
+add functionality to retrieve click ID for postback integration,1
+implement a cancellation workflow or prompt user for more details,1
+integrate with billing system to provide direct resolution or detailed insights,1
+ensure initial instructions include all necessary steps for ad credit redemption,1
+enhance-bot-to-provide-direct-answers-on-ad-types,1
+integrate-third-party-promotion-information-access,1
+improve-user-engagement-to-prevent-escalation,1
+implement escalation workflow to connect users with human agents,1
+integrate system for direct ad performance diagnostics,1
+implement a feature in NewsBreak to enforce deduplication of conversions per click ID,1
+implement step-by-step navigation guide for accessing campaign settings,1
+implement postback bypass functionality or provide direct support contact for such requests,1
+update bot knowledge base with correct Click ID retrieval process,1
+implement-exception-handling-for-critical-queries-when-quota-exceeded,1
+integrate direct verification process within chatbot,1
+develop-specific-integration-guide-for-digistore24,1
+integrate account verification and payment processing capabilities,1
+add-account-timezone-access,1
+implement PDF invoice generation and export functionality,1
+implement-clarification-prompt-for-ambiguous-requests,1
+implement-ad-library-view-feature,1
+integrate direct payment processing capability,1
+implement-invoice-generation-feature,1
+integrate payment verification and modification capabilities,1
+implement web event deletion feature in UI,1
+provide-clearer-permission-guidance,1
+integrate real-time status update system and background check processing capability,1
+implement live chat support for real-time assistance,1
+implement direct human chat escalation feature,1
+integrate-cancellation-feature,1
+implement-pixel-event-deletion-feature,1
+integrate a system for endorsement verification or escalation to human support,1
+integrate-direct-purchase-notification-system,1
+implement-direct-live-agent-connection,1
+integrate-billing-threshold-adjustment-capability,1
+add-functionality-to-display-ad-examples,1
+add-ad-review-capability-or-direct-human-assistance,1
+implement direct escalation to human support for complex issues,1
+implement quota management to prevent service interruption,1
+implement automated verification system to reduce manual intervention,1
+integrate system for direct ad issue resolution and automated invoice generation,1
+enhance bot's capability to troubleshoot Shopify pixel issues,1
+implement post-submission support workflow,1
+integrate real-time CPC data retrieval and account manager identification features,1
+integrate direct support verification capability,1
+implement-cancellation-processing-workflow,1
+enable-bot-to-provide-real-time-platform-status-updates,1
+implement-credit-card-removal-feature,1
+implement-load-balancing-to-handle-high-traffic,1
+integrate with account management system to enable ad credit directly if eligibility is met,1
+integrate automated verification system or streamline email-based verification process,1
+implement a system for expedited verification requests,1
+implement direct escalation to human support for account-specific issues,1
+integrate-direct-verification-submission,1
+add capability to request upload size changes directly through the bot,1
+add detailed setup instructions for RedTrack postback tracking,1
+integrate real-time status tracking for verification process,1
+implement real-time UI issue detection and resolution suggestions,1
+"add feature to explain profile rejection reasons, implement organization deletion process",1
+add feature to manually set account time zone,1
+implement expedited verification process for urgent cases,1
+create-average-metrics-document-for-new-users,1
+implement feature to save company logo for reuse,1
+integrate ad credit verification and processing system,1
+implement a diagnostic tool for pixel setup issues,1
+implement live chat service or provide more detailed account review schedule,1
+integrate verification status check and update capability,1
+implement-ads-library-access,1
+improve-natural-language-processing-to-understand-unclear-requests,1
+integrate campaign data modification capability,1
+integrate account-specific troubleshooting capabilities,1
+implement direct verification status check and expedite process,1
+develop-specific-guides-for-popular-platforms-like-HasOffers,1
+add-account-manager-contact-feature,1
+integrate direct support escalation for account-specific errors,1
+integrate real-time ad status checking capability,1
+integrate account ID retrieval functionality,1
+ensure-consistent-information-on-targeting-options,1
+implement a system to confirm receipt of documents and provide status updates,1
+integrate ad credit processing system,1
+integrate ad credit allocation system with verification process,1
+enable direct fund addition for verified accounts,1
+integrate with billing system API for refund processing,1
+integrate direct troubleshooting tools or escalate technical issues to human support,1
+integrate with billing system API for direct dispute resolution,1
+implement-ad-cancellation-workflow,1
+add direct access to pixel code in UI,1
+implement direct postback bypass functionality or provide a clear escalation path to human support,1
+integrate ad credit status verification system,1
+integrate direct API troubleshooting or escalation to technical support,1
+implement-ad-review-status-tracking-and-expedition,1
+integrate with pixel tool API for automated issue detection and resolution,1
+enable-bot-to-directly-interact-with-system-for-saving,1
+add step-by-step guidance for resolving specific ad policy violations,1
+reduce-response-redundancy,1
+integrate appeal submission workflow,1
+ensure-links-are-functional-and-up-to-date,1
+add diagnostic tools for custom tracking issues,1
+implement direct human escalation feature,1
+integrate business verification workflow within the chatbot,1
+integrate direct technical support or troubleshooting assistance for conversion tracking issues,1
+provide detailed integration guide for GoHighLevel,1
+implement manual pixel verification process or improve dashboard navigation for account ID visibility,1
+implement-human-escalation-protocol,1
+enhance integration support for third-party tools like Everflow,1
+add-web-specific-navigation-instructions-for-account-settings,1
+integrate-diagnostic-tools-for-ui-issues,1
+integrate account status checking feature,1
+implement ad approval workflow or direct escalation to human support,1
+implement-audience-transfer-feature,1
+integrate direct ad credit application feature,1
+implement-feedback-loop-to-confirm-resolution,1
+develop-amazon-integration-guide,1
+implement direct live agent connection feature,1
+integrate-direct-invoice-retrieval,1
+implement-analytics-discrepancy-diagnosis-feature,1
+integrate with Shopify API for pixel testing and ad status verification,1
+implement-ad-review-status-check-feature,1
+integrate pricing information retrieval for advertising,1
+implement-receipt-download-feature,1
+implement a diagnostic tool for conversion tracking issues,1
+implement direct audience network exclusion feature in ad settings,1
+integrate direct credit addition functionality or streamline live agent connection,1
+integrate ad credit request processing or streamline referral to human support,1
+integrate ad credit application process with bot capabilities,1
+implement a system to connect users with human representatives for complex issues,1
+integrate-ad-status-checking,1
+implement-clear-cancellation-process,1
+implement a direct support contact feature or escalation process for unresolved technical issues,1
+integrate feature application process within chatbot,1
+provide-detailed-exclusion-list-guidance,1
+implement ad approval expedition process or provide real-time status updates,1
+reduce-response-repetition,1
+develop alternative tracking solutions for platforms like Etsy that do not support custom code,1
+integrate direct verification process within chat,1
+integrate server-side activation status check for pixels,1
+implement-payment-method-removal-feature,1
+integrate direct ad set activation capability,1
+"integrate ad approval workflow, correct notification editing information, provide detailed feedback on verification issues",1
+implement time zone adjustment feature for reports,1
+enhance-bot-to-analyze-campaign-data-without-complete-user-input,1
+implement direct diagnostics for integration issues,1
+add functionality for users to modify token permissions directly through the platform,1
+integrate refund processing capability and enhance technical troubleshooting for pixel creation,1
+implement-tiered-support-access-or-enhanced-guidance-for-non-threshold-users,1
+enhance bot's ability to diagnose specific error contexts like duplicate events,1
+implement-direct-application-process-for-ad-credit,1
+provide-direct-webinar-signup-link,1
+implement real-time troubleshooting support for third-party tracking integrations,1
+integrate account status checking capability,1
+integrate system access for direct troubleshooting of pixel tracking errors,1
+integrate-ad-performance-data-access,1
+integrate process for initiating contact with Account Manager,1
+integrate account verification and pixel status check capabilities,1
+implement traffic quality monitoring and resolution system,1
+implement real-time system update for verification status,1
+update-bot-with-current-platform-interface-details,1
+implement a feature request submission system within the bot,1
+integrate direct troubleshooting or interface modification capabilities,1
+implement a direct ad approval workflow within the chatbot,1
+enhance bot's ability to diagnose specific announcement issues,1
+implement direct troubleshooting for payment method issues,1
+implement live chat support for technical troubleshooting,1
+implement-self-service-cancellation-option,1
+add support for international document verification,1
+add interface verification or direct support contact option,1
+improve-response-time-and-reduce-repetition,1
+integrate account balance access and modification capability,1
+implement direct sync issue resolution or automated troubleshooting for billing discrepancies,1
+integrate account information retrieval within the bot,1
+enable-bot-to-modify-ad-settings-or-provide-direct-contact-to-support,1
+integrate custom invoice generation feature,1
+integrate-with-account-database-for-detailed-diagnosis,1
+implement-account-access-support,1
+integrate reimbursement processing capability or direct escalation to support,1
+add detailed integration guides for popular tracking platforms like Everflow,1
+implement-contextual-follow-up-questions-for-contact-requests,1
+integrate-billing-cancellation-workflow,1
+integrate ad approval workflow or escalate to human support,1
+integrate-direct-receipt-download-feature,1
+implement time zone adjustment feature in ad manager,1
+integrate ad approval workflow,1
+integrate access to RedTrack Click Cost ID information,1
+improve-user-engagement-to-provide-necessary-details,1
+implement-support-for-third-party-collaboration-guidance,1
+integrate campaign approval workflow or provide status updates,1
+integrate real-time credit redemption confirmation system,1
+integrate Shopify support capabilities,1
+implement event deletion feature in dashboard,1
+ensure bot provides accurate information about spending limits and clarify prepay account setup,1
+develop and provide a detailed RedTrack integration guide,1
+implement direct PDF download functionality in the billing section,1
+integrate system to retrieve organization ID directly,1
+add-specific-instructions-for-claiming-cashback-offers,1
+integrate a system to verify landing page accessibility for US users and automate campaign approval process,1
+integrate-technical-support-chat,1
+implement a system to directly connect users with their account managers,1
+integrate direct invoice download functionality or improve interface troubleshooting capabilities,1
+integrate-business-name-setup-capability,1
+implement-report-download-feature,1
+provide direct access to human support for complex issues,1
+implement a reliable method for users to contact human support directly,1
+implement direct connection to human support for unresolved issues,1
+implement-paid-plan-upgrade-path,1
+no-improvement-needed-empty-transcript,1
+implement direct navigation assistance or visual guide for account settings,1
+reduce-duplicate-responses,1
+integrate a system to handle profile rejections or provide more detailed guidance,1
+implement live agent escalation when bot cannot respond,1
+integrate campaign management and verification capabilities,1
+expand-database-of-tracker-specific-guides,1
+integrate detailed data processing information or direct access to technical documentation,1
+implement feature to modify URL parameters without resubmitting ads,1
+implement system to handle requests when quota is exceeded,1
+integrate direct ad approval process or status check,1
+integrate with system to access detailed rejection reasons,1
+implement a document upload feature for verification,1
+implement ad rejection resolution workflow,1
+implement manual ad credit payment option and manual postback approval process,1
+integrate billing dispute resolution workflow,1
+implement-live-agent-escalation-feature,1
+enhance bot's capability to diagnose and resolve third-party integration issues,1
+add-escalation-to-live-manager-feature,1
+implement creative rollback feature or provide access to creative logs,1
+implement-api-token-retrieval-feature,1
+implement real-time audience availability check and verification of resource links,1
+develop integration with major tracking platforms to automatically identify and resolve click discrepancies,1
+add diagnostic tool for integration troubleshooting,1
+develop specific integration guide for Keitaro,1
+integrate backend access for account status checks,1
+implement direct UI navigation assistance or visual guide,1
+create specific integration guide for ClickMagick,1
+add-service-cancellation-workflow,1
+integrate with billing system API for direct support,1
+integrate ad approval workflow or escalate to human support automatically,1
+integrate-ad-performance-advisory-system,1
+integrate access to financial and advertiser data for more comprehensive responses,1
+integrate direct appeal submission feature,1
+integrate-payment-troubleshooting-system,1
+implement a workflow for handling ad credit transfer requests or exceptions,1
+implement a guided cancellation workflow to collect necessary details,1
+integrate ad approval workflow or provide direct escalation path,1
+integrate service cancellation workflow,1
+implement feature to modify ad account threshold and connect users with specific personnel,1
+integrate payment processing and balance management system,1
+integrate API endpoint information retrieval capability,1
+implement direct human support connection feature,1
+integrate business verification process into chatbot,1
+integrate real-time code verification tool,1
+add-campaign-data-explanation-feature,1
+integrate pixel authorization workflow or direct contact with account manager,1
+implement max cpc and cpm settings in campaign control,1
+implement direct connection to support representatives for unresolved technical issues,1
+implement real-time tracking verification tool,1
+integrate advanced diagnostic tools or direct connection to technical support,1
+integrate-service-cancellation-workflow,1
+ensure consistent access to live agents and enhance bot's ability to provide detailed ad performance insights,1
+integrate with Slack API to manage channel access requests,1
+integrate real-time verification status tracking,1
+implement-detailed-ad-performance-diagnosis-tool,1
+implement-undelete-campaign-feature,1
+implement-automated-appeal-processing-system,1
+improve-context-awareness-for-platform-specific-instructions,1
+integrate direct ad review capability or streamline escalation to human support,1
+implement-human-assistant-transfer-feature,1
+implement direct chat with technical support agents for complex integration issues,1
+implement automated verification system to reduce human intervention,1
+integrate advanced troubleshooting capabilities or direct connection to technical support team,1
+enable-bot-to-activate-features-or-escalate-efficiently,1
+integrate ad status tracking feature,1
+integrate detailed card information into transaction history display,1
+integrate ad approval and billing dispute resolution capabilities,1
+implement direct ad link retrieval feature,1
+implement-escalation-protocol-to-human-agent-for-complex-issues,1
+integrate system to check verification status directly,1
+integrate-direct-verification-process,1
+add-direct-human-agent-connection-feature,1
+implement direct diagnostic tools for campaign issues,1
+enhance-bot-capability-for-advanced-troubleshooting-or-direct-escalation,1
+implement detailed ad campaign diagnostic tool,1
+integrate-direct-support-chat-or-ticket-system,1
+implement campaign duplication feature,1
+enhance bot's ability to validate and correct API call formats,1
+improve-user-retention-during-agent-transfer,1
+add-feature-to-check-review-status,1
+integrate live support connection feature,1
+implement direct troubleshooting for video upload issues,1
+integrate-detailed-campaign-analysis-tool,1
+implement-direct-human-transfer-capability,1
+integrate system diagnostics to identify and resolve ad set issues,1
+implement-clarification-questions-for-ambiguous-requests,1
+implement a feature to view similar industry ads directly on the platform,1
+integrate real-time platform status updates and automated notifications,1
+consider-adding-invoicing-option-for-high-spend,1
+integrate technical troubleshooting workflow for ad targeting issues,1
+integrate targeting values database with bot for API support,1
+add-live-agent-escalation-feature,1
+ensure reliable message delivery and provide detailed API usage instructions,1
+integrate direct chat handoff to human support,1
+integrate direct link retrieval feature in ad manager,1
+integrate with approval and payment systems for direct resolution,1
+integrate direct refund processing capability,1
+implement-clarification-dialogue-to-understand-user-intent,1
+implement account-specific navigation assistance or direct troubleshooting capabilities,1
+integrate ad review status check functionality,1
+integrate direct payment processing or escalation to human support,1
+add functionality to remove payment methods from account,1
+integrate direct payment troubleshooting and processing capabilities,1
+implement-service-cancellation-capability,1
+integrate campaign approval process or direct escalation to human support for approval requests,1
+implement lookalike audience targeting feature,1
+integrate account verification and campaign troubleshooting capabilities,1
+integrate with account management system for ad status troubleshooting,1
+implement direct chat or call feature for human support,1
+enable-bot-to-update-verification-details-or-escalate-to-human,1
+integrate conversion tracking troubleshooting and site-specific performance reporting features,1
+integrate account modification capabilities for ad credits,1
+enhance bot's capability to troubleshoot integration issues directly,1
+integrate direct account modification and campaign setting adjustment capabilities,1
+implement-direct-cancellation-feature,1
+integrate direct technical support capabilities for diagnosing and resolving postback issues,1
+implement direct chat or call option for urgent human support,1
+integrate ad review status tracking system,1
+integrate verification process within chatbot to reduce need for email communication,1
+implement direct API troubleshooting capabilities or automated error resolution,1
+integrate ad credit eligibility check,1
+implement a guided workflow to collect necessary details for ad cancellation,1
+integrate ad settings modification capability,1
+enhance bot's capability to diagnose and resolve postback test issues,1
+integrate billing update functionality,1
+integrate with third-party platforms like RedTrack for seamless support,1
+integrate account-specific troubleshooting or direct access to billing system,1
+integrate-product-eligibility-check,1
+implement a diagnostic tool for pixel integration verification,1
+integrate invoice creation functionality or direct ticket creation capability,1
+integrate-url-verification-system,1
+improve-navigation-guidance,1
+integrate direct campaign troubleshooting tools or provide more detailed guidance,1
+integrate direct verification processing within the chat,1
+add-specific-integration-instructions-for-Offer18,1
+integrate-billing-resolution-capability,1
+implement-clarification-prompting-for-ambiguous-requests,1
+implement a system for automated ad compliance verification,1
+enhance bot's capability to diagnose campaign-specific issues,1
+integrate technical support workflow for event creation guidance,1
+implement a system for direct dispute resolution or escalation to human support,1
+integrate ad status verification and expedite approval process,1
+implement a system to allow gifting of ad credits or gift cards,1
+implement flexible scheduling options or direct contact for time zone issues,1
+enhance-bot-capability-to-diagnose-technical-issues,1
+integrate with ad management system for real-time troubleshooting,1
+integrate account troubleshooting tools for direct issue resolution,1
+implement-creative-download-feature,1
+improve-contextual-understanding-to-handle-ambiguous-queries,1
+integrate with payment gateway for real-time transaction troubleshooting,1
+enable role modification or provide direct support contact for role issues,1
+implement-ad-placement-exclusion-feature,1
+implement advanced troubleshooting capabilities for pixel setup issues,1
+implement-cancellation-processing-capability,1
+implement-message-quota-notification-and-management-system,1
+integrate real-time diagnostics to identify and resolve ad delivery issues,1
+integrate business verification workflow to automate the process,1
+integrate real-time status update feature for verification processes,1
+implement a system for faster ad credit approval and direct payment troubleshooting,1
+offer-alternative-verification-methods,1
+implement direct connection to human agents for unresolved issues,1
+integrate with payment gateway to retrieve specific error codes,1
+integrate with platform API to verify audience upload status,1
+implement direct escalation to human support,1
+implement direct escalation to human support for complex inquiries,1
+establish direct support channel with Redtrack for seamless troubleshooting,1
+implement-human-operator-connection-feature,1
+integrate ad cancellation functionality within the chatbot,1
+implement language settings modification feature,1
+integrate escalation to human review team for ad approval requests,1
+implement advanced diagnostic tools or direct integration with technical support for unresolved issues,1
+implement direct human connection feature or improve escalation process,1
+integrate direct account verification process within the chat interface,1
+add capability for users to select ad placements,1
+prompt-user-for-platform-info-more-effectively,1
+integrate-real-time-status-check,1
+enhance bot's ability to provide interface-specific navigation guidance,1
+add time zone customization feature,1
+integrate direct verification and approval process within chatbot,1
+integrate real-time account status tracking system,1
+implement-dedicated-account-manager-assignment-feature,1
+allow-direct-business-info-entry-in-chat,1
+include specific postback time window details in documentation,1
+integrate ad content verification system,1
+integrate-demographic-data-access,1
+enhance bot's capability to provide more detailed server-side troubleshooting steps or integrate with server diagnostic tools,1
+integrate-direct-ad-set-update-feature,1
+implement automated verification feedback system,1
+integrate image analysis capability and feature verification,1
+implement direct escalation to human support for unresolved technical issues,1
+create-specific-shopline-integration-guide,1
+integrate API permission management or detailed permission guidance,1
+integrate with billing system API for transaction verification,1
+integrate-direct-support-chat-or-diagnosis-tool,1
+add-email-change-workflow,1
+implement-reliable-response-time-management,1
+add functionality to view and edit existing pixel codes in NewsBreak dashboard,1
+add specific instructions for MaxConv postback integration,1
+improve communication on verification requirements and expedite support response times,1
+encourage user to provide campaign details for troubleshooting,1
+implement-real-time-account-status-check,1
+provide-detailed-cost-information-for-postback-setup,1
+integrate-event-data-viewing-capability,1
+implement manual ad placement control feature,1
+"integrate pixel debugging tool, consider ad comment feature",1
+integrate advanced troubleshooting capabilities or direct connection to human support for unresolved technical issues,1
+implement a guided walkthrough for new users,1
+integrate-invoice-sending-feature,1
+implement quota management system to handle exceeded limits gracefully,1
+integrate system to provide user-specific ad disapproval reasons,1
+implement direct verification status updates and resolution capabilities,1
+add troubleshooting guide or direct support link for dashboard issues,1
+implement adaptive response system to handle changing user inputs regarding platform specifics,1
+implement a system to verify and resend promotional codes directly through the chatbot,1
+integrate direct account verification process within chatbot,1
+integrate direct support for resolving ad pending issues,1
+integrate direct technical support escalation within chat,1
+implement-escalation-protocol-for-human-agent-request,1
+implement direct support or diagnostic tool for pixel setup issues,1
+implement a feature to allow direct communication with ad support for specific rejection issues,1
+improve-instructions-for-business-information,1
+integrate account deletion and credit card removal functionality,1
+integrate system to allow bot access to user-specific rejection details,1
+implement-live-chat-or-phone-support-option,1
+integrate pixel verification tool to check if pixels are firing correctly,1
+implement a workflow for handling endorsement disputes and ad approval requests,1
+integrate advanced troubleshooting capabilities or direct connection to technical support,1
+improve-user-prompting-for-specific-details,1
+add-user-role-management-capability,1
+provide-detailed-placement-performance-reporting,1
+implement payment method deletion feature,1
+implement-self-service-cancellation-feature,1
+enhance-bot-to-interpret-user-intent-after-form-submission,1
+"implement lookalike audience feature, add direct upload functionality for media plans",1
+implement-direct-account-closure-feature,1
+integrate-account-unlock-support,1
+implement-access-token-management-interface,1
+expand-language-support-to-include-Chinese,1
+add advanced ad creation guidance for experienced users,1
+implement system to automate account verification status updates,1
+implement automated verification system for faster campaign approval,1
+implement real-time feedback mechanism to confirm pixel tracking setup success,1
+enhance bot capability to troubleshoot display and permissions issues directly,1
+integrate-direct-language-change-option,1
+integrate in-chat verification process,1
+implement a system for direct escalation to support or status updates for ad reviews,1
+integrate ad content analysis and approval decision workflow,1
+implement direct profile correction and verification workflow,1
+integrate with billing system API for real-time account access,1
+integrate real-time targeting values retrieval and campaign modification capabilities,1
+add-integration-guidance-for-buygood-network,1
+enhance bot's ability to troubleshoot third-party integration errors,1
+integrate system to provide specific ad rejection reasons and resolution steps,1
+implement clarification prompts for ambiguous requests,1
+implement bulk zip code entry feature with automatic city and state association,1
+integrate-cryptocurrency-payment-options,1
+integrate direct troubleshooting tools for ad delivery issues,1
+implement-human-escalation-feature,1
+add language change feature,1
+add-direct-wire-details-provision,1
+integrate-detailed-billing-resolution-system,1
+add detailed dashboard navigation instructions for business verification,1
+expand-payment-methods-to-include-paypal,1
+implement feature to adjust video size limits or provide more flexible upload options,1
+integrate-with-user-account-system-for-detailed-troubleshooting,1
+integrate-live-chat-feature,1
+implement bulk editing functionality for ad headlines,1
+integrate direct ad credit addition feature or streamline account manager contact process,1
+integrate with payment system API for detailed error handling,1
+implement international location targeting or improve live agent connection process,1
+implement a verification process for users to upload proof of ad spend directly through the chat,1
+integrate-live-chat-support-feature,1
+integrate direct troubleshooting tools for Shopify conversion tracking,1
+add step-by-step interface navigation for finding targeting options,1
+implement-ad-credit-transfer-capability,1
+enhance bot to diagnose domain-specific pixel integration issues,1
+implement a system to assist users in meeting eligibility requirements for adding ad credits,1
+implement-language-change-feature,1
+implement external system validation or provide direct integration testing tools,1
+expand-banking-support-to-international-users,1
+expand-payment-methods-to-include-payoneer,1
+integrate real-time verification status updates,1
+integrate account status API,1
+integrate direct support contact or automated verification update system,1
+integrate direct billing and campaign management tools,1
+integrate interactive walkthrough for ad setup,1

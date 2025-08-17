@@ -1,0 +1,85 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-07-28 17:25:14.092000,,"{""recipient_id"": ""be628bde-dfe1-493f-aacb-42715be55043"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-07-28 17:25:14.102000,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+web,WEBCHAT,b8b377a28d084219b0d5e52dfa35a2c2,Gilson ,2025-07-28 17:25:14.112000,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""Gilson""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""gilsonliberdade161@gmail.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1947410756520275969""}]}"
+web,WEBCHAT,b8b377a28d084219b0d5e52dfa35a2c2,Gilson ,2025-07-28 17:26:59.303159,yes,{}
+bot,WEBCHAT,BOT,BOT,2025-07-28 17:27:25.499159, Great! How can I assist you today?,{}
+web,WEBCHAT,b8b377a28d084219b0d5e52dfa35a2c2,Gilson ,2025-07-28 17:29:08.379175,Look prexiso of help I want very much scale here with vcs,{}
+bot,WEBCHAT,BOT,BOT,2025-07-28 17:29:18.100163," Awesome! Scaling your campaigns can be exciting. To start, make sure you're giving the system enough budget to learn and optimize. When increasing your budget, try not to double it overnight; instead, increase it in no more than 50% increments to keep performance stable while growing your reach. If you have specific questions or need further guidance, feel free to ask!",{}
+web,WEBCHAT,b8b377a28d084219b0d5e52dfa35a2c2,Gilson ,2025-07-28 17:29:32.826216,I’m enjoying advertising with you,{}
+bot,WEBCHAT,BOT,BOT,2025-07-28 17:29:42.019214," That's fantastic to hear! We're thrilled that you're enjoying advertising with us. If you have any questions or need assistance, feel free to reach out. We're here to help you succeed!",{}
+web,WEBCHAT,b8b377a28d084219b0d5e52dfa35a2c2,Gilson ,2025-07-28 17:30:40.384780,yes,{}
+bot,WEBCHAT,BOT,BOT,2025-07-28 17:30:49.455022, Great! Let me know if there's anything specific you need help with or any questions you have. I'm here to assist!,{}
+web,WEBCHAT,b8b377a28d084219b0d5e52dfa35a2c2,Gilson ,2025-07-28 17:31:07.366774,more prexiso help because I want scale a lot with vcs,{}
+bot,WEBCHAT,BOT,BOT,2025-07-28 17:31:19.352648," Absolutely, I'd be happy to help you scale your campaigns! Here are a few tips to consider:
+
+1. **Broad Targeting**: Start with broad targeting to allow the system to learn and optimize effectively. You can refine it later based on performance.
+
+2. **Budget Management**: Gradually increase your budget in increments of no more than 50% to maintain stable performance while scaling.
+
+3. **Event Tracking**: Ensure you have event tracking set up for conversion event bidding strategies, as this is crucial for optimization.
+
+4. **Creative Testing**: Continuously test different ad creatives and formats to see what resonates best with your audience.
+
+If you have any specific questions or need further guidance, feel free to ask!",{}
+web,WEBCHAT,b8b377a28d084219b0d5e52dfa35a2c2,Gilson ,2025-07-28 17:31:42.576885,my conversation is not marking only is marking in the redtrack,{}
+bot,WEBCHAT,BOT,BOT,2025-07-28 17:31:51.873722," It sounds like you're having an issue with conversion tracking in RedTrack. Could you please provide more details about the setup? For example, are you using a specific pixel or postback URL? This will help me guide you better.",{}
+web,WEBCHAT,b8b377a28d084219b0d5e52dfa35a2c2,Gilson ,2025-07-28 17:33:09.219142,I configured in the redtrack on it is marking sales more on the platform of you not this,{}
+bot,WEBCHAT,BOT,BOT,2025-07-28 17:33:24.895432," Let's troubleshoot this issue. Since you're using RedTrack, please ensure that you've set up the postback correctly on NewsBreak. Here's a quick checklist:
+
+1. **Verify Postback URL**: Make sure the postback URL is correctly configured in your RedTrack account.
+
+2. **Event Setup**: In your NewsBreak ad account, go to the 'Create/test web event' section and ensure that you've selected 'Postback' as your tracking type and chosen 'RedTrack' as the 3rd party tracking service.
+
+3. **Test Conversion Flow**: Perform a test conversion to see if it registers on both platforms.
+
+For detailed instructions, you can refer to our guide on setting up a RedTrack Postback on NewsBreak here: [How to set up a RedTrack Postback on NewsBreak](https://help.newsbreak.com/hc/en-us/articles/25515090832013-How-to-set-up-a-RedTrack-Postback-on-NewsBreak).
+
+If you continue to experience issues, please let me know!",{}
+web,WEBCHAT,b8b377a28d084219b0d5e52dfa35a2c2,Gilson ,2025-07-28 17:41:23.142021,and another doubt has some friends of mine who wants to advertise with vcs have as me a link indication,{}
+bot,WEBCHAT,BOT,BOT,2025-07-28 17:41:32.654887," That's great to hear that your friends are interested in advertising with us! Currently, we don't have a referral program or link for indicating new advertisers. However, your friends can easily sign up on our platform and start their advertising journey. If they need any assistance, feel free to let me know, and I'll be happy to help!",{}
+web,WEBCHAT,b8b377a28d084219b0d5e52dfa35a2c2,Gilson ,2025-07-28 17:41:46.522601,and you give me a commission for indicate vcs,{}
+bot,WEBCHAT,BOT,BOT,2025-07-28 17:41:57.151804," We actually have a referral program where you can earn rewards by inviting your industry friends to NewsBreak! You can earn a percentage of your referral’s total ad spend in their first 30 days. For more details, you can check out our Referral Program document here: [Referral Program](https://help.newsbreak.com/hc/en-us/articles/691463e480084f7dac4e2936a2240bce-NewsBreak-Ads-Tiered-Referral-Program-pdf). If you have any questions about the program, feel free to ask!",{}
+web,WEBCHAT,b8b377a28d084219b0d5e52dfa35a2c2,Gilson ,2025-07-28 17:43:25.094274,yes because whoever pointed me he won,{}
+bot,WEBCHAT,BOT,BOT,2025-07-28 17:43:36.365132," That's correct! With our referral program, the person who referred you would have earned rewards based on your ad spend. You can do the same by referring others and earn a percentage of their ad spend in the first 30 days. If you're interested, you can find more details in our [Referral Program document](https://help.newsbreak.com/hc/en-us/articles/691463e480084f7dac4e2936a2240bce-NewsBreak-Ads-Tiered-Referral-Program-pdf). Let me know if you need any help getting started!",{}
+web,WEBCHAT,b8b377a28d084219b0d5e52dfa35a2c2,Gilson ,2025-07-28 17:48:20.494921,look what vcs of a revised in my account please it this bugada,{}
+bot,WEBCHAT,BOT,BOT,2025-07-28 17:48:42.804364," I'm sorry to hear that you're experiencing issues with your account. To help resolve this, could you please provide more details about the specific problems you're facing? If it's related to ad approval or verification, you might need to provide additional information for a review. You can email our support team at adsupport@newsbreak.com with details about the issue, and they'll be able to assist you further.",{}
+web,WEBCHAT,b8b377a28d084219b0d5e52dfa35a2c2,Gilson ,2025-07-28 17:50:57.254014,not,{}
+bot,WEBCHAT,BOT,BOT,2025-07-28 17:51:05.522541," I understand. If there's anything specific you'd like to address or if you have any questions, feel free to let me know. I'm here to help!",{}
+web,WEBCHAT,b8b377a28d084219b0d5e52dfa35a2c2,Gilson ,2025-07-28 17:51:56.207153,look not well this and why is not marking the cost in the initial destbord,{}
+bot,WEBCHAT,BOT,BOT,2025-07-28 17:52:05.632484," If the cost is not showing up on your dashboard, it might be due to a delay in data synchronization or an issue with the account setup. Here are a few steps you can take:
+
+1. **Check Data Refresh**: Sometimes, there might be a delay in data updating on the dashboard. Try refreshing the page or checking back after some time.
+
+2. **Verify Account Settings**: Ensure that your account settings are correctly configured and that there are no issues with your billing information.
+
+3. **Clear Cache**: Clear your browser cache and cookies, as this can sometimes resolve display issues.
+
+If the problem persists, I recommend reaching out to our support team at adsupport@newsbreak.com with details about the issue so they can investigate further.",{}
+web,WEBCHAT,b8b377a28d084219b0d5e52dfa35a2c2,Gilson ,2025-07-28 17:53:42.590509,look never marked and has already 4 days that I am announcing with vcs,{}
+bot,WEBCHAT,BOT,BOT,2025-07-28 17:53:53.602629," I understand your concern. If the cost has not been showing for 4 days, it might be an issue that needs further investigation. Please email our support team at adsupport@newsbreak.com with your account details and a description of the issue. They will be able to look into this for you and provide assistance.",{}
+web,WEBCHAT,b8b377a28d084219b0d5e52dfa35a2c2,Gilson ,2025-07-28 17:54:45.089831,,"{""image_list"": [{""image"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/be628bde-dfe1-493f-aacb-42715be55043/0d42531f2ed949648e0985aabf684233.jpeg"", ""thumbnail"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/be628bde-dfe1-493f-aacb-42715be55043/0d42531f2ed949648e0985aabf684233_thumbnail.jpeg"", ""is_ready"": true}]}"
+seachat_sys,WEBCHAT,BOT,BOT,2025-07-28 17:54:51.323196,"It looks like you're not seeing any data on your dashboard, which can be frustrating. Here are a few steps you can take:
+
+1. **Check Campaign Status**: Ensure that your campaigns are active and not paused or flagged for any issues.
+
+2. **Confirm Your Budget**: Verify that you've set a budget for your campaigns and that it's sufficient to run ads.
+
+3. **Refresh and Recheck**: Sometimes data updates can be slow. Refresh the dashboard and wait a few moments to see if the data appears.
+
+4. **Contact Support**: If none of the above steps resolve the issue, it's best to reach out to support at adsupport@newsbreak.com, providing them with the details and any screenshots you've taken. They can investigate the root cause of the issue.
+
+If you have any more questions or need further assistance, feel free to ask!",
+web,WEBCHAT,b8b377a28d084219b0d5e52dfa35a2c2,Gilson ,2025-07-28 17:55:00.938673,looks like this,{}
+bot,WEBCHAT,BOT,BOT,2025-07-28 17:55:05.423493," It seems like you're experiencing a persistent issue with your dashboard data not displaying. You've already taken some steps, but let's ensure everything is covered:
+
+1. **Campaign Status**: Double-check that all your campaigns are active and not paused or under review.
+
+2. **Budget Settings**: Make sure your budget is set correctly and that there are no restrictions preventing your ads from running.
+
+3. **Data Refresh**: Sometimes, data might take a while to update. Try refreshing the page or checking back later.
+
+4. **Support Assistance**: Since this has been ongoing for 4 days, I recommend contacting our support team at adsupport@newsbreak.com with detailed information about the issue, including any screenshots if possible.
+
+Feel free to reach out if you need more help!",{}
+bot,WEBCHAT,BOT,BOT,2025-07-28 17:55:11.675194," Got it! If you're still facing issues with your dashboard not displaying data, I recommend reaching out to our support team at adsupport@newsbreak.com. They can help investigate the issue further and provide a solution. Make sure to include any relevant details or screenshots in your email to assist them in diagnosing the problem.",{}

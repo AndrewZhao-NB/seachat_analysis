@@ -1,0 +1,61 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-07-21 17:43:26.834000,,"{""recipient_id"": ""8c858713-3da0-4358-8828-3e75689b140a"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-07-21 17:43:26.844000,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+web,WEBCHAT,63e4a635fe2943b9a69d2741f4d19b15,Forrest ,2025-07-21 17:43:26.854000,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""Forrest""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""forrest.guo.14@gmail.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1837510878457008130""}]}"
+web,WEBCHAT,63e4a635fe2943b9a69d2741f4d19b15,Forrest ,2025-07-21 17:45:05.624934,"Hello, how do I find my account manager Brinkley Temple? We were in contact via Skype before and now I can't get in touch",{}
+bot,WEBCHAT,BOT,BOT,2025-07-21 17:45:29.461086," Hi there! It sounds like you were in touch with an account manager before. If you're having trouble reaching Brinkley Temple, I recommend checking if you meet the requirements for dedicated account management. At this time, dedicated account management is reserved for advertisers who meet a daily spend threshold of $1,000 or more. If you’re not at that level yet, our self-serve platform and support team are available to help you with your campaigns. Let me know if there's anything else I can assist you with!",{}
+web,WEBCHAT,63e4a635fe2943b9a69d2741f4d19b15,Forrest ,2025-07-21 17:47:28.782898,"I'm planning to spend over $1000 a day, but I'm currently having some issues and need help",{}
+bot,WEBCHAT,BOT,BOT,2025-07-21 17:47:44.086968," Thanks for confirming your planned spend! To proceed with getting dedicated account management, please upload a media plan, billing statement, or screenshot showing a daily ad spend of $1,000 or more. Once verified, we’ll be happy to assist with your onboarding and connect you with a dedicated account manager. In the meantime, feel free to browse our Help Center for answers to frequently asked questions. Let me know if you need any further assistance!",{}
+web,WEBCHAT,63e4a635fe2943b9a69d2741f4d19b15,Forrest ,2025-07-21 17:48:26.359680,"my ad set is doing poorly after completing the learning phase, how can I adjust",{}
+bot,WEBCHAT,BOT,BOT,2025-07-21 17:48:38.431511," If your ad set is performing poorly after completing the learning phase, here are a few steps you can take to adjust:
+
+1. **Review Your CPA**: If your actual CPA is higher than expected, consider adjusting your budget or targeting.
+
+2. **Adjust Budget Gradually**: Increase or decrease the budget by a maximum of 30-50% each time and monitor performance for 2-3 days to gauge the impact.
+
+3. **Optimize Ad Sets**: Keep the higher-performing ad sets active and consider pausing those that aren't performing well.
+
+4. **Test New Creatives**: Sometimes refreshing your creative content can help improve engagement and performance.
+
+5. **Re-evaluate Targeting**: Ensure that your targeting aligns with your audience's demographics and interests.
+
+For more detailed guidance, you can check out our best practices article [here](https://help.newsbreak.com/hc/en-us/articles/23055076590221-Maximize-Conversions-Best-Practices). Let me know if there's anything else I can help with!",{}
+web,WEBCHAT,63e4a635fe2943b9a69d2741f4d19b15,Forrest ,2025-07-21 17:49:37.894000,are you AI?,{}
+bot,WEBCHAT,BOT,BOT,2025-07-21 17:49:49.099640," Yes, I am an AI virtual customer service assistant here to help you with any questions or issues you might have. Let me know how I can assist you today!",{}
+web,WEBCHAT,63e4a635fe2943b9a69d2741f4d19b15,Forrest ,2025-07-23 06:46:35.670801,EARN UP TO 5% BACK ON TOTAL AD SPEND!,{}
+bot,WEBCHAT,BOT,BOT,2025-07-23 06:46:46.406164," It looks like you're interested in earning rewards on your ad spend! For specific details about earning back on ad spend, I recommend checking out our promotional offers or contacting adsupport@newsbreak.com for more information. Let me know if there's anything else you need help with!",{}
+web,WEBCHAT,63e4a635fe2943b9a69d2741f4d19b15,Forrest ,2025-07-23 15:07:25.166706,"<!-- Track conversion event — use EXACTLY complete_payment -->
+
+<script>
+
+  nbpix('event', complete_payment);
+
+</script>
+
+is this the whole code for Purchase Pixel?",{}
+bot,WEBCHAT,BOT,BOT,2025-07-23 15:07:40.019410," The code snippet you provided is part of the setup for tracking a 'complete_payment' event using the NewsBreak Pixel. However, to ensure it's correctly implemented, make sure you have identified your NewsBreak Pixel Base Code and integrated it properly into your Shopify store or website. You can find detailed instructions on how to integrate the NewsBreak Pixel for a purchase conversion event in our [Help Center article](https://help.newsbreak.com/hc/en-us/articles/18551604763405-How-to-install-a-NewsBreak-Pixel-on-Shopify). Let me know if you need further assistance!",{}
+web,WEBCHAT,63e4a635fe2943b9a69d2741f4d19b15,Forrest ,2025-07-26 17:40:12.329146,"Community Federal Savings Bank - Consumer is currently unavailable
+Please select another bank or try again later.",{}
+bot,WEBCHAT,BOT,BOT,2025-07-26 17:40:18.506098," It seems like you're encountering an issue with Community Federal Savings Bank being unavailable. This might be a temporary issue, so I recommend trying again later or selecting another bank if possible. If the problem persists, you may want to contact your bank's customer service for further assistance.",{}
+web,WEBCHAT,63e4a635fe2943b9a69d2741f4d19b15,Forrest ,2025-07-27 14:21:29.595751,Can tCPA significantly increase a budget?,{}
+bot,WEBCHAT,BOT,BOT,2025-07-27 14:21:38.530245," Yes, using tCPA (Target Cost Per Acquisition) can help optimize your budget by focusing on acquiring conversions at a target cost. However, it's important to increase your daily budget gradually, about 20-30% every 2-3 days, to maintain performance stability. You can also use the bid estimation tool to identify ad sets with high growth potential and project conversion metrics based on bid rate increases. For more details, you can check out our best practices here: [tCPA Best Practices](https://help.newsbreak.com/hc/en-us/articles/18020232662797-tCPA-Best-Practices).",{}
+web,WEBCHAT,63e4a635fe2943b9a69d2741f4d19b15,Forrest ,2025-08-10 06:39:55.949606,"I can spend more than $1,000 a day, but the account manager has not replied to me yet",{}
+bot,WEBCHAT,BOT,BOT,2025-08-10 06:40:12.000882," Thanks for reaching out! Since you meet the daily spend threshold of $1,000 or more, you're eligible for dedicated account management. To proceed, please upload a media plan, billing statement, or screenshot showing your daily ad spend. Once verified, we’ll be happy to assist with your onboarding and connect you with your dedicated account manager. In the meantime, feel free to browse our Help Center for answers to frequently asked questions. Also, don’t miss our monthly webinar training sessions — make sure you’re subscribed to our email updates so you’re always in the loop!",{}
+web,WEBCHAT,63e4a635fe2943b9a69d2741f4d19b15,Forrest ,2025-08-10 06:41:05.703598,,"{""image_list"": [{""image"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/8c858713-3da0-4358-8828-3e75689b140a/2265b04ef2ec4f348dbf5478f08cae60.jpg"", ""thumbnail"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/8c858713-3da0-4358-8828-3e75689b140a/2265b04ef2ec4f348dbf5478f08cae60_thumbnail.jpg"", ""is_ready"": true}]}"
+seachat_sys,WEBCHAT,BOT,BOT,2025-08-10 06:41:13.924515,"Image 1: The image displays a digital advertising dashboard, indicating data for a specific date, August 9, 2025. It shows various performance metrics for an ad campaign, including:
+
+- **Cost**: $1,162.85
+- **Impressions**: 134,697
+- **CPM (Cost Per Mille)**: $8.63
+- **Clicks**: 4,190
+- **CPC (Cost Per Click)**: $0.28
+- **CTR (Click Through Rate)**: 3.11%
+- **Conversions**: 16
+- **CPA (Cost Per Acquisition)**: $72.68
+
+Other rows indicate no data collected for different campaigns or ad sets. The dashboard's interface indicates it refreshes every 5 minutes, and some metrics are labeled as N/A, suggesting no activity.",
+bot,WEBCHAT,BOT,BOT,2025-08-10 06:41:33.854984," It looks like your ad campaign is performing with a total cost of $1,162.85 and generating 134,697 impressions. Your CPM is $8.63, and you're getting 4,190 clicks at a CPC of $0.28. The CTR is 3.11%, with 16 conversions resulting in a CPA of $72.68.
+
+If you have any specific questions or need help optimizing these metrics, feel free to ask! I'm here to assist you further.",{}
+web,WEBCHAT,63e4a635fe2943b9a69d2741f4d19b15,Forrest ,2025-08-10 06:43:16.197791,"I just uploaded my screenshot for you to verify, I need a dedicated account management",{}
+bot,WEBCHAT,BOT,BOT,2025-08-10 06:43:30.629015," Thank you for uploading your screenshot! We'll verify your daily ad spend and proceed with connecting you to a dedicated account manager. While we process this, feel free to explore our Help Center for any immediate questions or check out our monthly webinar training sessions. We'll get back to you shortly with the next steps.",{}

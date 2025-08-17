@@ -1,0 +1,41 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-06-20 15:03:00.147000,,"{""recipient_id"": ""1eab34a4-a633-44af-80e9-919dda2d8251"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-06-20 15:03:00.157000,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+web,WEBCHAT,46674deb32204f1285f28815bff53df8,Matheus ,2025-06-20 15:03:00.167000,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""Matheus""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""vivawellness.usa@gmail.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1935872734513717250""}]}"
+web,WEBCHAT,46674deb32204f1285f28815bff53df8,Matheus ,2025-06-20 15:03:23.915584,Hi can i have the api for redtracker?,{}
+bot,WEBCHAT,BOT,BOT,2025-06-20 15:03:35.190500," Hi! It seems like you're asking about integrating with RedTrack. While I don't have a specific article for RedTrack, you can refer to our general postback integration guide for assistance. You can find it here: [How to integrate a general NewsBreak Postback](https://help.newsbreak.com/hc/en-us/articles/27680147056397-API-Integration-Guide). If you need further help, feel free to reach out to our support team at adsupport@newsbreak.com.",{}
+web,WEBCHAT,46674deb32204f1285f28815bff53df8,Matheus ,2025-07-09 16:32:19.273918,Hello,{}
+bot,WEBCHAT,BOT,BOT,2025-07-09 16:32:26.532752, Hi there! How can I assist you today?,{}
+web,WEBCHAT,46674deb32204f1285f28815bff53df8,Matheus ,2025-07-09 16:33:22.569910,I need help with tracking conversions,{}
+bot,WEBCHAT,BOT,BOT,2025-07-09 16:33:33.074372," Sure thing! Could you let me know which tracking platform you're using, like RedTrack or Voluum? That way, I can provide more specific guidance.",{}
+web,WEBCHAT,46674deb32204f1285f28815bff53df8,Matheus ,2025-07-09 16:38:06.676633,RedTrack,{}
+bot,WEBCHAT,BOT,BOT,2025-07-09 16:38:19.420545," Great! To set up a RedTrack Postback on NewsBreak, follow these steps:
+
+1. Log in to your RedTrack account and click 'Traffic channels.'
+2. Click '+ NEW FROM TEMPLATE' and search for NewsBreak.
+3. Once you click 'Add,' the NewsBreak Template should open up with the fields populated.
+4. Use the s2s URL: `https://business.newsbreak.com/tracking/attribute?callback={ref_id}&event_type={REPLACE}`
+5. Replace `{REPLACE}` with your actual conversion event, like `complete_payment`.
+
+For more detailed instructions, you can check out the full guide here: [How to set up a RedTrack Postback on NewsBreak](https://help.newsbreak.com/hc/en-us/articles/25515090832013-How-to-set-up-a-RedTrack-Postback-on-NewsBreak). Let me know if you need further assistance!",{}
+web,WEBCHAT,46674deb32204f1285f28815bff53df8,Matheus ,2025-07-09 16:38:34.354149,"When i send the postback links i receive this messages
+
+INITIATE CHECKOUT
+	https://business.newsbreak.com/tracking/attribute?callback=nvss_C27A501BF2EA41EABBBF79D75A3D3948_1942298345105694721&event_type=initiate_checkout
+
+	{code=0, requestId=C27A501B-F2EA-41EA-BBBF-79D75A3D3948, msg=}
+	
+COMPLETE PAYMENT
+	https://business.newsbreak.com/tracking/attribute?callback=nvss_C27A501BF2EA41EABBBF79D75A3D3948_1942298345105694721&event_type=complete_payment&nb_value=492
+	
+	{code=0, requestId=C27A501B-F2EA-41EA-BBBF-79D75A3D3948, msg=}",{}
+bot,WEBCHAT,BOT,BOT,2025-07-09 16:38:55.806178," It looks like your postback links are being sent correctly, as indicated by the `{code=0}` in the response, which typically means success. However, the `msg` field is empty, which might suggest that there are no additional messages or errors.
+
+To ensure everything is working smoothly:
+1. Double-check that the event types (`initiate_checkout` and `complete_payment`) are correctly set up in your NewsBreak ad account.
+2. Verify that any required parameters, like `nb_value`, are included and correctly formatted.
+3. Make sure your conversion events are properly configured on both RedTrack and NewsBreak.
+
+If everything seems correct but you're still facing issues, you might want to test the conversion flow end-to-end to ensure data is being tracked accurately.
+
+For more detailed troubleshooting steps, you can refer to the [RedTrack Postback setup guide](https://help.newsbreak.com/hc/en-us/articles/25515090832013-How-to-set-up-a-RedTrack-Postback-on-NewsBreak). Let me know if there's anything else I can help with!",{}

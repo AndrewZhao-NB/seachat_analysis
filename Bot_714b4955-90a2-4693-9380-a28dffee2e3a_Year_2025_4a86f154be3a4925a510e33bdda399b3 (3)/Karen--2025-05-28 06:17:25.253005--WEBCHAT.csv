@@ -1,0 +1,56 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-05-28 06:17:26.039451,,"{""recipient_id"": ""d50546de-2475-4d59-a04a-c3c263ded5ec"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-05-28 06:17:26.745327,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-05-28 06:17:27.087113,,"{""recipient_id"": ""d50546de-2475-4d59-a04a-c3c263ded5ec"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+web,WEBCHAT,8d48eb75060f4aa4b49f9552de91f334,Karen ,2025-05-28 06:17:36.979960,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""Karen""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""mylighthouseshop@gmail.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1909835685956136961""}]}"
+web,WEBCHAT,8d48eb75060f4aa4b49f9552de91f334,Karen ,2025-05-28 06:18:09.139702,Help please. Having issues teseting the pixel event tracking code,{}
+bot,WEBCHAT,BOT,BOT,2025-05-28 06:18:17.897882," I can help with that! Could you let me know which platform you're using for the pixel integration? Is it Shopify, Google Tag Manager (GTM), or a custom code setup? This will help me provide more specific guidance.",{}
+web,WEBCHAT,8d48eb75060f4aa4b49f9552de91f334,Karen ,2025-05-28 06:18:26.371229,Shopify,{}
+bot,WEBCHAT,BOT,BOT,2025-05-28 06:18:36.809162," Great! For Shopify integration, make sure you've placed the NewsBreak Pixel code correctly in the theme.liquid file. You can follow these steps:
+
+1. Log into your Shopify account and go to Settings > Customer events.
+2. Create a unique name for your pixel.
+3. Click 'Add pixel' to open the event editor.
+4. Paste your custom JavaScript pixel code into the Code window.
+5. Ensure that the pixel is set up for the correct event type, like 'complete_payment'.
+6. Test the event using Shopify's 'Test' feature to ensure it triggers correctly.
+
+If you need more detailed instructions, you can refer to this article: [How to install a NewsBreak Pixel on Shopify](https://help.newsbreak.com/hc/en-us/articles/18551604763405-How-to-install-a-NewsBreak-Pixel-on-Shopify). If you're still having trouble, feel free to reach out to adsupport@newsbreak.com.",{}
+web,WEBCHAT,8d48eb75060f4aa4b49f9552de91f334,Karen ,2025-05-28 06:19:01.561871,The Pixel base code is integrated correctly.,{}
+bot,WEBCHAT,BOT,BOT,2025-05-28 06:19:27.948003," That's great to hear! Now, let's ensure the custom event is loading correctly. Here are a few steps you can follow:
+
+1. Verify that the custom event code is placed correctly on the event page where the user action takes place.
+2. Perform the action that should trigger the pixel, such as simulating a product purchase if it's a 'complete_payment' event.
+3. Check if the pixel fires correctly after performing the test action.
+
+If everything is set up correctly but you're still facing issues, try these steps again or reach out to adsupport@newsbreak.com for further assistance.",{}
+web,WEBCHAT,8d48eb75060f4aa4b49f9552de91f334,Karen ,2025-05-28 06:20:02.804664,For the Testing conversion event tracking code. - it just keeps loading but the test reporting never gets done,{}
+bot,WEBCHAT,BOT,BOT,2025-05-28 06:20:15.653882," If the test for your conversion event tracking code isn't completing, here are a few things to check:
+
+1. Ensure that the tracking platform is recording the click correctly.
+2. Verify if the event constitutes a conversion with your offer provider.
+3. If the tracking platform is counting a conversion but NewsBreak isn't completing the test, grab the click ID and timestamp for the conversion from your tracking platform.
+4. Send this information to adsupport@newsbreak.com for further investigation.
+
+These steps should help identify where the issue might be occurring.",{}
+web,WEBCHAT,8d48eb75060f4aa4b49f9552de91f334,Karen ,2025-05-28 06:26:30.061759,"How do I find the timestamp for the conversion? Time of the order, right?",{}
+bot,WEBCHAT,BOT,BOT,2025-05-28 06:26:40.890848," Yes, that's correct! The timestamp for the conversion is typically the time when the order or conversion event was recorded by your tracking platform. You can usually find this in the reporting or analytics section of your tracking platform. If you have any trouble locating it, you might want to check with your tracking platform's support for guidance on accessing this information.",{}
+web,WEBCHAT,8d48eb75060f4aa4b49f9552de91f334,Karen ,2025-05-28 06:41:05.497571,Email with ID and timestamps submitted. ,{}
+bot,WEBCHAT,BOT,BOT,2025-05-28 06:41:14.503402," Great! Once the support team reviews your email with the click ID and timestamps, they should be able to assist you further. If you have any other questions or need more help, feel free to ask!",{}
+web,WEBCHAT,8d48eb75060f4aa4b49f9552de91f334,Karen ,2025-05-28 06:41:37.584438,ok thanks,{}
+bot,WEBCHAT,BOT,BOT,2025-05-28 06:41:45.501381, You're welcome! Thanks for contacting us and we want to hear from you!,{}
+web,WEBCHAT,8d48eb75060f4aa4b49f9552de91f334,Karen ,2025-05-28 06:43:07.686810,ok,{}
+bot,WEBCHAT,BOT,BOT,2025-05-28 06:43:15.444482, Thanks for contacting us and we want to hear from you!,{}
+bot,WEBCHAT,BOT,BOT,2025-05-28 06:43:17.573261,,"{""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""elements"": [{""title"": ""Your feedback is valued"", ""subtitle"": """", ""image_url"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/gpt_kb_image/2dd5c1a6-b42e-4ef3-90aa-de3be7b301e0.png"", ""buttons"": [{""content_type"": ""text"", ""title"": ""Fill this form"", ""type"": ""web_url"", ""url"": ""https://docs.google.com/forms/d/e/1FAIpQLSetbGpmvV7LQX1xGLzPafmtf1w-LuXw-OJtQqIItHK6ylfGRw/viewform?usp=sharing"", ""is_enabled"": true, ""hidden_reply"": false}]}], ""template_type"": ""generic""}}, ""confident_response"": true}}"
+web,WEBCHAT,8d48eb75060f4aa4b49f9552de91f334,Karen ,2025-05-28 22:51:42.162710,"Hello, ",{}
+bot,WEBCHAT,BOT,BOT,2025-05-28 22:51:47.677863, Hi there! How can I assist you today?,{}
+web,WEBCHAT,8d48eb75060f4aa4b49f9552de91f334,Karen ,2025-05-28 22:53:34.144117,"So the Testing conversion event tracking code. finally completed - though it took overnight. Anyway, I was able to save it and now i Have my first web event. Do I need to do this again for every new product I'm going to do an ad for? ",{}
+bot,WEBCHAT,BOT,BOT,2025-05-28 22:53:50.316934," Great to hear that your conversion event tracking code finally completed! You don't need to set up a new event for every product. You can share the existing web event with other accounts in the same organization without creating a new one. Just go to 'Access' from the Event Management Page, click '+Add Accounts', look up the account you want to share this event with, select it, and click 'Confirm'. The event will be shared with the specified account.",{}
+web,WEBCHAT,8d48eb75060f4aa4b49f9552de91f334,Karen ,2025-05-28 23:00:08.444730,Ok great thanks!,{}
+bot,WEBCHAT,BOT,BOT,2025-05-28 23:00:15.896804," You're welcome! If you have any more questions or need further assistance, feel free to ask. Have a great day!",{}
+web,WEBCHAT,8d48eb75060f4aa4b49f9552de91f334,Karen ,2025-06-07 15:45:14.263465,"Hi, do ads get approved on weekends by any chance? I just submitted new ads early this morning.  Please advise",{}
+bot,WEBCHAT,BOT,BOT,2025-06-07 15:45:27.309886," Hi there! Yes, ads can be reviewed on weekends. On average, we review ads within 4 hours on weekdays and up to 8 hours on weekends. So you should expect to hear back soon about your ad approval status!",{}
+web,WEBCHAT,8d48eb75060f4aa4b49f9552de91f334,Karen ,2025-06-07 15:46:33.423430,"Oh ok, great. Thanks!",{}
+bot,WEBCHAT,BOT,BOT,2025-06-07 15:46:40.792229," You're welcome! If you have any more questions, feel free to ask. Have a great day!",{}
+web,WEBCHAT,8d48eb75060f4aa4b49f9552de91f334,Karen ,2025-06-07 15:53:28.981281,0,{}
+bot,WEBCHAT,BOT,BOT,2025-06-07 15:53:35.816715," It seems like you might have entered something by mistake. If you have any questions or need assistance, feel free to let me know!",{}

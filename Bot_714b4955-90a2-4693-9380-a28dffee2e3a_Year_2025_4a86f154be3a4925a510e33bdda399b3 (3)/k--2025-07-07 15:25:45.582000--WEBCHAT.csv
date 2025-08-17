@@ -1,0 +1,131 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-07-07 15:25:45.582000,,"{""recipient_id"": ""92f70d38-919d-4f0e-b0bb-54a7b9be5731"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-07-07 15:25:45.592000,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+web,WEBCHAT,0cd3c682e1364868b5b29578f9b6d618,k ,2025-07-07 15:25:45.602000,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""k""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""katherine.t@newsbreak.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1899852679580000257""}]}"
+web,WEBCHAT,0cd3c682e1364868b5b29578f9b6d618,k ,2025-07-07 15:25:52.798932,"Good afternoon, my name is Allan Naranjo, CTO of Smash Media, account 1806115127645908993
+we are in the process of connecting to newsbreak's api, however, we need support to get a list of valid targeting values, for example https://business.newsbreak.com/business-api-doc/docs/api-reference/ad-set/create-an-ad-set, when creating an ad set we can pass targeting.location where can we find the helper/dictionary to obtain the valid values to send as part of our payload?
+We are using this documentation as reference https://business.newsbreak.com/business-api-doc/docs/overview/.",{}
+bot,WEBCHAT,BOT,BOT,2025-07-07 15:26:05.243780," Hi Allan, to get a list of valid targeting values for creating an ad set on NewsBreak, you can refer to the API Integration Guide. This guide provides detailed instructions on how to integrate with NewsBreak’s Ad Manager and includes information about targeting parameters. You can find it here: [API Integration Guide](https://help.newsbreak.com/hc/en-us/articles/27680147056397-API-Integration-Guide). If you have any further questions or run into issues, feel free to reach out to adsupport@newsbreak.com.",{}
+web,WEBCHAT,0cd3c682e1364868b5b29578f9b6d618,k ,2025-07-08 19:16:55.136940,"Hello,
+
+I noticed the ad duration time on news break is limited to 60 seconds. Is it possible to increase that? I have quite a few ads that are much longer than 60 seconds. If I could get it increased to 3 minutes that would be great.",{}
+bot,WEBCHAT,BOT,BOT,2025-07-08 19:17:09.409776," Hi there! Currently, NewsBreak supports video ads up to a maximum of 60 seconds. Unfortunately, it's not possible to increase the duration beyond that limit at this time. If you have longer content, you might consider editing it down to fit within the 60-second limit or creating a series of shorter ads. Let me know if there's anything else I can help with!",{}
+web,WEBCHAT,0cd3c682e1364868b5b29578f9b6d618,k ,2025-07-09 19:51:16.242353,"Im having troubles validating the pixel in a test on the custom events within shopify .  
+
+Checkout reached..  
+I would like to start a campaign but for some reason the test feature is not validating the custom events.. Just the base code..",{}
+bot,WEBCHAT,BOT,BOT,2025-07-09 19:51:40.567098," It sounds like you're having trouble with the custom events in Shopify. Let's go through a few steps to troubleshoot:
+
+1. **Verify Pixel Placement**: Ensure that the pixel code is correctly placed in the `theme.liquid` file of your Shopify store.
+
+2. **Base Pixel Check**: Since the base pixel is loading correctly, that's a good sign. Make sure that the custom event code is also placed correctly.
+
+3. **Test Purchase**: For purchase events like `complete_payment`, you may need to perform a test purchase to validate the event.
+
+4. **Redirects and Event Loading**: Check if the custom event loads after going through any redirects on your site.
+
+If you've checked these and are still having issues, you might want to refer to our detailed instructions in the help center article on Event Tracking for more guidance.
+
+Here's a link to our [Event Tracking Guidelines](#).
+
+Let me know if you need further assistance!",{}
+web,WEBCHAT,0cd3c682e1364868b5b29578f9b6d618,k ,2025-07-09 20:38:03.557180,"Kindly deselect all the 3rd party publishers from our  Campaign ID:1942526924767780866.
+
+Kindly enable the targeting option for us",{}
+bot,WEBCHAT,BOT,BOT,2025-07-09 20:38:22.001099," I can guide you on how to manage third-party publishers and targeting options for your campaign. However, I don't have the ability to make changes directly to your campaign settings.
+
+To deselect third-party publishers and enable targeting options, please follow these steps:
+
+1. **Log into your NewsBreak Ads Account**.
+2. Navigate to the specific campaign (ID: 1942526924767780866).
+3. Go to the 'Targeting' section of your campaign settings.
+4. Deselect any third-party publishers you wish to remove.
+5. Enable or adjust any targeting options as needed.
+
+If you encounter any issues or need further assistance, feel free to reach out to our support team at adsupport@newsbreak.com.",{}
+web,WEBCHAT,0cd3c682e1364868b5b29578f9b6d618,k ,2025-07-09 20:44:47.009888,where is the third party publisher segment? it its not there,{}
+bot,WEBCHAT,BOT,BOT,2025-07-09 20:44:57.763504," If you're not seeing the third-party publisher segment in your campaign settings, it might be due to a few reasons:
+
+1. **Campaign Type**: Ensure that your campaign type supports third-party publisher options. Some campaign types may not have this feature available.
+
+2. **Account Permissions**: Double-check if you have the necessary permissions to modify these settings. Sometimes, certain features are restricted based on user roles.
+
+3. **Platform Updates**: There might be updates or changes in the platform that affect where these settings are located.
+
+If none of these seem to be the issue, I recommend reaching out to our support team at adsupport@newsbreak.com for further assistance. They can provide more detailed guidance specific to your account and campaign setup.",{}
+web,WEBCHAT,0cd3c682e1364868b5b29578f9b6d618,k ,2025-07-11 21:25:48.405595,"Hi Team, 
+
+I’m currently building a platform that enables users to launch Newsbreak ad campaigns directly. During the integration, I’ve hit a roadblock regarding the  location targeting feature. 
+
+Currently, when the user types into the location search field (e.g., 
+
+
+
+""in""
+), the UI fires an API request to your 
+
+
+
+/autocomplete
+endpoint and returns a list of 50 matched records. However, for our use case, we’d like to: 
+
+ 
+
+Pre-fetch the complete list of available locations 
+ 
+
+Store them locally or cache them 
+ 
+
+And implement frontend-side pagination/infinite scroll as the user browses 
+
+Th",{}
+bot,WEBCHAT,BOT,BOT,2025-07-11 21:27:26.078121," Hi Allan! Thanks for reaching out. It sounds like you're working on an exciting project with Newsbreak's API. Unfortunately, I don't have the specific details on how to pre-fetch the complete list of available locations for local storage or caching. I recommend contacting our support team at 'adsupport@newsbreak.com' for more detailed guidance on this integration. They should be able to provide you with the necessary information and support.
+
+If you have any other questions or need further assistance, feel free to let me know!",{}
+web,WEBCHAT,0cd3c682e1364868b5b29578f9b6d618,k ,2025-07-14 20:46:56.424160,I'm about to start running some campaigns and I received an email from ClickBank about a $500 credit to get started. How can I claim it?,{}
+bot,WEBCHAT,BOT,BOT,2025-07-14 20:47:10.448434," To claim the $500 ad credit from ClickBank, you need to be a Silver or Gold affiliate. Additionally, an onboarding call with our Account Managers and business verification are required. You can schedule the onboarding call through this link: [NewsBreak Advertising Consultation](https://calendly.com/d/z4w-3t3-rkw/newsbreak-advertising-consultation). Once these steps are completed, you'll receive your ad credits.",{}
+web,WEBCHAT,0cd3c682e1364868b5b29578f9b6d618,k ,2025-07-17 16:37:21.923980,"I’ve integrated the NewsBreak Pixel script on our site and used the following Pixel ID: 
+ID-1944455131971219458 
+
+The script loads successfully, and the nbpix function is available. 
+However, during initialization, I’m getting the following error: 
+Uncaught TypeError: Cannot set properties of undefined (setting 'process') 
+This error appears when calling nbpix('init', 'ID-1944455131971219458'). 
+
+It seems like the pixel isn’t fully initialized server-side — possibly not active or approved yet. 
+
+Could you please check and confirm that this Pixel ID is active and correctly configured?",{}
+bot,WEBCHAT,BOT,BOT,2025-07-17 16:37:41.935172," It sounds like you've done a great job integrating the NewsBreak Pixel script on your site. The error you're encountering, ""Uncaught TypeError: Cannot set properties of undefined (setting 'process')"", suggests there might be an issue with the initialization of the pixel. 
+
+Here are a few steps you can take to troubleshoot this:
+1. Double-check that the Pixel ID is correctly entered in your script.
+2. Ensure that the base pixel code is placed correctly in the `<head>` section of your webpage.
+3. Verify if there are any network issues or restrictions that might be blocking the script from loading completely.
+4. Make sure there are no JavaScript errors on your page that could interfere with the pixel's execution.
+
+If everything seems correct and you're still facing issues, it might be best to reach out to our support team at adsupport@newsbreak.com for further assistance. They can verify if your Pixel ID is active and correctly configured server-side.",{}
+web,WEBCHAT,0cd3c682e1364868b5b29578f9b6d618,k ,2025-07-31 18:44:03.540282,"I’m interested in using the NewsBreak API for Business to manage and report on ad campaigns. Could you please provide the following details? 
+
+• API access tiers and associated pricing  
+
+• Minimum monthly spend requirements  
+
+• Supported billing models (e.g. CPC/CPM)  
+
+• Any enterprise or volume-based discount options  
+
+• Technical documentation or onboarding information",{}
+bot,WEBCHAT,BOT,BOT,2025-07-31 18:44:28.505465," Thanks for reaching out about using the NewsBreak API for managing and reporting on ad campaigns! Here's what I can share:
+
+- **API Access Tiers and Pricing**: Unfortunately, I don't have specific details on API access tiers and pricing. For this information, please contact adsupport@newsbreak.com.
+
+- **Minimum Monthly Spend Requirements**: The minimum budget requirement to run ads on our platform is $10. This ensures that advertisers can reach a reasonable audience size.
+
+- **Supported Billing Models**: We offer Cost Per Click (CPC) with a minimum of $10 and Cost Per Mille (CPM) starting as low as $4 for every 1,000 ad impressions.
+
+- **Enterprise or Volume-Based Discounts**: For any enterprise or volume-based discount options, it's best to reach out directly to our support team at adsupport@newsbreak.com.
+
+- **Technical Documentation or Onboarding Information**: You can find technical documentation in our [API Integration Guide](https://help.newsbreak.com/hc/en-us/articles/27680147056397-API-Integration-Guide).
+
+If you have more questions or need further assistance, feel free to ask!",{}

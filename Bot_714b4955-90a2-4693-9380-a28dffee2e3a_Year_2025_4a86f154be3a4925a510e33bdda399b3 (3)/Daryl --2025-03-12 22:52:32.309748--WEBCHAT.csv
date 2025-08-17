@@ -1,0 +1,56 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-03-12 22:52:33.308403,,"{""recipient_id"": ""78a46db8-205f-40fe-9423-9cf566e1a12b"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-03-12 22:52:33.853103,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-03-12 22:52:34.314837,,"{""recipient_id"": ""78a46db8-205f-40fe-9423-9cf566e1a12b"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+web,WEBCHAT,dfc30fc7462d48219e4bb252961de310,Daryl ,2025-03-12 22:52:58.108838,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""Daryl ""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""mainymarketing@gmail.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1899956460209668097""}]}"
+web,WEBCHAT,dfc30fc7462d48219e4bb252961de310,Daryl ,2025-03-12 22:53:52.025967,Do I need to install a pixel onto my pages? ,{}
+bot,WEBCHAT,BOT,BOT,2025-03-12 22:53:57.767914," Hi Daryl, yes, installing a pixel on your pages is necessary for tracking conversions and other events. Depending on the platform you're using, the installation process may vary. Could you let me know which platform or service you're using for your pixel? For example, Shopify or Google Tag Manager (GTM)?",{}
+web,WEBCHAT,dfc30fc7462d48219e4bb252961de310,Daryl ,2025-03-12 22:54:42.640028,I'm using clickfunnels for my bridge page,{}
+bot,WEBCHAT,BOT,BOT,2025-03-12 22:54:50.283366," Got it, Daryl! For installing a NewsBreak Pixel on your ClickFunnels bridge page, you will need to add the pixel code to your page's header. Unfortunately, I don't have a specific guide for ClickFunnels, but the general steps are similar to other platforms. Here's a basic outline of what you need to do:
+1. Copy the NewsBreak Pixel base code.
+2. In ClickFunnels, go to your funnel and select the page where you want to install the pixel.
+3. Click on 'Edit Page' and then go to 'Settings' > 'Tracking Code'.
+4. Paste the NewsBreak Pixel base code into the header section.
+5. Save your changes.
+For more detailed information on setting up custom pixels, you can refer to this article: [Introduction to Multi-Event Tracking](https://help.newsbreak.com/hc/en-us/articles/23053537846669-Introduction-to-Multi-Event-Tracking). If you need further assistance, feel free to ask!",{}
+web,WEBCHAT,dfc30fc7462d48219e4bb252961de310,Daryl ,2025-03-12 22:55:13.580181,Where do i find the newsbreak pixel? ,{}
+bot,WEBCHAT,BOT,BOT,2025-03-12 22:55:22.748711," You can find the NewsBreak Pixel in your NewsBreak account. Here are the steps to locate it:
+1. Log in to your NewsBreak account.
+2. Navigate to the 'Tracking' section or 'Pixels' tab (the exact name may vary).
+3. Look for an option to create or view your pixel code.
+4. Copy the pixel code provided.
+If you need more detailed instructions, you can refer to this article: [How to integrate a Newsbreak Postback with CPV One](https://help.newsbreak.com/hc/en-us/articles/34188623183757-How-to-integrate-a-Newsbreak-Postback-with-CPV-One). Let me know if you need any further assistance!",{}
+web,WEBCHAT,dfc30fc7462d48219e4bb252961de310,Daryl ,2025-03-12 23:07:19.377014,where do i generate the postback url from newbreaks,{}
+bot,WEBCHAT,BOT,BOT,2025-03-12 23:07:26.479103," To generate the postback URL from NewsBreak, follow these steps:
+1. Log in to your NewsBreak account.
+2. Navigate to the 'Tracking' or 'Postbacks' section (the exact name may vary).
+3. Look for an option to create a new postback URL.
+4. Follow the prompts to generate and customize your postback URL based on your tracking needs.
+For more detailed instructions, you can refer to this article: [How to integrate a Newsbreak Postback with CPV One](https://help.newsbreak.com/hc/en-us/articles/34188623183757-How-to-integrate-a-Newsbreak-Postback-with-CPV-One). If you need further assistance, feel free to ask!",{}
+web,WEBCHAT,dfc30fc7462d48219e4bb252961de310,Daryl ,2025-03-13 00:05:50.150399,where do i find my click ID? I dont see it in event management ,{}
+bot,WEBCHAT,BOT,BOT,2025-03-13 00:05:58.986698," The Click ID is typically generated by the platform you're using for tracking, such as ClickFunnels. It may not be directly visible in NewsBreak's event management. Here’s how you can find it in ClickFunnels:
+1. Log in to your ClickFunnels account.
+2. Go to the funnel where you want to track the Click ID.
+3. In the funnel steps, click on 'Edit Page' for the specific page you are working on.
+4. Go to 'Settings' > 'Tracking Code' and look for any custom scripts that might include a Click ID parameter.
+5. If you have set up tracking parameters, they should be visible within these scripts or in your URL parameters when a user clicks through your funnel.
+If you're still having trouble finding it, I recommend reaching out to ClickFunnels support for more detailed assistance on locating and using the Click ID.",{}
+web,WEBCHAT,dfc30fc7462d48219e4bb252961de310,Daryl ,2025-03-13 00:06:45.710993,"I'm just following the steps i was given ""Go ahead and test the integration, this time in place of the {extclid}, please use the click id generated from the NewsBreak UI in Event Management and hit ‘Test.’
+""",{}
+bot,WEBCHAT,BOT,BOT,2025-03-13 00:06:57.583682," Thanks for the clarification, Daryl! To find the Click ID generated from the NewsBreak UI in Event Management, follow these steps:
+1. Log in to your NewsBreak account.
+2. Navigate to the 'Event Management' tab.
+3. Look for the specific event you are working on and click on it to view its details.
+4. Within the event details, you should see a section or field labeled 'Click ID' or something similar.
+5. Copy this Click ID and use it in place of {extclid} as instructed.
+For more detailed instructions, you can refer to this article: [How to integrate a Newsbreak Postback with CPV One](https://help.newsbreak.com/hc/en-us/articles/34188623183757-How-to-integrate-a-Newsbreak-Postback-with-CPV-One). If you need further assistance, feel free to ask!",{}
+web,WEBCHAT,dfc30fc7462d48219e4bb252961de310,Daryl ,2025-03-13 00:09:30.421178,there is no click id,{}
+bot,WEBCHAT,BOT,BOT,2025-03-13 00:09:36.214409," I'm sorry to hear that you're having trouble finding the Click ID. It seems like there might be an issue with the setup or the instructions provided. Let's try a different approach:
+1. Double-check that you have set up your event correctly in the NewsBreak Event Management section.
+2. Ensure that all necessary tracking parameters are configured properly.
+3. If the Click ID is still not visible, it might be best to reach out to NewsBreak support for further assistance.
+I can also send an email to our support team on your behalf to help resolve this issue. Would you like me to do that?",{}
+web,WEBCHAT,dfc30fc7462d48219e4bb252961de310,Daryl ,2025-03-13 00:18:38.572208,"Ok i figured it out with ChatGPT. If you can send feedback for the direction found here: https://help.newsbreak.com/hc/en-us/articles/34723784198157-How-to-integrate-with-ClickBank
+
+Everything is clear up until step 6. There was no ""click id generated from the NewsBreak UI in Event Management"" I had to copy the test URL and ask chatGPT if my click ID could be found WITHIN the URL and it gave it to me.",{}
+bot,WEBCHAT,BOT,BOT,2025-03-13 00:18:52.591392,"Thanks for the feedback, Daryl! I've sent your feedback to the NewsBreak support team regarding the instructions on integrating with ClickBank. If you need any further assistance, feel free to ask!",{}

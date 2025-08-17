@@ -1,0 +1,48 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-07-23 21:26:23.549000,,"{""recipient_id"": ""eb175a35-c3b9-468a-a4c2-bbd8daaa4a22"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-07-23 21:26:23.559000,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+web,WEBCHAT,795a472b28654e24b01c20888bee9d74,as ,2025-07-23 21:26:23.569000,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""as""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""as@gmail.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1872216114150420482""}]}"
+web,WEBCHAT,795a472b28654e24b01c20888bee9d74,as ,2025-07-23 21:26:34.886205,Hi i have a question,{}
+bot,WEBCHAT,BOT,BOT,2025-07-23 21:26:40.695333, Hi there! I'm here to help. What can I assist you with today?,{}
+web,WEBCHAT,795a472b28654e24b01c20888bee9d74,as ,2025-07-23 21:26:49.428313,event tracking,{}
+bot,WEBCHAT,BOT,BOT,2025-07-23 21:26:56.599236," Could you please provide more details about your event tracking issue? Are you looking to set up, debug, or share events across accounts? Let me know so I can assist you better!",{}
+web,WEBCHAT,795a472b28654e24b01c20888bee9d74,as ,2025-07-23 21:27:05.411800,close this chat,{}
+bot,WEBCHAT,BOT,BOT,2025-07-23 21:27:11.479788, Thanks for contacting us and we want to hear from you!,{}
+web,WEBCHAT,795a472b28654e24b01c20888bee9d74,as ,2025-07-23 21:27:26.493738,how do i provide feedback,{}
+bot,WEBCHAT,BOT,BOT,2025-07-23 21:27:33.963636, You can provide feedback by clicking the button below titled 'Fill this form'. It will redirect you to our feedback form. We appreciate your input!,{}
+bot,WEBCHAT,BOT,BOT,2025-07-23 21:27:40.107004,,"{""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""elements"": [{""title"": ""Your feedback is valued"", ""subtitle"": """", ""image_url"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/gpt_kb_image/2dd5c1a6-b42e-4ef3-90aa-de3be7b301e0.png"", ""buttons"": [{""content_type"": ""text"", ""title"": ""Fill this form"", ""type"": ""web_url"", ""url"": ""https://docs.google.com/forms/d/e/1FAIpQLSetbGpmvV7LQX1xGLzPafmtf1w-LuXw-OJtQqIItHK6ylfGRw/viewform?usp=sharing"", ""is_enabled"": true, ""hidden_reply"": false}]}], ""template_type"": ""generic""}}, ""confident_response"": true}}"
+web,WEBCHAT,795a472b28654e24b01c20888bee9d74,as ,2025-07-30 20:55:59.957677,hi,{}
+bot,WEBCHAT,BOT,BOT,2025-07-30 20:56:06.394371, Hello! How can I assist you today?,{}
+web,WEBCHAT,795a472b28654e24b01c20888bee9d74,as ,2025-07-30 20:56:18.073603,pixel help,{}
+bot,WEBCHAT,BOT,BOT,2025-07-30 20:56:27.913279," Sure, I can help with that! Could you please let me know which platform you're trying to integrate the NewsBreak Pixel with? For example, Shopify, ShopLazza, or another platform?",{}
+web,WEBCHAT,795a472b28654e24b01c20888bee9d74,as ,2025-08-05 16:42:03.826912,gtm,{}
+bot,WEBCHAT,BOT,BOT,2025-08-05 16:42:15.643353," It looks like you're interested in setting up a NewsBreak Pixel with Google Tag Manager (GTM). To do this, you'll need to install the NewsBreak Pixel base code on GTM. Here's a quick overview of the steps:
+
+1. Log in to your Google Tag Manager account and select the appropriate Workspace for your website.
+2. Click on 'Tags' in the left-hand sidebar and then click the 'New' button.
+3. Give this tag a meaningful name (e.g., NewsBreak Pixel Base Code), then click on the 'Tag Configuration' box.
+4. Choose 'Custom HTML' and input your scripts.
+5. In a separate tab, log in to NewsBreak Ad Manager, go to Tools -> Event Tracking, create an event with Pixel, and choose to integrate with GTM.
+6. Copy the NewsBreak Pixel conversion code from your NewsBreak Ad Manager Event Tracking Tool and paste it into GTM.
+7. Create or select an existing trigger for your conversion pixel.
+8. Save your changes and test if the pixel is installed correctly using GTM's Preview mode or the NewsBreak Ad Manager Event Tracking Tool.
+
+For detailed instructions, you can refer to our help article here: [How to install a NewsBreak Pixel with GTM](https://help.newsbreak.com/hc/en-us/articles/14333966189581-How-to-install-a-NewsBreak-Pixel-with-GTM).",{}
+web,WEBCHAT,795a472b28654e24b01c20888bee9d74,as ,2025-08-06 21:10:14.400768,test,{}
+bot,WEBCHAT,BOT,BOT,2025-08-06 21:10:27.434335," To test if your NewsBreak Pixel is installed correctly on your website using Google Tag Manager (GTM), follow these steps:
+
+1. Go to the Workspace for your website and click the 'Preview' button on the top right.
+2. You should see a popup that says “Connected!”.
+3. Input your landing page URL and click the 'Connect' button. A new tab with your webpage will appear.
+4. Trigger your conversion event in the new webpage.
+5. On GTM, you should see both the base code tag and the conversion tag you created shown in the Tags tab, under Tags Fired.
+
+Alternatively, you can test using the NewsBreak Ad Manager Event Tracking Tool:
+
+1. Log into NewsBreak Ad Manager.
+2. Go to Tools -> Event Tracking and find section 3 - Test pixel integration.
+3. Input your landing page URL, then click 'Go test' button and a new tab should appear.
+4. Trigger your conversion event in the webpage opened by the NewsBreak Event Tracking Tool.
+5. You should see a successful test result with both your base code and conversion code installed correctly.
+
+For more detailed instructions, check out our help article: [How to install a NewsBreak Pixel with GTM](https://help.newsbreak.com/hc/en-us/articles/14333966189581-How-to-install-a-NewsBreak-Pixel-with-GTM).",{}

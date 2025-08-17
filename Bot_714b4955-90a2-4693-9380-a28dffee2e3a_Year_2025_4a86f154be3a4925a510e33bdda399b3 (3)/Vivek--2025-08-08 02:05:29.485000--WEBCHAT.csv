@@ -1,0 +1,30 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-08-08 02:05:29.485000,,"{""recipient_id"": ""06f40b43-1435-4341-9202-dd7714ad4b85"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-08-08 02:05:29.495000,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+web,WEBCHAT,5407fe65cfd147e6897fb8dbefae59e9,Vivek ,2025-08-08 02:05:29.505000,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""Vivek""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""thevivekgupta1@gmail.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1868758642822799362""}]}"
+web,WEBCHAT,5407fe65cfd147e6897fb8dbefae59e9,Vivek ,2025-08-08 02:06:13.703005,is there a role outside of admin that can be used to add a user,{}
+bot,WEBCHAT,BOT,BOT,2025-08-08 02:06:22.337617," In NewsBreak's account management, only an admin role can add users to an organization or ad account. Other roles like operator or viewer do not have the permissions to manage users. If you need more details on how roles work, you can check out the Account Management Guide here: [Account Management Guide](https://help.newsbreak.com/hc/en-us/articles/17539290349709-Account-Management-Guide).",{}
+web,WEBCHAT,5407fe65cfd147e6897fb8dbefae59e9,Vivek ,2025-08-08 02:07:14.541430,"I am the owner, but when I try to add someone I only see the option to add them as an admin",{}
+bot,WEBCHAT,BOT,BOT,2025-08-08 02:07:25.090836," As the owner, you should be able to add users with different roles. If you're only seeing the option to add them as an admin, it might be due to a specific setting or limitation in your account setup. Make sure you're accessing the correct section under 'Account Management' and selecting 'Access' for either your Organization or Ad account. If the issue persists, I recommend reaching out to our support team at adsupport@newsbreak.com for further assistance.",{}
+web,WEBCHAT,5407fe65cfd147e6897fb8dbefae59e9,Vivek ,2025-08-09 17:52:31.202178,adset barely spending,{}
+bot,WEBCHAT,BOT,BOT,2025-08-09 17:52:42.623998," If your ad set is barely spending, there are a few things you can check and adjust to improve performance:
+
+1. **Campaign Start Date**: Ensure that the campaign start date is set correctly and has already begun.
+2. **Bidding Strategy**: Review your bidding strategy to ensure it aligns with your goals. You might want to consider using a different strategy like Maximize Conversions or Target CPA.
+3. **Budget Settings**: Make sure your daily budget is sufficient. It should be at least 10 times the CPA amount of the optimization event and no less than $150.
+4. **Targeting Settings**: Check if your targeting settings are too narrow, which might limit the audience reach.
+5. **Creative Performance**: Evaluate the performance of your creatives (CTR/CVR/CPI/CPA) and consider testing new ones if necessary.
+6. **Recent Changes**: If you've made any recent changes, give it some time as it may take a while for the algorithm to adjust.
+
+For more detailed guidance, you can refer to our [Campaign Best Practices](https://help.newsbreak.com/hc/en-us/articles/20624355375117-Introduction-to-Maximize-Conversions).",{}
+web,WEBCHAT,5407fe65cfd147e6897fb8dbefae59e9,Vivek ,2025-08-10 19:36:18.465108,campaigns not spending correctly,{}
+bot,WEBCHAT,BOT,BOT,2025-08-10 19:36:31.200776," If your campaigns are not spending correctly, here are some steps you can take to troubleshoot and optimize:
+
+1. **Check Launch Date**: Ensure the campaign start date is set correctly. Sometimes campaigns are set to start at a later time due to time zone settings.
+2. **Learning Phase**: During the initial days, ad sets are in the learning phase. Avoid making too many changes during this period as it can disrupt performance.
+3. **Budget Adjustments**: Increase your budget gradually, no more than 50% every 2-3 days, especially during the learning phase.
+4. **Bidding Strategy**: Consider using Max Conversion bidding initially to help speed up the learning phase.
+5. **Targeting and Audience Segments**: Review your targeting settings and audience segments to ensure they are not too narrow.
+6. **Creative Performance**: Evaluate your ad creatives for engagement metrics like CTR and CVR, and test new creatives if needed.
+
+For more detailed guidance, you can refer to our [Newsbreak Ads Overview](https://help.newsbreak.com/hc/en-us/articles/20624355375117-Introduction-to-Maximize-Conversions).",{}

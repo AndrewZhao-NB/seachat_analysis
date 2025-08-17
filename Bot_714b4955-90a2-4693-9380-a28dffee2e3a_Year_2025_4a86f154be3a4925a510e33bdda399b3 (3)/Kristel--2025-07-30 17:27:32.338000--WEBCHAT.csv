@@ -1,0 +1,100 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+web,WEBCHAT,91f7d3ee335041d789c78579b48c80d4,Kristel ,2025-07-30 17:25:04.727179,"I created a pixel web event with the correct funnel URL, tested and trying to save it , but I get an 'Invalid operation' error as In the picture shown. 
+
+Just a heads-up we already created an event for the “FREE Home Equity Protection Report” using this landing page:
+https://lm.sellvetted.com/hepr-page460449.
+
+
+Now I’m trying to set up a new event for the next one Why 40% of Homes Sit Unsold... but I’m getting an error, even though I haven’t actually saved anything yet.","{""image_list"": [{""image"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/086a8777-49dc-4479-a3d4-394070f25444/81e0107d8dd24decb0c9189b153e3780.png"", ""thumbnail"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/086a8777-49dc-4479-a3d4-394070f25444/81e0107d8dd24decb0c9189b153e3780_thumbnail.png"", ""is_ready"": true}, {""image"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/086a8777-49dc-4479-a3d4-394070f25444/9b0f1fefaed34ba1a57398a12528d70b.png"", ""thumbnail"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/086a8777-49dc-4479-a3d4-394070f25444/9b0f1fefaed34ba1a57398a12528d70b_thumbnail.png"", ""is_ready"": true}, {""image"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/086a8777-49dc-4479-a3d4-394070f25444/6f9fcd892c874451825e342e294d6fe6.png"", ""thumbnail"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/086a8777-49dc-4479-a3d4-394070f25444/6f9fcd892c874451825e342e294d6fe6_thumbnail.png"", ""is_ready"": true}]}"
+seachat_sys,WEBCHAT,BOT,BOT,2025-07-30 17:25:12.663314,"I created a pixel web event with the correct funnel URL, tested and trying to save it , but I get an 'Invalid operation' error as In the picture shown. 
+
+Just a heads-up we already created an event for the “FREE Home Equity Protection Report” using this landing page:
+https://lm.sellvetted.com/hepr-page460449.
+
+
+Now I’m trying to set up a new event for the next one Why 40% of Homes Sit Unsold... but I’m getting an error, even though I haven’t actually saved anything yet.
+It seems you're experiencing an ""Invalid operation"" error while trying to create a new web event in your pixel tracking system. Here are a few steps you can take to troubleshoot this issue:
+
+1. **Check URL Format**: Ensure that the URL you're using for the new event is correctly formatted and doesn't contain any extra characters or spaces.
+
+2. **Duplicate Events**: Check if an event with a similar name or configuration already exists. The tracking system might not allow duplicates.
+
+3. **Clear Cache**: Refresh the page or clear your browser’s cache and cookies. Sometimes, cached data can cause issues with web applications.
+
+4. **Browser Compatibility**: Try using a different browser to see if the issue persists.
+
+5. **Script Validation**: Ensure that your tracking script is correct and follows the prescribed format. Any errors in the script can lead to operation failures.
+
+6. **Contact Support**: Since the error message suggests reaching out to your Account Manager, consider doing that for specific guidance tailored to your account and situation.
+
+If you've gone through these troubleshooting steps and the issue continues, reaching out to the support team will be the best course of action.",
+bot,WEBCHAT,BOT,BOT,2025-07-30 17:25:28.337196," It sounds like you're encountering an 'Invalid operation' error while trying to set up a new web event for your pixel tracking. Let's go through some troubleshooting steps:
+
+1. **Check URL Format**: Make sure the URL for the new event is correctly formatted without any extra characters or spaces.
+
+2. **Duplicate Events**: Verify if there's already an event with a similar name or configuration, as duplicates might not be allowed.
+
+3. **Clear Cache**: Refresh the page or clear your browser’s cache and cookies, as cached data can sometimes cause issues.
+
+4. **Browser Compatibility**: Try using a different browser to see if the issue persists.
+
+5. **Script Validation**: Ensure your tracking script is correct and follows the prescribed format, as errors in the script can lead to failures.
+
+6. **Contact Support**: If these steps don't resolve the issue, consider reaching out to adsupport@newsbreak.com for specific guidance tailored to your account and situation.
+
+For more detailed instructions on setting up pixel events, you can refer to this article: [Event Tracking Guidelines](https://help.newsbreak.com/hc/en-us/articles/23053537846669-Introduction-to-Multi-Event-Tracking). Let me know if you need further assistance!",{}
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-07-30 17:27:32.338000,,"{""recipient_id"": ""086a8777-49dc-4479-a3d4-394070f25444"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-07-30 17:27:32.348000,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+web,WEBCHAT,91f7d3ee335041d789c78579b48c80d4,Kristel ,2025-07-30 17:27:32.358000,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""Kristel""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""ungon.kris@gmail.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1949899145130307586""}]}"
+web,WEBCHAT,91f7d3ee335041d789c78579b48c80d4,Kristel ,2025-07-30 17:27:39.677787,Can you help me? How can I do this? We need this right away,{}
+bot,WEBCHAT,BOT,BOT,2025-07-30 17:27:50.228659," I'm here to help! Could you please provide more details about what you're trying to achieve? Are you still facing the 'Invalid operation' error while setting up your pixel event, or is there something else you'd like assistance with? Let me know so I can guide you accordingly.",{}
+web,WEBCHAT,91f7d3ee335041d789c78579b48c80d4,Kristel ,2025-07-30 17:28:39.909593,"I created a pixel web event with the correct funnel URL, tested and trying to save it , but I get an 'Invalid operation' error as In the picture shown.
+
+
+Just a heads-up we already created an event for the “FREE Home Equity Protection Report” using this landing page:
+https://lm.sellvetted.com/hepr-page460449.
+
+
+Now I’m trying to set up a new event for the next one Why 40% of Homes Sit Unsold... but I’m getting an error, even though I haven’t actually saved anything yet.","{""image_list"": [{""image"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/086a8777-49dc-4479-a3d4-394070f25444/7fb2aa463b4643f3bb4389bbf13ed75d.png"", ""thumbnail"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/086a8777-49dc-4479-a3d4-394070f25444/7fb2aa463b4643f3bb4389bbf13ed75d_thumbnail.png"", ""is_ready"": true}, {""image"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/086a8777-49dc-4479-a3d4-394070f25444/1a78ceec7751465483fea711d3d3ecd2.png"", ""thumbnail"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/086a8777-49dc-4479-a3d4-394070f25444/1a78ceec7751465483fea711d3d3ecd2_thumbnail.png"", ""is_ready"": true}, {""image"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/086a8777-49dc-4479-a3d4-394070f25444/65d479cd3bce4c3b8cb5d204487ff62c.png"", ""thumbnail"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/086a8777-49dc-4479-a3d4-394070f25444/65d479cd3bce4c3b8cb5d204487ff62c_thumbnail.png"", ""is_ready"": true}]}"
+seachat_sys,WEBCHAT,BOT,BOT,2025-07-30 17:28:51.017648,"I created a pixel web event with the correct funnel URL, tested and trying to save it , but I get an 'Invalid operation' error as In the picture shown.
+
+
+Just a heads-up we already created an event for the “FREE Home Equity Protection Report” using this landing page:
+https://lm.sellvetted.com/hepr-page460449.
+
+
+Now I’m trying to set up a new event for the next one Why 40% of Homes Sit Unsold... but I’m getting an error, even though I haven’t actually saved anything yet.
+It looks like you're running into an 'Invalid operation' error while trying to create a new web event for your pixel tracking. Here are some focused troubleshooting steps you can try to resolve this issue quickly:
+
+1. **Name Uniqueness**: Ensure that the new event name you're trying to use is unique and not already in use. From your screenshots, it looks like you have existing events; try a different name for the new event.
+
+2. **Check Input Fields**: Double-check all input fields when creating the new event. Ensure there's no input that may be invalid or incorrectly formatted, particularly in the URL or event type.
+
+3. **Refresh or Re-log**: Sometimes logging out and back in or refreshing the page can clear temporary issues.
+
+4. **Clear Browser Cache**: Clear your browser's cache and cookies to ensure you're not loading outdated data or settings.
+
+5. **Different Browser**: Try using a different browser or device to see if the error persists.
+
+6. **Wait and Retry**: Occasionally, systems can have temporary issues. If possible, wait a while and then try again.
+
+7. **Contact Support**: If the error continues after trying the above steps, it’s best to contact your Account Manager or support team as suggested in the error message for more targeted help.
+
+If you could let me know which step you tried, I can provide more targeted advice!",
+bot,WEBCHAT,BOT,BOT,2025-07-30 17:29:37.086249," It seems you're still facing the 'Invalid operation' error while setting up your new pixel event. Let's try some specific troubleshooting steps:
+
+1. **Name Uniqueness**: Make sure the event name is unique and not already in use. Try a different name for the new event.
+
+2. **Check Input Fields**: Double-check all input fields, especially the URL and event type, to ensure they're correctly formatted.
+
+3. **Refresh or Re-log**: Log out and back in or refresh the page to clear any temporary issues.
+
+4. **Clear Browser Cache**: Clear your browser's cache and cookies to avoid loading outdated data.
+
+5. **Different Browser**: Use a different browser or device to see if the error persists.
+
+6. **Wait and Retry**: Sometimes systems have temporary issues; wait a bit and try again.
+
+7. **Contact Support**: If none of these steps work, please reach out to adsupport@newsbreak.com for more targeted assistance.
+
+For detailed instructions on setting up pixel events, you can refer to this article: [Event Tracking Guidelines](https://help.newsbreak.com/hc/en-us/articles/23053537846669-Introduction-to-Multi-Event-Tracking). Let me know which step you've tried so I can offer more specific advice!",{}

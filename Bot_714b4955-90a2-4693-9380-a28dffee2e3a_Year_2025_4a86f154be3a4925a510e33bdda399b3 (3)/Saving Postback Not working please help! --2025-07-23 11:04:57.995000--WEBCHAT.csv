@@ -1,0 +1,52 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-07-23 11:04:57.995000,,"{""recipient_id"": ""984da496-c62b-4309-a368-e2898e8a6cd6"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-07-23 11:04:58.005000,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+web,WEBCHAT,8c0ba93df79b42e5a40370a731745b91,Saving Postback Not working please help! ,2025-07-23 11:04:58.015000,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""Saving Postback Not working please help! ""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""jacobholstein@outlookcorporateconsulting.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1946494293130256386""}]}"
+web,WEBCHAT,8c0ba93df79b42e5a40370a731745b91,Saving Postback Not working please help! ,2025-07-23 11:05:22.211257,Hi I'm trying to save my postback but its not working,{}
+bot,WEBCHAT,BOT,BOT,2025-07-23 11:05:33.326618," Hey there! Sorry to hear you're having trouble with your postback. Could you let me know which tracking platform you're using? That way, I can provide more specific guidance.",{}
+web,WEBCHAT,8c0ba93df79b42e5a40370a731745b91,Saving Postback Not working please help! ,2025-07-23 11:05:39.565563,on this account: 1946494293130256386,{}
+web,WEBCHAT,8c0ba93df79b42e5a40370a731745b91,Saving Postback Not working please help! ,2025-07-23 11:05:46.743144,speak with Agent,{}
+bot,WEBCHAT,BOT,BOT,2025-07-23 11:05:48.158479, Thanks for sharing your account details! Could you also tell me which tracking platform you're using for the postback? This will help me provide the right instructions.,{}
+bot,WEBCHAT,BOT,BOT,2025-07-23 11:05:56.419556," I'm here to help with whatever you need! Let me know your question, and I'll do my best to assist you right away.",{}
+web,WEBCHAT,8c0ba93df79b42e5a40370a731745b91,Saving Postback Not working please help! ,2025-07-23 11:06:28.574288,its custom,{}
+web,WEBCHAT,8c0ba93df79b42e5a40370a731745b91,Saving Postback Not working please help! ,2025-07-23 11:06:32.495149,here is the error,{}
+bot,WEBCHAT,BOT,BOT,2025-07-23 11:06:38.114388," Got it! Since you're using a custom setup, I recommend checking out our generic postback integration guide. It provides detailed steps on how to set up and troubleshoot postbacks. You can find the guide here: [Understanding Custom Columns and Web Events](https://help.newsbreak.com/hc/en-us/articles/27390924095245-Understanding-Custom-Columns-and-Web-Events). If you have any specific questions or run into issues, feel free to ask!",{}
+bot,WEBCHAT,BOT,BOT,2025-07-23 11:06:40.271627," Got it! If you're using a custom setup for your postback, I recommend checking out our guide on integrating custom columns and web events. You can find it here: [Understanding Custom Columns and Web Events](https://help.newsbreak.com/hc/en-us/articles/27390924095245-Understanding-Custom-Columns-and-Web-Events). If you have any specific error messages or details, feel free to share them, and I'll do my best to assist!",{}
+web,WEBCHAT,8c0ba93df79b42e5a40370a731745b91,Saving Postback Not working please help! ,2025-07-23 11:08:17.276295,here is the error message,"{""image_list"": [{""image"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/984da496-c62b-4309-a368-e2898e8a6cd6/199893454c8d431db39bd0b2e64f940a.png"", ""thumbnail"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/984da496-c62b-4309-a368-e2898e8a6cd6/199893454c8d431db39bd0b2e64f940a_thumbnail.png"", ""is_ready"": true}]}"
+seachat_sys,WEBCHAT,BOT,BOT,2025-07-23 11:08:26.354052,"here is the error message
+It looks like you're encountering an ""Invalid operation"" error when trying to test your postback integration. Here are a few steps you can take to troubleshoot this issue:
+
+1. **Check the URL**: Ensure that the URL you're using meets the required format. It should include the `__CALLBACK_PARAM__` placeholder.
+
+2. **Test Functionality**: Make sure the landing page URL is responsive and correctly set up on your website. You might want to load it in your browser to verify it's accessible.
+
+3. **Verify Parameters**: Ensure that any parameters appended to the URL (like `utm_medium`) are correctly formatted and not interfering with the callback parameter.
+
+4. **Reach Out to Support**: Since the message suggests reaching out to your Account Manager, it might be beneficial to do so if the error persists after checking the above points. They could provide more specific assistance based on your account and setup.
+
+5. **Documentation Review**: Revisit the documentation for setting up postbacks to confirm that all steps were followed correctly.
+
+If you need more help, feel free to share additional details!",
+bot,WEBCHAT,BOT,BOT,2025-07-23 11:08:37.892029," Thanks for sharing the error message! Here are some steps you can take to troubleshoot the ""Invalid operation"" error:
+
+1. **Check the URL**: Make sure your URL includes the `__CALLBACK_PARAM__` placeholder as required.
+
+2. **Test Functionality**: Verify that your landing page URL is responsive and correctly set up by loading it in your browser.
+
+3. **Verify Parameters**: Double-check that any parameters appended to the URL, like `utm_medium`, are correctly formatted and not interfering with the callback parameter.
+
+4. **Reach Out to Support**: If the error persists, consider reaching out to your Account Manager for more specific assistance based on your account setup.
+
+5. **Documentation Review**: Review our documentation on setting up postbacks to ensure all steps were followed correctly.
+
+For more detailed guidance, you can refer to our [Postback Integration Guide](https://help.newsbreak.com/hc/en-us/articles/25226963388813-How-to-integrate-a-general-NewsBreak-Postback). If you need further help, feel free to ask!",{}
+web,WEBCHAT,8c0ba93df79b42e5a40370a731745b91,Saving Postback Not working please help! ,2025-07-23 11:09:05.096332,live support please,{}
+bot,WEBCHAT,BOT,BOT,2025-07-23 11:09:12.076967," I'm here to assist you with any questions or issues you have! Let me know what you need help with, and I'll do my best to provide support right away.",{}
+web,WEBCHAT,8c0ba93df79b42e5a40370a731745b91,Saving Postback Not working please help! ,2025-07-23 11:12:23.194358,live support,{}
+bot,WEBCHAT,BOT,BOT,2025-07-23 11:12:31.061691," I understand you're looking for live support. While I can't connect you to a live agent, I'm here to help with any questions or issues you have. Please let me know how I can assist you!",{}
+web,WEBCHAT,8c0ba93df79b42e5a40370a731745b91,Saving Postback Not working please help! ,2025-07-23 11:12:42.483838,I am unable to save my postabck and your not helping e,{}
+web,WEBCHAT,8c0ba93df79b42e5a40370a731745b91,Saving Postback Not working please help! ,2025-07-23 11:12:48.329222,what is my account managers email?,{}
+bot,WEBCHAT,BOT,BOT,2025-07-23 11:12:51.354309," I'm really sorry to hear that you're still having trouble with your postback. Let's try to resolve this together. Could you please confirm if you've checked the URL format and parameters as mentioned in the troubleshooting steps? If there's anything specific that's unclear or if you have more details about the error, feel free to share them. I'm here to help!",{}
+bot,WEBCHAT,BOT,BOT,2025-07-23 11:12:56.591757," I apologize for the inconvenience you're experiencing with saving your postback. Unfortunately, I don't have access to specific account manager details like email addresses. However, you can reach out to our support team at adsupport@newsbreak.com for assistance with your issue. They should be able to help you further.",{}
+web,WEBCHAT,8c0ba93df79b42e5a40370a731745b91,Saving Postback Not working please help! ,2025-07-23 11:12:57.377699,your not helping,{}
+bot,WEBCHAT,BOT,BOT,2025-07-23 11:13:08.277446," I'm really sorry to hear that you're not finding the help you need. I want to make sure we get this sorted out for you. Please feel free to share any specific details or questions you have, and I'll do my best to assist. Alternatively, you can reach out to our support team at adsupport@newsbreak.com for more personalized assistance.",{}

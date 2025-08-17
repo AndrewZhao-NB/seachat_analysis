@@ -1,0 +1,33 @@
+Sender type,Channel type,Sender name,Sender full name,Time in GMT,Message,Data
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-08-04 11:00:23.207000,,"{""recipient_id"": ""6b421232-c361-47d6-b4f5-3fc7585c197b"", ""custom"": {""attachment"": {""type"": ""template"", ""payload"": {""template_type"": ""simple_form"", ""title"": ""Information for Ad Support Ticket"", ""description"": ""This form is used to collect user information in case the user needs additional help and a Jira Ticket needs to be filed with our Support Team."", ""descriptionPosition"": ""top"", ""hidden_reply"": true, ""reply_text"": ""The user completes the submission of the form"", ""submit_button_title"": ""Send"", ""intent_name"": ""submit_form"", ""cancel_button"": {""title"": ""Cancel"", ""type"": ""postback"", ""payload"": ""/cancel_for_input_data"", ""url"": null, ""is_enabled"": false, ""hidden_reply"": true}, ""is_mailerlite_form"": false, ""fields"": [{""title"": ""Name"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-name.svg"", ""is_required"": true, ""entity_name"": ""_NAME""}, {""title"": ""Email"", ""type"": ""text"", ""icon_url"": ""https://seachat.s3.us-west-2.amazonaws.com/images/icon-email.svg"", ""is_required"": true, ""entity_name"": ""_EMAIL""}, {""title"": ""Account ID"", ""type"": ""text"", ""icon_url"": """", ""is_required"": true, ""entity_name"": ""VAR_0001""}], ""form_id"": ""ee27568f0b9f4826a7215c8197548501""}}}}"
+bot,WEBCHAT,FREE_NOTIFY,FREE_NOTIFY,2025-08-04 11:00:23.217000,"Hi, I’m the NewsBreak Ad Assistant. How can I help?",
+web,WEBCHAT,de92a7836e2040c49d9c04cd18a82c23,Gary ,2025-08-04 11:00:23.227000,The user completes the submission of the form,"{""form_id"": ""ee27568f0b9f4826a7215c8197548501"", ""hidden_reply"": false, ""intent_name"": ""submit_form"", ""fields"": [{""title"": ""Name"", ""entity_name"": ""_NAME"", ""value"": ""Gary""}, {""title"": ""Email"", ""entity_name"": ""_EMAIL"", ""value"": ""shop@mandeko.com""}, {""title"": ""Account ID"", ""entity_name"": ""VAR_0001"", ""value"": ""1941126228106563585""}]}"
+web,WEBCHAT,de92a7836e2040c49d9c04cd18a82c23,Gary ,2025-08-04 11:01:54.850692,"i don't understand why this ad was rejected. ""Click Bait""? It's NOT click bait. How am I supposed to advertise a sale with free shipping?","{""image_list"": [{""image"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/6b421232-c361-47d6-b4f5-3fc7585c197b/f5a27a35de57473d8ebdd350dfc092aa.jpg"", ""thumbnail"": ""https://chat.seasalt.ai/api/static/gptbot/714b4955-90a2-4693-9380-a28dffee2e3a/conversation/6b421232-c361-47d6-b4f5-3fc7585c197b/f5a27a35de57473d8ebdd350dfc092aa_thumbnail.jpg"", ""is_ready"": true}]}"
+seachat_sys,WEBCHAT,BOT,BOT,2025-08-04 11:02:03.514207,"i don't understand why this ad was rejected. ""Click Bait""? It's NOT click bait. How am I supposed to advertise a sale with free shipping?
+It's understandable to feel frustrated about the rejection of your ad, especially when you believe it effectively communicates your promotion. The label ""click bait"" typically refers to content designed to attract attention but may mislead or not deliver on its promises.
+
+Here are a few reasons your ad might have been flagged:
+
+1. **Exaggeration or Ambiguity**: Phrases like ""early Halloween savings"" might be seen as vague or exaggerated if not backed by clear offers.
+   
+2. **Overly Promotional Language**: Sometimes ads with strong promotional texts can be viewed as aggressive or misleading.
+
+3. **Visual Elements**: The design might contribute to the ad being perceived as playful or overly sensational, which could touch on clickbait characteristics.
+
+4. **Free Shipping**: While promoting free shipping is common, if the conditions aren't clear or seem restrictive, it might be met with skepticism.
+
+To enhance your ad's approval chances, consider simplifying your messaging, ensuring clarity in offers, and adapting visuals to appear more straightforward or informative rather than sensational.",
+bot,WEBCHAT,BOT,BOT,2025-08-04 11:02:15.949176," I understand your frustration with the ad rejection. The term ""click bait"" can be subjective, but it generally refers to content that might seem misleading or not fully transparent. Here are some steps you can take to address this:
+
+1. **Review the Ad Content**: Ensure that your ad clearly states the terms of the sale and free shipping without any ambiguity.
+2. **Simplify Messaging**: Try to make your message straightforward and avoid any language that could be perceived as exaggerated.
+3. **Visuals**: Consider adjusting the visuals to ensure they align with a more informative tone rather than sensational.
+4. **Check Policies**: Review NewsBreak’s advertising policies to ensure compliance.
+
+If you believe your ad complies with all guidelines, you can appeal the decision by emailing adsupport@newsbreak.com. For more detailed guidance, you can refer to this article on what to do if your ad gets rejected: [My ad got rejected. What's next?](https://help.newsbreak.com/hc/en-us/articles/18085960681101-My-ad-got-rejected-What-s-next)",{}
+web,WEBCHAT,de92a7836e2040c49d9c04cd18a82c23,Gary ,2025-08-10 20:05:32.110630,"I just read this in the product catalog: ""CALL TO ACTION CLICK-THROUGH URL Max of 15 characters""
+
+So if I have a URL like this: https://mandeko.com/collections/kids-grandkids
+
+It won't be allowed ???",{}
+bot,WEBCHAT,BOT,BOT,2025-08-10 20:05:39.210081," It seems like there might be a misunderstanding. The ""CALL TO ACTION CLICK-THROUGH URL"" typically refers to the URL that users will be directed to when they click on a call-to-action button in an ad. The 15-character limit might be referring to something else, such as a label or name for the URL, rather than the actual URL itself. URLs themselves are usually longer than 15 characters and should be allowed as long as they are valid and properly formatted. If you have any specific guidelines or restrictions from the product catalog, it would be best to refer to those directly or contact support for clarification.",{}
