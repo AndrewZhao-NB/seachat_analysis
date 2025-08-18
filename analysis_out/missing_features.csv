@@ -1,197 +1,146 @@
 missing_feature,count
-cancellation-processing,48
-service-cancellation-workflow,12
-cancellation-processing-system,3
-ad-approval-capability,2
-cancellation processing system,2
-ad-cancellation-workflow,2
-direct-verification-processing,2
+cancellation-processing,22
+service-cancellation-workflow,7
+cancellation-processing-system,5
+event-deletion-functionality,2
+message-quota-management,2
 quota-management-system,2
-receipt-download-functionality,2
 live-agent-escalation,2
-live-chat-initiation,2
-ad-credit-testing-without-account-conditions,1
-event-deletion-functionality,1
+ad credit granting system for sweepstakes,1
 ads-account-closure-procedure,1
-campaign diagnostics and troubleshooting,1
-ad credit for sweepstakes,1
 ad-review-expedition,1
+ClickMagick integration instructions,1
 live-chat-transfer,1
-clickmagick-integration-instructions,1
-direct pixel management support,1
-access-to-api-schema-details,1
-live-agent-connection,1
-request-reopening-functionality,1
-dedicated-account-management-for-all-users,1
-direct-pixel-access,1
-direct time zone modification in AdManager,1
-service-cancellation-process,1
-support-ticket-creation,1
-access-to-company-legal-information,1
-invoice-generation-capability,1
-ad-scheduling-setup,1
-web-event-deletion,1
-automated-invoice-generation,1
-email change functionality,1
-ad credit transfer functionality,1
-ad-account-deletion,1
-refund processing system,1
-specific-instructions-for-wix-integration,1
-cancellation-workflow,1
-URL compliance analysis,1
-advertisement-cancellation-workflow,1
-ad-placement-customization,1
-campaign-status-checking,1
-ad-scheduling-modification,1
-ad-cancellation-functionality,1
-direct-integration-troubleshooting-capability,1
-click ID retrieval for postback integration,1
-third-party-promotion-information-access,1
-deduplication enforcement within NewsBreak system,1
-postback-bypass-functionality,1
-ability-to-bypass-quota-for-critical-queries,1
-PDF invoice generation and export,1
-ad-library-view,1
-direct-payment-processing,1
-invoice-generation,1
-web event deletion capability,1
-real-time application status update,1
-pixel-event-deletion,1
-billing-threshold-adjustment,1
-display-specific-ad-examples,1
-ad-review-capability,1
-credit-card-removal,1
-direct-ad-credit-enablement,1
-upload-size-modification,1
-detailed-integration-guidance-for-redtrack,1
-"profile rejection explanation, organization deletion",1
-manual time zone adjustment,1
-average-metrics-document,1
-company-logo-storage,1
-live chat service,1
+api-schema-access,1
+ad-rejection-override-capability,1
+request-reopening-capability,1
+"direct URL testing capability, pixel retrieval system",1
 dedicated-account-manager-for-all-users,1
-ads-library-access,1
-campaign-data-modification,1
-specific-guide-for-HasOffers-platform,1
-account-manager-contact-access,1
-account ID retrieval capability,1
+live-agent-transfer,1
+direct-time-zone-change-functionality,1
+desktop-targeting-configuration,1
+real-time-ad-status-check,1
+ad scheduling setup instructions,1
+direct-invoice-generation,1
+account-id-retrieval,1
 direct-billing-dispute-resolution,1
-ad-cancellation-process,1
-direct-guidance-for-ad-violation-resolution,1
-direct-clickbank-integration-support,1
-web-specific-account-navigation-instructions,1
+ad review status update and management,1
+"ad approval capability, fund withdrawal process, direct human agent escalation",1
+web-specific-account-navigation-guidance,1
 audience-transfer-between-accounts,1
 specific-amazon-integration-guide,1
-analytics-discrepancy-resolution,1
-direct-pricing-information-access,1
+direct pricing information retrieval,1
 direct audience network exclusion capability,1
-ad approval expedition capability,1
-Etsy-specific event tracking integration,1
-payment-method-removal,1
-"ad approval system, email notification editing, detailed verification feedback",1
-time zone adjustment for reports,1
-direct-account-manager-access-for-all-users,1
-direct-application-for-ad-credit,1
-traffic quality analysis and resolution,1
-feature request processing system,1
-direct-interface-troubleshooting-or-modification,1
-live-chat-with-human-agent,1
-international-document-verification,1
-custom-invoice-generation,1
+direct-receipt-download,1
+ad-account-deletion-capability,1
+dedicated-account-manager-access,1
+direct-ad-review-capability,1
+feature-request-processing,1
+announcement-check-diagnostic-tool,1
+transaction-download-functionality,1
+live-agent-chat-connection,1
+ad-duration-modification,1
 account-access-support,1
-reimbursement processing system,1
-detailed-integration-guide-for-everflow,1
-time zone adjustment in ad manager,1
-ad approval capability,1
-access to specific Click Cost ID information,1
+billing-cancellation-processing,1
+custom-invoice-generation,1
+specific guidance for Everflow offline conversion upload,1
+contact-information-retrieval,1
+ad-approval-capability,1
+time-zone-adjustment,1
+spending limit per ad account,1
 campaign approval capability,1
-shopify-integration-support,1
-specific RedTrack integration guide,1
-direct-pdf-download-option,1
-direct-url-fix-capability,1
-direct-business-name-setup-assistance,1
-monthly-billing-report-download,1
+access-to-specific-Click-Cost-ID-information,1
+direct-invoice-pdf-download,1
 direct-human-support-connection,1
-unlimited-message-quota-or-paid-plan-upgrade,1
-campaign release and verification capability,1
+automated-url-checking-and-fixing,1
+specific RedTrack integration guide,1
+"postback integration setup, direct account manager contact",1
+monthly-bill-download-functionality,1
+"manual payment option for ad credits, manual postback approval",1
+real-time platform-specific audience availability,1
+campaign-release-control,1
 detailed-data-processing-information,1
-ability to modify URL parameters without resubmitting ads,1
-quota-exceeded-notification-handling,1
-ad rejection resolution workflow,1
-"manual ad credit payment option, manual postback approval",1
-creative-state-rollback,1
-direct-api-token-retrieval,1
-real-time audience availability check,1
-specific integration guide for Keitaro,1
-direct-billing-support,1
-direct-appeal-submission,1
-ad-credit-transfer-capability,1
-service cancellation workflow,1
-ad account threshold modification,1
-API endpoint information retrieval,1
-access-to-specific-rejection-reasons,1
-max-cpc-cpm-setting,1
+specific-keitaro-integration-guide,1
 service-cancellation-functionality,1
-undelete-campaign-functionality,1
+creative rollback functionality,1
+access to advertiser data and financial metrics,1
+ad-credit-transfer-functionality,1
+ad account threshold modification,1
+API information access for location targeting,1
+real-time competitive analysis tool,1
+direct-pixel-authorization,1
+campaign-undelete-functionality,1
+ad-moderation-status-check,1
 detailed-card-information-in-transaction-history,1
 direct-ad-link-retrieval,1
 campaign duplication functionality,1
-"dedicated account management for all users, direct ad examples platform",1
+access-to-targeting-values,1
+direct-access-to-industry-ad-examples,1
 invoicing-for-high-spend,1
-detailed-targeting-values-access,1
-"campaign approval expedition, payment system access",1
+ad-cancellation-process,1
+direct-payment-processing-support,1
+campaign approval expedition,1
 payment method removal capability,1
-lookalike audience targeting,1
+direct-website-update-capability,1
+lookalike audience creation,1
 "conversion tracking troubleshooting, site-specific performance reporting",1
-direct-account-modification,1
-ad-exclusion-settings-modification,1
-billing information update capability,1
-invoice creation capability,1
+direct-feature-enablement,1
+ad credit top-up functionality,1
+ad-exclusion-control,1
+direct-billing-update-capability,1
 url-verification-capability,1
-direct campaign troubleshooting and modification,1
+invoice-generation-capability,1
+direct campaign configuration access,1
+advertisement-cancellation-functionality,1
+live chat connection capability,1
 specific-integration-instructions-for-Offer18,1
-direct-dispute-resolution-system,1
-gifting system for ad credits or gift cards,1
-creative-download-functionality,1
-ad-placement-exclusion,1
-message-quota-management,1
+gift card or currency gifting system,1
+"role management flexibility, direct campaign adjustment",1
+creative-sharing-between-accounts,1
+subscription-cancellation-process,1
+ad-placement-exclusion-capability,1
+ad-campaign-cancellation,1
+alternative-verification-methods,1
+view-email-addresses-in-audience,1
+detailed-error-reporting-for-card-authorization,1
+landing-page-editing-capability,1
+direct ad cancellation capability,1
 human-operator-connection,1
-direct-ad-cancellation,1
 language settings modification,1
-direct human connection capability,1
-placement targeting selection capability,1
+placement-targeting-selection,1
 time zone customization,1
-real-time account status update,1
 dedicated-account-manager-assignment,1
 demographic-data-access,1
+view-edit-existing-pixel-code,1
 email-change-functionality,1
-view-edit-existing-pixel-codes,1
-MaxConv postback integration support,1
-event-data-viewing,1
+support-for-maxconv-integration,1
+ad-credit-information-access,1
+event-data-viewing-capability,1
+direct pixel code troubleshooting,1
 manual-ad-placement-control,1
-"pixel debugging tool, ad comment feature",1
 invoice-sending-capability,1
 direct-account-cancellation,1
-direct-account-deletion-capability,1
-payment method deletion,1
-"lookalike audience creation, direct upload for media plans",1
+"lookalike audience creation, direct document upload",1
+direct-account-deletion-functionality,1
 access-token-management-interface,1
-support-for-Chinese-language,1
-advanced-ad-creation-guidance,1
+direct-cpc-adjustment-tools,1
+payment method deletion functionality,1
+Chinese-language-support,1
+bulk-zip-code-upload-with-city-state,1
 web-event-deletion-functionality,1
-ad content analysis and approval decision capability,1
-direct-profile-correction-interface,1
-"real-time targeting values retrieval, campaign modification API, detailed API pricing information",1
+direct campaign modification capability,1
 buygood-network-integration-instructions,1
-bulk zip code entry with automatic city and state association,1
 language change capability,1
-direct-wire-details-provision,1
-video size limit adjustment,1
-bulk-editing-functionality,1
+ability to increase video ad size limit,1
+direct-wire-transfer-details-provision,1
+live-chat-functionality,1
 international-location-targeting,1
-ad-credit-transfer-functionality,1
+payment processing and authorization troubleshooting,1
+interactive-pixel-troubleshooting,1
+ad credit transfer capability,1
 language-change-functionality,1
-international-banking-support,1
 support-for-payoneer-payments,1
-ad credit addition without conditions,1
-human-agent-transfer,1
+human-agent-transfer-capability,1
+international-banking-support,1
+direct-billing-resolution,1
+ad credit addition without meeting conditions,1

@@ -925,9 +925,9 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False, no_executive_repo
             print(f"  ✅ Detailed executive report complete: {executive_report_path}")
             
             # Generate concise report
-            concise_report_path = os.path.join(outdir, "executive_report_concise.md")
+            concise_report_path = os.path.join(outdir, "executive_report_concise.html")
             generate_concise_report(outdir, concise_report_path)
-            print(f"  ✅ Concise executive report complete: {concise_report_path}")
+            print(f"  ✅ Concise HTML executive report complete: {concise_report_path}")
             
         except ImportError:
             print(f"  ⚠️  Executive report module not found, skipping executive report generation")
@@ -947,7 +947,7 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False, no_executive_repo
     print(f"📋 Report: {os.path.join(outdir,'report.md')}")
     if not no_executive_report:
         print(f"📋 Detailed Executive Report: {os.path.join(outdir,'executive_report.md')}")
-        print(f"📋 Concise Executive Report: {os.path.join(outdir,'executive_report_concise.md')}")
+        print(f"📋 Concise HTML Executive Report: {os.path.join(outdir,'executive_report_concise.html')}")
     print(f"📈 Charts: {os.path.join(outdir,'topics.png')} & {os.path.join(outdir,'reasons.png')}")
     
     if errs > 0:

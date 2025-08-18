@@ -1,942 +1,732 @@
 reason,count
-no-user-request-to-solve,832
-bot-lacks-cancellation-capability,63
-user-request-unclear,17
-user requested human assistance,9
+no-user-request-to-solve,756
+exception: ConnectionError,138
+exception: ReadTimeout,63
+bot-lacks-cancellation-capability,37
+exception: ConnectTimeout,20
+exception: JSONDecodeError,16
+user-request-unclear,13
+user requested human assistance,8
+user did not specify what to cancel,6
 user-abandoned-conversation,6
-bot cannot access user account database,6
-bot cannot approve ads directly,5
-user requested live agent,4
-requires human intervention for verification,4
-user needs to contact support for further assistance,3
-user-requested-human-assistance,3
-user requested live agent multiple times,3
-requires manual verification process,3
-bot cannot expedite verification process,3
-user required live agent assistance,3
-user-requested-live-agent,3
-ad approval requires human intervention,2
-bot-cannot-connect-to-live-agent,2
+user-requested-human-assistance,4
+user requested live agent multiple times,4
+bot provided troubleshooting steps but issue persisted,4
+user-requested-live-agent,4
+bot-cannot-transfer-to-human,3
+user requested live agent,3
+bot cannot expedite ad review process,3
+bot cannot approve ads directly,3
+user did not confirm resolution,3
+user-requested-live-agent-immediately,3
+bot cannot approve ads,3
+requires human intervention for business verification,2
+bot cannot resolve account-specific issues,2
+bot did not ask for clarification,2
+bot provided troubleshooting steps but user still faced issues,2
 user needs to contact support for resolution,2
-bot lacks capability to process cancellations,2
-bot cannot directly resolve profile rejection,2
-bot directed user to email support,2
-requires additional business verification information,2
-bot cannot view images,2
-requires human intervention for technical investigation,2
-bot cannot delete web events,2
-bot cannot facilitate direct human interaction,2
-user needs to provide additional information via email,2
-system-response-delay,2
-requires account manager intervention,2
-task requires human intervention,2
-verification process delay,2
-user did not confirm if troubleshooting steps resolved the issue,2
-bot lacks capability to change account time zone,2
-bot cannot approve campaigns,2
-bot cannot process refunds,2
-bot cannot process billing disputes directly,2
-requires human intervention for technical troubleshooting,2
-bot cannot expedite ad review process,2
-bot cannot process appeals directly,2
-requires human intervention for account-specific issues,2
-bot lacks capability to approve ads,2
-bot provided troubleshooting steps but issue persisted,2
+bot cannot access user account database,2
+bot lacks capability to verify account status,2
+requires human intervention for verification,2
 user needs to complete business verification and meet spending requirements,2
-requires human intervention for technical support,2
-bot unable to respond due to message quota exhaustion,2
-requires account verification process,2
-requires human intervention for ad approval,2
-bot suggested contacting support,2
-no-follow-up-from-user,2
-bot-cannot-transfer-to-human-agent,2
-bot cannot directly cancel accounts,2
-conversation was abandoned before resolution,2
-bot cannot provide real-time account status updates,2
+bot-did-not-handle-cancellation,2
+business verification required,2
+conversation ended prematurely,2
+bot cannot respond due to message quota exhaustion,2
+requires human intervention,2
+user did not confirm if troubleshooting steps resolved the issue,2
+requires-human-intervention,2
+requires-human-intervention-for-verification,2
+user requested human support,2
+bot lacks capability to process cancellations,2
+requires human intervention for detailed investigation,2
+conversation was abandoned,2
+user dissatisfaction with automated responses,2
 user-requested-human-agent,2
-user needs to complete account verification process,1
+requires-human,2
 user faced a permission issue preventing token generation,1
-user lacks required account conditions for ad credit testing,1
 bot lacks capability to delete events in Event Management,1
-bot cannot resolve account-specific issues,1
-requires human intervention for account verification and troubleshooting,1
+user-repeated-feedback-phrases,1
+no-clear-request-made,1
+requires human intervention for account investigation,1
+bot cannot access detailed campaign data,1
+user directed to email support,1
 bot-provided-information-but-did-not-resolve-delay,1
+bot instructions did not match user's interface experience,1
+user's request for language play was not fulfilled,1
+task-was-solved,1
+account verification required,1
+user's ads under review due to verification issues,1
+bot provided incorrect navigation instructions,1
+user account setup may differ,1
+ad credit for sweepstakes is not supported,1
+user lacks eligibility for ad credit in lead generation,1
 bot lacks capability to close ads account,1
 bot redirected user to email support,1
-bot provided incorrect navigation instructions,1
-user could not find the specified sections,1
-requires detailed business verification process not handled by bot,1
-bot lacks capability to diagnose specific account spending issues,1
-user repeated feedback message without clear task request,1
-bot did not recognize user input as actionable,1
-account verification needed,1
-bot lacks capability to troubleshoot specific technical integration issues,1
-ad credit for sweepstakes is not supported,1
-user's account does not meet eligibility criteria for ad credit,1
-bot cannot resolve verification issues directly,1
-requires human intervention for document verification,1
+bot lacks capability to troubleshoot specific pixel configuration issues,1
+bot cannot directly resolve verification issues,1
+bot lacks capability to expedite ad reviews,1
 user did not receive the proforma invoice and payment details as promised,1
-bot lacks capability to expedite ad review process,1
-"user's account might not be verified, requiring additional information",1
-bot-lacks-live-chat-transfer-capability,1
-bot lacks specific integration instructions for ClickMagick,1
-bot lacks access to system logs,1
-bot provided steps that did not match user's interface experience,1
-user indicated absence of expected option to remove access,1
 bot provided incorrect initial instructions,1
-bot lacks capability to directly assist with pixel deletion,1
+lack of clear guidance on pixel deletion,1
+bot lacks specific integration instructions for ClickMagick,1
+user-request-for-operator-not-fulfilled,1
+bot provided general advice but did not resolve the specific URL validation issue,1
+user's account might not be verified,1
+user needs to provide additional information for verification,1
+bot cannot access user account logs,1
 user unable to save postback URL despite successful test,1
-potential permission or session issues,1
-task-solved,1
-bot-provided-clear-guidance,1
-bot provided general advice but did not resolve the specific URL validation error,1
-bot unable to connect to live agent directly,1
+potential permission or technical issue,1
+bot-lacks-access-to-api-schema,1
+user-needs-specific-field-name,1
+conversion pixel not firing on Weebly,1
+Square support unable to assist,1
+bot unable to provide Weebly-specific solution,1
+bot cannot override ad rejection decisions,1
 bot cannot directly fix payment issues,1
-requires user action to update payment information,1
-bot-lacks-specific-api-schema-access,1
+user needs to update credit card information manually,1
 bot lacks capability to resolve technical postback issues,1
-user unable to find account settings due to possible interface issue,1
-user's pixel integration issue persisted despite troubleshooting steps,1
-user needs to follow email instructions for appeal,1
-bot-provided-alternative-solution,1
-dedicated account management not available for user without meeting spend threshold,1
-user request was too vague for the bot to process,1
-bot lacks capability to handle cancellations directly,1
-user's ad scheduling settings did not function as expected despite following instructions,1
-bot lacks capability to provide pixel directly,1
+user unable to find account settings due to interface issue,1
+user requested live agent before resolution,1
+bot could not directly resolve ad delivery issue,1
+user unable to connect shopify pixel despite following instructions,1
+no-unsolved-task,1
+potential need for deeper technical investigation,1
+bot lacks capability to directly test URLs,1
+bot cannot provide pixel directly,1
 conversation ended due to quota exhaustion,1
-bot cannot directly investigate or resolve budget discrepancies,1
-user needs to meet ad spend threshold and provide documentation for verification,1
-user requested live agent before bot could fully resolve the issue,1
-bot lacks capability to directly change time zone settings,1
-user needs to contact support team for assistance,1
-"bot provided incorrect guidance initially, misunderstanding the user's request for web traffic targeting desktop users",1
-invoice retrieval requires human support,1
-ad volume issue in learning phase,1
-bot cannot directly access or modify campaign settings,1
-bot cannot directly modify campaign settings to target desktop users,1
-conversion pixel issue unresolved,1
-platform-specific guidance unavailable,1
-external support needed,1
-bot-cannot-create-support-tickets,1
-user-request-for-ticket-creation-not-fulfilled,1
-user-did-not-acknowledge-bot-explanation,1
-bot-lacks-access-to-company-legal-information,1
-ad approval process exceeded expected timeframe,1
-bot cannot expedite approval,1
-bot cannot generate invoices directly,1
-user needs to contact support for invoice generation,1
-bot lacks capability to set up ad schedule directly,1
-bot cannot resolve access permissions or link issues directly,1
-email delivery issue,1
-attachment missing in email,1
-bot cannot expedite ad approval,1
+bot-cannot-provide-account-manager-for-low-spend,1
+bot-cannot-connect-to-live-agent,1
+bot suggested contacting support for deeper investigation,1
+user requested live agent before bot could fully assist,1
+user may not have understood bot's guidance,1
+bot cannot directly modify or verify campaign settings,1
+bot lacks capability to directly change time zone settings in AdManager,1
+user needs to provide documentation to verify ad spend,1
+bot lacks capability to directly provide invoices,1
+user needs human assistance for billing issues,1
+bot lacks capability to directly assist with desktop targeting setup,1
 bot cannot expedite review process,1
 verification delay,1
-user requested human interaction,1
-bot lacks capability to delete web events,1
-bot cannot directly provide tax invoices,1
-requires email to support team,1
-bot lacks capability to change email,1
-user unable to verify pixel integration on NewsBreak despite successful Shopify test,1
-bot-repeated-message,1
-no-cancellation-process,1
-ad credits are non-transferable between accounts,1
-user's ad was still rejected despite verifying URL functionality,1
-bot could not provide a definitive solution to prevent future rejections,1
-bot provided general troubleshooting steps but user issue persisted,1
-user using custom code not addressed by bot's GTM-focused advice,1
-bot cannot directly verify accounts,1
-bot directed user to email support for individual verification,1
-feature-not-supported for account deletion,1
-user did not confirm resolution for illegal asset prompt,1
-bot cannot process refund requests directly,1
-bot lacks specific instructions for Wix integration,1
-bot cannot connect user with human support,1
-user's targeting issue unresolved,1
-lack of video tutorial for targeting,1
-no-specific-cancellation-process-initiated,1
-bot repeated information without providing specific guidance on the user's URLs,1
-bot cannot access user-specific data like billing,1
+user requested direct human interaction,1
+bot cannot expedite or directly check ad approval status,1
+bot-explanation-not-sufficient,1
+bot cannot resolve access denied error,1
+requires human intervention for permissions issue,1
+bot cannot generate invoices directly,1
+requires human intervention for detailed invoices,1
+email attachment issue persisted,1
+bot unable to resolve email delivery problem,1
+bot cannot directly resolve profile rejection,1
+ad approval delay requires manual verification,1
+bot unable to provide specific instructions for ad scheduling,1
+bot directed user to email support instead of providing the invoice directly,1
+bot cannot access billing information,1
 bot cannot bypass event testing,1
-user needs to email additional information,1
-user did not provide enough information about account status,1
-bot lacks capability to directly resolve flagged ad issues,1
-bot-lacks-capability-to-change-ad-placement,1
-bot-did-not-ask-for-clarification,1
-bot cannot provide direct human assistance,1
-user unable to access Breakdown menu despite troubleshooting,1
-bot lacks capability to access ad campaign status,1
-user-requested-human-interaction,1
-bot-lacks-direct-human-escalation,1
-bot-lacks-information-on-promotional-credit,1
-bot cannot modify ad schedule,1
-user needs to contact support for rescheduling,1
-user requested human intervention,1
-conversation was escalated to a human,1
-bot-cannot-confirm-account-review-status,1
-user unable to locate where to submit tax number despite guidance,1
-bot cannot issue or track promotional codes,1
-user needs to contact support,1
-complex GTM configuration issue,1
-bot cannot process verification requests directly through chat,1
-user did not provide required information,1
-bot lacks capability to directly troubleshoot or fix integration issues between RedTrack and NewsBreak,1
-user repeatedly requested live agent,1
-bot provided general information but user sought specific assistance,1
-tracking setup guidance was not completed,1
-bot cannot resolve ad pending issue,1
-bot cannot contact support directly,1
-user dissatisfaction with pending resolution,1
-bot cannot connect user to live agent,1
-user unable to verify conversion code,1
-user needs more detailed guidance,1
-bot provided instructions but user faced technical issue,1
-user did not confirm resolution for web event edit,1
-bot cannot resolve custom code issues,1
-requires human intervention for account-specific problems,1
-bot cannot directly resolve URL validation issues,1
-requires human intervention for appeal process,1
-bot lacks access to specific ad spending data,1
-user's ad spending issue may require human intervention,1
-"bot cannot directly resolve ad review issues, requires human intervention",1
-user unable to find click ID for postback integration,1
-invalid IPN error not resolved,1
-user request was too vague and bot did not clarify or provide a cancellation process,1
-bot cannot directly resolve billing discrepancies,1
-requires human intervention for detailed investigation,1
-initial guidance was incomplete,1
-user needed to submit a support ticket first,1
-bot-lacks-information-about-clickbank-promotions,1
-user requested human assistance before bot could fully assist,1
-bot cannot connect user to a human agent,1
-user's request to speak to an agent was not fulfilled,1
-bot cannot resolve ad impression issues directly,1
-bot provided general guidance but user still experienced duplicate conversions,1
-lack of specific NewsBreak feature to enforce deduplication,1
-user unable to locate campaign settings,1
-bot provided general guidance but not specific solution,1
-bot lacks capability to bypass postback conversion page,1
-bot provided incorrect information about Click ID location,1
-user had to use external help to solve the issue,1
-bot-cannot-respond-due-to-quota-exceeded,1
-verification requires email submission,1
-bot cannot complete verification directly,1
-bot lacks specific integration guide for Digistore24,1
-issue requires deeper technical investigation,1
-user lacks required verification information,1
-bot cannot process payments or verify accounts,1
-bot-cannot-access-account-settings,1
-support-email-issue,1
-bot lacks capability to provide invoice PDFs,1
-feature not supported for PDF export,1
-conversation-ended-abruptly,1
-bot lacks capability to show existing running ads,1
-bot lacks capability to directly process payments or resolve payment issues,1
-bot-cannot-generate-invoice,1
-user-unable-to-complete-payment,1
-bot cannot modify or verify payment methods,1
-user may need to contact bank or support,1
-user needs to contact support for deletion,1
-user encountered persistent error,1
-user-lacks-admin-permissions,1
-bot lacks capability to provide real-time application status updates,1
-bot cannot initiate or process background checks,1
-live chat support unavailable,1
-verification process not completed,1
-bot cannot delete pixel events,1
-user's sales tracking issue unresolved,1
-bot cannot manually verify endorsements or change ad status,1
-live agent unavailable,1
-user dissatisfaction with bot responses,1
-bot cannot adjust billing settings directly,1
-bot cannot directly review ads,1
-requires business verification,1
-bot cannot display specific video ad examples,1
-bot-cannot-perform-ad-review,1
-user requested human assistance which was not directly facilitated by the bot,1
-"bot quota exceeded, unable to assist with pixel installation",1
-bot cannot resolve ad rejection directly,1
-invoice generation requires human intervention,1
-user requested live agent before bot could assist,1
-bot did not address Shopify pixel issue,1
-user requested live agent after form submission,1
-conversation abandoned before bot could assist further,1
-bot provided instructions but user faced persistent issues with testing postback,1
-bot could not provide specific CPC data,1
-account manager identification requires human intervention,1
-bot cannot verify ad policies with support team,1
-user needs direct confirmation from support,1
-user did not specify what they wanted to cancel,1
-bot lacks capability to process cancellations directly,1
-platform-issue-outside-bot-control,1
-bot cannot remove credit card,1
-user may still be charged due to unclear instructions,1
-user-unable-to-interact-due-to-bot-delay,1
-bot lacks capability to enable ad credit directly,1
-bot directed user to email support for verification,1
-verification requires human intervention,1
-requires human intervention for account review,1
-user did not provide enough information for the bot to process the cancellation,1
-user requires human interaction for account-specific issues,1
-bot cannot facilitate direct human contact,1
-user-needs-to-provide-verification-details,1
-all-tasks-addressed,1
-bot cannot change upload size limits,1
-bot provided general guidance but did not offer specific steps for RedTrack setup,1
-lack of timely updates from support team,1
-bot lacks capability to explain profile rejection,1
-no direct feature to delete organization,1
-bot cannot expedite verification,1
-user does not meet ad spend threshold for dedicated management,1
-feature to save company logo not supported,1
-budget constraints unresolved,1
-ad rejection reasons unclear to user,1
-bot cannot process ad credit claims directly,1
-requires human verification,1
-user still not seeing data after successful test,1
-bot provided general guidance but issue persisted,1
-bot lacks live chat service,1
-user's specific question about weekend account reviews was not directly answered,1
-user-does-not-meet-spend-threshold-for-dedicated-account-manager,1
-verification pending despite user providing information during sign-up,1
-bot-lacks-ads-library-feature,1
-user request 'blocket list' was unclear and not understood by the bot,1
-bot cannot directly modify campaign data,1
-user did not provide enough information for video size issue,1
-postback tracking issue unresolved despite troubleshooting steps,1
-verification process incomplete,1
-ads not activated,1
-user dissatisfaction with response time,1
-bot lacks specific guidance for HasOffers platform,1
-bot-cannot-provide-account-manager-contact,1
-reply-quota-exhausted,1
-bot cannot resolve technical error with event creation,1
-user needs human intervention for account-specific issue,1
-requires additional verification information from user,1
-conflicting information about interest-based targeting,1
-user unable to find targeting option,1
-bot repeated information without confirming receipt of specific documents,1
-user unsure if additional information is needed,1
-user requires human assistance for ad credit issue,1
-eligibility conditions not confirmed,1
-user requested ad credits which require human verification and onboarding call,1
-user needs to contact account manager for further assistance,1
-account does not meet requirements for direct fund addition,1
-user needs to contact support for further investigation,1
-bot provided general advice but user needed specific troubleshooting for conversion tracking and dashboard issues,1
-referral program information was provided but user had ongoing technical issues,1
-user unable to find pixel code,1
-second pixel not visible in event management,1
-bot provided a link to a knowledge base article but did not directly assist with bypassing the postback,1
-user requested human assistance which was not provided,1
-user did not provide enough information for resolution,1
-bot lacks capability to check ad credit status,1
-bot lacks capability to resolve API errors directly,1
-bot-repeated-quota-message,1
-no-cancellation-option-provided,1
-bot provided general advice but did not resolve the specific issue of IDFA not populating,1
-user requested human assistance which indicates unresolved issue,1
-bot provided troubleshooting steps but user did not confirm resolution,1
-potential technical issue with pixel tool,1
-user unable to save pixel integration,1
-pixel creation unsuccessful despite troubleshooting,1
-bot provided policy information but did not offer direct resolution steps for the specific violation,1
-policy clarification needed from human,1
-bot provided incorrect link,1
-user unable to access necessary information,1
-bot lacks capability to diagnose custom tracking issues,1
+no-specific-cancellation-process-initiated,1
+bot-did-not-clarify,1
+user required human intervention for account verification and onboarding,1
+requires account manager intervention,1
+business verification and spending threshold not met,1
+bot lacks capability to process billing disputes directly,1
+bot-cannot-resolve-idfa-issue,1
+user required live agent assistance,1
 complexity of event tracking issue,1
-technical issue with conversion tracking setup,1
-user required human assistance for resolution,1
+bot cannot diagnose specific link issues,1
+ad approval requires human verification,1
+user unable to access provided link,1
+bot unable to resolve link issue,1
+bot provided appeal instructions but user received a definitive rejection from human agent,1
+requires additional business verification information,1
 bot cannot manually verify pixels,1
 user unable to find account ID in dashboard,1
-user-requested-human-assistance-but-bot-continued,1
-user did not provide requested information for further investigation,1
-user unable to complete funnel due to paid product limitation,1
-NewsBreak's testing tool never finishes verification,1
-user unable to locate 'Me' page on web version,1
-bot provided app-specific instructions initially,1
-user-unable-to-click-existing-pixel,1
-possible-technical-issue,1
-bot cannot access account status information,1
+user did not provide follow-up information requested by bot,1
 fund withdrawal not supported,1
-bot lacks capability to transfer audiences between ad accounts,1
+user request for human agent not fulfilled,1
+user unable to find 'Me' page on web version,1
+bot provided app-specific instructions initially,1
+user-requested-human-assistance-but-bot-continued,1
+bot cannot access account status directly,1
+verification process requires human intervention,1
+user unable to complete funnel due to paid product limitation,1
+NewsBreak's testing tool not completing verification,1
 user requested live agent after bot instructions,1
-potential complexity in applying credits,1
-user did not confirm if the issue was resolved after instructions,1
-tracking issue unresolved by bot,1
-bot-cannot-resolve-analytics-discrepancy,1
-bot lacks capability to directly test Shopify pixel,1
+user unable to access or click on the pixel base code due to a potential technical issue,1
+bot lacks capability to transfer audiences directly between ad accounts,1
+bot lacks capability to directly troubleshoot Shopify pixel,1
 ad status requires human verification,1
-bot cannot access user's campaign start time,1
-user requested live agent before bot could assist with ad review query,1
-bot cannot provide specific pricing information,1
-user directed to external site without resolution,1
-bot lacks direct receipt download capability,1
-conversion not appearing despite proper pixel setup and significant time lapse,1
+incomplete information on health-related ads,1
+potential technical issue with pixel installation,1
+user required live agent support,1
+tracking issue unresolved by bot,1
+bot cannot resolve analytics discrepancies,1
+bot experienced a response delay,1
+conversion not appearing in Ads Manager despite sufficient time elapsed,1
+bot cannot provide specific pricing information directly,1
+user did not find pricing information on the suggested site,1
+user-requested-live-agent-before-bot-could-respond,1
+user required admin access to add credits,1
+user needed to submit a ticket,1
+bot cannot apply ad credits directly,1
+requires contact with Ad Support team,1
 broken link to help center,1
-bot did not provide direct solution for audience exclusion,1
-bot provided instructions but user sought direct help,1
-bot cannot process ad credit requests directly,1
-requires human verification and documentation,1
-bot cannot apply ad credits,1
-bot cannot connect to a human representative,1
-ad rejection issue requires human intervention,1
-meeting scheduling requires human involvement,1
-no-clear-cancellation-process,1
+bot unable to directly exclude audience network traffic,1
+bot cannot connect user to a human representative,1
+user's ad rejection issue requires human verification,1
+bot lacks direct receipt download capability,1
 user's conversion tracking issue remained unresolved,1
 user sought direct contact which bot couldn't provide,1
-user needs to apply for 'Add Ad Credits' feature,1
-user must be account admin,1
-ad approval process cannot be expedited by the bot,1
-requires account verification,1
+bot cannot process ad credit requests directly,1
+requires human verification and account management,1
+user needs to submit a ticket to enable 'Add Ad Credits' feature,1
+user may not be account admin,1
+pixel activation requires confirmation from support,1
+bot cannot verify activation status,1
+bot-did-not-address-cancellation,1
 Etsy does not support custom tracking codes,1
-user required human assistance for further clarification,1
-user needs to provide additional verification information via email,1
-bot cannot verify pixel activation status,1
-requires confirmation from support team,1
-bot cannot remove payment methods,1
-bot cannot delete ad accounts,1
-user dissatisfaction with billing options,1
-user unable to remove original email,1
-incorrect information about editing notifications,1
-insufficient details on email verification rejection,1
-bot lacks capability to adjust report time zone,1
-user requested live agent before resolution,1
-bot-requires-additional-information-to-analyze,1
-user reported ongoing problem with sales tracking code,1
-bot cannot modify token permissions directly,1
-user needs to contact support for permission changes,1
-bot lacks capability to process refunds,1
-user unable to resolve pixel creation issue with provided guide,1
+user required human assistance for further guidance,1
+user did not receive email about ad rejection,1
+bot cannot directly review or approve ads,1
+bot cannot expedite ad approval process,1
+bot lacks capability to delete ad account,1
+user cannot remove primary payment method,1
+user-needs-to-complete-business-verification,1
+user may need further assistance from support team,1
 user-request-for-account-manager-not-fulfilled,1
-user-guidance-on-ad-compliance-not-complete,1
-bot provided general troubleshooting steps but user needed specific guidance on event duplication issue,1
-user did not receive direct assistance with applying for Ad credit feature,1
-bot provided instructions but user still faced issues,1
-bot lacks capability to access account status,1
-user needs specific verification details,1
-ad rejection reasons not communicated directly by bot,1
-bot provided general troubleshooting steps but user needed specific resolution,1
-user did not confirm resolution of the issue,1
+bot-cannot-provide-dedicated-account-manager,1
+user indicated ongoing problem with sales tracking code,1
+bot lacks capability to review ad creative directly,1
+user faced issues with removing email in account management,1
+bot provided incorrect information about editing email notifications,1
+bot unable to provide specific reasons for email verification rejection,1
+bot requires additional information to analyze the issue,1
+bot-cannot-adjust-time-zone,1
+user encountered an 'Invalid operation' error when trying to save a pixel web event,1
+bot provided troubleshooting steps but did not resolve the issue,1
+user required further clarification from human support,1
+bot lacks capability to resolve technical errors related to pixel event setup,1
+bot cannot modify token permissions,1
+requires contacting support for permission changes,1
+bot lacks capability to process refunds,1
+user needed more detailed guidance on pixel creation,1
 bot suggested waiting and contacting support if issue persists,1
-requires human intervention to establish relationship with Account Manager,1
-requires human intervention for account verification,1
-bot lacks capability to directly address traffic quality issues,1
+user did not provide credit card information or initiate wire transfer,1
+user requested live agent before completing setup,1
+user faced issues with RedTrack setup,1
+bot cannot directly address traffic quality issues,1
 user dissatisfaction with provided solution,1
+bot cannot access user account database to verify installation,1
+user was not satisfied with the policy link provided,1
+bot required user to email support for further assistance,1
+requires human intervention to establish relationship with Account Manager,1
 system delay in updating verification status,1
-requires human intervention for confirmation,1
+bot-cannot-process-feature-requests,1
+bot-cannot-modify-campaign-settings,1
 bot provided steps that did not match user's experience,1
 missing download option in user's interface,1
-bot cannot process feature requests directly,1
-bot lacks capability to modify ad account settings,1
-bot lacks capability to resolve missing download option in the interface,1
-user was not satisfied with the policy link provided,1
-process requires human intervention via email,1
-requires user to provide additional information via email,1
-bot provided general guidance but did not address specific reasons for failure,1
-user may have encountered an issue not resolved by the bot's instructions,1
+bot-lacks-diagnostic-capability-for-announcement-checks,1
+bot lacks capability to resolve missing download option directly,1
+user unable to add payment method despite following instructions,1
+user unable to locate 'Transaction History' despite instructions,1
+bot lacks capability to connect user to live agent directly,1
 conversation ended before user provided necessary details for troubleshooting,1
 user followed guide but still faced issues,1
-bot provided troubleshooting steps but user needed further assistance,1
-user-request-for-live-support-not-fulfilled,1
-bot cannot process non-US documents for verification,1
-user unable to locate 'Transaction History' despite instructions,1
-bot lacks capability to access or modify user account balance,1
-bot provided troubleshooting steps but did not directly resolve the issue,1
-user unable to locate app_id in account settings,1
-bot directed user to contact support,1
+requires user to provide additional information via email for verification,1
+bot lacks capability to access or modify user account credit information,1
 bot cannot change ad settings directly,1
-requires human intervention,1
-bot-cannot-transfer-to-live-agent,1
-user-needs-human-verification,1
-bot cannot generate invoices with specific company details,1
-bot-provided-generic-advice,1
-user-requested-human-intervention,1
+bot cannot directly resolve sync issues between ad management and billing,1
+bot provided generic troubleshooting steps but did not resolve the user's issue,1
+user unable to locate app_id in account settings despite bot's guidance,1
+verification-process-not-completed,1
 bot-cannot-process-request-due-to-plan-limitation,1
 bot cannot process reimbursements,1
-bot cannot directly investigate ad spending issues,1
-bot lacks specific instructions for uploading offline conversions with Everflow,1
-user did not specify the context for the contact email request,1
-bot-provided-correct-escalation-path,1
+requires human intervention for billing issues,1
+bot cannot process billing cancellations directly,1
+bot cannot generate invoices with specific company details,1
+bot lacks specific guidance for Everflow integration,1
+user did not receive the contact email information,1
 time zone adjustment feature not supported,1
 conversion tag issue required human intervention,1
-business verification required,1
-bot lacks specific Click Cost ID information,1
-conversation ended before user provided necessary information about tracking platform,1
+bot cannot access user account details,1
+user finds HandBrake confusing,1
+bot cannot delete events,1
+bot lacks information on tracking changes,1
+user awaiting support response,1
 user lacks website ownership for integration,1
-bot cannot facilitate third-party collaboration,1
+bot cannot assist with third-party platform limitations,1
+user requested live agent before completing redemption process,1
+bot did not address Shopify setup issue directly,1
+user could not find account settings,1
+spending limit per ad account not supported,1
 bot lacks capability to approve campaigns,1
-user required human intervention,1
-user requested live agent before bot could confirm resolution,1
-bot lacks Shopify integration support,1
-bot lacks capability to delete events,1
-bot cannot provide specific change logs for tracking updates,1
-user's issues require human intervention for resolution,1
-bot provided incorrect information about spending limits per ad account,1
-user needed human assistance for clarification,1
-lack of specific RedTrack integration guide,1
-bot lacks capability to provide direct PDF download link,1
-user could not find organization ID,1
-bot redirected user to support without resolving issue,1
-bot-did-not-provide-specific-instructions-for-claiming-offer,1
-user needs to fix URL issues independently,1
-bot provided guidance but cannot directly fix URLs,1
-bot cannot verify landing page accessibility,1
-requires human intervention for campaign approval,1
+user needed human intervention,1
+conversation ended before user provided necessary information about the tracking platform,1
+bot lacks specific Click Cost ID information,1
+bot lacks capability to directly facilitate PDF download of invoices,1
+user unable to find organization ID,1
+bot redirected to support,1
+bot-did-not-provide-direct-solution,1
 user unable to find duplicate option in Ads Manager,1
-bot cannot directly enable postback integration,1
-bot requires additional verification documents for ad credit activation,1
-bot cannot directly connect user to account manager,1
-bot cannot resolve interface issues,1
 bot-directed-user-to-email-support,1
-bot-lacks-direct-setup-capability,1
-bot lacks capability to download monthly billing reports,1
-account manager request denied due to spend threshold,1
-user unable to top up account due to account restrictions,1
-shopify pixel integration issue unresolved,1
-bot unable to provide direct human contact,1
-email provided was not functional,1
-bot lacks capability to connect user with human support,1
-user's message quota exhausted,1
-email support unresponsive,1
-bot-cannot-respond-due-to-quota-limit,1
-empty-transcript,1
+no-direct-solution-provided,1
+bot cannot connect user to human support,1
+user's reply message quota exhausted,1
+user needs to fix the URL issue manually and resubmit the ad,1
+bot cannot verify landing page functionality,1
+issue requires human intervention,1
+bot lacks specific guide for RedTrack integration,1
+interface issue preventing invoice download,1
+bot cannot resolve interface issues directly,1
+user's configuration might be incorrect or incomplete,1
+bot unable to provide a definitive solution for RedTrack integration,1
+bot lacks capability to enable postback integration,1
+bot cannot directly connect user to account manager,1
+user did not meet criteria for account manager,1
+user's account did not support pre-loading funds,1
+Shopify pixel integration issue unresolved,1
+bot provided insufficient guidance on contacting a real person,1
+email provided was not functioning,1
+bot could not send email copy to user,1
+bot lacks capability to download monthly bills directly,1
+manual ad credit payment requires business verification and spending threshold,1
+manual postback approval requires successful testing,1
 user unable to locate account settings on website,1
 bot unable to provide direct navigation assistance,1
-"bot directed user to contact support, unable to resolve issue directly",1
-bot unable to respond due to quota exhaustion,1
-user's request for live agent not fulfilled,1
-technical issue with ClickBank IPN not resolved,1
+requires account verification process,1
+user needs to provide additional information via email,1
+bot could not respond due to exhausted reply message quota,1
+user's request for live agent was not fulfilled,1
+IPN test failure not addressed,1
+conversion tracking issue unresolved,1
+bot-cannot-handle-profile-rejection,1
+user-request-ambiguous,1
+user's conversion events not appearing despite correct setup,1
+unable to add URL parameters without resubmitting ads,1
+bot cannot provide specific audience names available on platform,1
+bot lacks capability to evaluate external landing pages,1
+user expressed dissatisfaction with bot's guidance,1
 bot lacks capability to verify promotional credits,1
 bot cannot release or expedite campaigns,1
+empty-transcript,1
+"bot suggested checking tracking platform settings and contacting support, but did not resolve the issue directly",1
 bot lacks detailed information on specific data processing methods,1
-bot lacks capability to directly resolve pixel tracking issues,1
-user requires further assistance for multi-event tracking,1
-feature to add URL parameters without resubmitting ads is not supported,1
-bot cannot directly approve ads,1
-requires business verification process,1
+bot requires additional verification information,1
+user may not have provided all necessary details,1
+"bot's message quota exceeded, preventing further interaction",1
 user did not provide sufficient information for resolution,1
 user unsure about rejection details,1
-user needs to provide verification documents to proceed,1
-bot cannot complete account setup without user action,1
-bot cannot handle ad rejection disputes,1
-bot's message quota exhausted,1
-manual ad credit payment requires business verification and spending threshold,1
-manual postback approval not supported without testing,1
-requires human intervention for billing investigation,1
-user needs to email support for resolution,1
-bot provided guidance but user still faced issues with cost tracking,1
-user required further assistance beyond bot's capabilities,1
+user-needs-to-submit-verification-documents,1
+bot cannot handle ad rejection issues,1
+bot prompted for plan upgrade due to quota exhaustion,1
+bot-cannot-transfer-to-live-agent,1
+bot lacks specific guide for Keitaro integration,1
+bot cannot perform rollback of creatives,1
+bot lacks access to logs or backups,1
+bot cannot process billing disputes directly,1
+requires human intervention for investigation,1
+bot-provided-reason-and-next-steps,1
 user requested live manager multiple times,1
 bot did not escalate to human support,1
-bot lacks capability to roll back creatives,1
-no access to logs for previous creative states,1
-bot cannot retrieve API token,1
+bot cannot provide API token directly,1
 payment threshold adjustment requires human intervention,1
-bot lacks capability to provide specific audience names available on platform,1
-user's request for audience names not met,1
-incorrect URL provided for Everflow postback setup,1
-"bot suggested checking tracking platform settings and contacting support, but did not resolve the issue directly",1
-user unable to successfully fire postback despite following instructions,1
-bot lacks specific integration guide for Keitaro,1
-bot cannot access backend systems to verify account restrictions,1
+bot cannot access backend systems,1
+requires human intervention for backend issue,1
 user unable to locate settings section in ad manager,1
-bot unable to provide further assistance,1
-bot cannot access or resolve specific credit card issues,1
-bot-transferred-to-live-agent,1
-user-seeking-human-advice,1
-bot lacks access to financial data,1
-bot cannot provide specific advertiser information,1
+user unable to successfully fire postback despite following instructions,1
+bot transferred to live agent before addressing user's questions,1
+bot lacks access to specific advertiser and financial data,1
 user did not confirm resolution of conversion event issue,1
-ACH payment setup guidance incomplete,1
-user needs to email support,1
-bot-cannot-resolve-payment-method-issue,1
-missing-ad-credits-option,1
+ACH payment setup not fully addressed,1
+no-follow-up,1
+task-solved-by-escalation,1
+bot unable to provide live agent consistently,1
+user's ad performance issue not addressed by bot,1
+user-experienced-technical-issues,1
+missing-option-in-interface,1
 bot lacks capability to transfer ad credits,1
-user's request requires human intervention for policy exceptions,1
-user did not provide enough information for the bot to process the cancellation request,1
-bot lacks capability to process cancellation requests,1
+policy restriction on ad credit transfer,1
 bot cannot change ad account threshold,1
 bot lacks capability to connect user with specific personnel,1
-user cannot proceed without paying balance,1
-no alternative payment method available,1
-bot lacks capability to provide API endpoint information,1
-bot cannot access specific ad rejection details,1
-bot cannot provide specific rejection reasons directly,1
-bot unable to connect user directly to human support,1
+requires human intervention for ad approval,1
+user unable to add new payment method,1
+user cannot add credits until balance is paid,1
+bot lacks access to API information,1
+bot cannot provide specific ad rejection reasons,1
+user requested human help after bot response,1
+bot provided general guidance but user sought further assistance,1
+bot lacks capability to provide real-time competitive analysis,1
+no feature to set max cpc or cpm,1
+user needs to provide additional information,1
+bot unable to connect user directly to a human,1
+user dissatisfaction with AI responses,1
 user needs to provide additional verification details,1
-user's business verification failed,1
-ad approval requires additional information,1
-user may not have followed troubleshooting steps,1
-potential need for technical support,1
-bot-did-not-address-campaign-data-query,1
-bot cannot perform pixel authorization,1
-user needs to contact account manager,1
-bot lacks capability to set max cpc or cpm,1
-user requires real-time monitoring tools,1
-user needed direct human assistance for unresolved campaign issue,1
+user may not have followed all troubleshooting steps,1
+potential need for deeper technical support,1
+bot cannot perform pixel authorization directly,1
 bot cannot resolve technical display issues,1
-bot unable to provide live agent consistently,1
-bot lacks capability to adjust ad settings directly,1
-user dissatisfaction with traffic quality,1
-user needs to contact organization admin for Slack access,1
-bot cannot provide direct access to Slack channel,1
-user already submitted required information,1
-bot provided general advice but did not address specific user issue directly,1
-bot-lacks-undelete-campaign-feature,1
+requires human technical support,1
+user required direct support team intervention,1
+conversation ended without user feedback,1
+bot cannot grant Slack channel access,1
+requires human intervention for Slack access,1
+bot-did-not-address-campaign-data-query,1
+bot provided general advice but did not resolve specific issue,1
+user may need detailed analysis or intervention,1
+requires human intervention for ad review,1
+verification process delay,1
+user already provided required information,1
 user needs human intervention for appeal process,1
 user reported no response from support email,1
-bot-provided-correct-instructions,1
-requires human intervention to review ad setup,1
-bot cannot transfer to human assistant,1
-user's request for human interaction was unmet,1
-user unable to resolve TID issue despite following bot's instructions,1
-requires human verification of account details,1
-bot cannot fully troubleshoot postback issues,1
-platform restriction on video length,1
-user needed feature activation,1
-bot cannot provide specific moderation status,1
+bot-cannot-undelete-campaign,1
+user's issue persisted despite following bot's instructions,1
+bot lacks capability to directly troubleshoot ClickBank integration,1
+platform restriction not addressed by bot,1
+user required feature activation,1
+user did not provide enough information for the bot to process the cancellation,1
+bot cannot provide specific moderation status updates,1
 bot cannot transfer to human agent,1
-user required human assistance for domain-related query,1
-transaction history does not specify which card was used,1
+user needs specific domain-related guidance,1
 billing issue not resolved by bot,1
-bot cannot access or send specific ad links directly,1
-bot lacks capability to diagnose specific technical integration issues,1
-requires human intervention for status update,1
-user needs to provide additional information via email for verification,1
-user requested human agent but bot provided email instructions instead,1
-bot provided general advice but did not address specific budget spending issue,1
-issue required escalation to technical team for further investigation,1
-user did not provide sufficient details about ad campaign,1
-invoice retrieval guidance was generic,1
-user-experiencing-website-loading-issue,1
-bot-provided-basic-troubleshooting,1
-issue-persisted,1
+requires additional account verification information,1
+transaction history lacks specific card details,1
+bot cannot transfer to human assistant,1
+user's request for human interaction not fulfilled,1
+bot cannot access or send specific ad links,1
+bot unable to resolve technical integration issue,1
+bot provided general advice without addressing specific budget spending issue,1
+requires-human-intervention-for-verification-status-update,1
+user did not provide required information for verification,1
+user did not provide sufficient details for ad issue,1
+invoice location guidance was generic,1
+issue required deeper technical investigation,1
+user needs to contact support for records older than 8 months,1
+user-expressed-continued-difficulty,1
+bot-could-not-resolve-technical-issue,1
+user required human assistance for correct curl format,1
 bot lacks campaign duplication feature,1
-user required human assistance for correct API call format,1
-user-abandoned-conversation-before-agent-response,1
-bot-cannot-access-review-system,1
-verification-required,1
-bot lacks capability to connect user to live support,1
-bot cannot provide account manager's email,1
-user's technical issue unresolved,1
+bot cannot provide live support,1
+bot lacks access to account manager details,1
+bot provided general advice but user needed specific analysis,1
+verification issue with user account,1
 user did not confirm if the guide resolved the issue,1
-potential technical issue with video compression,1
-user requires specific analysis beyond bot's capability,1
-user prefers human support,1
-bot-cannot-transfer-to-human,1
-user-needs-human-review,1
-potential technical issue not resolvable by bot,1
-user directed to email support,1
-dedicated account management not available for user's spend level,1
-no direct platform for viewing similar industry ads,1
-issue with ad platform being addressed externally,1
-bot cannot resolve platform issues,1
-technical issue with account settings,1
-user interest option not visible,1
+potential technical issue with video compression not addressed,1
+potential technical issue with ad sets despite being marked as 'ready' or 'active',1
 bot lacks access to specific targeting values,1
-user needs human support for detailed API guidance,1
-bot-lacks-live-agent-escalation-capability,1
-temporary issue with ad platform API,1
-user-request-for-human-assistance-unfulfilled,1
-bot sent blank responses,1
-user did not receive complete guidance on API usage,1
+user needs human support for detailed targeting options,1
+bot-cannot-provide-account-manager,1
+no-direct-access-to-industry-ads,1
+bot-lacks-capability-to-transfer-to-human,1
+user-seeks-human-review,1
+bot cannot resolve technical issues with user account settings,1
+platform issue being addressed,1
+user directed to contact support,1
+API error unresolved,1
 user unable to find ad link despite instructions,1
-user unwilling to implement event tracking,1
-bot lacks capability to expedite approval,1
-bot cannot access payment system,1
-refund process requires human intervention,1
-user found ad management confusing,1
+bot cannot transfer to live agent,1
+user requires human assistance for detailed analysis,1
 user unable to locate creatives tab despite instructions,1
 potential account setup issue,1
-user's account was verified but ad was still pending,1
-bot suggested contacting support without resolving the issue,1
-bot cannot directly resolve payment issues,1
-user needs to contact support team,1
-bot cannot remove payment method from account,1
-bot provided general advice but did not resolve the specific payment issue,1
-bot-cannot-process-cancellation,1
-user faced billing issues with multiple cards,1
-NewsBreak does not support lookalike audiences directly,1
+bot cannot process refund requests directly,1
+user found ad management confusing,1
+bot-lacks-live-agent-escalation-capability,1
+bot sent blank responses,1
+user confusion due to incomplete information,1
+user's account is verified but ad still pending,1
+bot suggested contacting support without resolving issue,1
 account pending verification,1
-user requires direct support intervention,1
-bot cannot access account specifics to resolve ad status issue,1
-user wanted direct human interaction,1
-bot provided email contact instead of direct connection,1
-bot cannot update website information,1
-bot lacks detailed billing history download instructions,1
-bot lacks capability to resolve technical tracking issues,1
-bot does not provide site-specific performance data,1
+user already submitted verification details,1
+bot unable to directly resolve verification or ad issues,1
+bot lacks capability to directly resolve payment issues,1
+bot cannot process payment issues directly,1
+user needs human support for resolution,1
+bot lacks capability to expedite approval,1
+bot cannot access payment system,1
+bot cannot approve campaigns,1
+billing issue requires user to resolve with bank,1
+bot cannot remove payment method from account,1
+bot cannot update website information directly,1
+user requested human assistance which bot could not provide,1
+bot lacks detailed instructions for downloading billing history,1
+bot cannot resolve integration issues,1
+user needs human support for technical troubleshooting,1
+user required human interaction for ad approval status,1
+bot provided email contact instead of direct human connection,1
+NewsBreak does not support lookalike audiences directly,1
+bot lacks capability to troubleshoot conversion tracking,1
+bot cannot provide detailed site-specific performance data,1
 bot lacks capability to directly enable ad credits feature,1
-integration issue required human intervention,1
-user did not confirm ad optimization completion,1
-bot cannot modify account balance,1
-user unable to find campaign settings,1
-bot lacks capability to directly process refunds,1
-user's refund issue requires human intervention,1
-user-requested-live-agent-before-bot-could-assist,1
+bot cannot process ad credit top-up,1
+user unable to find campaign settings option,1
+issue requires technical support intervention,1
 user needs to contact bank for refund,1
-issue requires technical support team intervention,1
+bot cannot process refunds,1
+user's refund issue required human intervention,1
+billing and refund processes not fully automated,1
 user required immediate human interaction,1
-bot cannot expedite or check ad review status directly,1
-requires human intervention for account cancellation,1
-requires user to email support with specific verification details,1
-bot cannot fix platform-side issues,1
-user directed to contact support,1
-user required confirmation on ad credit eligibility which bot could not provide,1
-user did not provide enough context or details for the bot to process the cancellation,1
-bot lacks capability to modify ad settings,1
+user encountered issue with postback test not completing,1
+bot unable to resolve technical issue with postback test,1
+user required confirmation about ad credits eligibility,1
+bot escalated to live agent,1
+bot lacks capability to change ad settings,1
 bot cannot approve rejected ads,1
-user faced issue with postback test not completing,1
-bot cannot update billing information directly,1
+bot cannot directly access or expedite ad review process,1
+user provided insufficient information for the bot to act on,1
+bot cannot directly update billing information,1
+user may need to access account settings,1
+bot-cannot-fix-platform-issues,1
+requires-contact-with-support,1
 user needs to contact support for account manager,1
-bot cannot assist with RedTrack issues,1
-user needs to provide documentation for account manager,1
-ad rejection requires email follow-up,1
-bot lacks capability to resolve account-specific issues,1
-user reported missing feature in billing section,1
-bot lacks cancellation processing capability,1
-user unable to see pixel in Ad Manager after installation,1
-possible misconfiguration or delay in pixel activation,1
-bot cannot create invoices or tickets directly,1
-user needs human assistance for invoice creation,1
-bot-cannot-verify-url,1
+bot cannot assist with Breakdown menu on RedTrack,1
+ad rejection requires user action,1
+bot cannot verify URLs,1
+bot-provided-instructions-did-not-match-user-experience,1
+missing-download-option-in-user-account,1
+bot cannot create invoices directly,1
+user needs human support for invoice creation,1
+user struggled to locate campaign settings,1
+bot guidance insufficient for user to find settings,1
 bot lacks capability to directly resolve campaign configuration issues,1
-bot-cannot-initiate-live-chat,1
-response-delay-issue,1
-user needs to email required information for verification,1
-bot lacks specific integration instructions for Offer18,1
-bot-cannot-resolve-billing-discrepancy,1
-requires-human-intervention,1
+bot does not support live chat connection,1
+slow response from bot,1
+bot lacks specific instructions for Offer18 integration,1
+bot requires user to email information for verification process,1
+bot cannot resolve billing discrepancies,1
 user did not clarify media library type,1
-bot cannot verify ad compliance,1
-requires human review for policy disputes,1
-issue persists despite correct postback setup,1
+user's issue persisted despite troubleshooting steps,1
 specific campaign issue not resolved by bot,1
 bot cannot resolve pixel creation error,1
-user needs guidance on event creation,1
-bot cannot directly resolve ad rejection disputes,1
-user needs to check email for specific rejection reasons,1
-ad approval delay due to business verification,1
-user needed human intervention for confirmation,1
-feature-not-supported,1
-ad credits are non-transferable,1
-user unable to schedule call due to time zone mismatch,1
-bot provided troubleshooting steps but user still faced issues,1
+user needs guidance on event tracking setup,1
+user's ads were pending due to business verification,1
+bot could not resolve verification issue,1
+user unable to find suitable time for onboarding call,1
+bot directed user to support team,1
 bot cannot directly access or modify ad settings,1
-bot lacks capability to directly fix URL format issues,1
-user-did-not-clarify-invitation-context,1
-user's card authorization failed despite trying multiple cards,1
-bot lacks capability to directly resolve payment issues,1
-bot-repeated-quota-exceeded-message,1
-no-cancellation-process-initiated,1
-bot cannot change user roles beyond admin,1
-user's ad spending issue may require deeper analysis or human intervention,1
+requires human intervention for technical investigation,1
+bot cannot verify ad compliance,1
+requires human review for policy disputes,1
+user encountered a budget issue that the bot could not resolve,1
+user needed to contact support for unresolved ad spending issue,1
+bot cannot directly access or modify user campaigns,1
+persistent URL format error despite correct input,1
+user requested human intervention,1
+bot cannot access specific ad rejection details,1
+user needs personalized support,1
+bot cannot resolve payment processing issues,1
+requires human intervention for detailed troubleshooting,1
+user unable to see pixel in Ad Manager after installation,1
+bot cannot modify user roles,1
+user needs further assistance for ad spending issues,1
+user-did-not-provide-clarification,1
+bot repeated a message about quota exhaustion instead of addressing the cancellation request,1
 bot-lacks-feature-to-exclude-ad-placements,1
 user encountered issue saving pixel setup,1
-bot provided general troubleshooting steps but did not resolve the issue,1
-user-request-for-cancellation-not-processed-by-bot,1
-user faced persistent issues with budget settings and ad inactivity despite following bot's instructions,1
-user needed to contact support for unresolved issues,1
-bot cannot process business verification,1
-verification process requires human review,1
-user faced persistent payment issues,1
-ad credits feature requires admin approval and user is waiting,1
-user required to complete onboarding call for verification,1
-bot unable to bypass mandatory process,1
+bot provided general troubleshooting but issue persisted,1
+user faced issues with payment methods despite trying multiple cards,1
+user needed to apply for ad credits feature but was still waiting for approval,1
 bot lacks capability to connect user with human agent,1
 user did not provide required information for account verification,1
-bot cannot access specific error details for card authorization failure,1
-user may need further assistance beyond troubleshooting steps,1
-potential issue with platform integration,1
-user requested human support which the bot could not provide directly,1
-bot lacks capability to directly modify landing pages,1
-user requested human support which was not provided,1
-bot cannot resolve third-party integration issues,1
-requires Redtrack support for further investigation,1
-user lacks permissions to add credits,1
-bot-cannot-connect-to-human-operator,1
+bot lacks capability to verify business information,1
+user needs to provide additional information to support team,1
+user did not provide all required details for verification,1
+bot repeated responses without progressing the task,1
+user required to complete onboarding call for verification,1
+bot unable to offer alternative communication methods,1
+bot unable to provide direct human support,1
+potential need for platform-specific support,1
+bot cannot access specific error details for card authorization failures,1
+bot cannot modify landing pages,1
 bot cannot directly cancel ads,1
 user needs to email support for cancellation,1
-bot lacks capability to change language settings,1
+user lacks admin permissions to add credits,1
+bot cannot connect user to a live agent,1
+bot-lacks-human-connection-capability,1
 bot cannot review or approve ads,1
-bot provided troubleshooting steps but user confirmed all steps were checked without resolution,1
-bot cannot directly connect user to a human manager,1
-user dissatisfied with bot's assistance,1
+task requires human intervention,1
+bot-cannot-access-redtrack-system,1
+issue-may-require-redtrack-support,1
+bot lacks capability to change language settings,1
+user followed all troubleshooting steps but issue persisted,1
+bot lacks capability to directly resolve pixel integration issues,1
+bot cannot directly connect user to human support,1
+user requires human interaction,1
 bot cannot directly complete account verification,1
-requires user to send an email with specific information,1
-feature-not-supported by the bot,1
-user did not provide platform information for pixel creation,1
-user unable to locate language settings despite multiple attempts and guidance,1
-user's campaign spending issue not fully resolved despite suggestions,1
-bot cannot directly approve campaigns,1
-requires email submission for verification,1
-bot-lacks-account-manager-assignment-capability,1
-bot lacks specific information on time window,1
-user needs to contact support for unresolved technical issues,1
-bot cannot verify ad content or provide specific policy violation details,1
-bot-cannot-provide-specific-demographic-data,1
-user requires more specific guidance on server-side handling and integration specifics,1
-bot lacks capability to directly interact with or diagnose server issues,1
+requires user to email additional information,1
+user did not specify the platform for pixel creation,1
+feature-not-supported,1
+user unable to locate language settings despite instructions,1
+bot's guidance did not lead to successful resolution,1
+bot lacks capability to change time zone,1
+campaign spending issue unresolved despite suggestions,1
+bot-cannot-assign-dedicated-account-managers,1
+user required more specific guidance or troubleshooting beyond bot's capabilities,1
+potential server-side issues not resolvable by bot,1
+bot cannot approve campaigns directly,1
+requires user to email support for verification,1
+bot cannot provide specific timeline for account release,1
+bot lacks specific information on postback time window,1
+conversion tracking issue requires human support,1
+event saving error needs account manager intervention,1
 bot cannot approve profiles,1
-interest targeting feature not visible,1
-user did not receive support response,1
+bot cannot modify or verify API permissions,1
+user needs human support for API issues,1
+bot cannot view images,1
+interest targeting feature might be unavailable,1
+user did not receive response from support,1
 user repeatedly requested human assistance,1
-bot provided links but user did not confirm resolution,1
-user abandoned conversation,1
-bot cannot modify API permissions,1
-user needs specific permission guidance,1
-user requires human support for API issues,1
+bot unable to fully resolve tracking issues,1
+bot cannot verify ad content or provide specific violation details,1
+user needs human assistance for detailed policy interpretation,1
+bot-cannot-provide-specific-demographic-data,1
+bot cannot expedite ad review,1
+bot lacks capability to increase postpaid limit,1
+user did not receive expected email responses,1
+verification process unclear to user,1
 bot lacks capability to resolve billing discrepancies directly,1
+bot provided troubleshooting steps but user issue persisted,1
 user needs further assistance from support team,1
-bot cannot change email address directly,1
-bot-experienced-response-delay,1
-user-did-not-receive-information,1
-bot lacks capability to access or display existing pixel codes within NewsBreak dashboard,1
-bot provided incorrect integration instructions for MaxConv,1
-bot lacks capability to expedite ad reviews,1
-verification process not clearly communicated,1
-user's emails not responded to by support,1
-bot cannot directly resolve card addition issues,1
-user did not provide necessary campaign details for diagnosis,1
-bot cannot provide event data viewing capability,1
-bot lacks capability to modify ad placements,1
-bot lacks capability to debug pixel code,1
-ad comment feature not supported,1
-user followed all provided steps but issue persisted,1
-bot lacks capability to troubleshoot specific technical issues,1
+platform does not support viewing or editing existing pixel codes directly,1
+bot lacks capability to change email addresses directly,1
+bot provided incorrect instructions for the user's platform,1
+bot-cannot-provide-ad-credit-information,1
+response-delay-issue,1
+bot unable to provide live agent connection,1
+user dissatisfaction with ad rejection explanation,1
+bot cannot access or display event data,1
+bot lacks capability to directly troubleshoot pixel code,1
+ad comments feature not supported,1
+user did not provide additional details needed for troubleshooting,1
+bot provided standard troubleshooting steps but user had already completed them,1
+user required human assistance for unresolved technical issue,1
+bot cannot modify ad placement settings,1
+user disagreed with bot's explanation,1
+bot unable to respond due to message quota exhaustion,1
+user's ad is still pending after 3 days,1
+requires business verification,1
+user lacks information on disapproval reasons,1
+bot cannot access specific ad account details,1
 bot-cannot-send-invoices,1
-"bot quota exceeded, unable to process requests",1
-user lacks specific disapproval reason,1
-bot cannot access user-specific ad details,1
-ad pending status not resolved,1
-user needs human intervention for account verification,1
+user did not receive promotional code,1
+no response from support team,1
+user initially provided incorrect platform information,1
+bot unable to resolve pixel issue without correct platform details,1
 user could not find the bank transfer option in the billing section,1
-user provided incorrect platform information,1
-bot unable to adapt to changing user input,1
-user did not receive the promotional code needed to redeem the ad credit,1
-support team did not respond to user's inquiry,1
-user needs to email support with verification details,1
+bypassing-url-requires-human-intervention,1
 ad pending issue unresolved,1
-user required live agent for further assistance,1
-bot lacks capability to directly resolve technical issues,1
-user requested human assistance for unresolved issues,1
-bot cannot perform account-specific actions,1
-user-needs-to-provide-additional-information-for-verification,1
-bot-did-not-escalate,1
-user unable to successfully implement pixel despite troubleshooting steps,1
-user did not receive a direct solution to fix the ad rejection issue,1
-bot provided general guidance but no specific resolution,1
-bot cannot transfer to human support,1
-bypassing URL requires human intervention,1
-requires user to take additional steps,1
-user-provided-incomplete-information,1
-bot-requested-clarification,1
-bot cannot directly delete user account or credit card information,1
-bot cannot access specific user account details,1
-user-requested-human-support,1
-bot-cannot-provide-phone-support,1
+user required human assistance,1
+requires manual verification process via email,1
+bot cannot directly cancel accounts,1
+requires user to email support,1
+user may need further assistance beyond troubleshooting steps provided,1
+potential technical issue not resolved by bot's guidance,1
+user did not provide clear information about the business,1
+conversation ended without resolution,1
+bot lacks lookalike audience creation feature,1
+user's account rejected without clear resolution,1
+no direct upload feature for media plan,1
 bot cannot verify pixel integration,1
-user needs to perform a test purchase,1
-bot cannot approve ads or resolve endorsement disputes,1
-bot lacks capability to troubleshoot pixel issues beyond basic guidance,1
-user did not provide necessary platform details,1
-bot could not proceed without specific information,1
-bot-cannot-remove-user-from-account,1
+user needs to perform test purchase,1
+endorsement policy clarification needed,1
+bot cannot directly delete user account or credit card information,1
+bot lacks capability to troubleshoot specific Shopify pixel issues,1
+user-did-not-provide-platform-details,1
+bot-could-not-proceed-without-specific-info,1
+bot cannot resolve account lock issue,1
+bot cannot ensure support contact response,1
+bot cannot access specific ad details,1
+bot cannot provide a phone number,1
+bot-cannot-modify-whitelist,1
+no-access-token-management-feature,1
+user-needs-specific-api-for-metrics,1
+user did not specify any further request after form submission,1
+bot provided general advice but did not offer specific solutions or tools to directly reduce CPC,1
 bot lacks capability to delete payment methods,1
-user did not specify any request after form submission,1
-lookalike audience feature not supported,1
-user account verification issues,1
-lack of direct upload feature for media plan,1
-bot cannot resolve account lock issues,1
-email support not responsive,1
-bot-cannot-modify-access-token-settings,1
-lack-of-access-token-management-feature,1
-user-needs-specific-api-for-ad-metrics,1
+requires human intervention for account verification,1
+user requested human service,1
+verification process requires human review,1
+user needs to send details to a specific email,1
 Chinese language is not supported by NewsBreak,1
-user did not receive specific guidance for experienced users,1
-bot provided generic information for first-time ad creation,1
-bot cannot directly verify account status,1
-verification requires human review,1
-requires business verification which needs human intervention,1
-user did not receive or locate the email with the rejection reason,1
-user did not confirm resolution,1
-conversation was interrupted by a human intervention,1
+user did not specify exact navigation issue,1
+bot provided general guides instead of direct assistance,1
+conversation was abandoned before completion,1
+bot-cannot-automate-bulk-zip-code-entry,1
+manual-entry-required-for-city-and-state,1
+user-did-not-receive-rejection-email,1
+bot-cannot-access-specific-rejection-reasons,1
 user unable to find download link despite instructions,1
-potential permissions issue or display error,1
-account verification pending,1
-user encountered an error creating a new pixel,1
-user received no response from support despite multiple emails,1
-bot lacks capability to directly check ad review status,1
-bot cannot provide ad approval decisions,1
-bot lacks capability to analyze ad content or product issues,1
-bot lacks capability to directly process profile corrections,1
-user needs to contact support team for resolution,1
-requires human intervention for billing discrepancies,1
-bot lacks capability to provide real-time targeting values,1
-ad duration limit is a fixed platform constraint,1
+potential permissions or display issue not resolved by bot,1
+account verification required before adding users,1
+bot cannot delete web events,1
+user may need further assistance with pixel error,1
+no-unsolved-tasks,1
+restricted-content-policy,1
+bot-cannot-process-profile-corrections,1
+bot cannot directly resolve transaction issues,1
+bot lacks capability to access detailed billing information,1
+lack of response from support team,1
+bot cannot directly influence ad review process,1
+bot lacks capability to provide specific targeting values,1
+ad duration increase not supported,1
 bot cannot directly modify campaign settings,1
-pre-fetching location data feature not supported,1
-API pricing and access details not available through bot,1
+bot lacks capability to provide API pricing details,1
+pixel configuration requires server-side verification,1
 bot lacks specific instructions for BuyGood network integration,1
 conversation ended before user provided further details on implementation method,1
-bot cannot resolve 'invalid operation' error,1
-requires RedTrack-specific support,1
-bot lacks capability to directly resolve ad rejection issues,1
-requires human intervention for policy clarification,1
-user did not specify what to cancel,1
-bot lacks capability to automate bulk zip code entry with city and state,1
-user requires more efficient method for large data entry,1
-user required human support for unresolved payment issue,1
-user-request-for-human-assistance-not-fulfilled,1
-user-abandoned-before-completing-task,1
-bot lacks capability to directly resolve ad delivery issues,1
-requires human intervention for further investigation,1
-bot-cannot-escalate-to-human,1
-user-dissatisfaction-with-bot-response,1
+user required direct support team interaction,1
+cryptocurrency payment not supported,1
+bot cannot directly resolve ad rejection issues,1
+bot cannot escalate to human support,1
+bot lacks capability to directly troubleshoot RedTrack integration issues,1
+user needs RedTrack-specific support,1
+user did not provide enough context for cancellation,1
+billing inquiry needs account access,1
+campaign performance requires detailed analysis,1
 language change not supported,1
 pixel integration issue unresolved,1
-budgeting and structure advice provided but may need further clarification,1
-"bot did not provide direct wire details, only a link to FAQ",1
-user required human assistance for billing issue,1
-bot provided general advice but user needed specific resolution,1
-bot provided incorrect guidance,1
-user needed specific dashboard navigation help,1
-video size limit cannot be changed,1
-user needs human assistance to reconnect with account rep,1
-user-confusion-about-tracking-platform,1
-user-did-not-confirm-resolution,1
-potential-issue-with-ad-credit-usage,1
-bot does not support live chat initiation,1
+campaign advice provided but not confirmed as satisfactory,1
+user-request-for-human-assistance-not-fulfilled,1
+bot cannot resolve ad delivery issues,1
+requires verification or support intervention,1
+video size limit is fixed and cannot be changed,1
+user needs to contact support for account rep,1
+team access instructions provided,1
+user did not receive response from support team,1
 bulk editing feature not supported,1
-ad length exceptions not generally available,1
-high CPC requires further optimization not fully addressed by bot,1
-bot cannot resolve card authorization failures,1
+high CPC issue not resolved,1
+"bot did not provide direct wire transfer details, only a link to FAQ",1
+bot provided incorrect guidance link,1
+user needed direct support,1
+bot-lacks-live-chat-capability,1
+requires human intervention to enable ad credits,1
+user-confusion-about-tracking-platform,1
+lack-of-clicks-not-addressed,1
+ad-credit-usage-issue-not-resolved,1
+user needs to provide proof of daily ad spend to qualify for account management,1
 NewsBreak does not support targeting locations outside the US,1
-user requested live agent but was not connected,1
-possible need for more detailed guidance,1
-user needs to provide verification of daily ad spend to qualify for account management,1
+user request for live agent was not fulfilled,1
+user requested live support which bot couldn't provide,1
+potentially complex integration issue,1
 user requested live support which bot cannot provide directly,1
-bot lacks capability to directly troubleshoot Shopify integration,1
-user requires more personalized support for ad campaign issues,1
+bot lacks capability to resolve card authorization issues directly,1
+bot lacks capability to troubleshoot specific domain issues with pixel integration,1
 user unable to locate interest targeting despite guidance,1
-bot lacks capability to transfer ad credits between accounts,1
-bot lacks capability to troubleshoot specific domain-related tracking issues,1
+possible interface change not addressed by bot,1
 user account not eligible to add ad credits directly,1
 requires business verification and account manager,1
+ad credits are non-transferable according to policy,1
+requires human intervention for profile verification,1
+bot cannot verify business details,1
 bot-lacks-language-change-capability,1
-incorrect parameter usage in URL for ClickBank integration,1
+bot cannot manually adjust billing thresholds,1
+user needs human intervention for suspicious activity investigation,1
+bot-cannot-transfer-to-human-agent,1
+bot provided incorrect parameter advice,1
+user received conflicting information from another source,1
 bot cannot support non-US banking transactions,1
-verification process is still pending,1
-user needs to follow up with support,1
-bot lacks capability to check account status,1
-billing threshold cannot be manually set,1
-account flagging requires human intervention,1
 bot lacks capability to directly resolve billing and campaign spending issues,1
 user does not meet the requirements for a dedicated account manager,1
 user does not meet the conditions to add ad credit,1
+verification process is still pending,1
+user needs to follow up with support team,1
 user unable to locate device targeting settings,1
-user needs to contact support for custom exclusion,1
+user needs to submit a ticket for audience exclusion,1
 user confused about ad spend,1

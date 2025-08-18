@@ -1,55 +1,48 @@
 error_pattern,count
-no-errors-detected,667
-system-functioning-perfectly,639
-no-technical-issues,568
-conversation-abandoned,496
-no-technical-issues-detected,10
-quota-exceeded-notification,8
+no-errors-detected,633
+conversation-abandoned,503
+system-functioning-perfectly,481
+no-technical-issues,441
 invalid-operation-error,4
-repeated-message,3
-response-delay-notification,3
-incorrect-navigation-instructions,2
-no-direct-human-escalation,2
-no-technical-issues-detected-by-bot,2
-system-response-delay,2
-api-error-message,2
-incorrect-feature-information,2
+quota-exhaustion-notification,4
+quota-exceeded-notification,3
+no-technical-issues-detected,2
 duplicate-response,2
-quota-exhaustion-notification,2
+no-response-from-support,2
 incorrect-resource-link,2
-incorrect initial instructions,1
-no-live-agent-connection,1
+response-delay-notification,2
+incorrect-navigation-instructions,1
+incorrect-initial-guidance,1
+no-specific-error-detected,1
+incorrect-guidance,1
 quota-exhaustion,1
-misunderstanding-user-intent,1
 access-denied-error,1
-attachment-missing-in-email,1
-repeated information,1
-repeated responses without resolution,1
-invalid-ipn-error,1
-initial-missing-step,1
-no-escalation-capability,1
-incorrect Click ID retrieval instructions,1
-support-email-not-working,1
-platform-issue-message,1
-reply-quota-exhausted,1
-conflicting-targeting-information,1
-no-response-to-command,1
-non-functional-link,1
-possible-ui-click-issue,1
+email-attachment-not-received,1
+slow-response-time,1
+link-not-accessible,1
+no-escalation-protocol,1
+user-interface-access-issue,1
+response-delay,1
 broken-link,1
-system-delay-in-status-update,1
-non-functional-email-address,1
-incorrect URL provided,1
-inability to verify audience availability,1
-live-agent-transfer-not-supported,1
-initial-misunderstanding-of-platform,1
-invalid-token,1
-no-live-agent-transfer-capability,1
+initial-response-delay,1
+no-specific-guidance-available,1
+non-functional-email,1
+incorrect-url-provided,1
+inability-to-access-external-sites,1
+quota-exceeded,1
+no-escalation-to-human-support,1
+live agent transfer not supported,1
+known-platform-issue,1
+api-error-message,1
 blank-responses,1
-test-not-completing,1
-card-authorization-failure,1
-user-unable-to-save-pixel-setup,1
-no-access-to-error-details,1
-support-team-non-response,1
+incomplete-information,1
+platform-error-message,1
+slow-response-notification,1
+repetitive responses,1
+no-specific-error-details-available,1
+no-technical-issues-detected-by-bot,1
+no-direct-live-agent-connection,1
+incorrect platform assumption,1
+repeated platform clarification,1
 no-download-link-visible,1
-no-response-from-support,1
+incorrect-parameter-advice,1

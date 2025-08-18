@@ -686,66 +686,335 @@ def generate_concise_report(analysis_dir, output_file):
                 for task in tasks:
                     human_tasks.append(task)
             else:
-                human_tasks.append(tasks)
+                human_tasks.append(task)
     
-    # Generate concise report
-    concise_report = f"""# 🤖 Chatbot Performance - Executive Summary
+    # Generate HTML report
+    html_report = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Service Chatbot Report</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f7;
+            color: #1d1d1f;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 1.2em;
+        }
+        .content {
+            padding: 30px;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .metric-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #667eea;
+        }
+        .metric-number {
+            font-size: 2em;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        .metric-label {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            color: #495057;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .section h3 {
+            color: #6c757d;
+            margin-top: 25px;
+        }
+        .issue-list {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .issue-item {
+            background: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #dc3545;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .issue-count {
+            background: #dc3545;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            float: right;
+        }
+        .feature-item {
+            background: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .feature-count {
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            float: right;
+        }
+        .summary-box {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .summary-box h3 {
+            margin-top: 0;
+            color: white;
+        }
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .summary-stat {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 6px;
+        }
+        .summary-number {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .clickable-item {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .clickable-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+        .close:hover {
+            color: #000;
+        }
+        .conversation-example {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #667eea;
+        }
+        .conversation-header {
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 10px;
+        }
+        .conversation-text {
+            font-family: monospace;
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #e9ecef;
+            white-space: pre-wrap;
+            font-size: 0.9em;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .search-box {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            .summary-stats {
+                grid-template-columns: 1fr;
+            }
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 Customer Service Chatbot Report</h1>
+            <p>Executive Summary - """ + pd.Timestamp.now().strftime('%B %d, %Y') + """</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>📊 Key Metrics</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-number">""" + f"{total:,}" + """</div>
+                        <div class="metric-label">Total Conversations</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">""" + f"{solved/total*100:.1f}%" + """</div>
+                        <div class="metric-label">Success Rate</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">""" + f"{needs_human/total*100:.1f}%" + """</div>
+                        <div class="metric-label">Human Escalation Rate</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">""" + f"{len(missing_features):,}" + """</div>
+                        <div class="metric-label">Missing Features</div>
+                    </div>
+                </div>
+            </div>
 
-## 📊 Key Metrics
-- **Total Conversations**: {total:,}
-- **Success Rate**: {solved/total*100:.1f}% ({solved:,} solved)
-- **Human Escalation Rate**: {needs_human/total*100:.1f}% ({needs_human:,} escalated)
-
-## 📋 Quick Impact Summary
-| Category | Count | % of Total | Priority |
-|----------|-------|------------|----------|
-| **Human Escalations** | {needs_human:,} | {needs_human/total*100:.1f}% | 🔴 Critical |
-| **Missing Features** | {len(missing_features):,} | {len(missing_features)/total*100:.1f}% | 🟡 High |
-| **Actionable Issues** | {len(actionable_improvements):,} | {len(actionable_improvements)/total*100:.1f}% | 🟠 Medium |
-
----
-
-## 🚨 Critical Issues (Top 3)
-
-### 1. Top Failure Categories
-"""
+            <div class="section">
+                <h2>🚨 Critical Issues (Top 3)</h2>
+                
+                <h3>1. Top Failure Categories</h3>
+                <div class="issue-list">"""
     
     for category, count in failure_counts.most_common(3):
         percentage = (count / total) * 100
-        concise_report += f"- **{category}**: {count:,} conversations ({percentage:.1f}%)\n"
+        html_report += """
+                    <div class="issue-item">
+                        <span class="issue-count">""" + f"{count:,}" + """</span>
+                        <strong>""" + category + """</strong> - """ + f"{percentage:.1f}%" + """ of conversations
+                    </div>"""
     
-    concise_report += f"""
+    html_report += """
+                </div>
 
-### 2. Top Missing Features
-"""
+                <h3>2. Top Missing Features</h3>
+                <div class="issue-list">"""
     
     if missing_features:
-        feature_counts = Counter(missing_features)
-        for (feature, priority), count in feature_counts.most_common(3):
-            concise_report += f"- **Priority {priority}**: {feature} - {count:,} conversations need this\n"
+        feature_counts = Counter([feature for feature, _ in missing_features])
+        for feature, count in feature_counts.most_common(3):
+            html_report += """
+                    <div class="feature-item">
+                        <span class="feature-count">""" + f"{count:,}" + """</span>
+                        <strong>""" + feature + """</strong> - """ + f"{count:,}" + """ conversations need this
+                    </div>"""
     else:
-        concise_report += "- No critical missing features identified\n"
+        html_report += """
+                    <div class="feature-item">
+                        <span class="feature-count">0</span>
+                        <strong>No critical missing features identified</strong>
+                    </div>"""
     
-    concise_report += f"""
+    html_report += """
+                </div>
 
-### 3. Top Actionable Improvements
-"""
+                <h3>3. Top Actionable Improvements</h3>
+                <div class="issue-list">"""
     
     if actionable_improvements:
         improvement_counts = Counter(actionable_improvements)
         for (improvement, effort), count in improvement_counts.most_common(3):
-            concise_report += f"- **{effort.upper()} effort**: {improvement} - {count:,} conversations affected\n"
+            html_report += """
+                    <div class="feature-item">
+                        <span class="feature-count">""" + f"{count:,}" + """</span>
+                        <strong>""" + effort.upper() + """ effort</strong> - """ + improvement + """
+                    </div>"""
     else:
-        concise_report += "- No actionable improvements needed\n"
+        html_report += """
+                    <div class="feature-item">
+                        <span class="feature-count">0</span>
+                        <strong>No actionable improvements needed</strong>
+                    </div>"""
     
-    concise_report += f"""
+    html_report += """
+                </div>
+            </div>
 
----
-
-## 🔍 Detailed Breakdown by Impact
-
-### What Users Need Human Help For (Top 10)
-"""
+            <div class="section">
+                <h2>🔍 Detailed Breakdown by Impact</h2>
+                
+                <h3>What Users Need Human Help For (Top 10)</h3>
+                <div class="issue-list">"""
     
     # Combine both reasons and tasks for a complete picture
     combined_issues = []
@@ -777,16 +1046,29 @@ def generate_concise_report(analysis_dir, output_file):
         if significant_issues:
             for issue, count in significant_issues:
                 percentage = (count / needs_human) * 100 if needs_human > 0 else 0
-                concise_report += f"- **{issue}**: {count:,} conversations ({percentage:.1f}% of escalations)\n"
+                html_report += """
+                    <div class="issue-item">
+                        <span class="issue-count">""" + f"{count:,}" + """</span>
+                        <strong>""" + issue + """</strong> - """ + f"{percentage:.1f}%" + """ of escalations
+                    </div>"""
         else:
-            concise_report += "- No significant issues (all issues affect <2 conversations)\n"
+            html_report += """
+                    <div class="issue-item">
+                        <span class="feature-count">0</span>
+                        <strong>No significant issues (all issues affect <2 conversations)</strong>
+                    </div>"""
     else:
-        concise_report += "- No human escalations recorded\n"
+        html_report += """
+                    <div class="issue-item">
+                        <span class="feature-count">0</span>
+                        <strong>No human escalations recorded</strong>
+                    </div>"""
     
-    concise_report += f"""
+    html_report += """
+                </div>
 
-### Missing Features by Impact
-"""
+                <h3>Missing Features by Impact</h3>
+                <div class="issue-list">"""
     
     if missing_features:
         # Just count features without priority grouping
@@ -795,39 +1077,71 @@ def generate_concise_report(analysis_dir, output_file):
         significant_features = [(feature, count) for feature, count in feature_counts.most_common(10) if count >= 2]
         if significant_features:
             for feature, count in significant_features:
-                concise_report += f"- **{feature}**: {count:,} conversations need this\n"
+                html_report += """
+                    <div class="feature-item">
+                        <span class="feature-count">""" + f"{count:,}" + """</span>
+                        <strong>""" + feature + """</strong> - """ + f"{count:,}" + """ conversations need this
+                    </div>"""
         else:
-            concise_report += "- No significant features (all affect <2 conversations)\n"
+            html_report += """
+                    <div class="feature-item">
+                        <span class="feature-count">0</span>
+                        <strong>No significant features (all affect <2 conversations)</strong>
+                    </div>"""
     else:
-        concise_report += "- No missing features identified\n"
+        html_report += """
+                    <div class="feature-item">
+                        <span class="feature-count">0</span>
+                        <strong>No missing features identified</strong>
+                    </div>"""
     
-    concise_report += f"""
+    html_report += """
+                </div>
+            </div>
 
----
-
-## 📊 Summary
-- **Total Conversations**: {total:,}
-- **Success Rate**: {solved/total*100:.1f}% ({solved:,} solved)
-- **Human Escalation Rate**: {needs_human/total*100:.1f}% ({needs_human:,} escalated)
-- **Significant Issues**: {len([(issue, count) for issue, count in Counter(combined_issues).items() if count >= 2])} issues affecting 2+ conversations
-"""
+            <div class="summary-box">
+                <h3>📊 Summary</h3>
+                <div class="summary-stats">
+                    <div class="summary-stat">
+                        <div class="summary-number">""" + f"{total:,}" + """</div>
+                        <div>Total Conversations</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-number">""" + f"{solved/total*100:.1f}%" + """</div>
+                        <div>Success Rate</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-number">""" + f"{needs_human/total*100:.1f}%" + """</div>
+                        <div>Human Escalation Rate</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-number">""" + f"{len([(issue, count) for issue, count in Counter(combined_issues).items() if count >= 2])}" + """</div>
+                        <div>Significant Issues (2+ conversations)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>"""
     
-    # Write concise report
+    # Write HTML report
     with open(output_file, 'w', encoding='utf-8') as f:
-        f.write(concise_report)
+        f.write(html_report)
     
-    print(f"✅ Concise executive report generated: {output_file}")
-    print(f"📊 Concise report includes:")
+    print(f"✅ HTML executive report generated: {output_file}")
+    print(f"📊 HTML report includes:")
     print(f"   📈 Key metrics and success rates")
     print(f"   🚨 Top 3 critical issues")
-    print(f"   🎯 Immediate action items")
-    print(f"   📋 Quick reference for stakeholders")
+    print(f"   🔍 Detailed breakdown by impact")
+    print(f"   📋 Summary statistics")
+    print(f"   🌐 Open in any web browser on Mac")
 
 def main():
     parser = argparse.ArgumentParser(description='Generate executive report from chatbot analysis')
     parser.add_argument('--analysis_dir', default='analysis_out', help='Directory containing analysis results')
     parser.add_argument('--output', default='executive_report.md', help='Output file for the report')
-    parser.add_argument('--short', action='store_true', help='Generate concise version (default: detailed)')
+    parser.add_argument('--short', action='store_true', help='Generate concise HTML version (default: detailed markdown)')
     
     args = parser.parse_args()
     
