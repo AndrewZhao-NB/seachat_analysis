@@ -24,46 +24,41 @@ def load_analysis_data(analysis_dir):
                     results.append(json.loads(line))
         data['per_chat'] = results
     
-    # Load summary CSV
-    summary_path = os.path.join(analysis_dir, "summary.csv")
-    if os.path.exists(summary_path):
-        data['summary'] = pd.read_csv(summary_path)
-    
-    # Load categorized data
-    csv_files = [
-        'failure_categories.csv', 'categorized_failures.csv', 'categorized_tasks.csv',
-        'missing_features.csv', 'improvement_needs.csv', 'feature_categories.csv',
-        'success_patterns.csv', 'capabilities.csv', 'successful_topics.csv',
-        'conversation_flows.csv', 'escalation_triggers.csv', 'error_patterns.csv',
-        'user_emotions.csv', 'conversation_complexity.csv', 'feature_priorities.csv',
-        'improvement_efforts.csv', 'technical_requirements.csv', 'api_integration_needs.csv',
-        'ui_workflow_needs.csv', 'documentation_gaps.csv'
-    ]
+
     
     # Load problem-to-conversation mapping
     mapping_path = os.path.join(analysis_dir, "problem_conversation_mapping.json")
     if os.path.exists(mapping_path):
         with open(mapping_path, 'r', encoding='utf-8') as f:
-            data['problem_mapping'] = json.load(f)
-        print(f"  ✅  Loaded problem mapping: {mapping_path}")
+            raw_mapping = json.load(f)
         
-        # Debug: Show what we loaded
-        print(f"  🔍  MAPPING DEBUG:")
+        # Create consolidated mapping for HTML report
+        data['problem_mapping'] = create_consolidated_mapping(raw_mapping)
+        
+        # Save consolidated mapping for debugging
+        consolidated_mapping_path = os.path.join(analysis_dir, "consolidated_problem_mapping.json")
+        with open(consolidated_mapping_path, 'w', encoding='utf-8') as f:
+            json.dump(data['problem_mapping'], f, ensure_ascii=False, indent=2)
+        
+        print(f"  ✅  Loaded problem mapping: {mapping_path}")
+        print(f"  ✅  Created consolidated mapping: {consolidated_mapping_path}")
+        
+        # Debug: Show what's in the consolidated mapping
+        print(f"  🔍  CONSOLIDATED MAPPING DEBUG:")
         print(f"     - Missing features keys: {list(data['problem_mapping'].get('missing_features', {}).keys())[:5]}")
         print(f"     - API problems keys: {list(data['problem_mapping'].get('api_problems', {}).keys())[:5]}")
         print(f"     - UI problems keys: {list(data['problem_mapping'].get('ui_problems', {}).keys())[:5]}")
         print(f"     - Integration problems keys: {list(data['problem_mapping'].get('integration_problems', {}).keys())[:5]}")
         print(f"     - Successful capabilities keys: {list(data['problem_mapping'].get('successful_capabilities', {}).keys())[:5]}")
         
+        # Debug: Show actual data structure
+        print(f"  🔍  DATA STRUCTURE DEBUG:")
+        print(f"     - data['problem_mapping'] type: {type(data['problem_mapping'])}")
+        print(f"     - data['problem_mapping'] keys: {list(data['problem_mapping'].get('missing_features', {}).keys())[:5]}")
+        print(f"     - Sample missing_features: {list(data['problem_mapping'].get('missing_features', {}).items())[:2]}")
     else:
         print(f"  ⚠️  Problem mapping not found: {mapping_path}")
         data['problem_mapping'] = {}
-    
-    for csv_file in csv_files:
-        file_path = os.path.join(analysis_dir, csv_file)
-        if os.path.exists(file_path):
-            key = csv_file.replace('.csv', '')
-            data[key] = pd.read_csv(file_path)
     
     return data
 
@@ -694,6 +689,32 @@ def consolidate_similar_features(feature_name):
     
     return feature_name
 
+def create_consolidated_mapping(raw_mapping):
+    """Create a consolidated mapping from raw feature names to consolidated names."""
+    consolidated_mapping = {
+        'missing_features': {},
+        'api_problems': {},
+        'ui_problems': {},
+        'integration_problems': {},
+        'successful_capabilities': {}
+    }
+    
+    # Process each category
+    for category in consolidated_mapping:
+        if category in raw_mapping:
+            for raw_feature, conversations in raw_mapping[category].items():
+                consolidated_feature = consolidate_similar_features(raw_feature)
+                
+                if consolidated_feature not in consolidated_mapping[category]:
+                    consolidated_mapping[category][consolidated_feature] = []
+                
+                # Add conversations (avoid duplicates)
+                for conv in conversations:
+                    if conv not in consolidated_mapping[category][consolidated_feature]:
+                        consolidated_mapping[category][consolidated_feature].append(conv)
+    
+    return consolidated_mapping
+
 def generate_concise_report(analysis_dir, output_file):
     """Generate a concise executive report for quick reviews."""
     print(f"📊 Loading analysis data from {analysis_dir}...")
@@ -745,11 +766,16 @@ def generate_concise_report(analysis_dir, output_file):
                 feature_consolidation[consolidated_feature]['examples'].append(feature)
     
     # Convert to list format for display
-    for consolidated_feature, data in feature_consolidation.items():
-        missing_features.append((consolidated_feature, data['count'], data['examples']))
+    for consolidated_feature, feature_data in feature_consolidation.items():
+        missing_features.append((consolidated_feature, feature_data['count'], feature_data['examples']))
     
     # Sort by count
     missing_features.sort(key=lambda x: x[1], reverse=True)
+    
+    # Debug: Show what features we're looking for
+    print(f"  🔍  MISSING FEATURES DEBUG:")
+    print(f"     - Top 5 missing features: {[f[0] for f in missing_features[:5]]}")
+    print(f"     - Total missing features: {len(missing_features)}")
     
     # Get human escalation reasons
     human_escalation_reasons = []
@@ -1104,7 +1130,11 @@ def generate_concise_report(analysis_dir, output_file):
     if missing_features:
         for feature, count, examples in missing_features[:8]:  # Top 8 missing features
             # Get conversation files for this feature (feature is already consolidated)
-            print(f"  🔍  HTML LOOKUP: Looking for '{feature}' in ALL mapping categories")
+            print(f"  🔍  HTML LOOKUP: Looking for '{feature}' in consolidated mapping")
+            
+            # Debug: Check what's in data at this moment
+            print(f"     - data['problem_mapping'] keys: {list(data.get('problem_mapping', {}).keys())}")
+            print(f"     - data['problem_mapping']['missing_features'] keys: {list(data.get('problem_mapping', {}).get('missing_features', {}).keys())[:3]}")
             
             # Check all mapping categories for this feature
             conversation_files = []
@@ -1154,13 +1184,20 @@ def generate_concise_report(analysis_dir, output_file):
         problem_counts = Counter(api_problems)
         for problem, count in problem_counts.most_common(5):
             # Get conversation files for this API problem
+            print(f"  🔍  API LOOKUP: Looking for '{problem}' in consolidated mapping")
+            
             # Check all mapping categories for this problem
             conversation_files = []
             for category in ['missing_features', 'api_problems', 'ui_problems', 'integration_problems']:
                 files = data.get('problem_mapping', {}).get(category, {}).get(problem, [])
+                print(f"     - Checking {category}: {len(files) if files else 0} files")
                 if files:
                     conversation_files.extend(files)
+                    print(f"     - Found {len(files)} conversations in {category}: {files[:3]}")
                     break
+            
+            if not conversation_files:
+                print(f"     - No conversations found in any category")
             
             conversation_list = ', '.join(conversation_files) if conversation_files else 'No conversations found'
             

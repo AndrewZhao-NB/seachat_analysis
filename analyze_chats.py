@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os, glob, json, time, math, textwrap, argparse, collections, re
 import pandas as pd
-import matplotlib.pyplot as plt
+# matplotlib removed - no charts needed
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
@@ -308,27 +308,9 @@ def process_single_file(args):
             "improvement_effort": "low",
         }
 
-# --------------- UTIL: FEATURE CONSOLIDATION ---------------
 # Feature consolidation moved to generate_executive_report.py
 
-def categorize_technical_requirements(improvement, technical_req_counts, api_counts, ui_counts, doc_counts):
-    """Categorize technical requirements by implementation type."""
-    improvement_lower = improvement.lower()
-    
-    # Count overall technical requirements
-    technical_req_counts[improvement] += 1
-    
-    # API Integration requirements
-    if any(term in improvement_lower for term in ['api', 'integrate', 'system', 'database']):
-        api_counts[improvement] += 1
-    
-    # UI/Workflow requirements
-    if any(term in improvement_lower for term in ['ui', 'interface', 'workflow', 'form', 'button']):
-        ui_counts[improvement] += 1
-    
-    # Documentation/Knowledge requirements
-    if any(term in improvement_lower for term in ['knowledge', 'guide', 'instruction', 'documentation', 'guide']):
-        doc_counts[improvement] += 1
+# categorize_technical_requirements function removed - no longer needed
 
 # --------------- UTIL: DETECT INCOMPLETE CONVERSATIONS ---------------
 def is_incomplete_conversation(transcript):
@@ -380,7 +362,7 @@ def csv_to_transcript(csv_path):
     return transcript
 
 # --------------- MAIN ---------------
-def main(input_glob, outdir, sample_limit=None, dry_run=False, no_executive_report=False):
+def main(input_glob, outdir, sample_limit=None, dry_run=False):
     os.makedirs(outdir, exist_ok=True)
     csv_files = sorted(glob.glob(input_glob))
     if sample_limit:
@@ -496,65 +478,14 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False, no_executive_repo
         print(f"  ❌ Summary analysis failed: {e}")
         summary_stats = None
     
-    # Save raw
+    # Save raw data (needed for HTML report)
     raw_path = os.path.join(outdir, "per_chat.jsonl")
     with open(raw_path, "w", encoding="utf-8") as f:
         for r in per_chat:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
-    
-    # Flatten to rows
-    rows = []
-    for r in per_chat:
-        # Handle missing or None values safely
-        topics = r.get("topics", []) or []
-        user_tasks = r.get("user_tasks_attempted", []) or []
-        why_unsolved = r.get("why_unsolved", []) or []
-        capabilities = r.get("capabilities", []) or []
-        limitations = r.get("limitations", []) or []
-        
-        rows.append({
-            "file": r["file"],
-            "topics": ",".join(str(t) for t in topics if t is not None),
-            "user_tasks": "; ".join(str(t) for t in user_tasks if t is not None),
-            "solved": bool(r.get("solved", False)),
-            "needs_human": bool(r.get("needs_human", False)),
-            "failure_category": str(r.get("failure_category", "unknown") or "unknown"),
-            "missing_feature": str(r.get("missing_feature", "no-missing-feature") or "no-missing-feature"),
-            "feature_category": str(r.get("feature_category", "no-feature-category") or "no-feature-category"),
-            "why_unsolved": "; ".join(str(w) for w in why_unsolved if w is not None),
-            "improvement_needed": str(r.get("specific_improvement_needed", "no-improvement-needed") or "no-improvement-needed"),
-            "capabilities": "; ".join(str(c) for c in capabilities if c is not None),
-            "success_patterns": "; ".join(str(s) for s in r.get("success_patterns", []) if s is not None),
-            "demonstrated_skills": "; ".join(str(s) for s in r.get("demonstrated_skills", []) if s is not None),
-            "user_satisfaction_indicators": "; ".join(str(s) for s in r.get("user_satisfaction_indicators", []) if s is not None),
-            "conversation_flow": "; ".join(str(f) for f in r.get("conversation_flow", []) if f is not None),
-            "escalation_triggers": "; ".join(str(e) for e in r.get("escalation_triggers", []) if e is not None),
-            "error_patterns": "; ".join(str(e) for e in r.get("error_patterns", []) if e is not None),
-            "user_emotion": str(r.get("user_emotion", "neutral") or "neutral"),
-            "conversation_complexity": str(r.get("conversation_complexity", "simple") or "simple"),
-            "feature_priority_score": int(r.get("feature_priority_score", 1) or 1),
-            "improvement_effort": str(r.get("improvement_effort", "low") or "low"),
-        })
-    df = pd.DataFrame(rows)
-    df.to_csv(os.path.join(outdir, "summary.csv"), index=False)
-    print(f"  ✅  Created summary CSV with {len(rows)} rows")
+    print(f"  ✅  Created raw data: {raw_path}")
 
-    # Topic stats
-    topic_counts = collections.Counter()
-    topic_solved = collections.Counter()
-    reason_counts = collections.Counter()
-    failure_category_counts = collections.Counter()
-    improvement_needed_counts = collections.Counter()
-    missing_feature_counts = collections.Counter()
-    feature_category_counts = collections.Counter()
-    
-    # Enhanced analysis counters for technical details
-    technical_requirement_counts = collections.Counter()
-    api_integration_counts = collections.Counter()
-    ui_workflow_counts = collections.Counter()
-    documentation_gap_counts = collections.Counter()
-    
-    # Problem-to-conversation mappings for clickable items
+    # Problem-to-conversation mappings for clickable items (ONLY what's needed for HTML)
     problem_conversation_mapping = {
         'missing_features': {},
         'api_problems': {},
@@ -563,56 +494,17 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False, no_executive_repo
         'successful_capabilities': {}
     }
 
-    # Initialize success analysis counters
-    success_pattern_counts = collections.Counter()
-    demonstrated_skills_counts = collections.Counter()
-    user_satisfaction_counts = collections.Counter()
-    
-    # Initialize enhanced analysis counters
-    conversation_flow_counts = collections.Counter()
-    escalation_trigger_counts = collections.Counter()
-    error_pattern_counts = collections.Counter()
-    user_emotion_counts = collections.Counter()
-    conversation_complexity_counts = collections.Counter()
-    feature_priority_counts = collections.Counter()
-    improvement_effort_counts = collections.Counter()
-    
+    # Process conversations to build mapping
     for r in per_chat:
-        topics = r.get("topics", []) or ["unlabeled"]
-        for t in topics:
-            topic_counts[t] += 1
-            if r.get("solved", False):
-                topic_solved[t] += 1
-        
-        for reason in r.get("why_unsolved", []):
-            reason_counts[reason] += 1
-        
-        # Count failure categories
-        failure_cat = r.get("failure_category", "unknown")
-        if failure_cat is None:
-            failure_cat = "unknown"
-        failure_category_counts[failure_cat] += 1
-        
-        # Count improvement needs
-        improvement = r.get("specific_improvement_needed", "no-improvement-needed")
-        if improvement is None or improvement == "":
-            improvement = "no-improvement-needed"
-        if improvement != "no-improvement-needed":
-            improvement_needed_counts[improvement] += 1
-        
-        # Count missing features (for feature-not-supported failures)
+        # Map missing features to conversations
         if r.get("failure_category") == "feature-not-supported":
             missing_feature = r.get("missing_feature", "unknown-feature")
             if missing_feature and missing_feature != "unknown-feature":
-                # Store raw feature name (no consolidation here)
-                missing_feature_counts[missing_feature] += 1
-                
-                # Map to conversation file using raw feature name
                 if missing_feature not in problem_conversation_mapping['missing_features']:
                     problem_conversation_mapping['missing_features'][missing_feature] = []
                 problem_conversation_mapping['missing_features'][missing_feature].append(r['file'])
                 
-                # Categorize by problem type for detailed mapping using raw feature name
+                # Categorize by problem type
                 if any(term in missing_feature.lower() for term in ['api', 'access', 'schema', 'system', 'database']):
                     if missing_feature not in problem_conversation_mapping['api_problems']:
                         problem_conversation_mapping['api_problems'][missing_feature] = []
@@ -627,20 +519,10 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False, no_executive_repo
                     if missing_feature not in problem_conversation_mapping['integration_problems']:
                         problem_conversation_mapping['integration_problems'][missing_feature] = []
                     problem_conversation_mapping['integration_problems'][missing_feature].append(r['file'])
-            
-            feature_cat = r.get("feature_category", "other")
-            if feature_cat:
-                feature_category_counts[feature_cat] += 1
         
-        # Analyze technical requirements from improvement needs
+        # Map improvement needs to conversations
         improvement = r.get("specific_improvement_needed", "no-improvement-needed")
         if improvement and improvement != "no-improvement-needed":
-            # Categorize technical requirements
-            categorize_technical_requirements(improvement, technical_requirement_counts, 
-                                           api_integration_counts, ui_workflow_counts, 
-                                           documentation_gap_counts)
-            
-            # Map improvement needs to conversations for clickable items
             if improvement not in problem_conversation_mapping['missing_features']:
                 problem_conversation_mapping['missing_features'][improvement] = []
             problem_conversation_mapping['missing_features'][improvement].append(r['file'])
@@ -661,415 +543,24 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False, no_executive_repo
                     problem_conversation_mapping['integration_problems'][improvement] = []
                 problem_conversation_mapping['integration_problems'][improvement].append(r['file'])
         
-        # Count success patterns for solved conversations
+        # Map successful capabilities to conversations
         if r.get("solved", False):
-            for pattern in r.get("success_patterns", []):
-                if pattern:
-                    success_pattern_counts[pattern] += 1
-            
             for skill in r.get("demonstrated_skills", []):
                 if skill:
-                    demonstrated_skills_counts[skill] += 1
-                    # Map successful capabilities to conversations
                     if skill not in problem_conversation_mapping['successful_capabilities']:
                         problem_conversation_mapping['successful_capabilities'][skill] = []
                     problem_conversation_mapping['successful_capabilities'][skill].append(r['file'])
-            
-            for indicator in r.get("user_satisfaction_indicators", []):
-                if indicator:
-                    user_satisfaction_counts[indicator] += 1
-        
-        # Count enhanced analysis fields
-        for flow in r.get("conversation_flow", []):
-            if flow:
-                conversation_flow_counts[flow] += 1
-        
-        for trigger in r.get("escalation_triggers", []):
-            if trigger:
-                escalation_trigger_counts[trigger] += 1
-        
-        for error in r.get("error_patterns", []):
-            if error:
-                error_pattern_counts[error] += 1
-        
-        emotion = r.get("user_emotion", "neutral")
-        if emotion:
-            user_emotion_counts[emotion] += 1
-        
-        complexity = r.get("conversation_complexity", "simple")
-        if complexity:
-            conversation_complexity_counts[complexity] += 1
-        
-        priority = r.get("feature_priority_score", 1)
-        if priority:
-            feature_priority_counts[priority] += 1
-        
-        effort = r.get("improvement_effort", "low")
-        if effort:
-            improvement_effort_counts[effort] += 1
 
-    topic_stats = []
-    for t, n in topic_counts.most_common():
-        s = topic_solved[t]
-        rate = (s / n) if n else 0.0
-        topic_stats.append({"topic": t, "count": n, "solved": s, "solve_rate": round(rate, 3)})
-    pd.DataFrame(topic_stats).to_csv(os.path.join(outdir, "topic_stats.csv"), index=False)
-
-    pd.DataFrame(
-        [{"reason": r, "count": c} for r, c in reason_counts.most_common()]
-    ).to_csv(os.path.join(outdir, "reasons.csv"), index=False)
-
-    # Failure category analysis
-    failure_cat_data = [{"failure_category": str(f), "count": c} for f, c in failure_category_counts.most_common() if f is not None]
-    pd.DataFrame(failure_cat_data).to_csv(os.path.join(outdir, "failure_categories.csv"), index=False)
-    print(f"  ✅  Created failure categories CSV with {len(failure_cat_data)} categories")
-
-    # Improvement needs analysis
-    improvement_data = [{"improvement": str(i), "count": c} for i, c in improvement_needed_counts.most_common() if i is not None]
-    pd.DataFrame(improvement_data).to_csv(os.path.join(outdir, "improvement_needs.csv"), index=False)
-    print(f"  ✅  Created improvement needs CSV with {len(improvement_data)} improvements")
-
-    # Missing features analysis
-    missing_feature_data = [{"missing_feature": str(f), "count": c} for f, c in missing_feature_counts.most_common() if f is not None]
-    pd.DataFrame(missing_feature_data).to_csv(os.path.join(outdir, "missing_features.csv"), index=False)
-    print(f"  ✅  Created missing features CSV with {len(missing_feature_data)} features")
-
-    # Feature categories analysis
-    feature_cat_data = [{"feature_category": str(c), "count": count} for c, count in feature_category_counts.most_common() if c is not None]
-    pd.DataFrame(feature_cat_data).to_csv(os.path.join(outdir, "feature_categories.csv"), index=False)
-    print(f"  ✅  Created feature categories CSV with {len(feature_cat_data)} categories")
-    
-    # Success patterns analysis
-    if success_pattern_counts:
-        success_pattern_data = [{"success_pattern": str(p), "count": c} for p, c in success_pattern_counts.most_common() if p is not None]
-        pd.DataFrame(success_pattern_data).to_csv(os.path.join(outdir, "success_patterns.csv"), index=False)
-        print(f"  ✅  Created success patterns CSV with {len(success_pattern_data)} patterns")
-    
-    # Demonstrated skills analysis
-    if demonstrated_skills_counts:
-        skills_data = [{"demonstrated_skill": str(s), "count": c} for s, c in demonstrated_skills_counts.most_common() if s is not None]
-        pd.DataFrame(skills_data).to_csv(os.path.join(outdir, "demonstrated_skills.csv"), index=False)
-        print(f"  ✅  Created demonstrated skills CSV with {len(skills_data)} skills")
-    
-    # User satisfaction analysis
-    if user_satisfaction_counts:
-        satisfaction_data = [{"satisfaction_indicator": str(i), "count": c} for i, c in user_satisfaction_counts.most_common() if i is not None]
-        pd.DataFrame(satisfaction_data).to_csv(os.path.join(outdir, "user_satisfaction.csv"), index=False)
-        print(f"  ✅  Created user satisfaction CSV with {len(satisfaction_data)} indicators")
-    
-    # Enhanced analysis CSVs
-    if conversation_flow_counts:
-        flow_data = [{"conversation_flow": str(f), "count": c} for f, c in conversation_flow_counts.most_common() if f is not None]
-        pd.DataFrame(flow_data).to_csv(os.path.join(outdir, "conversation_flows.csv"), index=False)
-        print(f"  ✅  Created conversation flows CSV with {len(flow_data)} flows")
-    
-    if escalation_trigger_counts:
-        trigger_data = [{"escalation_trigger": str(t), "count": c} for t, c in escalation_trigger_counts.most_common() if t is not None]
-        pd.DataFrame(trigger_data).to_csv(os.path.join(outdir, "escalation_triggers.csv"), index=False)
-        print(f"  ✅  Created escalation triggers CSV with {len(trigger_data)} triggers")
-    
-    if error_pattern_counts:
-        error_data = [{"error_pattern": str(e), "count": c} for e, c in error_pattern_counts.most_common() if e is not None]
-        pd.DataFrame(error_data).to_csv(os.path.join(outdir, "error_patterns.csv"), index=False)
-        print(f"  ✅  Created error patterns CSV with {len(error_data)} patterns")
-    
-    if user_emotion_counts:
-        emotion_data = [{"user_emotion": str(e), "count": c} for e, c in user_emotion_counts.most_common() if e is not None]
-        pd.DataFrame(emotion_data).to_csv(os.path.join(outdir, "user_emotions.csv"), index=False)
-        print(f"  ✅  Created user emotions CSV with {len(emotion_data)} emotions")
-    
-    if conversation_complexity_counts:
-        complexity_data = [{"conversation_complexity": str(c), "count": count} for c, count in conversation_complexity_counts.most_common() if c is not None]
-        pd.DataFrame(complexity_data).to_csv(os.path.join(outdir, "conversation_complexity.csv"), index=False)
-        print(f"  ✅  Created conversation complexity CSV with {len(complexity_data)} complexity levels")
-    
-    if feature_priority_counts:
-        priority_data = [{"feature_priority": str(p), "count": c} for p, c in feature_priority_counts.most_common() if p is not None]
-        pd.DataFrame(priority_data).to_csv(os.path.join(outdir, "feature_priorities.csv"), index=False)
-        print(f"  ✅  Created feature priorities CSV with {len(priority_data)} priority levels")
-    
-    if improvement_effort_counts:
-        effort_data = [{"improvement_effort": str(e), "count": c} for e, c in improvement_effort_counts.most_common() if e is not None]
-        pd.DataFrame(effort_data).to_csv(os.path.join(outdir, "improvement_efforts.csv"), index=False)
-        print(f"  ✅  Created improvement efforts CSV with {len(effort_data)} effort levels")
-    
-    # Enhanced technical analysis CSVs
-    if technical_requirement_counts:
-        tech_req_data = [{"technical_requirement": str(r), "count": c} for r, c in technical_requirement_counts.most_common() if r is not None]
-        pd.DataFrame(tech_req_data).to_csv(os.path.join(outdir, "technical_requirements.csv"), index=False)
-        print(f"  ✅  Created technical requirements CSV with {len(tech_req_data)} requirements")
-    
-    if api_integration_counts:
-        api_data = [{"api_integration": str(a), "count": c} for a, c in api_integration_counts.most_common() if a is not None]
-        pd.DataFrame(api_data).to_csv(os.path.join(outdir, "api_integration_needs.csv"), index=False)
-        print(f"  ✅  Created API integration needs CSV with {len(api_data)} needs")
-    
-    if ui_workflow_counts:
-        ui_data = [{"ui_workflow": str(u), "count": c} for u, c in ui_workflow_counts.most_common() if u is not None]
-        pd.DataFrame(ui_data).to_csv(os.path.join(outdir, "ui_workflow_needs.csv"), index=False)
-        print(f"  ✅  Created UI workflow needs CSV with {len(ui_data)} needs")
-    
-    if documentation_gap_counts:
-        doc_data = [{"documentation_gap": str(d), "count": c} for d, c in documentation_gap_counts.most_common() if d is not None]
-        pd.DataFrame(doc_data).to_csv(os.path.join(outdir, "documentation_gaps.csv"), index=False)
-        print(f"  ✅  Created documentation gaps CSV with {len(doc_data)} gaps")
-    
-    # Save problem-to-conversation mapping
+    # Save problem-to-conversation mapping (needed for HTML report)
     mapping_path = os.path.join(outdir, "problem_conversation_mapping.json")
     with open(mapping_path, "w", encoding="utf-8") as f:
         json.dump(problem_conversation_mapping, f, ensure_ascii=False, indent=2)
     print(f"  ✅  Created problem mapping: {mapping_path}")
-    
-
-
-    # Simple charts
-    def bar_save(items, title, xlabel, outfile, topn=15):
-        if not items: 
-            print(f"  ⚠️  No data for {outfile} chart")
-            return
-        try:
-            dfp = pd.DataFrame(items[:topn])
-            # Filter out None values
-            dfp = dfp.dropna()
-            if dfp.empty:
-                print(f"  ⚠️  No valid data for {outfile} chart after filtering")
-                return
-            plt.figure(figsize=(12, 8))  # Increased figure size
-            bars = plt.bar(range(len(dfp)), dfp[dfp.columns[1]])
-            plt.title(title, fontsize=14, pad=20)
-            
-            # Set x-axis labels with better positioning
-            plt.xticks(range(len(dfp)), dfp[dfp.columns[0]], rotation=45, ha="right")
-            
-            # Adjust layout to prevent label cutoff
-            plt.xlabel(xlabel, fontsize=12)
-            plt.ylabel("count", fontsize=12)
-            
-            # Add value labels on top of bars
-            for bar, value in zip(bars, dfp[dfp.columns[1]]):
-                plt.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.1, 
-                        str(value), ha='center', va='bottom', fontsize=10)
-            
-            # Ensure labels are fully visible
-            plt.subplots_adjust(bottom=0.3, left=0.1, right=0.95, top=0.9)
-            plt.savefig(os.path.join(outdir, outfile), dpi=300, bbox_inches='tight')
-            plt.close()
-            print(f"  ✅  Created chart: {outfile}")
-        except Exception as e:
-            print(f"  ❌  Error creating chart {outfile}: {e}")
-
-    print("\n📊 Creating charts...")
-    bar_save(list(topic_counts.most_common()), "Top Topics", "topic", "topics.png")
-    bar_save(list(reason_counts.most_common()), "Top Failure Reasons", "reason", "reasons.png")
-    bar_save(list(failure_category_counts.most_common()), "Failure Categories", "category", "failure_categories.png")
-    bar_save(list(improvement_needed_counts.most_common()), "Top Improvement Needs", "improvement", "improvement_needs.png")
-    bar_save(list(missing_feature_counts.most_common()), "Missing Features", "feature", "missing_features.png")
-    bar_save(list(feature_category_counts.most_common()), "Feature Categories", "category", "feature_categories.png")
-    
-    # Success analysis charts
-    if success_pattern_counts:
-        bar_save(list(success_pattern_counts.most_common()), "Success Patterns", "pattern", "success_patterns.png")
-    if demonstrated_skills_counts:
-        bar_save(list(demonstrated_skills_counts.most_common()), "Demonstrated Skills", "skill", "demonstrated_skills.png")
-    if user_satisfaction_counts:
-        bar_save(list(user_satisfaction_counts.most_common()), "User Satisfaction Indicators", "indicator", "user_satisfaction.png")
-    
-    # Enhanced analysis charts
-    if conversation_flow_counts:
-        bar_save(list(conversation_flow_counts.most_common()), "Conversation Flows", "flow", "conversation_flows.png")
-    if escalation_trigger_counts:
-        bar_save(list(escalation_trigger_counts.most_common()), "Escalation Triggers", "trigger", "escalation_triggers.png")
-    if error_pattern_counts:
-        bar_save(list(error_pattern_counts.most_common()), "Error Patterns", "error", "error_patterns.png")
-    if user_emotion_counts:
-        bar_save(list(user_emotion_counts.most_common()), "User Emotions", "emotion", "user_emotions.png")
-    if conversation_complexity_counts:
-        bar_save(list(conversation_complexity_counts.most_common()), "Conversation Complexity", "complexity", "conversation_complexity.png")
-    if feature_priority_counts:
-        bar_save(list(feature_priority_counts.most_common()), "Feature Priorities", "priority", "feature_priorities.png")
-    if improvement_effort_counts:
-        bar_save(list(improvement_effort_counts.most_common()), "Improvement Efforts", "effort", "improvement_efforts.png")
-
-    # Markdown report
-    solved_total = sum(1 for r in per_chat if r.get("solved", False))
-    unsolved_total = len(per_chat) - solved_total
-    
-    report = []
-    report.append(f"# NewsBreak Ad Assistant Chatbot Analysis\n")
-    report.append(f"- Files analyzed: **{len(per_chat)}**  \n- Solved conversations: **{solved_total}**  \n- Unsolved conversations: **{unsolved_total}**  \n- Solve rate: **{(solved_total/max(1,len(per_chat))):.1%}**  \n")
-    
-    report.append("## 📊 Analysis Results\n")
-    report.append("### Top Topics\nSee `topic_stats.csv` and `topics.png`.\n")
-    
-    report.append("### Failure Analysis\n")
-    report.append("#### Failure Categories\n")
-    for category, count in failure_category_counts.most_common():
-        percentage = (count / len(per_chat)) * 100
-        report.append(f"- **{category}**: {count} conversations ({percentage:.1f}%)\n")
-    
-    report.append("\n#### Top Failure Reasons\n")
-    for reason, count in reason_counts.most_common(5):
-        report.append(f"- {reason}: {count} occurrences\n")
-    
-    report.append("\n### 🚀 Improvement Priorities\n")
-    report.append("#### Most Needed Improvements\n")
-    for improvement, count in improvement_needed_counts.most_common(5):
-        report.append(f"- **{improvement}**: {count} conversations need this\n")
-    
-    report.append("\n### 🔧 Missing Features Analysis\n")
-    if missing_feature_counts:
-        report.append("#### Top Missing Features\n")
-        for feature, count in missing_feature_counts.most_common(5):
-            report.append(f"- **{feature}**: {count} conversations need this feature\n")
-        
-        report.append("\n#### Feature Categories by Priority\n")
-        for category, count in feature_category_counts.most_common():
-            percentage = (count / len(per_chat)) * 100
-            report.append(f"- **{category}**: {count} conversations ({percentage:.1f}%)\n")
-    else:
-        report.append("No missing features identified in this sample.\n")
-    
-    report.append("\n### ✅ Success Analysis\n")
-    if solved_total > 0:
-        report.append(f"#### What the Bot Does Well ({solved_total} successful conversations)\n")
-        
-        if success_pattern_counts:
-            report.append("**Top Success Patterns:**\n")
-            for pattern, count in success_pattern_counts.most_common(5):
-                percentage = (count / solved_total) * 100
-                report.append(f"- **{pattern}**: {count} conversations ({percentage:.1f}% of successes)\n")
-        
-        if demonstrated_skills_counts:
-            report.append("\n**Demonstrated Skills:**\n")
-            for skill, count in demonstrated_skills_counts.most_common(5):
-                percentage = (count / solved_total) * 100
-                report.append(f"- **{skill}**: {count} conversations ({percentage:.1f}% of successes)\n")
-        
-        if user_satisfaction_counts:
-            report.append("\n**User Satisfaction Indicators:**\n")
-            for indicator, count in user_satisfaction_counts.most_common(5):
-                percentage = (count / solved_total) * 100
-                report.append(f"- **{indicator}**: {count} conversations ({percentage:.1f}% of successes)\n")
-    else:
-        report.append("No successful conversations in this sample.\n")
-    
-    report.append("\n### 🔍 Enhanced Analysis\n")
-    
-    if conversation_flow_counts:
-        report.append("#### Conversation Flow Patterns\n")
-        for flow, count in conversation_flow_counts.most_common(5):
-            percentage = (count / len(per_chat)) * 100
-            report.append(f"- **{flow}**: {count} conversations ({percentage:.1f}%)\n")
-    
-    if escalation_trigger_counts:
-        report.append("\n#### Escalation Triggers\n")
-        for trigger, count in escalation_trigger_counts.most_common(5):
-            percentage = (count / len(per_chat)) * 100
-            report.append(f"- **{trigger}**: {count} conversations ({percentage:.1f}%)\n")
-    
-    if error_pattern_counts:
-        report.append("\n#### Error Patterns\n")
-        for error, count in error_pattern_counts.most_common(5):
-            percentage = (count / len(per_chat)) * 100
-            report.append(f"- **{error}**: {count} conversations ({percentage:.1f}%)\n")
-    
-    if user_emotion_counts:
-        report.append("\n#### User Emotional State\n")
-        for emotion, count in user_emotion_counts.most_common():
-            percentage = (count / len(per_chat)) * 100
-            report.append(f"- **{emotion}**: {count} conversations ({percentage:.1f}%)\n")
-    
-    if conversation_complexity_counts:
-        report.append("\n#### Conversation Complexity\n")
-        for complexity, count in conversation_complexity_counts.most_common():
-            percentage = (count / len(per_chat)) * 100
-            report.append(f"- **{complexity}**: {count} conversations ({percentage:.1f}%)\n")
-    
-    if feature_priority_counts:
-        report.append("\n#### Feature Priority Distribution\n")
-        for priority, count in feature_priority_counts.most_common():
-            percentage = (count / len(per_chat)) * 100
-            report.append(f"- **Priority {priority}**: {count} conversations ({percentage:.1f}%)\n")
-    
-    if improvement_effort_counts:
-        report.append("\n#### Improvement Effort Distribution\n")
-        for effort, count in improvement_effort_counts.most_common():
-            percentage = (count / len(per_chat)) * 100
-            report.append(f"- **{effort} effort**: {count} conversations ({percentage:.1f}%)\n")
-    
-    report.append("\n## 📁 Output Files\n")
-    report.append("- `summary.csv` - Detailed analysis of each conversation\n")
-    report.append("- `topic_stats.csv` - Topic breakdown with solve rates\n")
-    report.append("- `failure_categories.csv` - Categorized failure analysis\n")
-    report.append("- `improvement_needs.csv` - Prioritized improvement list\n")
-    report.append("- `missing_features.csv` - Specific missing features\n")
-    report.append("- `feature_categories.csv` - Feature categories breakdown\n")
-    report.append("- `reasons.csv` - Specific failure reasons\n")
-    report.append("- `success_patterns.csv` - Success patterns analysis\n")
-    report.append("- `demonstrated_skills.csv` - Bot skills analysis\n")
-    report.append("- `user_satisfaction.csv` - User satisfaction analysis\n")
-    report.append("- `conversation_flows.csv` - Conversation flow patterns\n")
-    report.append("- `escalation_triggers.csv` - Escalation trigger analysis\n")
-    report.append("- `error_patterns.csv` - Error pattern analysis\n")
-    report.append("- `user_emotions.csv` - User emotional state analysis\n")
-    report.append("- `conversation_complexity.csv` - Conversation complexity analysis\n")
-    report.append("- `feature_priorities.csv` - Feature priority scoring\n")
-    report.append("- `improvement_efforts.csv` - Improvement effort analysis\n")
-    report.append("- `topics.png`, `failure_categories.png`, `improvement_needs.png`, `missing_features.png` - Visual charts\n")
-    report.append("- `success_patterns.png`, `demonstrated_skills.png`, `user_satisfaction.png` - Success analysis charts\n")
-    report.append("- `conversation_flows.png`, `escalation_triggers.png`, `error_patterns.png` - Enhanced analysis charts\n")
-    report.append("- `user_emotions.png`, `conversation_complexity.png`, `feature_priorities.png`, `improvement_efforts.png` - Advanced analysis charts\n")
-    
-    report.append("\n## 📋 Generated Reports\n")
-    report.append("- `report.md` - Detailed analysis report (this file)\n")
-    report.append("- `summary_report.md` - Summary analysis report\n")
-    report.append("- `executive_report.md` - Executive summary for presentations\n")
-    
-    report.append("\n## 🎯 Action Plan\n")
-    report.append("1. **High Priority**: Focus on missing features needed by 3+ conversations\n")
-    report.append("2. **Medium Priority**: Address failure categories affecting 10%+ of conversations\n")
-    report.append("3. **Low Priority**: Handle edge cases and rare failures\n")
-    report.append("4. **Feature Development**: Prioritize by feature category impact\n")
-    
-    with open(os.path.join(outdir, "report.md"), "w", encoding="utf-8") as f:
-        f.write("\n".join(report))
-
-    # Generate executive reports
-    if not no_executive_report:
-        print(f"\n📊 Generating executive reports...")
-        try:
-            from generate_executive_report import generate_executive_report, generate_concise_report
-            
-            # Generate detailed report
-            executive_report_path = os.path.join(outdir, "executive_report.md")
-            generate_executive_report(outdir, executive_report_path)
-            print(f"  ✅ Detailed executive report complete: {executive_report_path}")
-            
-            # Generate concise report
-            concise_report_path = os.path.join(outdir, "executive_report_concise.html")
-            generate_concise_report(outdir, concise_report_path)
-            print(f"  ✅ Concise HTML executive report complete: {concise_report_path}")
-            
-        except ImportError:
-            print(f"  ⚠️  Executive report module not found, skipping executive report generation")
-            print(f"  💡 Run 'python generate_executive_report.py --analysis_dir {outdir} --output executive_report.md' separately")
-        except Exception as e:
-            print(f"  ❌ Executive report generation failed: {e}")
-            print(f"  💡 Run 'python generate_executive_report.py --analysis_dir {outdir} --output executive_report.md' separately")
-    else:
-        print(f"\n⏭️  Skipping executive report generation (--no_executive_report flag used)")
-        print(f"  💡 Run 'python generate_executive_report.py --analysis_dir {outdir} --output executive_report.md' separately if needed")
 
     print(f"\n🎯 Analysis Complete!")
     print(f"📁 Raw data: {raw_path}")
-    print(f"📊 Summary: {os.path.join(outdir,'summary.csv')}")
-    print(f"🏷️  Topics: {os.path.join(outdir,'topic_stats.csv')}")
-    print(f"❌ Reasons: {os.path.join(outdir,'reasons.csv')}")
-    print(f"📋 Report: {os.path.join(outdir,'report.md')}")
-    if not no_executive_report:
-        print(f"📋 Detailed Executive Report: {os.path.join(outdir,'executive_report.md')}")
-        print(f"📋 Concise HTML Executive Report: {os.path.join(outdir,'executive_report_concise.html')}")
-    print(f"📈 Charts: {os.path.join(outdir,'topics.png')} & {os.path.join(outdir,'reasons.png')}")
+    print(f"📊 Problem mapping: {mapping_path}")
+    print(f"💡 Run 'python generate_executive_report.py --analysis_dir {outdir} --output report.html --short' to generate HTML report")
     
     if errs > 0:
         print(f"\n⚠️  Warning: {errs} files had errors during processing")
@@ -1083,10 +574,10 @@ if __name__ == "__main__":
     ap.add_argument("--sample_limit", type=int, default=None, help="limit number of files")
     ap.add_argument("--dry_run", action="store_true", help="skip API calls (for quick test)")
     ap.add_argument("--workers", type=int, default=10, help="number of parallel workers (default: 10)")
-    ap.add_argument("--no_executive_report", action="store_true", help="skip executive report generation")
+
     args = ap.parse_args()
     
     # Update MAX_WORKERS
     MAX_WORKERS = args.workers
     
-    main(args.input_glob, args.outdir, args.sample_limit, args.dry_run, args.no_executive_report)
+    main(args.input_glob, args.outdir, args.sample_limit, args.dry_run)
