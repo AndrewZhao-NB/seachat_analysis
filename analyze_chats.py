@@ -309,43 +309,7 @@ def process_single_file(args):
         }
 
 # --------------- UTIL: FEATURE CONSOLIDATION ---------------
-def consolidate_similar_features(feature_name):
-    """Consolidate similar features into meaningful categories."""
-    feature_lower = feature_name.lower()
-    
-    # Cancellation-related features
-    if any(term in feature_lower for term in ['cancellation', 'cancel']):
-        return 'cancellation-processing-system'
-    
-    # Integration-related features
-    if any(term in feature_lower for term in ['integration', 'clickmagick', 'weebly', 'wix', 'everflow']):
-        return 'third-party-integration-support'
-    
-    # API and system access
-    if any(term in feature_lower for term in ['api', 'access', 'schema', 'system']):
-        return 'api-system-access'
-    
-    # UI/UX features
-    if any(term in feature_lower for term in ['ui', 'interface', 'workflow', 'form', 'desktop']):
-        return 'ui-ux-enhancements'
-    
-    # Live support features
-    if any(term in feature_lower for term in ['live', 'agent', 'human', 'support']):
-        return 'live-support-features'
-    
-    # Document and billing
-    if any(term in feature_lower for term in ['invoice', 'billing', 'document', 'ticket']):
-        return 'document-billing-system'
-    
-    # Ad management
-    if any(term in feature_lower for term in ['ad', 'campaign', 'event', 'approval']):
-        return 'ad-management-features'
-    
-    # Account management
-    if any(term in feature_lower for term in ['account', 'verification', 'permission']):
-        return 'account-management-features'
-    
-    return feature_name
+# Feature consolidation moved to generate_executive_report.py
 
 def categorize_technical_requirements(improvement, technical_req_counts, api_counts, ui_counts, doc_counts):
     """Categorize technical requirements by implementation type."""
@@ -537,7 +501,7 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False, no_executive_repo
     with open(raw_path, "w", encoding="utf-8") as f:
         for r in per_chat:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
-
+    
     # Flatten to rows
     rows = []
     for r in per_chat:
@@ -589,6 +553,15 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False, no_executive_repo
     api_integration_counts = collections.Counter()
     ui_workflow_counts = collections.Counter()
     documentation_gap_counts = collections.Counter()
+    
+    # Problem-to-conversation mappings for clickable items
+    problem_conversation_mapping = {
+        'missing_features': {},
+        'api_problems': {},
+        'ui_problems': {},
+        'integration_problems': {},
+        'successful_capabilities': {}
+    }
 
     # Initialize success analysis counters
     success_pattern_counts = collections.Counter()
@@ -631,9 +604,29 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False, no_executive_repo
         if r.get("failure_category") == "feature-not-supported":
             missing_feature = r.get("missing_feature", "unknown-feature")
             if missing_feature and missing_feature != "unknown-feature":
-                # Consolidate similar features
-                consolidated_feature = consolidate_similar_features(missing_feature)
-                missing_feature_counts[consolidated_feature] += 1
+                # Store raw feature name (no consolidation here)
+                missing_feature_counts[missing_feature] += 1
+                
+                # Map to conversation file using raw feature name
+                if missing_feature not in problem_conversation_mapping['missing_features']:
+                    problem_conversation_mapping['missing_features'][missing_feature] = []
+                problem_conversation_mapping['missing_features'][missing_feature].append(r['file'])
+                
+                # Categorize by problem type for detailed mapping using raw feature name
+                if any(term in missing_feature.lower() for term in ['api', 'access', 'schema', 'system', 'database']):
+                    if missing_feature not in problem_conversation_mapping['api_problems']:
+                        problem_conversation_mapping['api_problems'][missing_feature] = []
+                    problem_conversation_mapping['api_problems'][missing_feature].append(r['file'])
+                
+                if any(term in missing_feature.lower() for term in ['ui', 'interface', 'workflow', 'form', 'button', 'desktop']):
+                    if missing_feature not in problem_conversation_mapping['ui_problems']:
+                        problem_conversation_mapping['ui_problems'][missing_feature] = []
+                    problem_conversation_mapping['ui_problems'][missing_feature].append(r['file'])
+                
+                if any(term in missing_feature.lower() for term in ['integration', 'clickmagick', 'weebly', 'wix', 'everflow']):
+                    if missing_feature not in problem_conversation_mapping['integration_problems']:
+                        problem_conversation_mapping['integration_problems'][missing_feature] = []
+                    problem_conversation_mapping['integration_problems'][missing_feature].append(r['file'])
             
             feature_cat = r.get("feature_category", "other")
             if feature_cat:
@@ -646,6 +639,27 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False, no_executive_repo
             categorize_technical_requirements(improvement, technical_requirement_counts, 
                                            api_integration_counts, ui_workflow_counts, 
                                            documentation_gap_counts)
+            
+            # Map improvement needs to conversations for clickable items
+            if improvement not in problem_conversation_mapping['missing_features']:
+                problem_conversation_mapping['missing_features'][improvement] = []
+            problem_conversation_mapping['missing_features'][improvement].append(r['file'])
+            
+            # Also categorize by problem type
+            if any(term in improvement.lower() for term in ['api', 'access', 'schema', 'system', 'database']):
+                if improvement not in problem_conversation_mapping['api_problems']:
+                    problem_conversation_mapping['api_problems'][improvement] = []
+                problem_conversation_mapping['api_problems'][improvement].append(r['file'])
+            
+            if any(term in improvement.lower() for term in ['ui', 'interface', 'workflow', 'form', 'button']):
+                if improvement not in problem_conversation_mapping['ui_problems']:
+                    problem_conversation_mapping['ui_problems'][improvement] = []
+                problem_conversation_mapping['ui_problems'][improvement].append(r['file'])
+            
+            if any(term in improvement.lower() for term in ['integration', 'clickmagick', 'weebly', 'wix', 'everflow']):
+                if improvement not in problem_conversation_mapping['integration_problems']:
+                    problem_conversation_mapping['integration_problems'][improvement] = []
+                problem_conversation_mapping['integration_problems'][improvement].append(r['file'])
         
         # Count success patterns for solved conversations
         if r.get("solved", False):
@@ -656,6 +670,10 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False, no_executive_repo
             for skill in r.get("demonstrated_skills", []):
                 if skill:
                     demonstrated_skills_counts[skill] += 1
+                    # Map successful capabilities to conversations
+                    if skill not in problem_conversation_mapping['successful_capabilities']:
+                        problem_conversation_mapping['successful_capabilities'][skill] = []
+                    problem_conversation_mapping['successful_capabilities'][skill].append(r['file'])
             
             for indicator in r.get("user_satisfaction_indicators", []):
                 if indicator:
@@ -795,6 +813,14 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False, no_executive_repo
         doc_data = [{"documentation_gap": str(d), "count": c} for d, c in documentation_gap_counts.most_common() if d is not None]
         pd.DataFrame(doc_data).to_csv(os.path.join(outdir, "documentation_gaps.csv"), index=False)
         print(f"  ✅  Created documentation gaps CSV with {len(doc_data)} gaps")
+    
+    # Save problem-to-conversation mapping
+    mapping_path = os.path.join(outdir, "problem_conversation_mapping.json")
+    with open(mapping_path, "w", encoding="utf-8") as f:
+        json.dump(problem_conversation_mapping, f, ensure_ascii=False, indent=2)
+    print(f"  ✅  Created problem mapping: {mapping_path}")
+    
+
 
     # Simple charts
     def bar_save(items, title, xlabel, outfile, topn=15):

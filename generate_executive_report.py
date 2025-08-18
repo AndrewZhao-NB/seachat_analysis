@@ -40,6 +40,25 @@ def load_analysis_data(analysis_dir):
         'ui_workflow_needs.csv', 'documentation_gaps.csv'
     ]
     
+    # Load problem-to-conversation mapping
+    mapping_path = os.path.join(analysis_dir, "problem_conversation_mapping.json")
+    if os.path.exists(mapping_path):
+        with open(mapping_path, 'r', encoding='utf-8') as f:
+            data['problem_mapping'] = json.load(f)
+        print(f"  ✅  Loaded problem mapping: {mapping_path}")
+        
+        # Debug: Show what we loaded
+        print(f"  🔍  MAPPING DEBUG:")
+        print(f"     - Missing features keys: {list(data['problem_mapping'].get('missing_features', {}).keys())[:5]}")
+        print(f"     - API problems keys: {list(data['problem_mapping'].get('api_problems', {}).keys())[:5]}")
+        print(f"     - UI problems keys: {list(data['problem_mapping'].get('ui_problems', {}).keys())[:5]}")
+        print(f"     - Integration problems keys: {list(data['problem_mapping'].get('integration_problems', {}).keys())[:5]}")
+        print(f"     - Successful capabilities keys: {list(data['problem_mapping'].get('successful_capabilities', {}).keys())[:5]}")
+        
+    else:
+        print(f"  ⚠️  Problem mapping not found: {mapping_path}")
+        data['problem_mapping'] = {}
+    
     for csv_file in csv_files:
         file_path = os.path.join(analysis_dir, csv_file)
         if os.path.exists(file_path):
@@ -968,6 +987,70 @@ def generate_concise_report(analysis_dir, output_file):
             margin-bottom: 15px;
             font-size: 14px;
         }
+        
+        .conversation-preview {
+            font-size: 0.8em;
+            color: #6c757d;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        .conversation-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .conversation-modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .conversation-modal-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+        
+        .conversation-modal-close:hover {
+            color: #000;
+        }
+        
+        .conversation-list {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .conversation-item {
+            background: white;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
         @media (max-width: 768px) {
             .metrics-grid {
                 grid-template-columns: 1fr;
@@ -1020,10 +1103,29 @@ def generate_concise_report(analysis_dir, output_file):
     
     if missing_features:
         for feature, count, examples in missing_features[:8]:  # Top 8 missing features
-            html_report += """
-                    <div class="feature-item">
-                        <span class="feature-count">""" + f"{count:,}" + """</span>
-                        <strong>""" + feature + """</strong>
+            # Get conversation files for this feature (feature is already consolidated)
+            print(f"  🔍  HTML LOOKUP: Looking for '{feature}' in ALL mapping categories")
+            
+            # Check all mapping categories for this feature
+            conversation_files = []
+            for category in ['missing_features', 'api_problems', 'ui_problems', 'integration_problems']:
+                files = data.get('problem_mapping', {}).get(category, {}).get(feature, [])
+                print(f"     - Checking {category}: {len(files) if files else 0} files")
+                if files:
+                    conversation_files.extend(files)
+                    print(f"     - Found {len(files)} conversations in {category}: {files[:3]}")
+                    break
+            
+            if not conversation_files:
+                print(f"     - No conversations found in any category")
+            
+            conversation_list = ', '.join(conversation_files) if conversation_files else 'No conversations found'
+            
+            html_report += f"""
+                    <div class="feature-item clickable-item" onclick="showConversations('{feature}', '{conversation_list}', {count})">
+                        <span class="feature-count">{count:,}</span>
+                        <strong>{feature}</strong>
+                        <div class="conversation-preview">Click to see {count} conversations</div>
                     </div>"""
     else:
         html_report += """
@@ -1044,15 +1146,29 @@ def generate_concise_report(analysis_dir, output_file):
         if r.get('failure_category') == 'feature-not-supported':
             feature = r.get('missing_feature', '')
             if feature and any(term in feature.lower() for term in ['api', 'access', 'schema', 'system', 'database']):
-                api_problems.append(feature)
+                # Consolidate the feature name to match the mapping
+                consolidated_feature = consolidate_similar_features(feature)
+                api_problems.append(consolidated_feature)
     
     if api_problems:
         problem_counts = Counter(api_problems)
         for problem, count in problem_counts.most_common(5):
+            # Get conversation files for this API problem
+            # Check all mapping categories for this problem
+            conversation_files = []
+            for category in ['missing_features', 'api_problems', 'ui_problems', 'integration_problems']:
+                files = data.get('problem_mapping', {}).get(category, {}).get(problem, [])
+                if files:
+                    conversation_files.extend(files)
+                    break
+            
+            conversation_list = ', '.join(conversation_files) if conversation_files else 'No conversations found'
+            
             html_report += f"""
-                    <div class="feature-item">
+                    <div class="feature-item clickable-item" onclick="showConversations('{problem}', '{conversation_list}', {count})">
                         <span class="feature-count">{count}</span>
                         <strong>{problem}</strong>
+                        <div class="conversation-preview">Click to see {count} conversations</div>
                     </div>"""
     else:
         html_report += """
@@ -1073,15 +1189,29 @@ def generate_concise_report(analysis_dir, output_file):
         if r.get('failure_category') == 'feature-not-supported':
             feature = r.get('missing_feature', '')
             if feature and any(term in feature.lower() for term in ['ui', 'interface', 'workflow', 'form', 'button', 'desktop']):
-                ui_problems.append(feature)
+                # Consolidate the feature name to match the mapping
+                consolidated_feature = consolidate_similar_features(feature)
+                ui_problems.append(consolidated_feature)
     
     if ui_problems:
         problem_counts = Counter(ui_problems)
         for problem, count in problem_counts.most_common(5):
+            # Get conversation files for this UI problem
+            # Check all mapping categories for this problem
+            conversation_files = []
+            for category in ['missing_features', 'api_problems', 'ui_problems', 'integration_problems']:
+                files = data.get('problem_mapping', {}).get(category, {}).get(problem, [])
+                if files:
+                    conversation_files.extend(files)
+                    break
+            
+            conversation_list = ', '.join(conversation_files) if conversation_files else 'No conversations found'
+            
             html_report += f"""
-                    <div class="feature-item">
+                    <div class="feature-item clickable-item" onclick="showConversations('{problem}', '{conversation_list}', {count})">
                         <span class="feature-count">{count}</span>
                         <strong>{problem}</strong>
+                        <div class="conversation-preview">Click to see {count} conversations</div>
                     </div>"""
     else:
         html_report += """
@@ -1102,15 +1232,29 @@ def generate_concise_report(analysis_dir, output_file):
         if r.get('failure_category') == 'feature-not-supported':
             feature = r.get('missing_feature', '')
             if feature and any(term in feature.lower() for term in ['integration', 'clickmagick', 'weebly', 'wix', 'everflow']):
-                integration_problems.append(feature)
+                # Consolidate the feature name to match the mapping
+                consolidated_feature = consolidate_similar_features(feature)
+                integration_problems.append(consolidated_feature)
     
     if integration_problems:
         problem_counts = Counter(integration_problems)
         for problem, count in problem_counts.most_common(5):
+            # Get conversation files for this integration problem
+            # Check all mapping categories for this problem
+            conversation_files = []
+            for category in ['missing_features', 'api_problems', 'ui_problems', 'integration_problems']:
+                files = data.get('problem_mapping', {}).get(category, {}).get(problem, [])
+                if files:
+                    conversation_files.extend(files)
+                    break
+            
+            conversation_list = ', '.join(conversation_files) if conversation_files else 'No conversations found'
+            
             html_report += f"""
-                    <div class="feature-item">
+                    <div class="feature-item clickable-item" onclick="showConversations('{problem}', '{conversation_list}', {count})">
                         <span class="feature-count">{count}</span>
                         <strong>{problem}</strong>
+                        <div class="conversation-preview">Click to see {count} conversations</div>
                     </div>"""
     else:
         html_report += """
@@ -1142,10 +1286,15 @@ def generate_concise_report(analysis_dir, output_file):
     if successful_capabilities:
         cap_counts = Counter(successful_capabilities)
         for capability, count in cap_counts.most_common(5):
+            # Get conversation files for this successful capability
+            conversation_files = data.get('problem_mapping', {}).get('successful_capabilities', {}).get(capability, [])
+            conversation_list = ', '.join(conversation_files) if conversation_files else 'No conversations found'
+            
             html_report += f"""
-                    <div class="feature-item">
+                    <div class="feature-item clickable-item" onclick="showConversations('{capability}', '{conversation_list}', {count})">
                         <span class="feature-count">{count}</span>
                         <strong>{capability}</strong>
+                        <div class="conversation-preview">Click to see {count} conversations</div>
                     </div>"""
     else:
         html_report += """
@@ -1181,6 +1330,60 @@ def generate_concise_report(analysis_dir, output_file):
             </div>
         </div>
     </div>
+    
+    <!-- Conversation Modal -->
+    <div id="conversationModal" class="conversation-modal">
+        <div class="conversation-modal-content">
+            <span class="conversation-modal-close" onclick="closeConversationModal()">&times;</span>
+            <h2 id="modalTitle">Conversation Details</h2>
+            <div id="modalContent">
+                <div class="conversation-list" id="conversationList">
+                    <!-- Conversations will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showConversations(problem, conversationList, count) {
+            const modal = document.getElementById('conversationModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const conversationListDiv = document.getElementById('conversationList');
+            
+            // Set title
+            modalTitle.textContent = `${problem} (${count} conversations)`;
+            
+            // Parse conversation list and create items
+            const conversations = conversationList.split(', ');
+            let html = '';
+            
+            if (conversations.length > 0 && conversations[0] !== 'No conversations found') {
+                conversations.forEach(conv => {
+                    if (conv.trim()) {
+                        html += `<div class="conversation-item">${conv}</div>`;
+                    }
+                });
+            } else {
+                html = '<div class="conversation-item">No specific conversations found for this problem.</div>';
+            }
+            
+            conversationListDiv.innerHTML = html;
+            modal.style.display = 'block';
+        }
+        
+        function closeConversationModal() {
+            const modal = document.getElementById('conversationModal');
+            modal.style.display = 'none';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('conversationModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>"""
     

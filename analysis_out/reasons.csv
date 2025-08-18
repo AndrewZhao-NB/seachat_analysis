@@ -1,75 +1,10 @@
 reason,count
-no-user-request-to-solve,53
-bot-lacks-cancellation-capability,4
-user-provided-insufficient-information,1
+no-user-request-to-solve,5
 bot lacks capability to delete events in Event Management,1
-user-request-unclear,1
-bot-cannot-expedite-ad-review,1
-requires-human-verification,1
-user faced a permission issue preventing token generation,1
-bot lacks capability to expedite ad review process,1
-bot lacks capability to close ads account,1
-bot redirected user to email support,1
-bot lacks specific integration instructions for ClickMagick,1
-user requested live agent,1
-bot unable to provide direct live chat,1
-bot cannot approve ads,1
-account verification required,1
-requires-human-intervention,1
-bot-cannot-resolve-account-issues,1
-bot cannot access logs on NewsBreak's side,1
-user requested human assistance,1
-bot lacks capability to diagnose spending issues directly,1
-bot-lacks-live-chat-escalation,1
-user-request-for-human-assistance-not-fulfilled,1
-bot provided incorrect initial instructions,1
-bot lacks capability to directly assist with pixel deletion,1
-bot cannot override ad rejection decisions,1
-ad credit for sweepstakes is not supported,1
-user's account does not meet eligibility criteria for lead generation ad credit,1
-requires human intervention for account verification,1
-bot provided incorrect navigation instructions,1
-user could not locate the section as described,1
-user did not receive the proforma invoice and payment details as promised,1
-bot lacks capability to directly modify event access,1
-user's request for language modification was not fulfilled,1
-user unable to save postback URL despite successful test,1
-bot lacks specific guidance for Weebly integration,1
-conversion pixel issue unresolved,1
-bot-lacks-access-to-api-schema,1
-user-needs-specific-field-name,1
-user's account might not be verified,1
-user needs to provide additional information for verification,1
-bot cannot directly fix payment issues,1
-user needs to update credit card information manually,1
-bot cannot resolve verification issues directly,1
-requires human intervention for document verification,1
-bot provided incorrect or incomplete guidance,1
-user unable to find settings,1
-incorrect support email provided,1
-bot provided general advice but did not resolve the specific URL validation error,1
-bot lacks capability to troubleshoot specific pixel configuration issues,1
-bot-cannot-connect-to-live-agent,1
-user's pixel integration issue remained unresolved despite troubleshooting steps,1
-bot ran out of message quota,1
-user did not receive final URL for campaign,1
-"dedicated account management not available for users below $1,000 daily spend threshold",1
-task-successfully-completed,1
-bot provided troubleshooting steps but user still faced issues,1
-potential need for deeper technical investigation,1
-user-request-requires-human-intervention,1
-verification-process-needed,1
-bot cannot access detailed campaign data,1
-requires human intervention for deeper investigation,1
-bot lacks capability to directly assist with desktop targeting settings,1
-bot lacks capability to directly retrieve invoices,1
-user needs human assistance for invoice retrieval,1
-bot lacks capability to change time zone directly,1
-user needs to contact support team for resolution,1
-bot provided incorrect guidance initially,1
-user's specific need for web traffic was not addressed,1
-bot lacks capability to verify or adjust campaign settings directly,1
-user requested live agent before bot could fully assist,1
-user needed immediate human intervention,1
-bot cannot expedite verification process,1
-user waiting for human interaction,1
+bot cannot resolve account-specific issues,1
+requires human intervention for account investigation,1
+bot provided incorrect or incomplete instructions,1
+user unable to find delete option,1
+language barrier and playful requests,1
+requires human intervention for business verification,1
+user encountered a grayed-out button likely due to permission issues or account setup problems,1

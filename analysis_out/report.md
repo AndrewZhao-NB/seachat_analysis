@@ -1,9 +1,9 @@
 # NewsBreak Ad Assistant Chatbot Analysis
 
-- Files analyzed: **100**  
-- Solved conversations: **53**  
-- Unsolved conversations: **47**  
-- Solve rate: **53.0%**  
+- Files analyzed: **10**  
+- Solved conversations: **4**  
+- Unsolved conversations: **6**  
+- Solve rate: **40.0%**  
 
 ## 📊 Analysis Results
 
@@ -14,195 +14,171 @@ See `topic_stats.csv` and `topics.png`.
 
 #### Failure Categories
 
-- **incomplete-conversation**: 27 conversations (27.0%)
+- **other**: 4 conversations (40.0%)
 
-- **other**: 23 conversations (23.0%)
+- **requires-human**: 4 conversations (40.0%)
 
-- **feature-not-supported**: 23 conversations (23.0%)
+- **incomplete-conversation**: 1 conversations (10.0%)
 
-- **requires-human**: 23 conversations (23.0%)
-
-- **bot-handled-perfectly**: 4 conversations (4.0%)
+- **feature-not-supported**: 1 conversations (10.0%)
 
 
 #### Top Failure Reasons
 
-- no-user-request-to-solve: 53 occurrences
-
-- bot-lacks-cancellation-capability: 4 occurrences
-
-- user-provided-insufficient-information: 1 occurrences
+- no-user-request-to-solve: 5 occurrences
 
 - bot lacks capability to delete events in Event Management: 1 occurrences
 
-- user-request-unclear: 1 occurrences
+- bot cannot resolve account-specific issues: 1 occurrences
+
+- requires human intervention for account investigation: 1 occurrences
+
+- bot provided incorrect or incomplete instructions: 1 occurrences
 
 
 ### 🚀 Improvement Priorities
 
 #### Most Needed Improvements
 
-- **no-improvement-needed-user-abandoned**: 29 conversations need this
+- **bot-handled-perfectly**: 3 conversations need this
 
-- **bot-handled-perfectly**: 23 conversations need this
+- **no-improvement-needed-user-abandoned**: 2 conversations need this
 
-- **add-cancellation-processing-feature**: 2 conversations need this
+- **implement-event-deletion-feature**: 1 conversations need this
 
-- **implement-ad-cancellation-workflow**: 1 conversations need this
+- **integrate with account management system for direct troubleshooting**: 1 conversations need this
 
-- **implement event deletion feature in Event Management**: 1 conversations need this
+- **enhance bot's ability to handle playful language and provide alternative solutions when initial steps fail**: 1 conversations need this
 
 
 ### 🔧 Missing Features Analysis
 
 #### Top Missing Features
 
-- **ad-management-features**: 8 conversations need this feature
-
-- **cancellation-processing-system**: 4 conversations need this feature
-
-- **live-support-features**: 3 conversations need this feature
-
-- **api-system-access**: 3 conversations need this feature
-
-- **third-party-integration-support**: 2 conversations need this feature
+- **event-deletion-functionality**: 1 conversations need this feature
 
 
 #### Feature Categories by Priority
 
-- **campaign-control**: 12 conversations (12.0%)
-
-- **account-management**: 5 conversations (5.0%)
-
-- **integration**: 3 conversations (3.0%)
-
-- **technical-support**: 2 conversations (2.0%)
-
-- **billing**: 1 conversations (1.0%)
+- **campaign-control**: 1 conversations (10.0%)
 
 
 ### ✅ Success Analysis
 
-#### What the Bot Does Well (53 successful conversations)
+#### What the Bot Does Well (4 successful conversations)
 
 **Top Success Patterns:**
 
-- **bot-greeting-successful**: 24 conversations (45.3% of successes)
+- **clear-step-by-step-guidance**: 2 conversations (50.0% of successes)
 
-- **form-presentation-complete**: 24 conversations (45.3% of successes)
+- **form-completion-workflow**: 1 conversations (25.0% of successes)
 
-- **clear-step-by-step-guidance**: 11 conversations (20.8% of successes)
+- **policy-explanation**: 1 conversations (25.0% of successes)
 
-- **policy-explanation**: 8 conversations (15.1% of successes)
+- **link-provision**: 1 conversations (25.0% of successes)
 
-- **form-completion-workflow**: 3 conversations (5.7% of successes)
+- **clear-explanation**: 1 conversations (25.0% of successes)
 
 
 **Demonstrated Skills:**
 
-- **form-presentation**: 25 conversations (47.2% of successes)
+- **form-presentation**: 1 conversations (25.0% of successes)
 
-- **greeting**: 24 conversations (45.3% of successes)
+- **policy-clarification**: 1 conversations (25.0% of successes)
 
-- **template-rendering**: 24 conversations (45.3% of successes)
+- **instruction-giving**: 1 conversations (25.0% of successes)
 
-- **policy-clarification**: 12 conversations (22.6% of successes)
+- **resource-linking**: 1 conversations (25.0% of successes)
 
-- **multi-step-instruction**: 8 conversations (15.1% of successes)
+- **multi-language-support**: 1 conversations (25.0% of successes)
 
 
 **User Satisfaction Indicators:**
 
-- **conversation-initiated**: 24 conversations (45.3% of successes)
+- **conversation-ended-positively**: 2 conversations (50.0% of successes)
 
-- **bot-ready-to-help**: 24 conversations (45.3% of successes)
+- **user-understood-explanation**: 1 conversations (25.0% of successes)
 
-- **conversation-ended-positively**: 12 conversations (22.6% of successes)
+- **user-received-information**: 1 conversations (25.0% of successes)
 
-- **user-thanked-bot**: 7 conversations (13.2% of successes)
-
-- **user-request-fulfilled**: 3 conversations (5.7% of successes)
+- **user-thanked-bot**: 1 conversations (25.0% of successes)
 
 
 ### 🔍 Enhanced Analysis
 
 #### Conversation Flow Patterns
 
-- **greeting**: 61 conversations (61.0%)
+- **greeting**: 7 conversations (70.0%)
 
-- **bot-greeting**: 39 conversations (39.0%)
+- **problem-statement**: 4 conversations (40.0%)
 
-- **problem-statement**: 37 conversations (37.0%)
+- **bot-greeting**: 3 conversations (30.0%)
 
-- **user-abandoned**: 28 conversations (28.0%)
+- **user-abandoned**: 2 conversations (20.0%)
 
-- **form-presentation**: 25 conversations (25.0%)
+- **bot-response**: 2 conversations (20.0%)
 
 
 #### Escalation Triggers
 
-- **user-abandoned-conversation**: 27 conversations (27.0%)
+- **bot-solved-problem**: 3 conversations (30.0%)
 
-- **no-escalation-needed**: 27 conversations (27.0%)
+- **user-satisfied**: 3 conversations (30.0%)
 
-- **bot-solved-problem**: 26 conversations (26.0%)
+- **account-specific-problem**: 2 conversations (20.0%)
 
-- **user-satisfied**: 24 conversations (24.0%)
+- **no-escalation-needed**: 1 conversations (10.0%)
 
-- **conversation-completed-successfully**: 4 conversations (4.0%)
+- **user-abandoned-conversation**: 1 conversations (10.0%)
 
 
 #### Error Patterns
 
-- **no-technical-issues**: 52 conversations (52.0%)
+- **system-functioning-perfectly**: 6 conversations (60.0%)
 
-- **system-functioning-perfectly**: 48 conversations (48.0%)
+- **no-technical-issues**: 5 conversations (50.0%)
 
-- **no-errors-detected**: 31 conversations (31.0%)
+- **no-errors-detected**: 3 conversations (30.0%)
 
-- **conversation-abandoned**: 24 conversations (24.0%)
-
-- **incorrect-initial-guidance**: 1 conversations (1.0%)
+- **conversation-abandoned**: 1 conversations (10.0%)
 
 
 #### User Emotional State
 
-- **neutral**: 59 conversations (59.0%)
+- **neutral**: 7 conversations (70.0%)
 
-- **frustrated**: 27 conversations (27.0%)
+- **frustrated**: 2 conversations (20.0%)
 
-- **satisfied**: 13 conversations (13.0%)
-
-- **grateful**: 1 conversations (1.0%)
+- **satisfied**: 1 conversations (10.0%)
 
 
 #### Conversation Complexity
 
-- **simple**: 51 conversations (51.0%)
+- **simple**: 5 conversations (50.0%)
 
-- **moderate**: 43 conversations (43.0%)
+- **moderate**: 4 conversations (40.0%)
 
-- **complex**: 6 conversations (6.0%)
+- **complex**: 1 conversations (10.0%)
 
 
 #### Feature Priority Distribution
 
-- **Priority 4**: 41 conversations (41.0%)
+- **Priority 1**: 4 conversations (40.0%)
 
-- **Priority 1**: 39 conversations (39.0%)
+- **Priority 4**: 4 conversations (40.0%)
 
-- **Priority 3**: 13 conversations (13.0%)
+- **Priority 3**: 1 conversations (10.0%)
 
-- **Priority 2**: 7 conversations (7.0%)
+- **Priority 2**: 1 conversations (10.0%)
 
 
 #### Improvement Effort Distribution
 
-- **medium effort**: 56 conversations (56.0%)
+- **low effort**: 4 conversations (40.0%)
 
-- **low effort**: 40 conversations (40.0%)
+- **medium effort**: 4 conversations (40.0%)
 
-- **high effort**: 4 conversations (4.0%)
+- **high effort**: 2 conversations (20.0%)
 
 
 ## 📁 Output Files

@@ -1,6 +1,5 @@
 failure_category,count
-incomplete-conversation,27
-other,23
-feature-not-supported,23
-requires-human,23
-bot-handled-perfectly,4
+other,4
+requires-human,4
+incomplete-conversation,1
+feature-not-supported,1

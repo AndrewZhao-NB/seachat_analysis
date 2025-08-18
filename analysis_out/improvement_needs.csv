@@ -1,50 +1,8 @@
 improvement,count
-no-improvement-needed-user-abandoned,29
-bot-handled-perfectly,23
-add-cancellation-processing-feature,2
-implement-ad-cancellation-workflow,1
-implement event deletion feature in Event Management,1
-integrate-ad-review-status-check,1
-integrate permission management system to handle account setup issues,1
-implement-ad-review-expedition-feature,1
-add ads account closure workflow or detailed instructions,1
-add detailed integration instructions for ClickMagick,1
-integrate live chat support feature,1
-integrate ad approval workflow,1
-integrate direct account management capabilities or streamline escalation process,1
-enable-bot-to-access-internal-logs-or-directly-connect-to-human-support,1
-provide-specific-memory-size-guidance,1
-integrate diagnostic tools for campaign spending issues,1
-implement-live-chat-escalation-feature,1
-integrate-with-ad-rejection-database,1
-integrate pixel management functionality or provide accurate guidance,1
-implement-ad-rejection-appeal-workflow,1
-implement automated account verification process,1
-improve navigation guidance accuracy by integrating real-time account-specific navigation paths,1
-implement automated system to send wire transfer details and invoices via email,1
-implement direct event access modification feature,1
-implement direct system access or error resolution for save issues,1
-improve-response-handling-to-avoid-duplicates,1
-develop platform-specific guides for Weebly integration,1
-integrate-api-schema-access-or-documentation-link,1
-integrate account verification process into chatbot,1
-integrate with billing system API to allow direct payment issue resolution,1
-integrate a document submission feature for verification,1
-ensure accurate support contact information and improve guidance on account settings,1
-integrate-url-validation-tool-to-diagnose-specific-errors,1
-integrate direct support for pixel configuration troubleshooting or streamline escalation to human support,1
-add-cancellation-workflow,1
-integrate-live-agent-chat-feature,1
-implement direct support for diagnosing and resolving pixel integration issues,1
-increase message quota or notify user before quota exhaustion,1
-offer introductory sessions or consultations for new users regardless of spend level,1
-implement a feature for real-time diagnostics and direct modification of ad scheduling settings,1
-implement-direct-human-connection-feature,1
-integrate with campaign management system for real-time data access,1
-add desktop targeting options in campaign settings,1
-integrate invoice retrieval functionality within the bot,1
-integrate direct time zone change feature in AdManager settings,1
-add detailed instructions for setting up web traffic campaigns targeting desktop users,1
-integrate campaign management API to allow direct adjustments,1
-implement real-time content validation to prevent duplicate uploads,1
-implement direct communication channel for urgent verification requests,1
+bot-handled-perfectly,3
+no-improvement-needed-user-abandoned,2
+implement-event-deletion-feature,1
+integrate with account management system for direct troubleshooting,1
+enhance bot's ability to handle playful language and provide alternative solutions when initial steps fail,1
+integrate-automated-business-verification-system,1
+integrate account permission diagnostics to identify and resolve user-specific issues,1

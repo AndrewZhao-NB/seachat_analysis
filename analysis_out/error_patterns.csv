@@ -1,13 +1,5 @@
 error_pattern,count
-no-technical-issues,52
-system-functioning-perfectly,48
-no-errors-detected,31
-conversation-abandoned,24
-incorrect-initial-guidance,1
-incorrect-navigation-path,1
-email-not-received,1
-no-specific-error-message,1
-incorrect-support-email,1
-quota-exhaustion-notification,1
-no-technical-issues-detected-by-bot,1
-misinterpretation of user's request,1
+system-functioning-perfectly,6
+no-technical-issues,5
+no-errors-detected,3
+conversation-abandoned,1
