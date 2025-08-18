@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Service Chatbot Report</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f7;
+            color: #1d1d1f;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 1.2em;
+        }
+        .content {
+            padding: 30px;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .metric-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #667eea;
+        }
+        .metric-number {
+            font-size: 2em;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        .metric-label {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            color: #495057;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .section h3 {
+            color: #6c757d;
+            margin-top: 25px;
+        }
+        .issue-list {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .issue-item {
+            background: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #dc3545;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .issue-count {
+            background: #dc3545;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            float: right;
+        }
+        .feature-item {
+            background: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .feature-count {
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            float: right;
+        }
+        .summary-box {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .summary-box h3 {
+            margin-top: 0;
+            color: white;
+        }
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .summary-stat {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 6px;
+        }
+        .summary-number {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .clickable-item {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .clickable-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+        .close:hover {
+            color: #000;
+        }
+        .conversation-example {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #667eea;
+        }
+        .conversation-header {
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 10px;
+        }
+        .conversation-text {
+            font-family: monospace;
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #e9ecef;
+            white-space: pre-wrap;
+            font-size: 0.9em;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .search-box {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            .summary-stats {
+                grid-template-columns: 1fr;
+            }
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 Customer Service Chatbot Report</h1>
+            <p>Executive Summary - August 18, 2025</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>📊 Key Metrics</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-number">100</div>
+                        <div class="metric-label">Total Conversations</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">53.0%</div>
+                        <div class="metric-label">Success Rate</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">42.0%</div>
+                        <div class="metric-label">Human Escalation Rate</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">8</div>
+                        <div class="metric-label">Missing Features</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🚨 Critical Issues (Top 3)</h2>
+                
+                <h3>1. Top Failure Categories</h3>
+                <div class="issue-list">
+                    <div class="issue-item">
+                        <span class="issue-count">27</span>
+                        <strong>incomplete-conversation</strong> - 27.0% of conversations
+                    </div>
+                    <div class="issue-item">
+                        <span class="issue-count">23</span>
+                        <strong>other</strong> - 23.0% of conversations
+                    </div>
+                    <div class="issue-item">
+                        <span class="issue-count">23</span>
+                        <strong>feature-not-supported</strong> - 23.0% of conversations
+                    </div>
+                </div>
+
+                <h3>2. Top Missing Features (Consolidated)</h3>
+                <div class="issue-list">
+                    <div class="feature-item">
+                        <span class="feature-count">8</span>
+                        <strong>ad-management-features</strong> - 8 conversations need this
+                    </div>
+                    <div class="conversation-example">
+                        <div class="conversation-header">Breakdown:</div>
+                        <div class="conversation-text">event deletion functionality, ad-review-expedition, ads-account-closure-procedure, direct-campaign-diagnosis, ad-rejection-override-capability, ad credit for sweepstakes testing, direct time zone change functionality in AdManager, campaign-adjustment-capability</div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">4</span>
+                        <strong>cancellation-processing-system</strong> - 4 conversations need this
+                    </div>
+                    <div class="conversation-example">
+                        <div class="conversation-header">Breakdown:</div>
+                        <div class="conversation-text">cancellation-processing, ad-cancellation-system, cancellation-processing, service-cancellation-functionality</div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">3</span>
+                        <strong>live-support-features</strong> - 3 conversations need this
+                    </div>
+                    <div class="conversation-example">
+                        <div class="conversation-header">Breakdown:</div>
+                        <div class="conversation-text">live-chat-connection, live-chat-escalation, live-agent-connection</div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">3</span>
+                        <strong>api-system-access</strong> - 3 conversations need this
+                    </div>
+                    <div class="conversation-example">
+                        <div class="conversation-header">Breakdown:</div>
+                        <div class="conversation-text">direct event access modification capability, api-schema-access, dedicated-account-manager-access-for-all-users</div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">2</span>
+                        <strong>third-party-integration-support</strong> - 2 conversations need this
+                    </div>
+                    <div class="conversation-example">
+                        <div class="conversation-header">Breakdown:</div>
+                        <div class="conversation-text">ClickMagick integration instructions, platform-specific troubleshooting for Weebly</div>
+                    </div>
+                </div>
+
+                <h3>3. Technical Requirements by Category</h3>
+                <div class="issue-list">
+                </div>
+
+                <h3>4. Specific Technical Problems (Beyond Cancellation)</h3>
+                <div class="issue-list">
+                    <div class="feature-item">
+                        <span class="feature-count">1</span>
+                        <strong>event deletion functionality</strong> - 1 conversations need this
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">1</span>
+                        <strong>ad-review-expedition</strong> - 1 conversations need this
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">1</span>
+                        <strong>ads-account-closure-procedure</strong> - 1 conversations need this
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">1</span>
+                        <strong>ClickMagick integration instructions</strong> - 1 conversations need this
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">1</span>
+                        <strong>live-chat-connection</strong> - 1 conversations need this
+                    </div>
+                </div>
+
+                <h3>5. Integration & API Problems</h3>
+                <div class="issue-list">
+                    <div class="feature-item">
+                        <span class="feature-count">1</span>
+                        <strong>ClickMagick integration instructions</strong> - 1 conversations need this
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">1</span>
+                        <strong>platform-specific troubleshooting for Weebly</strong> - 1 conversations need this
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">1</span>
+                        <strong>api-schema-access</strong> - 1 conversations need this
+                    </div>
+                </div>
+
+                <h3>6. Top Actionable Improvements</h3>
+                <div class="issue-list">
+                    <div class="feature-item">
+                        <span class="feature-count">2</span>
+                        <strong>MEDIUM effort</strong> - add-cancellation-processing-feature
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">1</span>
+                        <strong>MEDIUM effort</strong> - implement-ad-cancellation-workflow
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">1</span>
+                        <strong>MEDIUM effort</strong> - implement event deletion feature in Event Management
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🔍 Detailed Breakdown by Impact</h2>
+                
+                <h3>What Users Need Human Help For (Top 10)</h3>
+                <div class="issue-list">
+                    <div class="issue-item">
+                        <span class="issue-count">2</span>
+                        <strong>cancel-service - bot-lacks-cancellation-capability</strong> - 4.8% of escalations
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="summary-box">
+                <h3>📊 Summary</h3>
+                <div class="summary-stats">
+                    <div class="summary-stat">
+                        <div class="summary-number">100</div>
+                        <div>Total Conversations</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-number">53.0%</div>
+                        <div>Success Rate</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-number">42.0%</div>
+                        <div>Human Escalation Rate</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-number">5</div>
+                        <div>Significant Features (2+ conversations)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

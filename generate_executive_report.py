@@ -36,7 +36,8 @@ def load_analysis_data(analysis_dir):
         'success_patterns.csv', 'capabilities.csv', 'successful_topics.csv',
         'conversation_flows.csv', 'escalation_triggers.csv', 'error_patterns.csv',
         'user_emotions.csv', 'conversation_complexity.csv', 'feature_priorities.csv',
-        'improvement_efforts.csv'
+        'improvement_efforts.csv', 'technical_requirements.csv', 'api_integration_needs.csv',
+        'ui_workflow_needs.csv', 'documentation_gaps.csv'
     ]
     
     for csv_file in csv_files:
@@ -562,6 +563,7 @@ def generate_executive_report(analysis_dir, output_file):
     # Generate all sections
     executive_summary = generate_executive_summary(data)
     problem_analysis = generate_problem_analysis(data)
+    technical_analysis = generate_technical_analysis(data)
     success_analysis = generate_success_analysis(data)
     improvement_roadmap = generate_improvement_roadmap(data)
     action_plan = generate_action_plan(data)
@@ -574,6 +576,14 @@ def generate_executive_report(analysis_dir, output_file):
 ## 🚨 FAILURE ANALYSIS - What Needs to Be Fixed
 
 {problem_analysis}
+
+---
+
+## 🔧 TECHNICAL IMPLEMENTATION ANALYSIS - Specific Technical Requirements
+
+{technical_analysis}
+
+---
 
 {improvement_roadmap}
 
@@ -627,6 +637,44 @@ Generated on: {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M:%S')}
     print(f"   📊 Success statistics overview")
     print(f"\n💡 Focus on FAILURE ANALYSIS sections for development priorities!")
 
+def consolidate_similar_features(feature_name):
+    """Consolidate similar features into meaningful categories."""
+    feature_lower = feature_name.lower()
+    
+    # Cancellation-related features
+    if any(term in feature_lower for term in ['cancellation', 'cancel']):
+        return 'cancellation-processing-system'
+    
+    # Integration-related features
+    if any(term in feature_lower for term in ['integration', 'clickmagick', 'weebly', 'wix', 'everflow']):
+        return 'third-party-integration-support'
+    
+    # API and system access
+    if any(term in feature_lower for term in ['api', 'access', 'schema', 'system']):
+        return 'api-system-access'
+    
+    # UI/UX features
+    if any(term in feature_lower for term in ['ui', 'interface', 'workflow', 'form', 'desktop']):
+        return 'ui-ux-enhancements'
+    
+    # Live support features
+    if any(term in feature_lower for term in ['live', 'agent', 'human', 'support']):
+        return 'live-support-features'
+    
+    # Document and billing
+    if any(term in feature_lower for term in ['invoice', 'billing', 'document', 'ticket']):
+        return 'document-billing-system'
+    
+    # Ad management
+    if any(term in feature_lower for term in ['ad', 'campaign', 'event', 'approval']):
+        return 'ad-management-features'
+    
+    # Account management
+    if any(term in feature_lower for term in ['account', 'verification', 'permission']):
+        return 'account-management-features'
+    
+    return feature_name
+
 def generate_concise_report(analysis_dir, output_file):
     """Generate a concise executive report for quick reviews."""
     print(f"📊 Loading analysis data from {analysis_dir}...")
@@ -662,13 +710,27 @@ def generate_concise_report(analysis_dir, output_file):
     failure_categories = [r.get('failure_category', 'unknown') for r in results]
     failure_counts = Counter(failure_categories)
     
-    # Get top missing features
+    # Get top missing features (consolidated)
     missing_features = []
+    feature_consolidation = {}
+    
     for r in results:
         if r.get('failure_category') == 'feature-not-supported':
             feature = r.get('missing_feature', 'unknown')
-            priority = r.get('feature_priority_score', 1)
-            missing_features.append((feature, priority))
+            if feature and feature != 'unknown':
+                # Consolidate similar features
+                consolidated_feature = consolidate_similar_features(feature)
+                if consolidated_feature not in feature_consolidation:
+                    feature_consolidation[consolidated_feature] = {'count': 0, 'examples': []}
+                feature_consolidation[consolidated_feature]['count'] += 1
+                feature_consolidation[consolidated_feature]['examples'].append(feature)
+    
+    # Convert to list format for display
+    for consolidated_feature, data in feature_consolidation.items():
+        missing_features.append((consolidated_feature, data['count'], data['examples']))
+    
+    # Sort by count
+    missing_features.sort(key=lambda x: x[1], reverse=True)
     
     # Get human escalation reasons
     human_escalation_reasons = []
@@ -967,16 +1029,22 @@ def generate_concise_report(analysis_dir, output_file):
     html_report += """
                 </div>
 
-                <h3>2. Top Missing Features</h3>
+                <h3>2. Top Missing Features (Consolidated)</h3>
                 <div class="issue-list">"""
     
     if missing_features:
-        feature_counts = Counter([feature for feature, _ in missing_features])
-        for feature, count in feature_counts.most_common(3):
+        for feature, count, examples in missing_features[:5]:  # Top 5 consolidated features
             html_report += """
                     <div class="feature-item">
                         <span class="feature-count">""" + f"{count:,}" + """</span>
                         <strong>""" + feature + """</strong> - """ + f"{count:,}" + """ conversations need this
+                    </div>"""
+            # Show breakdown if there are multiple examples
+            if len(examples) > 1:
+                html_report += """
+                    <div class="conversation-example">
+                        <div class="conversation-header">Breakdown:</div>
+                        <div class="conversation-text">""" + ', '.join(examples) + """</div>
                     </div>"""
     else:
         html_report += """
@@ -988,7 +1056,103 @@ def generate_concise_report(analysis_dir, output_file):
     html_report += """
                 </div>
 
-                <h3>3. Top Actionable Improvements</h3>
+                <h3>3. Technical Requirements by Category</h3>
+                <div class="issue-list">"""
+    
+    # Add technical requirements by category
+    if 'technical_requirements' in data:
+        tech_df = data['technical_requirements']
+        if not tech_df.empty:
+            # Group by technical category
+            categories = {
+                'API Integration': ['api', 'integrate', 'system', 'database'],
+                'UI/Workflow': ['ui', 'interface', 'workflow', 'form', 'button'],
+                'Documentation': ['knowledge', 'guide', 'instruction', 'documentation'],
+                'Support System': ['support', 'escalation', 'human', 'agent']
+            }
+            
+            for category, keywords in categories.items():
+                category_requirements = []
+                for _, row in tech_df.iterrows():
+                    req = row['technical_requirement'].lower()
+                    if any(keyword in req for keyword in keywords):
+                        category_requirements.append((row['technical_requirement'], row['count']))
+                
+                if category_requirements:
+                    html_report += f"""
+                        <div class="feature-item">
+                            <span class="feature-count">{sum(count for _, count in category_requirements)}</span>
+                            <strong>{category}</strong> - {len(category_requirements)} requirements
+                        </div>"""
+                    # Show top requirements in this category
+                    for req, count in sorted(category_requirements, key=lambda x: x[1], reverse=True)[:2]:
+                        html_report += f"""
+                            <div class="conversation-example">
+                                <div class="conversation-text">{req} ({count} conversations)</div>
+                            </div>"""
+    
+    html_report += """
+                </div>
+
+                <h3>4. Specific Technical Problems (Beyond Cancellation)</h3>
+                <div class="issue-list">"""
+    
+    # Show diverse technical problems
+    diverse_problems = []
+    for r in results:
+        if r.get('failure_category') == 'feature-not-supported':
+            feature = r.get('missing_feature', '')
+            if feature and 'cancellation' not in feature.lower():
+                diverse_problems.append(feature)
+    
+    if diverse_problems:
+        problem_counts = Counter(diverse_problems)
+        for problem, count in problem_counts.most_common(5):
+            html_report += f"""
+                    <div class="feature-item">
+                        <span class="feature-count">{count}</span>
+                        <strong>{problem}</strong> - {count} conversations need this
+                    </div>"""
+    else:
+        html_report += """
+                    <div class="feature-item">
+                        <span class="feature-count">0</span>
+                        <strong>No diverse technical problems identified</strong>
+                    </div>"""
+    
+    html_report += """
+                </div>
+
+                <h3>5. Integration & API Problems</h3>
+                <div class="issue-list">"""
+    
+    # Show integration and API problems
+    integration_problems = []
+    for r in results:
+        if r.get('failure_category') == 'feature-not-supported':
+            feature = r.get('missing_feature', '')
+            if feature and any(term in feature.lower() for term in ['integration', 'api', 'clickmagick', 'weebly', 'wix', 'everflow']):
+                integration_problems.append(feature)
+    
+    if integration_problems:
+        problem_counts = Counter(integration_problems)
+        for problem, count in problem_counts.most_common(5):
+            html_report += f"""
+                    <div class="feature-item">
+                        <span class="feature-count">{count}</span>
+                        <strong>{problem}</strong> - {count} conversations need this
+                    </div>"""
+    else:
+        html_report += """
+                    <div class="feature-item">
+                        <span class="feature-count">0</span>
+                        <strong>No integration problems identified</strong>
+                    </div>"""
+    
+    html_report += """
+                </div>
+
+                <h3>6. Top Actionable Improvements</h3>
                 <div class="issue-list">"""
     
     if actionable_improvements:
@@ -1067,36 +1231,7 @@ def generate_concise_report(analysis_dir, output_file):
     html_report += """
                 </div>
 
-                <h3>Missing Features by Impact</h3>
-                <div class="issue-list">"""
-    
-    if missing_features:
-        # Just count features without priority grouping
-        feature_counts = Counter([feature for feature, _ in missing_features])
-        # Only show features needed by 2+ conversations
-        significant_features = [(feature, count) for feature, count in feature_counts.most_common(10) if count >= 2]
-        if significant_features:
-            for feature, count in significant_features:
-                html_report += """
-                    <div class="feature-item">
-                        <span class="feature-count">""" + f"{count:,}" + """</span>
-                        <strong>""" + feature + """</strong> - """ + f"{count:,}" + """ conversations need this
-                    </div>"""
-        else:
-            html_report += """
-                    <div class="feature-item">
-                        <span class="feature-count">0</span>
-                        <strong>No significant features (all affect <2 conversations)</strong>
-                    </div>"""
-    else:
-        html_report += """
-                    <div class="feature-item">
-                        <span class="feature-count">0</span>
-                        <strong>No missing features identified</strong>
-                    </div>"""
-    
-    html_report += """
-                </div>
+
             </div>
 
             <div class="summary-box">
@@ -1115,8 +1250,8 @@ def generate_concise_report(analysis_dir, output_file):
                         <div>Human Escalation Rate</div>
                     </div>
                     <div class="summary-stat">
-                        <div class="summary-number">""" + f"{len([(issue, count) for issue, count in Counter(combined_issues).items() if count >= 2])}" + """</div>
-                        <div>Significant Issues (2+ conversations)</div>
+                        <div class="summary-number">""" + f"{len([f for f, c, _ in missing_features if c >= 2])}" + """</div>
+                        <div>Significant Features (2+ conversations)</div>
                     </div>
                 </div>
             </div>
@@ -1136,6 +1271,74 @@ def generate_concise_report(analysis_dir, output_file):
     print(f"   🔍 Detailed breakdown by impact")
     print(f"   📋 Summary statistics")
     print(f"   🌐 Open in any web browser on Mac")
+
+def generate_technical_analysis(data):
+    """Generate detailed technical analysis with specific implementation details."""
+    if 'technical_requirements' not in data or 'api_integration_needs' not in data:
+        return "No technical analysis data found."
+    
+    technical_analysis = []
+    technical_analysis.append("## 🔧 Technical Implementation Analysis")
+    technical_analysis.append("")
+    
+    # API Integration needs
+    if 'api_integration_needs' in data:
+        api_df = data['api_integration_needs']
+        if not api_df.empty:
+            technical_analysis.append("### 🔌 API Integration Requirements")
+            technical_analysis.append("")
+            for _, row in api_df.head(5).iterrows():
+                requirement = row['api_integration']
+                count = row['count']
+                technical_analysis.append(f"- **{requirement}** - {count} conversations need this")
+                # Extract specific technical details
+                if 'api' in requirement.lower():
+                    technical_analysis.append(f"  - **Technical Need**: REST API endpoint development")
+                if 'integrate' in requirement.lower():
+                    technical_analysis.append(f"  - **Technical Need**: System integration layer")
+                if 'database' in requirement.lower():
+                    technical_analysis.append(f"  - **Technical Need**: Database access layer")
+                technical_analysis.append("")
+    
+    # UI/Workflow needs
+    if 'ui_workflow_needs' in data:
+        ui_df = data['ui_workflow_needs']
+        if not ui_df.empty:
+            technical_analysis.append("### 🎨 UI/Workflow Requirements")
+            technical_analysis.append("")
+            for _, row in ui_df.head(5).iterrows():
+                requirement = row['ui_workflow']
+                count = row['count']
+                technical_analysis.append(f"- **{requirement}** - {count} conversations need this")
+                # Extract specific UI details
+                if 'workflow' in requirement.lower():
+                    technical_analysis.append(f"  - **UI Need**: Multi-step form workflow")
+                if 'button' in requirement.lower():
+                    technical_analysis.append(f"  - **UI Need**: Interactive button elements")
+                if 'form' in requirement.lower():
+                    technical_analysis.append(f"  - **UI Need**: Form validation and submission")
+                technical_analysis.append("")
+    
+    # Documentation gaps
+    if 'documentation_gaps' in data:
+        doc_df = data['documentation_gaps']
+        if not doc_df.empty:
+            technical_analysis.append("### 📚 Documentation & Knowledge Gaps")
+            technical_analysis.append("")
+            for _, row in doc_df.head(5).iterrows():
+                gap = row['documentation_gap']
+                count = row['count']
+                technical_analysis.append(f"- **{gap}** - {count} conversations need this")
+                # Extract specific documentation needs
+                if 'guide' in gap.lower():
+                    technical_analysis.append(f"  - **Content Need**: Step-by-step user guide")
+                if 'instruction' in gap.lower():
+                    technical_analysis.append(f"  - **Content Need**: Clear instruction manual")
+                if 'knowledge' in gap.lower():
+                    technical_analysis.append(f"  - **Content Need**: Knowledge base article")
+                technical_analysis.append("")
+    
+    return "\n".join(technical_analysis)
 
 def main():
     parser = argparse.ArgumentParser(description='Generate executive report from chatbot analysis')

@@ -308,6 +308,64 @@ def process_single_file(args):
             "improvement_effort": "low",
         }
 
+# --------------- UTIL: FEATURE CONSOLIDATION ---------------
+def consolidate_similar_features(feature_name):
+    """Consolidate similar features into meaningful categories."""
+    feature_lower = feature_name.lower()
+    
+    # Cancellation-related features
+    if any(term in feature_lower for term in ['cancellation', 'cancel']):
+        return 'cancellation-processing-system'
+    
+    # Integration-related features
+    if any(term in feature_lower for term in ['integration', 'clickmagick', 'weebly', 'wix', 'everflow']):
+        return 'third-party-integration-support'
+    
+    # API and system access
+    if any(term in feature_lower for term in ['api', 'access', 'schema', 'system']):
+        return 'api-system-access'
+    
+    # UI/UX features
+    if any(term in feature_lower for term in ['ui', 'interface', 'workflow', 'form', 'desktop']):
+        return 'ui-ux-enhancements'
+    
+    # Live support features
+    if any(term in feature_lower for term in ['live', 'agent', 'human', 'support']):
+        return 'live-support-features'
+    
+    # Document and billing
+    if any(term in feature_lower for term in ['invoice', 'billing', 'document', 'ticket']):
+        return 'document-billing-system'
+    
+    # Ad management
+    if any(term in feature_lower for term in ['ad', 'campaign', 'event', 'approval']):
+        return 'ad-management-features'
+    
+    # Account management
+    if any(term in feature_lower for term in ['account', 'verification', 'permission']):
+        return 'account-management-features'
+    
+    return feature_name
+
+def categorize_technical_requirements(improvement, technical_req_counts, api_counts, ui_counts, doc_counts):
+    """Categorize technical requirements by implementation type."""
+    improvement_lower = improvement.lower()
+    
+    # Count overall technical requirements
+    technical_req_counts[improvement] += 1
+    
+    # API Integration requirements
+    if any(term in improvement_lower for term in ['api', 'integrate', 'system', 'database']):
+        api_counts[improvement] += 1
+    
+    # UI/Workflow requirements
+    if any(term in improvement_lower for term in ['ui', 'interface', 'workflow', 'form', 'button']):
+        ui_counts[improvement] += 1
+    
+    # Documentation/Knowledge requirements
+    if any(term in improvement_lower for term in ['knowledge', 'guide', 'instruction', 'documentation', 'guide']):
+        doc_counts[improvement] += 1
+
 # --------------- UTIL: DETECT INCOMPLETE CONVERSATIONS ---------------
 def is_incomplete_conversation(transcript):
     """Detect if a conversation is incomplete (no user input)."""
@@ -525,6 +583,12 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False, no_executive_repo
     improvement_needed_counts = collections.Counter()
     missing_feature_counts = collections.Counter()
     feature_category_counts = collections.Counter()
+    
+    # Enhanced analysis counters for technical details
+    technical_requirement_counts = collections.Counter()
+    api_integration_counts = collections.Counter()
+    ui_workflow_counts = collections.Counter()
+    documentation_gap_counts = collections.Counter()
 
     # Initialize success analysis counters
     success_pattern_counts = collections.Counter()
@@ -567,11 +631,21 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False, no_executive_repo
         if r.get("failure_category") == "feature-not-supported":
             missing_feature = r.get("missing_feature", "unknown-feature")
             if missing_feature and missing_feature != "unknown-feature":
-                missing_feature_counts[missing_feature] += 1
+                # Consolidate similar features
+                consolidated_feature = consolidate_similar_features(missing_feature)
+                missing_feature_counts[consolidated_feature] += 1
             
             feature_cat = r.get("feature_category", "other")
             if feature_cat:
                 feature_category_counts[feature_cat] += 1
+        
+        # Analyze technical requirements from improvement needs
+        improvement = r.get("specific_improvement_needed", "no-improvement-needed")
+        if improvement and improvement != "no-improvement-needed":
+            # Categorize technical requirements
+            categorize_technical_requirements(improvement, technical_requirement_counts, 
+                                           api_integration_counts, ui_workflow_counts, 
+                                           documentation_gap_counts)
         
         # Count success patterns for solved conversations
         if r.get("solved", False):
@@ -700,6 +774,27 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False, no_executive_repo
         effort_data = [{"improvement_effort": str(e), "count": c} for e, c in improvement_effort_counts.most_common() if e is not None]
         pd.DataFrame(effort_data).to_csv(os.path.join(outdir, "improvement_efforts.csv"), index=False)
         print(f"  ✅  Created improvement efforts CSV with {len(effort_data)} effort levels")
+    
+    # Enhanced technical analysis CSVs
+    if technical_requirement_counts:
+        tech_req_data = [{"technical_requirement": str(r), "count": c} for r, c in technical_requirement_counts.most_common() if r is not None]
+        pd.DataFrame(tech_req_data).to_csv(os.path.join(outdir, "technical_requirements.csv"), index=False)
+        print(f"  ✅  Created technical requirements CSV with {len(tech_req_data)} requirements")
+    
+    if api_integration_counts:
+        api_data = [{"api_integration": str(a), "count": c} for a, c in api_integration_counts.most_common() if a is not None]
+        pd.DataFrame(api_data).to_csv(os.path.join(outdir, "api_integration_needs.csv"), index=False)
+        print(f"  ✅  Created API integration needs CSV with {len(api_data)} needs")
+    
+    if ui_workflow_counts:
+        ui_data = [{"ui_workflow": str(u), "count": c} for u, c in ui_workflow_counts.most_common() if u is not None]
+        pd.DataFrame(ui_data).to_csv(os.path.join(outdir, "ui_workflow_needs.csv"), index=False)
+        print(f"  ✅  Created UI workflow needs CSV with {len(ui_data)} needs")
+    
+    if documentation_gap_counts:
+        doc_data = [{"documentation_gap": str(d), "count": c} for d, c in documentation_gap_counts.most_common() if d is not None]
+        pd.DataFrame(doc_data).to_csv(os.path.join(outdir, "documentation_gaps.csv"), index=False)
+        print(f"  ✅  Created documentation gaps CSV with {len(doc_data)} gaps")
 
     # Simple charts
     def bar_save(items, title, xlabel, outfile, topn=15):

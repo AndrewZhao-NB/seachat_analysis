@@ -1,9 +1,6 @@
 failure_category,count
-incomplete-conversation,548
-other,423
-requires-human,282
-feature-not-supported,180
-bot-handled-perfectly,47
-bot-error,4
-missing-info,4
-user-abandoned,3
+incomplete-conversation,27
+other,23
+feature-not-supported,23
+requires-human,23
+bot-handled-perfectly,4
