@@ -1013,125 +1013,95 @@ def generate_concise_report(analysis_dir, output_file):
             </div>
 
             <div class="section">
-                <h2>🚨 Critical Issues (Top 3)</h2>
+                <h2>🚨 PROBLEMS THE CHATBOT CANNOT SOLVE</h2>
                 
-                <h3>1. Top Failure Categories</h3>
-                <div class="issue-list">"""
-    
-    for category, count in failure_counts.most_common(3):
-        percentage = (count / total) * 100
-        html_report += """
-                    <div class="issue-item">
-                        <span class="issue-count">""" + f"{count:,}" + """</span>
-                        <strong>""" + category + """</strong> - """ + f"{percentage:.1f}%" + """ of conversations
-                    </div>"""
-    
-    html_report += """
-                </div>
-
-                <h3>2. Top Missing Features (Consolidated)</h3>
+                <h3>1. Missing Functions & Features</h3>
                 <div class="issue-list">"""
     
     if missing_features:
-        for feature, count, examples in missing_features[:5]:  # Top 5 consolidated features
+        for feature, count, examples in missing_features[:8]:  # Top 8 missing features
             html_report += """
                     <div class="feature-item">
                         <span class="feature-count">""" + f"{count:,}" + """</span>
-                        <strong>""" + feature + """</strong> - """ + f"{count:,}" + """ conversations need this
-                    </div>"""
-            # Show breakdown if there are multiple examples
-            if len(examples) > 1:
-                html_report += """
-                    <div class="conversation-example">
-                        <div class="conversation-header">Breakdown:</div>
-                        <div class="conversation-text">""" + ', '.join(examples) + """</div>
+                        <strong>""" + feature + """</strong>
                     </div>"""
     else:
         html_report += """
                     <div class="feature-item">
                         <span class="feature-count">0</span>
-                        <strong>No critical missing features identified</strong>
+                        <strong>No missing features identified</strong>
                     </div>"""
     
     html_report += """
                 </div>
 
-                <h3>3. Technical Requirements by Category</h3>
+                <h3>2. API & System Access Needed</h3>
                 <div class="issue-list">"""
     
-    # Add technical requirements by category
-    if 'technical_requirements' in data:
-        tech_df = data['technical_requirements']
-        if not tech_df.empty:
-            # Group by technical category
-            categories = {
-                'API Integration': ['api', 'integrate', 'system', 'database'],
-                'UI/Workflow': ['ui', 'interface', 'workflow', 'form', 'button'],
-                'Documentation': ['knowledge', 'guide', 'instruction', 'documentation'],
-                'Support System': ['support', 'escalation', 'human', 'agent']
-            }
-            
-            for category, keywords in categories.items():
-                category_requirements = []
-                for _, row in tech_df.iterrows():
-                    req = row['technical_requirement'].lower()
-                    if any(keyword in req for keyword in keywords):
-                        category_requirements.append((row['technical_requirement'], row['count']))
-                
-                if category_requirements:
-                    html_report += f"""
-                        <div class="feature-item">
-                            <span class="feature-count">{sum(count for _, count in category_requirements)}</span>
-                            <strong>{category}</strong> - {len(category_requirements)} requirements
-                        </div>"""
-                    # Show top requirements in this category
-                    for req, count in sorted(category_requirements, key=lambda x: x[1], reverse=True)[:2]:
-                        html_report += f"""
-                            <div class="conversation-example">
-                                <div class="conversation-text">{req} ({count} conversations)</div>
-                            </div>"""
-    
-    html_report += """
-                </div>
-
-                <h3>4. Specific Technical Problems (Beyond Cancellation)</h3>
-                <div class="issue-list">"""
-    
-    # Show diverse technical problems
-    diverse_problems = []
+    # Show API and system access problems
+    api_problems = []
     for r in results:
         if r.get('failure_category') == 'feature-not-supported':
             feature = r.get('missing_feature', '')
-            if feature and 'cancellation' not in feature.lower():
-                diverse_problems.append(feature)
+            if feature and any(term in feature.lower() for term in ['api', 'access', 'schema', 'system', 'database']):
+                api_problems.append(feature)
     
-    if diverse_problems:
-        problem_counts = Counter(diverse_problems)
+    if api_problems:
+        problem_counts = Counter(api_problems)
         for problem, count in problem_counts.most_common(5):
             html_report += f"""
                     <div class="feature-item">
                         <span class="feature-count">{count}</span>
-                        <strong>{problem}</strong> - {count} conversations need this
+                        <strong>{problem}</strong>
                     </div>"""
     else:
         html_report += """
                     <div class="feature-item">
                         <span class="feature-count">0</span>
-                        <strong>No diverse technical problems identified</strong>
+                        <strong>No API access problems identified</strong>
                     </div>"""
     
     html_report += """
                 </div>
 
-                <h3>5. Integration & API Problems</h3>
+                <h3>3. UI & Workflow Improvements Needed</h3>
                 <div class="issue-list">"""
     
-    # Show integration and API problems
+    # Show UI and workflow problems
+    ui_problems = []
+    for r in results:
+        if r.get('failure_category') == 'feature-not-supported':
+            feature = r.get('missing_feature', '')
+            if feature and any(term in feature.lower() for term in ['ui', 'interface', 'workflow', 'form', 'button', 'desktop']):
+                ui_problems.append(feature)
+    
+    if ui_problems:
+        problem_counts = Counter(ui_problems)
+        for problem, count in problem_counts.most_common(5):
+            html_report += f"""
+                    <div class="feature-item">
+                        <span class="feature-count">{count}</span>
+                        <strong>{problem}</strong>
+                    </div>"""
+    else:
+        html_report += """
+                    <div class="feature-item">
+                        <span class="feature-count">0</span>
+                        <strong>No UI improvements needed</strong>
+                    </div>"""
+    
+    html_report += """
+                </div>
+
+                <h3>4. Integration & Third-Party Support Needed</h3>
+                <div class="issue-list">"""
+    
+    # Show integration problems
     integration_problems = []
     for r in results:
         if r.get('failure_category') == 'feature-not-supported':
             feature = r.get('missing_feature', '')
-            if feature and any(term in feature.lower() for term in ['integration', 'api', 'clickmagick', 'weebly', 'wix', 'everflow']):
+            if feature and any(term in feature.lower() for term in ['integration', 'clickmagick', 'weebly', 'wix', 'everflow']):
                 integration_problems.append(feature)
     
     if integration_problems:
@@ -1140,7 +1110,7 @@ def generate_concise_report(analysis_dir, output_file):
             html_report += f"""
                     <div class="feature-item">
                         <span class="feature-count">{count}</span>
-                        <strong>{problem}</strong> - {count} conversations need this
+                        <strong>{problem}</strong>
                     </div>"""
     else:
         html_report += """
@@ -1151,87 +1121,41 @@ def generate_concise_report(analysis_dir, output_file):
     
     html_report += """
                 </div>
-
-                <h3>6. Top Actionable Improvements</h3>
-                <div class="issue-list">"""
-    
-    if actionable_improvements:
-        improvement_counts = Counter(actionable_improvements)
-        for (improvement, effort), count in improvement_counts.most_common(3):
-            html_report += """
-                    <div class="feature-item">
-                        <span class="feature-count">""" + f"{count:,}" + """</span>
-                        <strong>""" + effort.upper() + """ effort</strong> - """ + improvement + """
-                    </div>"""
-    else:
-        html_report += """
-                    <div class="feature-item">
-                        <span class="feature-count">0</span>
-                        <strong>No actionable improvements needed</strong>
-                    </div>"""
-    
-    html_report += """
-                </div>
             </div>
 
             <div class="section">
-                <h2>🔍 Detailed Breakdown by Impact</h2>
+                <h2>✅ PROBLEMS THE CHATBOT CAN SOLVE WELL</h2>
                 
-                <h3>What Users Need Human Help For (Top 10)</h3>
+                <h3>Successful Capabilities</h3>
                 <div class="issue-list">"""
     
-    # Combine both reasons and tasks for a complete picture
-    combined_issues = []
+    # Show what the bot does well
+    successful_capabilities = []
     for r in results:
-        if r.get('needs_human', False):
-            # Get the main reason
-            reason = r.get('why_unsolved', ['unknown'])[0] if isinstance(r.get('why_unsolved'), list) else r.get('why_unsolved', 'unknown')
-            # Get the task they were trying to do
-            tasks = r.get('user_tasks_attempted', ['unknown'])
-            if isinstance(tasks, list):
-                task = tasks[0] if tasks else 'unknown'
-            else:
-                task = tasks
-            
-            # Combine them for context
-            if reason != 'unknown' and task != 'unknown':
-                combined_issues.append(f"{task} - {reason}")
-            elif reason != 'unknown':
-                combined_issues.append(reason)
-            elif task != 'unknown':
-                combined_issues.append(task)
-            else:
-                combined_issues.append('unknown issue')
+        if r.get('solved', False):
+            caps = r.get('capabilities', [])
+            if isinstance(caps, list):
+                for cap in caps:
+                    if cap and cap != 'unknown':
+                        successful_capabilities.append(cap)
     
-    if combined_issues:
-        issue_counts = Counter(combined_issues)
-        # Only show issues affecting 2+ conversations
-        significant_issues = [(issue, count) for issue, count in issue_counts.most_common(10) if count >= 2]
-        if significant_issues:
-            for issue, count in significant_issues:
-                percentage = (count / needs_human) * 100 if needs_human > 0 else 0
-                html_report += """
-                    <div class="issue-item">
-                        <span class="issue-count">""" + f"{count:,}" + """</span>
-                        <strong>""" + issue + """</strong> - """ + f"{percentage:.1f}%" + """ of escalations
-                    </div>"""
-        else:
-            html_report += """
-                    <div class="issue-item">
-                        <span class="feature-count">0</span>
-                        <strong>No significant issues (all issues affect <2 conversations)</strong>
+    if successful_capabilities:
+        cap_counts = Counter(successful_capabilities)
+        for capability, count in cap_counts.most_common(5):
+            html_report += f"""
+                    <div class="feature-item">
+                        <span class="feature-count">{count}</span>
+                        <strong>{capability}</strong>
                     </div>"""
     else:
         html_report += """
-                    <div class="issue-item">
+                    <div class="feature-item">
                         <span class="feature-count">0</span>
-                        <strong>No human escalations recorded</strong>
+                        <strong>No successful capabilities identified</strong>
                     </div>"""
     
     html_report += """
                 </div>
-
-
             </div>
 
             <div class="summary-box">
@@ -1250,8 +1174,8 @@ def generate_concise_report(analysis_dir, output_file):
                         <div>Human Escalation Rate</div>
                     </div>
                     <div class="summary-stat">
-                        <div class="summary-number">""" + f"{len([f for f, c, _ in missing_features if c >= 2])}" + """</div>
-                        <div>Significant Features (2+ conversations)</div>
+                        <div class="summary-number">""" + f"{len(missing_features)}" + """</div>
+                        <div>Missing Features</div>
                     </div>
                 </div>
             </div>
