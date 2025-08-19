@@ -352,48 +352,69 @@
         
         .message {
             background: white;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            border-left: 4px solid #dee2e6;
+            border-radius: 12px;
+            padding: 8px 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin: 4px 0;
+            max-width: 70%;
+            word-wrap: break-word;
         }
         
         .message.user-message {
-            border-left-color: #007bff;
-            background: linear-gradient(135deg, #f8f9ff 0%, #e3f2fd 100%);
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            margin-left: auto;
+            margin-right: 0;
+            border-bottom-right-radius: 4px;
         }
         
         .message.bot-message {
-            border-left-color: #28a745;
-            background: linear-gradient(135deg, #f8fff9 0%, #e8f5e8 100%);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #212529;
+            margin-left: 0;
+            margin-right: auto;
+            border-bottom-left-radius: 4px;
         }
         
         .message.system-message {
-            border-left-color: #6c757d;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+            color: white;
+            margin: 8px auto;
+            text-align: center;
+            max-width: 50%;
         }
         
         .message-header {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-            font-size: 0.9em;
+            gap: 6px;
+            margin-bottom: 4px;
+            font-size: 0.75em;
         }
         
         .speaker-icon {
-            font-size: 1.2em;
+            font-size: 1em;
         }
         
         .speaker-name {
             font-weight: 600;
-            color: #495057;
+            opacity: 0.8;
         }
         
         .timestamp {
-            color: #6c757d;
-            font-size: 0.8em;
+            opacity: 0.7;
+            font-size: 0.75em;
             margin-left: auto;
+        }
+        
+        .user-message .speaker-name,
+        .user-message .timestamp {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .bot-message .speaker-name,
+        .bot-message .timestamp {
+            color: #6c757d;
         }
         
         .message-content {
@@ -451,52 +472,52 @@
                 
                 <h3>1. Missing Functions & Features</h3>
                 <div class="issue-list">
-                    <div class="feature-item clickable-item" data-problem="ad-management-features" data-popup="%7B%22conversations%22%3A%20%5B%2211--2025-07-05%2006%3A39%3A25.982000--WEBCHAT.csv%22%2C%20%22Albert--2025-03-28%2005%3A20%3A47.458384--WEBCHAT.csv%22%2C%20%22Akshay%20Singh--2025-08-10%2010%3A31%3A26.578000--WEBCHAT.csv%22%2C%20%22Affif--2025-04-20%2022%3A59%3A53.437433--WEBCHAT.csv%22%2C%20%22Aaron--2025-08-06%2017%3A13%3A07.187000--WEBCHAT.csv%22%2C%20%22Aarya--2025-04-06%2015%3A00%3A42.013157--WEBCHAT.csv%22%2C%20%22Abhishek--2025-08-05%2019%3A23%3A35.468000--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22event-deletion-functionality%22%3A%20%5B%2211--2025-07-05%2006%3A39%3A25.982000--WEBCHAT.csv%22%5D%2C%20%22implement-event-deletion-feature%22%3A%20%5B%2211--2025-07-05%2006%3A39%3A25.982000--WEBCHAT.csv%22%5D%2C%20%22integrate-direct-ad-review-functionality%22%3A%20%5B%22Albert--2025-03-28%2005%3A20%3A47.458384--WEBCHAT.csv%22%5D%2C%20%22ad-review-expedition%22%3A%20%5B%22Akshay%20Singh--2025-08-10%2010%3A31%3A26.578000--WEBCHAT.csv%22%5D%2C%20%22implement-ad-review-expedition-feature%22%3A%20%5B%22Akshay%20Singh--2025-08-10%2010%3A31%3A26.578000--WEBCHAT.csv%22%5D%2C%20%22ads-account-closure-procedure%22%3A%20%5B%22Affif--2025-04-20%2022%3A59%3A53.437433--WEBCHAT.csv%22%5D%2C%20%22campaign%20management%20and%20troubleshooting%20capability%22%3A%20%5B%22Aaron--2025-08-06%2017%3A13%3A07.187000--WEBCHAT.csv%22%5D%2C%20%22integrate-ad-review-status-check%22%3A%20%5B%22Aarya--2025-04-06%2015%3A00%3A42.013157--WEBCHAT.csv%22%5D%2C%20%22ad%20credit%20for%20sweepstakes%20testing%22%3A%20%5B%22Abhishek--2025-08-05%2019%3A23%3A35.468000--WEBCHAT.csv%22%5D%7D%7D" data-count="5" style="border: 2px solid #007bff; padding: 10px; margin: 5px 0;">
+                    <div class="feature-item clickable-item" data-problem="ad-management-features" data-popup="%7B%22conversations%22%3A%20%5B%2211--2025-07-05%2006%3A39%3A25.982000--WEBCHAT.csv%22%2C%20%22Albert--2025-03-28%2005%3A20%3A47.458384--WEBCHAT.csv%22%2C%20%22Akshay%20Singh--2025-08-10%2010%3A31%3A26.578000--WEBCHAT.csv%22%2C%20%22Affif--2025-04-20%2022%3A59%3A53.437433--WEBCHAT.csv%22%2C%20%22Aaron--2025-08-06%2017%3A13%3A07.187000--WEBCHAT.csv%22%2C%20%22Aarya--2025-04-06%2015%3A00%3A42.013157--WEBCHAT.csv%22%2C%20%22Abhishek--2025-08-05%2019%3A23%3A35.468000--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22event-deletion-functionality%22%3A%20%5B%2211--2025-07-05%2006%3A39%3A25.982000--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22implement-event-deletion-feature%22%3A%20%5B%2211--2025-07-05%2006%3A39%3A25.982000--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22integrate-direct-ad-review-functionality%22%3A%20%5B%22Albert--2025-03-28%2005%3A20%3A47.458384--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22ad-review-expedition%22%3A%20%5B%22Akshay%20Singh--2025-08-10%2010%3A31%3A26.578000--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22implement-ad-review-expedition-feature%22%3A%20%5B%22Akshay%20Singh--2025-08-10%2010%3A31%3A26.578000--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22ads-account-closure-procedure%22%3A%20%5B%22Affif--2025-04-20%2022%3A59%3A53.437433--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22campaign%20management%20and%20troubleshooting%20capability%22%3A%20%5B%22Aaron--2025-08-06%2017%3A13%3A07.187000--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22integrate-ad-review-status-check%22%3A%20%5B%22Aarya--2025-04-06%2015%3A00%3A42.013157--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22ad%20credit%20for%20sweepstakes%20testing%22%3A%20%5B%22Abhishek--2025-08-05%2019%3A23%3A35.468000--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%7D%7D" data-count="5" style="border: 2px solid #007bff; padding: 10px; margin: 5px 0;">
                         <span class="feature-count">5</span>
                         <strong>ad-management-features</strong>
                         <div class="conversation-preview">Click to see 5 conversations grouped by sub-problems</div>
-                        <div style="font-size: 0.7em; color: #666; margin-top: 5px;">DEBUG: Clickable item with 1213 chars of data</div>
+                        <div style="font-size: 0.7em; color: #666; margin-top: 5px;">DEBUG: Clickable item with 3031 chars of data</div>
                     </div>
-                    <div class="feature-item clickable-item" data-problem="cancellation-processing-system" data-popup="%7B%22conversations%22%3A%20%5B%22Adventurous%20Glacier%20bac1210783--2025-02-27%2015%3A30%3A55.884981--WEBCHAT.csv%22%2C%20%22Absolute%20Batter%20b4c277d68d--2025-02-27%2019%3A01%3A36.388691--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22cancellation%20processing%20system%22%3A%20%5B%22Adventurous%20Glacier%20bac1210783--2025-02-27%2015%3A30%3A55.884981--WEBCHAT.csv%22%5D%2C%20%22integrate%20cancellation%20processing%20workflow%22%3A%20%5B%22Adventurous%20Glacier%20bac1210783--2025-02-27%2015%3A30%3A55.884981--WEBCHAT.csv%22%5D%2C%20%22service-cancellation-workflow%22%3A%20%5B%22Absolute%20Batter%20b4c277d68d--2025-02-27%2019%3A01%3A36.388691--WEBCHAT.csv%22%5D%2C%20%22add-service-cancellation-workflow%22%3A%20%5B%22Absolute%20Batter%20b4c277d68d--2025-02-27%2019%3A01%3A36.388691--WEBCHAT.csv%22%5D%7D%7D" data-count="2" style="border: 2px solid #007bff; padding: 10px; margin: 5px 0;">
+                    <div class="feature-item clickable-item" data-problem="cancellation-processing-system" data-popup="%7B%22conversations%22%3A%20%5B%22Adventurous%20Glacier%20bac1210783--2025-02-27%2015%3A30%3A55.884981--WEBCHAT.csv%22%2C%20%22Absolute%20Batter%20b4c277d68d--2025-02-27%2019%3A01%3A36.388691--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22cancellation%20processing%20system%22%3A%20%5B%22Adventurous%20Glacier%20bac1210783--2025-02-27%2015%3A30%3A55.884981--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22integrate%20cancellation%20processing%20workflow%22%3A%20%5B%22Adventurous%20Glacier%20bac1210783--2025-02-27%2015%3A30%3A55.884981--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22service-cancellation-workflow%22%3A%20%5B%22Absolute%20Batter%20b4c277d68d--2025-02-27%2019%3A01%3A36.388691--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22add-service-cancellation-workflow%22%3A%20%5B%22Absolute%20Batter%20b4c277d68d--2025-02-27%2019%3A01%3A36.388691--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%7D%7D" data-count="2" style="border: 2px solid #007bff; padding: 10px; margin: 5px 0;">
                         <span class="feature-count">2</span>
                         <strong>cancellation-processing-system</strong>
                         <div class="conversation-preview">Click to see 2 conversations grouped by sub-problems</div>
-                        <div style="font-size: 0.7em; color: #666; margin-top: 5px;">DEBUG: Clickable item with 633 chars of data</div>
+                        <div style="font-size: 0.7em; color: #666; margin-top: 5px;">DEBUG: Clickable item with 1441 chars of data</div>
                     </div>
-                    <div class="feature-item clickable-item" data-problem="live-support-features" data-popup="%7B%22conversations%22%3A%20%5B%22Albert--2025-06-25%2017%3A53%3A10.980000--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22live-chat-escalation%22%3A%20%5B%22Albert--2025-06-25%2017%3A53%3A10.980000--WEBCHAT.csv%22%5D%2C%20%22implement-live-chat-escalation-feature%22%3A%20%5B%22Albert--2025-06-25%2017%3A53%3A10.980000--WEBCHAT.csv%22%5D%7D%7D" data-count="1" style="border: 2px solid #007bff; padding: 10px; margin: 5px 0;">
+                    <div class="feature-item clickable-item" data-problem="live-support-features" data-popup="%7B%22conversations%22%3A%20%5B%22Albert--2025-06-25%2017%3A53%3A10.980000--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22live-chat-escalation%22%3A%20%5B%22Albert--2025-06-25%2017%3A53%3A10.980000--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22implement-live-chat-escalation-feature%22%3A%20%5B%22Albert--2025-06-25%2017%3A53%3A10.980000--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%7D%7D" data-count="1" style="border: 2px solid #007bff; padding: 10px; margin: 5px 0;">
                         <span class="feature-count">1</span>
                         <strong>live-support-features</strong>
                         <div class="conversation-preview">Click to see 1 conversations grouped by sub-problems</div>
-                        <div style="font-size: 0.7em; color: #666; margin-top: 5px;">DEBUG: Clickable item with 260 chars of data</div>
+                        <div style="font-size: 0.7em; color: #666; margin-top: 5px;">DEBUG: Clickable item with 664 chars of data</div>
                     </div>
-                    <div class="feature-item clickable-item" data-problem="third-party-integration-support" data-popup="%7B%22conversations%22%3A%20%5B%22Albert--2025-03-29%2006%3A22%3A30.321654--WEBCHAT.csv%22%2C%20%22Adair--2025-04-07%2017%3A32%3A44.014896--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22ClickMagick%20integration%20instructions%22%3A%20%5B%22Albert--2025-03-29%2006%3A22%3A30.321654--WEBCHAT.csv%22%5D%2C%20%22add%20ClickMagick%20integration%20instructions%22%3A%20%5B%22Albert--2025-03-29%2006%3A22%3A30.321654--WEBCHAT.csv%22%5D%2C%20%22implement%20direct%20support%20or%20escalation%20workflow%20for%20complex%20integration%20issues%22%3A%20%5B%22Adair--2025-04-07%2017%3A32%3A44.014896--WEBCHAT.csv%22%5D%7D%7D" data-count="1" style="border: 2px solid #007bff; padding: 10px; margin: 5px 0;">
+                    <div class="feature-item clickable-item" data-problem="third-party-integration-support" data-popup="%7B%22conversations%22%3A%20%5B%22Albert--2025-03-29%2006%3A22%3A30.321654--WEBCHAT.csv%22%2C%20%22Adair--2025-04-07%2017%3A32%3A44.014896--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22ClickMagick%20integration%20instructions%22%3A%20%5B%22Albert--2025-03-29%2006%3A22%3A30.321654--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22add%20ClickMagick%20integration%20instructions%22%3A%20%5B%22Albert--2025-03-29%2006%3A22%3A30.321654--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22implement%20direct%20support%20or%20escalation%20workflow%20for%20complex%20integration%20issues%22%3A%20%5B%22Adair--2025-04-07%2017%3A32%3A44.014896--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%7D%7D" data-count="1" style="border: 2px solid #007bff; padding: 10px; margin: 5px 0;">
                         <span class="feature-count">1</span>
                         <strong>third-party-integration-support</strong>
                         <div class="conversation-preview">Click to see 1 conversations grouped by sub-problems</div>
-                        <div style="font-size: 0.7em; color: #666; margin-top: 5px;">DEBUG: Clickable item with 462 chars of data</div>
+                        <div style="font-size: 0.7em; color: #666; margin-top: 5px;">DEBUG: Clickable item with 1068 chars of data</div>
                     </div>
-                    <div class="feature-item clickable-item" data-problem="api-system-access" data-popup="%7B%22conversations%22%3A%20%5B%22Aaron--2025-08-06%2017%3A13%3A07.187000--WEBCHAT.csv%22%2C%20%22Agustin%20Herebia--2025-05-21%2014%3A53%3A59.984059--WEBCHAT.csv%22%2C%20%22Agustin%20Herebia--2025-07-23%2012%3A25%3A02.841000--WEBCHAT.csv%22%2C%20%22%20Bohdan%20%28bohdan.r%40point2web.com%29--2025-04-11%2015%3A11%3A10.213113--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22integrate%20with%20campaign%20management%20system%20to%20allow%20direct%20troubleshooting%22%3A%20%5B%22Aaron--2025-08-06%2017%3A13%3A07.187000--WEBCHAT.csv%22%5D%2C%20%22integrate%20email%20confirmation%20and%20resending%20system%20for%20invoices%22%3A%20%5B%22Agustin%20Herebia--2025-05-21%2014%3A53%3A59.984059--WEBCHAT.csv%22%5D%2C%20%22integrate-invoice-generation-system%22%3A%20%5B%22Agustin%20Herebia--2025-07-23%2012%3A25%3A02.841000--WEBCHAT.csv%22%5D%2C%20%22direct-event-access-modification%22%3A%20%5B%22%20Bohdan%20%28bohdan.r%40point2web.com%29--2025-04-11%2015%3A11%3A10.213113--WEBCHAT.csv%22%5D%2C%20%22integrate%20direct%20event%20access%20management%20capabilities%22%3A%20%5B%22%20Bohdan%20%28bohdan.r%40point2web.com%29--2025-04-11%2015%3A11%3A10.213113--WEBCHAT.csv%22%5D%7D%7D" data-count="1" style="border: 2px solid #007bff; padding: 10px; margin: 5px 0;">
+                    <div class="feature-item clickable-item" data-problem="api-system-access" data-popup="%7B%22conversations%22%3A%20%5B%22Aaron--2025-08-06%2017%3A13%3A07.187000--WEBCHAT.csv%22%2C%20%22Agustin%20Herebia--2025-05-21%2014%3A53%3A59.984059--WEBCHAT.csv%22%2C%20%22Agustin%20Herebia--2025-07-23%2012%3A25%3A02.841000--WEBCHAT.csv%22%2C%20%22%20Bohdan%20%28bohdan.r%40point2web.com%29--2025-04-11%2015%3A11%3A10.213113--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22integrate%20with%20campaign%20management%20system%20to%20allow%20direct%20troubleshooting%22%3A%20%5B%22Aaron--2025-08-06%2017%3A13%3A07.187000--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22integrate%20email%20confirmation%20and%20resending%20system%20for%20invoices%22%3A%20%5B%22Agustin%20Herebia--2025-05-21%2014%3A53%3A59.984059--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22integrate-invoice-generation-system%22%3A%20%5B%22Agustin%20Herebia--2025-07-23%2012%3A25%3A02.841000--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22direct-event-access-modification%22%3A%20%5B%22%20Bohdan%20%28bohdan.r%40point2web.com%29--2025-04-11%2015%3A11%3A10.213113--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22integrate%20direct%20event%20access%20management%20capabilities%22%3A%20%5B%22%20Bohdan%20%28bohdan.r%40point2web.com%29--2025-04-11%2015%3A11%3A10.213113--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%7D%7D" data-count="1" style="border: 2px solid #007bff; padding: 10px; margin: 5px 0;">
                         <span class="feature-count">1</span>
                         <strong>api-system-access</strong>
                         <div class="conversation-preview">Click to see 1 conversations grouped by sub-problems</div>
-                        <div style="font-size: 0.7em; color: #666; margin-top: 5px;">DEBUG: Clickable item with 893 chars of data</div>
+                        <div style="font-size: 0.7em; color: #666; margin-top: 5px;">DEBUG: Clickable item with 1903 chars of data</div>
                     </div>
-                    <div class="feature-item clickable-item" data-problem="direct pixel management capability" data-popup="%7B%22conversations%22%3A%20%5B%22Akshay--2025-04-18%2006%3A01%3A28.028770--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22direct%20pixel%20management%20capability%22%3A%20%5B%22Akshay--2025-04-18%2006%3A01%3A28.028770--WEBCHAT.csv%22%5D%7D%7D" data-count="1" style="border: 2px solid #007bff; padding: 10px; margin: 5px 0;">
+                    <div class="feature-item clickable-item" data-problem="direct pixel management capability" data-popup="%7B%22conversations%22%3A%20%5B%22Akshay--2025-04-18%2006%3A01%3A28.028770--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22direct%20pixel%20management%20capability%22%3A%20%5B%22Akshay--2025-04-18%2006%3A01%3A28.028770--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%7D%7D" data-count="1" style="border: 2px solid #007bff; padding: 10px; margin: 5px 0;">
                         <span class="feature-count">1</span>
                         <strong>direct pixel management capability</strong>
                         <div class="conversation-preview">Click to see 1 conversations grouped by sub-problems</div>
-                        <div style="font-size: 0.7em; color: #666; margin-top: 5px;">DEBUG: Clickable item with 179 chars of data</div>
+                        <div style="font-size: 0.7em; color: #666; margin-top: 5px;">DEBUG: Clickable item with 381 chars of data</div>
                     </div>
                 </div>
 
                 <h3>2. API & System Access Needed</h3>
                 <div class="issue-list">
-                    <div class="feature-item clickable-item" data-problem="cancellation-processing-system" data-popup="%7B%22conversations%22%3A%20%5B%22Adventurous%20Glacier%20bac1210783--2025-02-27%2015%3A30%3A55.884981--WEBCHAT.csv%22%2C%20%22Absolute%20Batter%20b4c277d68d--2025-02-27%2019%3A01%3A36.388691--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22cancellation%20processing%20system%22%3A%20%5B%22Adventurous%20Glacier%20bac1210783--2025-02-27%2015%3A30%3A55.884981--WEBCHAT.csv%22%5D%2C%20%22integrate%20cancellation%20processing%20workflow%22%3A%20%5B%22Adventurous%20Glacier%20bac1210783--2025-02-27%2015%3A30%3A55.884981--WEBCHAT.csv%22%5D%2C%20%22service-cancellation-workflow%22%3A%20%5B%22Absolute%20Batter%20b4c277d68d--2025-02-27%2019%3A01%3A36.388691--WEBCHAT.csv%22%5D%2C%20%22add-service-cancellation-workflow%22%3A%20%5B%22Absolute%20Batter%20b4c277d68d--2025-02-27%2019%3A01%3A36.388691--WEBCHAT.csv%22%5D%7D%7D" data-count="1">
+                    <div class="feature-item clickable-item" data-problem="cancellation-processing-system" data-popup="%7B%22conversations%22%3A%20%5B%22Adventurous%20Glacier%20bac1210783--2025-02-27%2015%3A30%3A55.884981--WEBCHAT.csv%22%2C%20%22Absolute%20Batter%20b4c277d68d--2025-02-27%2019%3A01%3A36.388691--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22cancellation%20processing%20system%22%3A%20%5B%22Adventurous%20Glacier%20bac1210783--2025-02-27%2015%3A30%3A55.884981--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22integrate%20cancellation%20processing%20workflow%22%3A%20%5B%22Adventurous%20Glacier%20bac1210783--2025-02-27%2015%3A30%3A55.884981--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22service-cancellation-workflow%22%3A%20%5B%22Absolute%20Batter%20b4c277d68d--2025-02-27%2019%3A01%3A36.388691--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22add-service-cancellation-workflow%22%3A%20%5B%22Absolute%20Batter%20b4c277d68d--2025-02-27%2019%3A01%3A36.388691--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%7D%7D" data-count="1">
                         <span class="feature-count">1</span>
                         <strong>cancellation-processing-system</strong>
                         <div class="conversation-preview">Click to see 1 conversations grouped by sub-problems</div>
                     </div>
-                    <div class="feature-item clickable-item" data-problem="api-system-access" data-popup="%7B%22conversations%22%3A%20%5B%22Aaron--2025-08-06%2017%3A13%3A07.187000--WEBCHAT.csv%22%2C%20%22Agustin%20Herebia--2025-05-21%2014%3A53%3A59.984059--WEBCHAT.csv%22%2C%20%22Agustin%20Herebia--2025-07-23%2012%3A25%3A02.841000--WEBCHAT.csv%22%2C%20%22%20Bohdan%20%28bohdan.r%40point2web.com%29--2025-04-11%2015%3A11%3A10.213113--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22integrate%20with%20campaign%20management%20system%20to%20allow%20direct%20troubleshooting%22%3A%20%5B%22Aaron--2025-08-06%2017%3A13%3A07.187000--WEBCHAT.csv%22%5D%2C%20%22integrate%20email%20confirmation%20and%20resending%20system%20for%20invoices%22%3A%20%5B%22Agustin%20Herebia--2025-05-21%2014%3A53%3A59.984059--WEBCHAT.csv%22%5D%2C%20%22integrate-invoice-generation-system%22%3A%20%5B%22Agustin%20Herebia--2025-07-23%2012%3A25%3A02.841000--WEBCHAT.csv%22%5D%2C%20%22direct-event-access-modification%22%3A%20%5B%22%20Bohdan%20%28bohdan.r%40point2web.com%29--2025-04-11%2015%3A11%3A10.213113--WEBCHAT.csv%22%5D%2C%20%22integrate%20direct%20event%20access%20management%20capabilities%22%3A%20%5B%22%20Bohdan%20%28bohdan.r%40point2web.com%29--2025-04-11%2015%3A11%3A10.213113--WEBCHAT.csv%22%5D%7D%7D" data-count="1">
+                    <div class="feature-item clickable-item" data-problem="api-system-access" data-popup="%7B%22conversations%22%3A%20%5B%22Aaron--2025-08-06%2017%3A13%3A07.187000--WEBCHAT.csv%22%2C%20%22Agustin%20Herebia--2025-05-21%2014%3A53%3A59.984059--WEBCHAT.csv%22%2C%20%22Agustin%20Herebia--2025-07-23%2012%3A25%3A02.841000--WEBCHAT.csv%22%2C%20%22%20Bohdan%20%28bohdan.r%40point2web.com%29--2025-04-11%2015%3A11%3A10.213113--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22integrate%20with%20campaign%20management%20system%20to%20allow%20direct%20troubleshooting%22%3A%20%5B%22Aaron--2025-08-06%2017%3A13%3A07.187000--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22integrate%20email%20confirmation%20and%20resending%20system%20for%20invoices%22%3A%20%5B%22Agustin%20Herebia--2025-05-21%2014%3A53%3A59.984059--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22integrate-invoice-generation-system%22%3A%20%5B%22Agustin%20Herebia--2025-07-23%2012%3A25%3A02.841000--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22direct-event-access-modification%22%3A%20%5B%22%20Bohdan%20%28bohdan.r%40point2web.com%29--2025-04-11%2015%3A11%3A10.213113--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22integrate%20direct%20event%20access%20management%20capabilities%22%3A%20%5B%22%20Bohdan%20%28bohdan.r%40point2web.com%29--2025-04-11%2015%3A11%3A10.213113--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%7D%7D" data-count="1">
                         <span class="feature-count">1</span>
                         <strong>api-system-access</strong>
                         <div class="conversation-preview">Click to see 1 conversations grouped by sub-problems</div>
@@ -505,7 +526,7 @@
 
                 <h3>3. UI & Workflow Improvements Needed</h3>
                 <div class="issue-list">
-                    <div class="feature-item clickable-item" data-problem="cancellation-processing-system" data-popup="%7B%22conversations%22%3A%20%5B%22Adventurous%20Glacier%20bac1210783--2025-02-27%2015%3A30%3A55.884981--WEBCHAT.csv%22%2C%20%22Absolute%20Batter%20b4c277d68d--2025-02-27%2019%3A01%3A36.388691--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22cancellation%20processing%20system%22%3A%20%5B%22Adventurous%20Glacier%20bac1210783--2025-02-27%2015%3A30%3A55.884981--WEBCHAT.csv%22%5D%2C%20%22integrate%20cancellation%20processing%20workflow%22%3A%20%5B%22Adventurous%20Glacier%20bac1210783--2025-02-27%2015%3A30%3A55.884981--WEBCHAT.csv%22%5D%2C%20%22service-cancellation-workflow%22%3A%20%5B%22Absolute%20Batter%20b4c277d68d--2025-02-27%2019%3A01%3A36.388691--WEBCHAT.csv%22%5D%2C%20%22add-service-cancellation-workflow%22%3A%20%5B%22Absolute%20Batter%20b4c277d68d--2025-02-27%2019%3A01%3A36.388691--WEBCHAT.csv%22%5D%7D%7D" data-count="1">
+                    <div class="feature-item clickable-item" data-problem="cancellation-processing-system" data-popup="%7B%22conversations%22%3A%20%5B%22Adventurous%20Glacier%20bac1210783--2025-02-27%2015%3A30%3A55.884981--WEBCHAT.csv%22%2C%20%22Absolute%20Batter%20b4c277d68d--2025-02-27%2019%3A01%3A36.388691--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22cancellation%20processing%20system%22%3A%20%5B%22Adventurous%20Glacier%20bac1210783--2025-02-27%2015%3A30%3A55.884981--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22integrate%20cancellation%20processing%20workflow%22%3A%20%5B%22Adventurous%20Glacier%20bac1210783--2025-02-27%2015%3A30%3A55.884981--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22service-cancellation-workflow%22%3A%20%5B%22Absolute%20Batter%20b4c277d68d--2025-02-27%2019%3A01%3A36.388691--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22add-service-cancellation-workflow%22%3A%20%5B%22Absolute%20Batter%20b4c277d68d--2025-02-27%2019%3A01%3A36.388691--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%7D%7D" data-count="1">
                         <span class="feature-count">1</span>
                         <strong>cancellation-processing-system</strong>
                         <div class="conversation-preview">Click to see 1 conversations grouped by sub-problems</div>
@@ -514,7 +535,7 @@
 
                 <h3>4. Integration & Third-Party Support Needed</h3>
                 <div class="issue-list">
-                    <div class="feature-item clickable-item" data-problem="third-party-integration-support" data-popup="%7B%22conversations%22%3A%20%5B%22Albert--2025-03-29%2006%3A22%3A30.321654--WEBCHAT.csv%22%2C%20%22Adair--2025-04-07%2017%3A32%3A44.014896--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22ClickMagick%20integration%20instructions%22%3A%20%5B%22Albert--2025-03-29%2006%3A22%3A30.321654--WEBCHAT.csv%22%5D%2C%20%22add%20ClickMagick%20integration%20instructions%22%3A%20%5B%22Albert--2025-03-29%2006%3A22%3A30.321654--WEBCHAT.csv%22%5D%2C%20%22implement%20direct%20support%20or%20escalation%20workflow%20for%20complex%20integration%20issues%22%3A%20%5B%22Adair--2025-04-07%2017%3A32%3A44.014896--WEBCHAT.csv%22%5D%7D%7D" data-count="1">
+                    <div class="feature-item clickable-item" data-problem="third-party-integration-support" data-popup="%7B%22conversations%22%3A%20%5B%22Albert--2025-03-29%2006%3A22%3A30.321654--WEBCHAT.csv%22%2C%20%22Adair--2025-04-07%2017%3A32%3A44.014896--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22ClickMagick%20integration%20instructions%22%3A%20%5B%22Albert--2025-03-29%2006%3A22%3A30.321654--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22add%20ClickMagick%20integration%20instructions%22%3A%20%5B%22Albert--2025-03-29%2006%3A22%3A30.321654--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%2C%20%22implement%20direct%20support%20or%20escalation%20workflow%20for%20complex%20integration%20issues%22%3A%20%5B%22Adair--2025-04-07%2017%3A32%3A44.014896--WEBCHAT.csv%22%2C%20%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%5D%7D%7D" data-count="1">
                         <span class="feature-count">1</span>
                         <strong>third-party-integration-support</strong>
                         <div class="conversation-preview">Click to see 1 conversations grouped by sub-problems</div>
@@ -527,7 +548,7 @@
                 
                 <h3>Successful Capabilities</h3>
                 <div class="issue-list">
-                    <div class="feature-item clickable-item" data-problem="greeting" data-popup="%7B%22conversations%22%3A%20%5B%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%2C%20%22Acyclic%20Producer%20ccbd91cfba--2025-03-09%2018%3A00%3A20.228853--WEBCHAT.csv%22%2C%20%22Achromatic%20Volcano%203566f8ffab--2025-04-26%2021%3A09%3A31.789878--WEBCHAT.csv%22%2C%20%22Absolute%20Payment%20e61994a5a6--2025-04-23%2016%3A57%3A01.203015--WEBCHAT.csv%22%2C%20%22Acute%20Karate%204ff2238e0d--2025-05-29%2012%3A26%3A12.610398--WEBCHAT.csv%22%2C%20%22Acute%20Bright%201b233fabc7--2025-04-10%2016%3A35%3A35.184914--WEBCHAT.csv%22%2C%20%22Abstract%20Vault%2017f885e90d--2025-03-06%2018%3A19%3A48.765735--WEBCHAT.csv%22%2C%20%22Abstract%20Overpass%207655f4c572--2025-05-06%2016%3A29%3A04.192025--WEBCHAT.csv%22%2C%20%22Acoustic%20Coordinate%20c2a102407c--2025-04-22%2003%3A05%3A27.053518--WEBCHAT.csv%22%2C%20%22Acidic%20Root%20bc7de5ee1e--2025-03-09%2011%3A31%3A47.499453--WEBCHAT.csv%22%2C%20%22Adagio%20Lumber%207ffd3d685b--2025-05-06%2007%3A41%3A56.084939--WEBCHAT.csv%22%2C%20%22Agile%20Assistant%208a021217e3--2025-03-01%2013%3A35%3A47.082492--WEBCHAT.csv%22%2C%20%22Affable%20Sport%20795040a475--2025-02-26%2000%3A47%3A34.786516--WEBCHAT.csv%22%2C%20%22111--2025-05-26%2007%3A27%3A42.056464--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22greeting%22%3A%20%5B%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%2C%20%22Acyclic%20Producer%20ccbd91cfba--2025-03-09%2018%3A00%3A20.228853--WEBCHAT.csv%22%2C%20%22Achromatic%20Volcano%203566f8ffab--2025-04-26%2021%3A09%3A31.789878--WEBCHAT.csv%22%2C%20%22Absolute%20Payment%20e61994a5a6--2025-04-23%2016%3A57%3A01.203015--WEBCHAT.csv%22%2C%20%22Acute%20Karate%204ff2238e0d--2025-05-29%2012%3A26%3A12.610398--WEBCHAT.csv%22%2C%20%22Acute%20Bright%201b233fabc7--2025-04-10%2016%3A35%3A35.184914--WEBCHAT.csv%22%2C%20%22Abstract%20Vault%2017f885e90d--2025-03-06%2018%3A19%3A48.765735--WEBCHAT.csv%22%2C%20%22Abstract%20Overpass%207655f4c572--2025-05-06%2016%3A29%3A04.192025--WEBCHAT.csv%22%2C%20%22Acoustic%20Coordinate%20c2a102407c--2025-04-22%2003%3A05%3A27.053518--WEBCHAT.csv%22%2C%20%22Acidic%20Root%20bc7de5ee1e--2025-03-09%2011%3A31%3A47.499453--WEBCHAT.csv%22%2C%20%22Adagio%20Lumber%207ffd3d685b--2025-05-06%2007%3A41%3A56.084939--WEBCHAT.csv%22%2C%20%22Agile%20Assistant%208a021217e3--2025-03-01%2013%3A35%3A47.082492--WEBCHAT.csv%22%2C%20%22Affable%20Sport%20795040a475--2025-02-26%2000%3A47%3A34.786516--WEBCHAT.csv%22%2C%20%22111--2025-05-26%2007%3A27%3A42.056464--WEBCHAT.csv%22%5D%7D%7D" data-count="15">
+                    <div class="feature-item clickable-item" data-problem="greeting" data-popup="%7B%22conversations%22%3A%20%5B%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%2C%20%22Acyclic%20Producer%20ccbd91cfba--2025-03-09%2018%3A00%3A20.228853--WEBCHAT.csv%22%2C%20%22Achromatic%20Volcano%203566f8ffab--2025-04-26%2021%3A09%3A31.789878--WEBCHAT.csv%22%2C%20%22Absolute%20Payment%20e61994a5a6--2025-04-23%2016%3A57%3A01.203015--WEBCHAT.csv%22%2C%20%22Acute%20Karate%204ff2238e0d--2025-05-29%2012%3A26%3A12.610398--WEBCHAT.csv%22%2C%20%22Acute%20Bright%201b233fabc7--2025-04-10%2016%3A35%3A35.184914--WEBCHAT.csv%22%2C%20%22Abstract%20Vault%2017f885e90d--2025-03-06%2018%3A19%3A48.765735--WEBCHAT.csv%22%2C%20%22Abstract%20Overpass%207655f4c572--2025-05-06%2016%3A29%3A04.192025--WEBCHAT.csv%22%2C%20%22Acoustic%20Coordinate%20c2a102407c--2025-04-22%2003%3A05%3A27.053518--WEBCHAT.csv%22%2C%20%22Acidic%20Root%20bc7de5ee1e--2025-03-09%2011%3A31%3A47.499453--WEBCHAT.csv%22%2C%20%22Adagio%20Lumber%207ffd3d685b--2025-05-06%2007%3A41%3A56.084939--WEBCHAT.csv%22%2C%20%22Agile%20Assistant%208a021217e3--2025-03-01%2013%3A35%3A47.082492--WEBCHAT.csv%22%2C%20%22Affable%20Sport%20795040a475--2025-02-26%2000%3A47%3A34.786516--WEBCHAT.csv%22%2C%20%22111--2025-05-26%2007%3A27%3A42.056464--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22greeting%22%3A%20%5B%22Abstract%20Git%20f979aca0cb--2025-03-30%2019%3A40%3A57.996464--WEBCHAT.csv%22%2C%20%22Acute%20Light%205746f05a0b--2025-05-12%2013%3A09%3A23.199863--WEBCHAT.csv%22%2C%20%22Adagio%20Edge%20fb88cd7e3a--2025-03-19%2004%3A42%3A29.516263--WEBCHAT.csv%22%2C%20%22Acyclic%20Producer%20ccbd91cfba--2025-03-09%2018%3A00%3A20.228853--WEBCHAT.csv%22%2C%20%22Achromatic%20Volcano%203566f8ffab--2025-04-26%2021%3A09%3A31.789878--WEBCHAT.csv%22%2C%20%22Absolute%20Payment%20e61994a5a6--2025-04-23%2016%3A57%3A01.203015--WEBCHAT.csv%22%2C%20%22Acute%20Karate%204ff2238e0d--2025-05-29%2012%3A26%3A12.610398--WEBCHAT.csv%22%2C%20%22Acute%20Bright%201b233fabc7--2025-04-10%2016%3A35%3A35.184914--WEBCHAT.csv%22%2C%20%22Abstract%20Vault%2017f885e90d--2025-03-06%2018%3A19%3A48.765735--WEBCHAT.csv%22%2C%20%22Abstract%20Overpass%207655f4c572--2025-05-06%2016%3A29%3A04.192025--WEBCHAT.csv%22%2C%20%22Acoustic%20Coordinate%20c2a102407c--2025-04-22%2003%3A05%3A27.053518--WEBCHAT.csv%22%2C%20%22Acidic%20Root%20bc7de5ee1e--2025-03-09%2011%3A31%3A47.499453--WEBCHAT.csv%22%2C%20%22Adagio%20Lumber%207ffd3d685b--2025-05-06%2007%3A41%3A56.084939--WEBCHAT.csv%22%2C%20%22Agile%20Assistant%208a021217e3--2025-03-01%2013%3A35%3A47.082492--WEBCHAT.csv%22%2C%20%22Affable%20Sport%20795040a475--2025-02-26%2000%3A47%3A34.786516--WEBCHAT.csv%22%2C%20%22111--2025-05-26%2007%3A27%3A42.056464--WEBCHAT.csv%22%2C%20%22Adam--2025-04-02%2016%3A48%3A45.856512--WEBCHAT.csv%22%2C%20%22Abanoob--2025-08-07%2023%3A17%3A35.847000--WEBCHAT.csv%22%2C%20%22Abdullah%20--2025-07-22%2002%3A36%3A57.872000--WEBCHAT.csv%22%5D%7D%7D" data-count="15">
                         <span class="feature-count">15</span>
                         <strong>greeting</strong>
                         <div class="conversation-preview">Click to see 15 conversations grouped by sub-problems</div>
@@ -604,21 +625,39 @@
     </div>
     
     <script>
+        console.log('JavaScript loaded successfully');
+        
         // Delegate click handling for all feature items
         document.addEventListener('click', function(e) {
+            console.log('Click event detected on:', e.target);
+            console.log('Target classes:', e.target.className);
+            console.log('Closest feature-item:', e.target.closest('.feature-item.clickable-item'));
+            
             const featureItem = e.target.closest('.feature-item.clickable-item');
-            if (!featureItem) return;
+            if (!featureItem) {
+                console.log('No clickable feature item found');
+                return;
+            }
+            
+            console.log('Found clickable feature item:', featureItem);
             const problem = featureItem.getAttribute('data-problem');
             const encoded = featureItem.getAttribute('data-popup') || '';
             const countAttr = featureItem.getAttribute('data-count') || '0';
+            
+            console.log('Problem:', problem);
+            console.log('Encoded popup data length:', encoded.length);
+            console.log('Count:', countAttr);
+            
             try {
                 const popupData = decodeURIComponent(encoded);
+                console.log('Decoded popup data length:', popupData.length);
                 showConversations(problem || 'Unknown', popupData, parseInt(countAttr, 10) || 0);
             } catch (err) {
                 console.error('Failed to decode popup data', err);
                 alert('Unable to open conversations for this item.');
             }
         }, false);
+        
         function showConversations(problem, popupData, count) {
             console.log('showConversations called with:', { problem, popupData, count });
             try {
@@ -639,26 +678,45 @@
                     console.log('Using sub_problems structure');
                     // Group by sub-problems
                     for (const [subProblem, conversations] of Object.entries(data.sub_problems)) {
+                        // Deduplicate conversations and limit to 10
+                        const uniqueConversations = [...new Set(conversations)].slice(0, 10);
+                        const totalCount = conversations.length;
+                        
                         html += `<div class="sub-problem-group">
-                            <h4 class="sub-problem-title">${subProblem}</h4>
+                            <h4 class="sub-problem-title">${subProblem} (${totalCount} conversations)</h4>
                             <div class="conversation-files">`;
                         
-                        conversations.forEach(conv => {
+                        uniqueConversations.forEach(conv => {
                             html += `<div class="conversation-file" onclick="showConversationHistory('${conv}')">
                                 📄 ${conv}
                             </div>`;
                         });
                         
+                        if (totalCount > 10) {
+                            html += `<div class="conversation-file-more" style="text-align: center; color: #6c757d; font-style: italic; padding: 8px;">
+                                ... and ${totalCount - 10} more conversations
+                            </div>`;
+                        }
+                        
                         html += `</div></div>`;
                     }
                 } else if (data.conversations) {
                     console.log('Using conversations structure');
-                    // Fallback to simple list
-                    data.conversations.forEach(conv => {
+                    // Fallback to simple list - also deduplicate and limit
+                    const uniqueConversations = [...new Set(data.conversations)].slice(0, 10);
+                    const totalCount = data.conversations.length;
+                    
+                    uniqueConversations.forEach(conv => {
                         html += `<div class="conversation-file" onclick="showConversationHistory('${conv}')">
                             📄 ${conv}
                         </div>`;
                     });
+                    
+                    if (totalCount > 10) {
+                        html += `<div class="conversation-file-more" style="text-align: center; color: #6c757d; font-style: italic; padding: 8px;">
+                            ... and ${totalCount - 10} more conversations
+                        </div>`;
+                    }
                 } else {
                     console.log('No valid data structure found');
                 }
@@ -704,8 +762,8 @@
         }
         
         function loadCSVContent(filename) {
-            // Try to find the CSV file in the analysis_out directory
-            const csvPath = `analysis_out/${filename}`;
+            // Try to find the CSV file in the Bot directory
+            const csvPath = `Bot_714b4955-90a2-4693-9380-a28dffee2e3a_Year_2025_4a86f154be3a4925a510e33bdda399b3 (3)/${filename}`;
             
             fetch(csvPath)
                 .then(response => {
@@ -736,8 +794,7 @@
         function displayConversationHistory(csvText, filename) {
             try {
                 // Parse CSV content
-                const lines = csvText.split('
-').filter(line => line.trim());
+                const lines = csvText.split('\n').filter(line => line.trim());
                 if (lines.length === 0) {
                     throw new Error('Empty CSV file');
                 }
@@ -754,7 +811,10 @@
                         headers.forEach((header, index) => {
                             conversation[header] = values[index] || '';
                         });
-                        conversations.push(conversation);
+                        // Only add messages that have actual content
+                        if (conversation['Message'] && conversation['Message'].trim()) {
+                            conversations.push(conversation);
+                        }
                     }
                 }
                 
@@ -768,8 +828,8 @@
                     </div>
                     <div class="conversation-messages">
                         ${conversations.map((msg, index) => {
-                            const isUser = msg.speaker && msg.speaker.toLowerCase().includes('user');
-                            const isBot = msg.speaker && (msg.speaker.toLowerCase().includes('bot') || msg.speaker.toLowerCase().includes('assistant'));
+                            const isUser = msg['Sender type'] && msg['Sender type'].toLowerCase().includes('web');
+                            const isBot = msg['Sender type'] && msg['Sender type'].toLowerCase().includes('bot');
                             const speakerClass = isUser ? 'user-message' : isBot ? 'bot-message' : 'system-message';
                             const speakerIcon = isUser ? '👤' : isBot ? '🤖' : '⚙️';
                             
@@ -777,11 +837,11 @@
                                 <div class="message ${speakerClass}">
                                     <div class="message-header">
                                         <span class="speaker-icon">${speakerIcon}</span>
-                                        <span class="speaker-name">${msg.speaker || 'Unknown'}</span>
-                                        ${msg.timestamp ? `<span class="timestamp">${msg.timestamp}</span>` : ''}
+                                        <span class="speaker-name">${msg['Sender full name'] || msg['Sender name'] || 'Unknown'}</span>
+                                        ${msg['Time in GMT'] ? `<span class="timestamp">${msg['Time in GMT']}</span>` : ''}
                                     </div>
                                     <div class="message-content">
-                                        ${msg.message || msg.content || msg.text || 'No message content'}
+                                        ${msg['Message'] || 'No message content'}
                                     </div>
                                 </div>
                             `;

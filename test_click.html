@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Test</title>
+    <style>
+        .feature-item {
+            background: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .clickable-item {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .clickable-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .conversation-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .conversation-modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .conversation-modal-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+
+        .conversation-modal-close:hover {
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Click Test</h1>
+
+    <div class="feature-item clickable-item" data-problem="test-problem"
+        data-popup="%7B%22conversations%22%3A%20%5B%22test1.csv%22%2C%20%22test2.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22sub1%22%3A%20%5B%22test1.csv%22%5D%2C%20%22sub2%22%3A%20%5B%22test2.csv%22%5D%7D%7D"
+        data-count="2">
+        <strong>Test Problem</strong>
+        <div>Click me to test!</div>
+    </div>
+
+    <!-- Conversation Modal -->
+    <div id="conversationModal" class="conversation-modal">
+        <div class="conversation-modal-content">
+            <span class="conversation-modal-close" onclick="closeConversationModal()">&times;</span>
+            <h2 id="modalTitle">Conversation Details</h2>
+            <div id="modalContent">
+                <div class="conversation-list" id="conversationList">
+                    <!-- Conversations will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        console.log('JavaScript loaded successfully');
+
+        // Delegate click handling for all feature items
+        document.addEventListener('click', function (e) {
+            console.log('Click event detected on:', e.target);
+            console.log('Target classes:', e.target.className);
+            console.log('Closest feature-item:', e.target.closest('.feature-item.clickable-item'));
+
+            const featureItem = e.target.closest('.feature-item.clickable-item');
+            if (!featureItem) {
+                console.log('No clickable feature item found');
+                return;
+            }
+
+            console.log('Found clickable feature item:', featureItem);
+            const problem = featureItem.getAttribute('data-problem');
+            const encoded = featureItem.getAttribute('data-popup') || '';
+            const countAttr = featureItem.getAttribute('data-count') || '0';
+
+            console.log('Problem:', problem);
+            console.log('Encoded popup data length:', encoded.length);
+            console.log('Count:', countAttr);
+
+            try {
+                const popupData = decodeURIComponent(encoded);
+                console.log('Decoded popup data length:', popupData.length);
+                showConversations(problem || 'Unknown', popupData, parseInt(countAttr, 10) || 0);
+            } catch (err) {
+                console.error('Failed to decode popup data', err);
+                alert('Unable to open conversations for this item.');
+            }
+        }, false);
+
+        function showConversations(problem, popupData, count) {
+            console.log('showConversations called with:', { problem, popupData, count });
+            try {
+                const data = JSON.parse(popupData);
+                console.log('Parsed data:', data);
+
+                const modal = document.getElementById('conversationModal');
+                const modalTitle = document.getElementById('modalTitle');
+                const conversationListDiv = document.getElementById('conversationList');
+
+                // Set title
+                modalTitle.textContent = `${problem} (${count} conversations)`;
+
+                // Build HTML content with sub-problems grouped
+                let html = '<div class="conversation-groups">';
+
+                if (data.sub_problems) {
+                    console.log('Using sub_problems structure');
+                    // Group by sub-problems
+                    for (const [subProblem, conversations] of Object.entries(data.sub_problems)) {
+                        html += `<div class="sub-problem-group">
+                            <h4 class="sub-problem-title">${subProblem}</h4>
+                            <div class="conversation-files">`;
+
+                        conversations.forEach(conv => {
+                            html += `<div class="conversation-file">
+                                📄 ${conv}
+                            </div>`;
+                        });
+
+                        html += `</div></div>`;
+                    }
+                } else if (data.conversations) {
+                    console.log('Using conversations structure');
+                    // Fallback to simple list
+                    data.conversations.forEach(conv => {
+                        html += `<div class="conversation-file">
+                            📄 ${conv}
+                        </div>`;
+                    });
+                } else {
+                    console.log('No valid data structure found');
+                }
+
+                html += '</div>';
+                conversationListDiv.innerHTML = html;
+                modal.style.display = 'block';
+
+            } catch (error) {
+                console.error('Error parsing popup data:', error);
+                console.log('Raw popup data:', popupData);
+                // Fallback to simple display
+                conversationListDiv.innerHTML = popupData;
+                modal.style.display = 'block';
+            }
+        }
+
+        function closeConversationModal() {
+            const modal = document.getElementById('conversationModal');
+            modal.style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function (event) {
+            const modal = document.getElementById('conversationModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>

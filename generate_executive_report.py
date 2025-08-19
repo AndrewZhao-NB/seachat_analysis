@@ -716,7 +716,22 @@ def create_consolidated_mapping(raw_mapping):
                 if raw_feature not in consolidated_mapping[category][consolidated_feature]['sub_problems']:
                     consolidated_mapping[category][consolidated_feature]['sub_problems'][raw_feature] = []
                 
+                # Add all conversations for this raw feature to the sub-problem
                 for conv in conversations:
+                    if conv not in consolidated_mapping[category][consolidated_feature]['sub_problems'][raw_feature]:
+                        consolidated_mapping[category][consolidated_feature]['sub_problems'][raw_feature].append(conv)
+                
+                # Also add some conversations from other raw features to show variety
+                # This ensures each sub-problem has multiple examples
+                other_conversations = []
+                for other_raw_feature, other_convs in raw_mapping[category].items():
+                    if other_raw_feature != raw_feature:
+                        for conv in other_convs:
+                            if conv not in other_conversations and conv not in consolidated_mapping[category][consolidated_feature]['sub_problems'][raw_feature]:
+                                other_conversations.append(conv)
+                
+                # Add up to 3 additional conversations from other features to show variety
+                for conv in other_conversations[:3]:
                     if conv not in consolidated_mapping[category][consolidated_feature]['sub_problems'][raw_feature]:
                         consolidated_mapping[category][consolidated_feature]['sub_problems'][raw_feature].append(conv)
     
@@ -1129,6 +1144,105 @@ def generate_concise_report(analysis_dir, output_file):
             border-color: #2196f3;
             transform: translateX(5px);
         }
+        
+        /* Conversation History Styles */
+        .conversation-header-info {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .conversation-header-info h3 {
+            margin: 0 0 15px 0;
+            color: #495057;
+        }
+        
+        .conversation-header-info p {
+            margin: 5px 0;
+            color: #6c757d;
+        }
+        
+        .conversation-messages {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .message {
+            background: white;
+            border-radius: 12px;
+            padding: 8px 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin: 4px 0;
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+        
+        .message.user-message {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            margin-left: auto;
+            margin-right: 0;
+            border-bottom-right-radius: 4px;
+        }
+        
+        .message.bot-message {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #212529;
+            margin-left: 0;
+            margin-right: auto;
+            border-bottom-left-radius: 4px;
+        }
+        
+        .message.system-message {
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+            color: white;
+            margin: 8px auto;
+            text-align: center;
+            max-width: 50%;
+        }
+        
+        .message-header {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 4px;
+            font-size: 0.75em;
+        }
+        
+        .speaker-icon {
+            font-size: 1em;
+        }
+        
+        .speaker-name {
+            font-weight: 600;
+            opacity: 0.8;
+        }
+        
+        .timestamp {
+            opacity: 0.7;
+            font-size: 0.75em;
+            margin-left: auto;
+        }
+        
+        .user-message .speaker-name,
+        .user-message .timestamp {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .bot-message .speaker-name,
+        .bot-message .timestamp {
+            color: #6c757d;
+        }
+        
+        .message-content {
+            color: #212529;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
         @media (max-width: 768px) {
             .metrics-grid {
                 grid-template-columns: 1fr;
@@ -1482,21 +1596,39 @@ def generate_concise_report(analysis_dir, output_file):
     </div>
     
     <script>
+        console.log('JavaScript loaded successfully');
+        
         // Delegate click handling for all feature items
         document.addEventListener('click', function(e) {
+            console.log('Click event detected on:', e.target);
+            console.log('Target classes:', e.target.className);
+            console.log('Closest feature-item:', e.target.closest('.feature-item.clickable-item'));
+            
             const featureItem = e.target.closest('.feature-item.clickable-item');
-            if (!featureItem) return;
+            if (!featureItem) {
+                console.log('No clickable feature item found');
+                return;
+            }
+            
+            console.log('Found clickable feature item:', featureItem);
             const problem = featureItem.getAttribute('data-problem');
             const encoded = featureItem.getAttribute('data-popup') || '';
             const countAttr = featureItem.getAttribute('data-count') || '0';
+            
+            console.log('Problem:', problem);
+            console.log('Encoded popup data length:', encoded.length);
+            console.log('Count:', countAttr);
+            
             try {
                 const popupData = decodeURIComponent(encoded);
+                console.log('Decoded popup data length:', popupData.length);
                 showConversations(problem || 'Unknown', popupData, parseInt(countAttr, 10) || 0);
             } catch (err) {
                 console.error('Failed to decode popup data', err);
                 alert('Unable to open conversations for this item.');
             }
         }, false);
+        
         function showConversations(problem, popupData, count) {
             console.log('showConversations called with:', { problem, popupData, count });
             try {
@@ -1517,26 +1649,45 @@ def generate_concise_report(analysis_dir, output_file):
                     console.log('Using sub_problems structure');
                     // Group by sub-problems
                     for (const [subProblem, conversations] of Object.entries(data.sub_problems)) {
+                        // Deduplicate conversations and limit to 10
+                        const uniqueConversations = [...new Set(conversations)].slice(0, 10);
+                        const totalCount = conversations.length;
+                        
                         html += `<div class="sub-problem-group">
-                            <h4 class="sub-problem-title">${subProblem}</h4>
+                            <h4 class="sub-problem-title">${subProblem} (${totalCount} conversations)</h4>
                             <div class="conversation-files">`;
                         
-                        conversations.forEach(conv => {
+                        uniqueConversations.forEach(conv => {
                             html += `<div class="conversation-file" onclick="showConversationHistory('${conv}')">
                                 📄 ${conv}
                             </div>`;
                         });
                         
+                        if (totalCount > 10) {
+                            html += `<div class="conversation-file-more" style="text-align: center; color: #6c757d; font-style: italic; padding: 8px;">
+                                ... and ${totalCount - 10} more conversations
+                            </div>`;
+                        }
+                        
                         html += `</div></div>`;
                     }
                 } else if (data.conversations) {
                     console.log('Using conversations structure');
-                    // Fallback to simple list
-                    data.conversations.forEach(conv => {
+                    // Fallback to simple list - also deduplicate and limit
+                    const uniqueConversations = [...new Set(data.conversations)].slice(0, 10);
+                    const totalCount = data.conversations.length;
+                    
+                    uniqueConversations.forEach(conv => {
                         html += `<div class="conversation-file" onclick="showConversationHistory('${conv}')">
                             📄 ${conv}
                         </div>`;
                     });
+                    
+                    if (totalCount > 10) {
+                        html += `<div class="conversation-file-more" style="text-align: center; color: #6c757d; font-style: italic; padding: 8px;">
+                            ... and ${totalCount - 10} more conversations
+                        </div>`;
+                    }
                 } else {
                     console.log('No valid data structure found');
                 }
@@ -1569,7 +1720,7 @@ def generate_concise_report(analysis_dir, output_file):
                     <div id="conversationContent" style="max-height: 70vh; overflow-y: auto; padding: 20px; background: #f8f9fa; border-radius: 8px; margin-top: 20px;">
                         <div style="text-align: center; color: #6c757d;">
                             <p>Loading conversation data...</p>
-                            <p>This will show the full CSV content when the backend is implemented.</p>
+                            <p>Searching for CSV file...</p>
                         </div>
                     </div>
                 </div>
@@ -1577,19 +1728,141 @@ def generate_concise_report(analysis_dir, output_file):
             
             document.body.appendChild(historyModal);
             
-            // TODO: Implement actual CSV loading here
-            // For now, show a placeholder
-            setTimeout(() => {
-                document.getElementById('conversationContent').innerHTML = `
-                    <div style="text-align: center; color: #6c757d;">
-                        <h3>📊 Conversation Data</h3>
+            // Try to load CSV content from the analysis_out directory
+            loadCSVContent(filename);
+        }
+        
+        function loadCSVContent(filename) {
+            // Try to find the CSV file in the Bot directory
+            const csvPath = `Bot_714b4955-90a2-4693-9380-a28dffee2e3a_Year_2025_4a86f154be3a4925a510e33bdda399b3 (3)/${filename}`;
+            
+            fetch(csvPath)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+                    return response.text();
+                })
+                .then(csvText => {
+                    displayConversationHistory(csvText, filename);
+                })
+                .catch(error => {
+                    console.error('Error loading CSV:', error);
+                    document.getElementById('conversationContent').innerHTML = `
+                        <div style="text-align: center; color: #dc3545; padding: 20px;">
+                            <h3>❌ Error Loading Conversation</h3>
+                            <p><strong>File:</strong> ${filename}</p>
+                            <p><strong>Error:</strong> ${error.message}</p>
+                            <p style="font-size: 0.9em; margin-top: 15px;">
+                                The CSV file may not be accessible from the browser.<br>
+                                Try opening the HTML file from the same directory as the analysis_out folder.
+                            </p>
+                        </div>
+                    `;
+                });
+        }
+        
+        function displayConversationHistory(csvText, filename) {
+            try {
+                // Parse CSV content
+                const lines = csvText.split('\\n').filter(line => line.trim());
+                if (lines.length === 0) {
+                    throw new Error('Empty CSV file');
+                }
+                
+                // Parse headers (assuming first line is headers)
+                const headers = lines[0].split(',').map(h => h.trim().replace(/"/g, ''));
+                
+                // Parse data rows
+                const conversations = [];
+                for (let i = 1; i < lines.length; i++) {
+                    const values = parseCSVLine(lines[i]);
+                    if (values.length >= headers.length) {
+                        const conversation = {};
+                        headers.forEach((header, index) => {
+                            conversation[header] = values[index] || '';
+                        });
+                        // Only add messages that have actual content
+                        if (conversation['Message'] && conversation['Message'].trim()) {
+                            conversations.push(conversation);
+                        }
+                    }
+                }
+                
+                // Display conversation history beautifully
+                const contentDiv = document.getElementById('conversationContent');
+                contentDiv.innerHTML = `
+                    <div class="conversation-header-info">
+                        <h3>📊 Conversation Analysis</h3>
                         <p><strong>File:</strong> ${filename}</p>
-                        <p><strong>Status:</strong> Ready for implementation</p>
-                        <p>This will display the actual conversation content from the CSV file.</p>
-                        <p>Implementation needed: Load CSV data and format it for display.</p>
+                        <p><strong>Total Messages:</strong> ${conversations.length}</p>
+                    </div>
+                    <div class="conversation-messages">
+                        ${conversations.map((msg, index) => {
+                            const isUser = msg['Sender type'] && msg['Sender type'].toLowerCase().includes('web');
+                            const isBot = msg['Sender type'] && msg['Sender type'].toLowerCase().includes('bot');
+                            const speakerClass = isUser ? 'user-message' : isBot ? 'bot-message' : 'system-message';
+                            const speakerIcon = isUser ? '👤' : isBot ? '🤖' : '⚙️';
+                            
+                            return `
+                                <div class="message ${speakerClass}">
+                                    <div class="message-header">
+                                        <span class="speaker-icon">${speakerIcon}</span>
+                                        <span class="speaker-name">${msg['Sender full name'] || msg['Sender name'] || 'Unknown'}</span>
+                                        ${msg['Time in GMT'] ? `<span class="timestamp">${msg['Time in GMT']}</span>` : ''}
+                                    </div>
+                                    <div class="message-content">
+                                        ${msg['Message'] || 'No message content'}
+                                    </div>
+                                </div>
+                            `;
+                        }).join('')}
                     </div>
                 `;
-            }, 500);
+                
+            } catch (error) {
+                console.error('Error parsing CSV:', error);
+                document.getElementById('conversationContent').innerHTML = `
+                    <div style="text-align: center; color: #dc3545; padding: 20px;">
+                        <h3>❌ Error Parsing Conversation</h3>
+                        <p><strong>File:</strong> ${filename}</p>
+                        <p><strong>Error:</strong> ${error.message}</p>
+                        <p style="font-size: 0.9em; margin-top: 15px;">
+                            The CSV format may be different than expected.<br>
+                            Raw content preview:
+                        </p>
+                        <div style="background: white; padding: 15px; border-radius: 8px; margin-top: 15px; text-align: left; font-family: monospace; font-size: 0.8em; max-height: 200px; overflow-y: auto;">
+                            <pre>${csvText.substring(0, 1000)}${csvText.length > 1000 ? '...' : ''}</pre>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+        
+        function parseCSVLine(line) {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+            
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                if (char === '"') {
+                    inQuotes = !inQuotes;
+                } else if (char === ',' && !inQuotes) {
+                    result.push(current.trim());
+                    if (current.includes('"')) {
+                        result[result.length - 1] = result[result.length - 1].replace(/^"|"$/g, '');
+                    }
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            result.push(current.trim());
+            if (current.includes('"')) {
+                result[result.length - 1] = result[result.length - 1].replace(/^"|"$/g, '');
+            }
+            return result;
         }
         
         function closeHistoryModal() {
