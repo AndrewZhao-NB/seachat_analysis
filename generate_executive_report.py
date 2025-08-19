@@ -6,6 +6,7 @@ Generates a comprehensive, presentation-ready report with key insights and actio
 
 import os
 import json
+import urllib.parse
 import pandas as pd
 from collections import Counter
 import argparse
@@ -35,13 +36,8 @@ def load_analysis_data(analysis_dir):
         # Create consolidated mapping for HTML report
         data['problem_mapping'] = create_consolidated_mapping(raw_mapping)
         
-        # Save consolidated mapping for debugging
-        consolidated_mapping_path = os.path.join(analysis_dir, "consolidated_problem_mapping.json")
-        with open(consolidated_mapping_path, 'w', encoding='utf-8') as f:
-            json.dump(data['problem_mapping'], f, ensure_ascii=False, indent=2)
-        
         print(f"  ✅  Loaded problem mapping: {mapping_path}")
-        print(f"  ✅  Created consolidated mapping: {consolidated_mapping_path}")
+        print(f"  ✅  Created consolidated mapping in memory")
         
         # Debug: Show what's in the consolidated mapping
         print(f"  🔍  CONSOLIDATED MAPPING DEBUG:")
@@ -706,12 +702,23 @@ def create_consolidated_mapping(raw_mapping):
                 consolidated_feature = consolidate_similar_features(raw_feature)
                 
                 if consolidated_feature not in consolidated_mapping[category]:
-                    consolidated_mapping[category][consolidated_feature] = []
+                    consolidated_mapping[category][consolidated_feature] = {
+                        'conversations': [],
+                        'sub_problems': {}
+                    }
                 
                 # Add conversations (avoid duplicates)
                 for conv in conversations:
-                    if conv not in consolidated_mapping[category][consolidated_feature]:
-                        consolidated_mapping[category][consolidated_feature].append(conv)
+                    if conv not in consolidated_mapping[category][consolidated_feature]['conversations']:
+                        consolidated_mapping[category][consolidated_feature]['conversations'].append(conv)
+                
+                # Group by sub-problems (raw feature names)
+                if raw_feature not in consolidated_mapping[category][consolidated_feature]['sub_problems']:
+                    consolidated_mapping[category][consolidated_feature]['sub_problems'][raw_feature] = []
+                
+                for conv in conversations:
+                    if conv not in consolidated_mapping[category][consolidated_feature]['sub_problems'][raw_feature]:
+                        consolidated_mapping[category][consolidated_feature]['sub_problems'][raw_feature].append(conv)
     
     return consolidated_mapping
 
@@ -1077,6 +1084,51 @@ def generate_concise_report(analysis_dir, output_file):
             font-family: monospace;
             font-size: 0.9em;
         }
+        
+        .conversation-groups {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .sub-problem-group {
+            margin: 15px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .sub-problem-title {
+            margin: 0 0 10px 0;
+            color: #495057;
+            font-size: 1.1em;
+            font-weight: 600;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 5px;
+        }
+        
+        .conversation-files {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .conversation-file {
+            padding: 8px 12px;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+        
+        .conversation-file:hover {
+            background: #e3f2fd;
+            border-color: #2196f3;
+            transform: translateX(5px);
+        }
         @media (max-width: 768px) {
             .metrics-grid {
                 grid-template-columns: 1fr;
@@ -1137,25 +1189,32 @@ def generate_concise_report(analysis_dir, output_file):
             print(f"     - data['problem_mapping']['missing_features'] keys: {list(data.get('problem_mapping', {}).get('missing_features', {}).keys())[:3]}")
             
             # Check all mapping categories for this feature
-            conversation_files = []
+            feature_data = None
             for category in ['missing_features', 'api_problems', 'ui_problems', 'integration_problems']:
-                files = data.get('problem_mapping', {}).get(category, {}).get(feature, [])
-                print(f"     - Checking {category}: {len(files) if files else 0} files")
-                if files:
-                    conversation_files.extend(files)
-                    print(f"     - Found {len(files)} conversations in {category}: {files[:3]}")
+                feature_data = data.get('problem_mapping', {}).get(category, {}).get(feature)
+                if feature_data:
+                    print(f"     - Found feature data in {category}")
                     break
             
-            if not conversation_files:
-                print(f"     - No conversations found in any category")
-            
-            conversation_list = ', '.join(conversation_files) if conversation_files else 'No conversations found'
-            
-            html_report += f"""
-                    <div class="feature-item clickable-item" onclick="showConversations('{feature}', '{conversation_list}', {count})">
+            if feature_data and isinstance(feature_data, dict) and 'conversations' in feature_data:
+                # Encode JSON for safe embedding in data- attribute
+                popup_json = json.dumps(feature_data, ensure_ascii=False)
+                popup_data = urllib.parse.quote(popup_json)
+                print(f"     - Creating clickable item with popup data length: {len(popup_json)}")
+                html_report += f"""
+                    <div class="feature-item clickable-item" data-problem="{feature}" data-popup="{popup_data}" data-count="{count}" style="border: 2px solid #007bff; padding: 10px; margin: 5px 0;">
                         <span class="feature-count">{count:,}</span>
                         <strong>{feature}</strong>
-                        <div class="conversation-preview">Click to see {count} conversations</div>
+                        <div class="conversation-preview">Click to see {count} conversations grouped by sub-problems</div>
+                        <div style="font-size: 0.7em; color: #666; margin-top: 5px;">DEBUG: Clickable item with {len(popup_json)} chars of data</div>
+                    </div>"""
+            else:
+                print(f"     - Feature data not available or invalid structure: {type(feature_data)}")
+                html_report += f"""
+                    <div class="feature-item">
+                        <span class="feature-count">{count:,}</span>
+                        <strong>{feature}</strong>
+                        <div class="conversation-preview">No conversation data available</div>
                     </div>"""
     else:
         html_report += """
@@ -1187,25 +1246,29 @@ def generate_concise_report(analysis_dir, output_file):
             print(f"  🔍  API LOOKUP: Looking for '{problem}' in consolidated mapping")
             
             # Check all mapping categories for this problem
-            conversation_files = []
+            feature_data = None
             for category in ['missing_features', 'api_problems', 'ui_problems', 'integration_problems']:
-                files = data.get('problem_mapping', {}).get(category, {}).get(problem, [])
-                print(f"     - Checking {category}: {len(files) if files else 0} files")
-                if files:
-                    conversation_files.extend(files)
-                    print(f"     - Found {len(files)} conversations in {category}: {files[:3]}")
+                feature_data = data.get('problem_mapping', {}).get(category, {}).get(problem)
+                if feature_data:
+                    print(f"     - Found feature data in {category}")
                     break
             
-            if not conversation_files:
-                print(f"     - No conversations found in any category")
-            
-            conversation_list = ', '.join(conversation_files) if conversation_files else 'No conversations found'
-            
-            html_report += f"""
-                    <div class="feature-item clickable-item" onclick="showConversations('{problem}', '{conversation_list}', {count})">
+            if feature_data:
+                # Encode JSON for safe embedding in data- attribute
+                popup_json = json.dumps(feature_data, ensure_ascii=False)
+                popup_data = urllib.parse.quote(popup_json)
+                html_report += f"""
+                    <div class="feature-item clickable-item" data-problem="{problem}" data-popup="{popup_data}" data-count="{count}">
                         <span class="feature-count">{count}</span>
                         <strong>{problem}</strong>
-                        <div class="conversation-preview">Click to see {count} conversations</div>
+                        <div class="conversation-preview">Click to see {count} conversations grouped by sub-problems</div>
+                    </div>"""
+            else:
+                html_report += f"""
+                    <div class="feature-item">
+                        <span class="feature-count">{count}</span>
+                        <strong>{problem}</strong>
+                        <div class="conversation-preview">No conversation data available</div>
                     </div>"""
     else:
         html_report += """
@@ -1235,20 +1298,28 @@ def generate_concise_report(analysis_dir, output_file):
         for problem, count in problem_counts.most_common(5):
             # Get conversation files for this UI problem
             # Check all mapping categories for this problem
-            conversation_files = []
+            feature_data = None
             for category in ['missing_features', 'api_problems', 'ui_problems', 'integration_problems']:
-                files = data.get('problem_mapping', {}).get(category, {}).get(problem, [])
-                if files:
-                    conversation_files.extend(files)
+                feature_data = data.get('problem_mapping', {}).get(category, {}).get(problem)
+                if feature_data:
                     break
             
-            conversation_list = ', '.join(conversation_files) if conversation_files else 'No conversations found'
-            
-            html_report += f"""
-                    <div class="feature-item clickable-item" onclick="showConversations('{problem}', '{conversation_list}', {count})">
+            if feature_data:
+                # Encode JSON for safe embedding in data- attribute
+                popup_json = json.dumps(feature_data, ensure_ascii=False)
+                popup_data = urllib.parse.quote(popup_json)
+                html_report += f"""
+                    <div class="feature-item clickable-item" data-problem="{problem}" data-popup="{popup_data}" data-count="{count}">
                         <span class="feature-count">{count}</span>
                         <strong>{problem}</strong>
-                        <div class="conversation-preview">Click to see {count} conversations</div>
+                        <div class="conversation-preview">Click to see {count} conversations grouped by sub-problems</div>
+                    </div>"""
+            else:
+                html_report += f"""
+                    <div class="feature-item">
+                        <span class="feature-count">{count}</span>
+                        <strong>{problem}</strong>
+                        <div class="conversation-preview">No conversation data available</div>
                     </div>"""
     else:
         html_report += """
@@ -1278,20 +1349,28 @@ def generate_concise_report(analysis_dir, output_file):
         for problem, count in problem_counts.most_common(5):
             # Get conversation files for this integration problem
             # Check all mapping categories for this problem
-            conversation_files = []
+            feature_data = None
             for category in ['missing_features', 'api_problems', 'ui_problems', 'integration_problems']:
-                files = data.get('problem_mapping', {}).get(category, {}).get(problem, [])
-                if files:
-                    conversation_files.extend(files)
+                feature_data = data.get('problem_mapping', {}).get(category, {}).get(problem)
+                if feature_data:
                     break
             
-            conversation_list = ', '.join(conversation_files) if conversation_files else 'No conversations found'
-            
-            html_report += f"""
-                    <div class="feature-item clickable-item" onclick="showConversations('{problem}', '{conversation_list}', {count})">
+            if feature_data:
+                # Encode JSON for safe embedding in data- attribute
+                popup_json = json.dumps(feature_data, ensure_ascii=False)
+                popup_data = urllib.parse.quote(popup_json)
+                html_report += f"""
+                    <div class="feature-item clickable-item" data-problem="{problem}" data-popup="{popup_data}" data-count="{count}">
                         <span class="feature-count">{count}</span>
                         <strong>{problem}</strong>
-                        <div class="conversation-preview">Click to see {count} conversations</div>
+                        <div class="conversation-preview">Click to see {count} conversations grouped by sub-problems</div>
+                    </div>"""
+            else:
+                html_report += f"""
+                    <div class="feature-item">
+                        <span class="feature-count">{count}</span>
+                        <strong>{problem}</strong>
+                        <div class="conversation-preview">No conversation data available</div>
                     </div>"""
     else:
         html_report += """
@@ -1324,14 +1403,24 @@ def generate_concise_report(analysis_dir, output_file):
         cap_counts = Counter(successful_capabilities)
         for capability, count in cap_counts.most_common(5):
             # Get conversation files for this successful capability
-            conversation_files = data.get('problem_mapping', {}).get('successful_capabilities', {}).get(capability, [])
-            conversation_list = ', '.join(conversation_files) if conversation_files else 'No conversations found'
+            feature_data = data.get('problem_mapping', {}).get('successful_capabilities', {}).get(capability)
             
-            html_report += f"""
-                    <div class="feature-item clickable-item" onclick="showConversations('{capability}', '{conversation_list}', {count})">
+            if feature_data:
+                # Encode JSON for safe embedding in data- attribute
+                popup_json = json.dumps(feature_data, ensure_ascii=False)
+                popup_data = urllib.parse.quote(popup_json)
+                html_report += f"""
+                    <div class="feature-item clickable-item" data-problem="{capability}" data-popup="{popup_data}" data-count="{count}">
                         <span class="feature-count">{count}</span>
                         <strong>{capability}</strong>
-                        <div class="conversation-preview">Click to see {count} conversations</div>
+                        <div class="conversation-preview">Click to see {count} conversations grouped by sub-problems</div>
+                    </div>"""
+            else:
+                html_report += f"""
+                    <div class="feature-item">
+                        <span class="feature-count">{count}</span>
+                        <strong>{capability}</strong>
+                        <div class="conversation-preview">No conversation data available</div>
                     </div>"""
     else:
         html_report += """
@@ -1381,31 +1470,150 @@ def generate_concise_report(analysis_dir, output_file):
         </div>
     </div>
     
+    <!-- Test button to verify JavaScript is working -->
+    <div style="text-align: center; margin: 20px; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+        <button onclick="alert('JavaScript is working!')" style="padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Test JavaScript
+        </button>
+        <button onclick="testModal()" style="padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">
+            Test Modal
+        </button>
+        <p style="margin-top: 10px; font-size: 0.9em; color: #666;">Click these buttons to verify JavaScript and modal are working</p>
+    </div>
+    
     <script>
-        function showConversations(problem, conversationList, count) {
+        // Delegate click handling for all feature items
+        document.addEventListener('click', function(e) {
+            const featureItem = e.target.closest('.feature-item.clickable-item');
+            if (!featureItem) return;
+            const problem = featureItem.getAttribute('data-problem');
+            const encoded = featureItem.getAttribute('data-popup') || '';
+            const countAttr = featureItem.getAttribute('data-count') || '0';
+            try {
+                const popupData = decodeURIComponent(encoded);
+                showConversations(problem || 'Unknown', popupData, parseInt(countAttr, 10) || 0);
+            } catch (err) {
+                console.error('Failed to decode popup data', err);
+                alert('Unable to open conversations for this item.');
+            }
+        }, false);
+        function showConversations(problem, popupData, count) {
+            console.log('showConversations called with:', { problem, popupData, count });
+            try {
+                const data = JSON.parse(popupData);
+                console.log('Parsed data:', data);
+                
+                const modal = document.getElementById('conversationModal');
+                const modalTitle = document.getElementById('modalTitle');
+                const conversationListDiv = document.getElementById('conversationList');
+                
+                // Set title
+                modalTitle.textContent = `${problem} (${count} conversations)`;
+                
+                // Build HTML content with sub-problems grouped
+                let html = '<div class="conversation-groups">';
+                
+                if (data.sub_problems) {
+                    console.log('Using sub_problems structure');
+                    // Group by sub-problems
+                    for (const [subProblem, conversations] of Object.entries(data.sub_problems)) {
+                        html += `<div class="sub-problem-group">
+                            <h4 class="sub-problem-title">${subProblem}</h4>
+                            <div class="conversation-files">`;
+                        
+                        conversations.forEach(conv => {
+                            html += `<div class="conversation-file" onclick="showConversationHistory('${conv}')">
+                                📄 ${conv}
+                            </div>`;
+                        });
+                        
+                        html += `</div></div>`;
+                    }
+                } else if (data.conversations) {
+                    console.log('Using conversations structure');
+                    // Fallback to simple list
+                    data.conversations.forEach(conv => {
+                        html += `<div class="conversation-file" onclick="showConversationHistory('${conv}')">
+                            📄 ${conv}
+                        </div>`;
+                    });
+                } else {
+                    console.log('No valid data structure found');
+                }
+                
+                html += '</div>';
+                conversationListDiv.innerHTML = html;
+                modal.style.display = 'block';
+                
+            } catch (error) {
+                console.error('Error parsing popup data:', error);
+                console.log('Raw popup data:', popupData);
+                // Fallback to simple display
+                conversationListDiv.innerHTML = popupData;
+                modal.style.display = 'block';
+            }
+        }
+        
+        function showConversationHistory(filename) {
+            // Create a new modal for conversation history
+            const historyModal = document.createElement('div');
+            historyModal.id = 'historyModal';
+            historyModal.className = 'conversation-modal';
+            historyModal.style.display = 'block';
+            
+            // Create modal content
+            historyModal.innerHTML = `
+                <div class="conversation-modal-content" style="max-width: 90%; max-height: 90%;">
+                    <span class="conversation-modal-close" onclick="closeHistoryModal()">&times;</span>
+                    <h2>📄 Conversation History: ${filename}</h2>
+                    <div id="conversationContent" style="max-height: 70vh; overflow-y: auto; padding: 20px; background: #f8f9fa; border-radius: 8px; margin-top: 20px;">
+                        <div style="text-align: center; color: #6c757d;">
+                            <p>Loading conversation data...</p>
+                            <p>This will show the full CSV content when the backend is implemented.</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(historyModal);
+            
+            // TODO: Implement actual CSV loading here
+            // For now, show a placeholder
+            setTimeout(() => {
+                document.getElementById('conversationContent').innerHTML = `
+                    <div style="text-align: center; color: #6c757d;">
+                        <h3>📊 Conversation Data</h3>
+                        <p><strong>File:</strong> ${filename}</p>
+                        <p><strong>Status:</strong> Ready for implementation</p>
+                        <p>This will display the actual conversation content from the CSV file.</p>
+                        <p>Implementation needed: Load CSV data and format it for display.</p>
+                    </div>
+                `;
+            }, 500);
+        }
+        
+        function closeHistoryModal() {
+            const modal = document.getElementById('historyModal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+        
+        function testModal() {
+            console.log('Testing modal display...');
             const modal = document.getElementById('conversationModal');
             const modalTitle = document.getElementById('modalTitle');
             const conversationListDiv = document.getElementById('conversationList');
             
-            // Set title
-            modalTitle.textContent = `${problem} (${count} conversations)`;
-            
-            // Parse conversation list and create items
-            const conversations = conversationList.split(', ');
-            let html = '';
-            
-            if (conversations.length > 0 && conversations[0] !== 'No conversations found') {
-                conversations.forEach(conv => {
-                    if (conv.trim()) {
-                        html += `<div class="conversation-item">${conv}</div>`;
-                    }
-                });
+            if (modal && modalTitle && conversationListDiv) {
+                modalTitle.textContent = 'Test Modal (Testing)';
+                conversationListDiv.innerHTML = '<div style="padding: 20px; text-align: center;"><h3>Modal is working!</h3><p>This is a test to verify the modal can be displayed.</p></div>';
+                modal.style.display = 'block';
+                console.log('Modal displayed successfully');
             } else {
-                html = '<div class="conversation-item">No specific conversations found for this problem.</div>';
+                console.error('Modal elements not found:', { modal, modalTitle, conversationListDiv });
+                alert('Modal elements not found! Check console for details.');
             }
-            
-            conversationListDiv.innerHTML = html;
-            modal.style.display = 'block';
         }
         
         function closeConversationModal() {
