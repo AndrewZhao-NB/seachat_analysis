@@ -1587,41 +1587,23 @@ def generate_concise_report(analysis_dir, output_file):
                 <div class="metrics-grid">
                     <div class="metric-card">
                         <div class="metric-number">""" + f"{raw_csv_count:,}" + """</div>
-                        <div class="metric-label">Total Raw CSV Files</div>
+                        <div class="metric-label">Total conversations</div>
                     </div>
                     <div class="metric-card">
                         <div class="metric-number">""" + f"{analyzed_count:,}" + """</div>
-                        <div class="metric-label">Analyzed by Cooper (High-Value)</div>
+                        <div class="metric-label">Analyzed</div>
                     </div>
                     <div class="metric-card">
                         <div class="metric-number">""" + f"{solved:,}" + """</div>
-                        <div class="metric-label">Successfully Solved</div>
+                        <div class="metric-label">Chatbot successes</div>
                     </div>
                     <div class="metric-card">
                         <div class="metric-number">""" + f"{needs_human:,}" + """</div>
                         <div class="metric-label">Need Human Assistance</div>
                     </div>
-                </div>
-                
-                <div class="summary-box" style="margin-top: 20px;">
-                    <h3>🔍 Analysis Results</h3>
-                    <div class="summary-stats">
-                        <div class="summary-stat">
-                            <div class="summary-number">""" + f"{solved:,}" + """</div>
-                            <div>Bot Solved</div>
-                        </div>
-                        <div class="summary-stat">
-                            <div class="summary-number">""" + f"{needs_human:,}" + """</div>
-                            <div>Need Human</div>
-                        </div>
-                        <div class="summary-stat">
-                            <div class="summary-number">""" + f"{other_issues:,}" + """</div>
-                            <div>Other Issues</div>
-                        </div>
-                        <div class="summary-stat">
-                            <div class="summary-number">""" + f"{filtered_out:,}" + """</div>
-                            <div>Filtered Out (Too Short/Greetings)</div>
-                        </div>
+                    <div class="metric-card">
+                        <div class="metric-number">""" + f"{filtered_out:,}" + """</div>
+                        <div class="metric-label">Filtered Out (Too Short/Greetings)</div>
                     </div>
                 </div>
             </div>
@@ -1631,9 +1613,6 @@ def generate_concise_report(analysis_dir, output_file):
             <div class="section">
                 <h2>🚨 PROBLEMS THE CHATBOT CANNOT SOLVE</h2>
                 
-
-                
-                <h3>All Identified Problems</h3>
                 <div class="issue-list">"""
     
     # Get all problems from the consolidated mapping
@@ -1675,73 +1654,74 @@ def generate_concise_report(analysis_dir, output_file):
             </div>
 
             <div class="section">
-                <h2>✅ PROBLEMS THE CHATBOT CAN SOLVE WELL</h2>
-                
-                <div class="note-box" style="background: #e7f3ff; border-left: 4px solid #007bff; padding: 15px; margin-bottom: 20px; border-radius: 4px;">
-                    <strong>📊 Note:</strong> Success metrics include conversations where the bot handled problems perfectly, demonstrated capabilities, and successfully completed user requests. This section shows what the bot does well.
-                </div>
+                <h2>✅ KEY CHATBOT STRENGTHS</h2>
                 
                 <div class="issue-list">"""
     
-    # Show what the bot does well using the mapping data
+    # Create a prioritized list of key capabilities (ranked by importance, not count)
+    key_capabilities = []
+    capability_priority = {
+        'bot-handled-perfectly': 1,  # Most important - shows overall success
+        'account-verification-guidance': 2,  # Core business function
+        'campaign-activation-instructions': 3,  # Core business function  
+        'policy-clarification': 4,  # Important for compliance
+        'multi-step-instruction': 5,  # Shows complexity handling
+        'problem-solving': 6,  # General capability
+    }
+    
     if 'successful_capabilities' in data['problem_mapping'] and data['problem_mapping']['successful_capabilities']:
-        # Get all successful capabilities and make them clickable
+        # Collect and prioritize capabilities
         for capability, conversations in data['problem_mapping']['successful_capabilities'].items():
             if capability and conversations:
-                # Create popup data similar to problems section
-                popup_data = {
-                    'conversations': conversations,
-                    'sub_problems': {capability: conversations},
-                    'type': 'success'
-                }
-                popup_json = urllib.parse.quote(json.dumps(popup_data))
-                
-                # Clean up the capability name for display
-                display_name = capability.replace('-', ' ').title()
-                if capability == 'bot-handled-perfectly':
-                    display_name = 'Bot Handled Perfectly'
-                
-                html_report += f"""
-                    <div class="feature-item clickable-item" data-problem="{capability}" data-popup="{popup_json}" data-count="{len(conversations)}">
-                        <span class="feature-count">{len(conversations)}</span>
-                        <strong>{display_name}</strong>
-                        <div class="conversation-preview">Click to see {len(conversations)} conversations</div>
-                    </div>"""
+                priority = capability_priority.get(capability, 99)  # Default low priority
+                key_capabilities.append((priority, capability, conversations))
+        
+        # Sort by priority (lower number = higher priority)
+        key_capabilities.sort(key=lambda x: x[0])
+        
+        # Show only top 5 most important capabilities
+        for priority, capability, conversations in key_capabilities[:5]:
+            # Create popup data similar to problems section
+            popup_data = {
+                'conversations': conversations,
+                'sub_problems': {capability: conversations},
+                'type': 'success'
+            }
+            popup_json = urllib.parse.quote(json.dumps(popup_data))
+            
+            # Create concise, meaningful display names
+            display_names = {
+                'bot-handled-perfectly': 'Perfect Problem Resolution',
+                'account-verification-guidance': 'Account Verification Support',
+                'campaign-activation-instructions': 'Campaign Setup Guidance',
+                'policy-clarification': 'Policy & Rules Clarification',
+                'multi-step-instruction': 'Complex Multi-Step Tasks',
+                'problem-solving': 'General Problem Solving'
+            }
+            
+            display_name = display_names.get(capability, capability.replace('-', ' ').title())
+            
+            html_report += f"""
+                <div class="feature-item clickable-item" data-problem="{capability}" data-popup="{popup_json}" data-count="{len(conversations)}">
+                    <span class="feature-count">✓</span>
+                    <strong>{display_name}</strong>
+                    <div class="conversation-preview">Proven capability - {len(conversations)} examples</div>
+                </div>"""
     
     # If no successes found
-    else:
+    if not key_capabilities:
         html_report += """
                 <div class="feature-item">
-                    <span class="feature-count">0</span>
-                    <strong>No successful capabilities identified</strong>
-                    <div class="conversation-preview">No conversations were marked as successfully handled</div>
+                    <span class="feature-count">⚠️</span>
+                    <strong>Limited Success Data</strong>
+                    <div class="conversation-preview">Few conversations were marked as successfully handled</div>
                 </div>"""
     
     html_report += """
                 </div>
             </div>
 
-            <div class="summary-box">
-                <h3>📊 Summary</h3>
-                <div class="summary-stats">
-                    <div class="summary-stat">
-                        <div class="summary-number">""" + f"{raw_csv_count:,}" + """</div>
-                        <div>Total Raw CSVs</div>
-                    </div>
-                    <div class="summary-stat">
-                        <div class="summary-number">""" + f"{analyzed_count:,}" + """</div>
-                        <div>Analyzed by Cooper (High-Value)</div>
-                    </div>
-                    <div class="summary-stat">
-                        <div class="summary-number">""" + f"{filtered_out:,}" + """</div>
-                        <div>Filtered Out (Too Short/Greetings)</div>
-                    </div>
-                    <div class="summary-stat">
-                        <div class="summary-number">""" + f"{solved:,}" + """</div>
-                        <div>Successfully Solved</div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
     
@@ -2084,8 +2064,13 @@ def generate_concise_report(analysis_dir, output_file):
     with open(local_output, 'w', encoding='utf-8') as f:
         f.write(html_report)
     
-    # Write HTML report for Netlify deployment (with chat-data folder path)
-    netlify_output = output_file.replace('.html', '_netlify.html')
+    # Write HTML report directly to Netlify deployment folder
+    netlify_dir = './netlify-deploy'
+    if not os.path.exists(netlify_dir):
+        os.makedirs(netlify_dir)
+        print(f"  📁 Created directory: {netlify_dir}")
+    
+    netlify_output = os.path.join(netlify_dir, 'index.html')
     netlify_html = html_report.replace(
         'const csvPath = `Bot_714b4955-90a2-4693-9380-a28dffee2e3a_Year_2025_4a86f154be3a4925a510e33bdda399b3 (3)/${filename}`;',
         'const csvPath = `./chat-data/${filename}`;'
@@ -2093,7 +2078,7 @@ def generate_concise_report(analysis_dir, output_file):
     with open(netlify_output, 'w', encoding='utf-8') as f:
         f.write(netlify_html)
     
-    print(f"✅ Generated two HTML reports:")
+    print(f"✅ Generated HTML reports:")
     print(f"   📁 Local testing: {local_output} (CSV path: ./Bot_*/)")
     print(f"   🌐 Netlify deployment: {netlify_output} (CSV path: ./chat-data/)")
     print(f"📊 HTML reports include:")
