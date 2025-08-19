@@ -576,71 +576,83 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False):
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
     print(f"  ✅  Created raw data: {raw_path}")
 
-    # Problem-to-conversation mappings for clickable items (ONLY what's needed for HTML)
+    # Problem-to-conversation mappings for clickable items (consolidated approach)
     problem_conversation_mapping = {
-        'missing_features': {},
-        'api_problems': {},
-        'ui_problems': {},
-        'integration_problems': {},
+        'problems': {},  # All problems consolidated into one category
         'successful_capabilities': {}
     }
 
     # Process conversations to build mapping
     for r in per_chat:
-        # Map missing features to conversations
+        # Map all problems to conversations (consolidated approach)
+        problems_found = []
+        
+        # Check for missing features
         if r.get("failure_category") == "feature-not-supported":
             missing_feature = r.get("missing_feature", "unknown-feature")
             if missing_feature and missing_feature != "unknown-feature":
-                if missing_feature not in problem_conversation_mapping['missing_features']:
-                    problem_conversation_mapping['missing_features'][missing_feature] = []
-                problem_conversation_mapping['missing_features'][missing_feature].append(r['file'])
-                
-                # Categorize by problem type
-                if any(term in missing_feature.lower() for term in ['api', 'access', 'schema', 'system', 'database']):
-                    if missing_feature not in problem_conversation_mapping['api_problems']:
-                        problem_conversation_mapping['api_problems'][missing_feature] = []
-                    problem_conversation_mapping['api_problems'][missing_feature].append(r['file'])
-                
-                if any(term in missing_feature.lower() for term in ['ui', 'interface', 'workflow', 'form', 'button', 'desktop']):
-                    if missing_feature not in problem_conversation_mapping['ui_problems']:
-                        problem_conversation_mapping['ui_problems'][missing_feature] = []
-                    problem_conversation_mapping['ui_problems'][missing_feature].append(r['file'])
-                
-                if any(term in missing_feature.lower() for term in ['integration', 'clickmagick', 'weebly', 'wix', 'everflow']):
-                    if missing_feature not in problem_conversation_mapping['integration_problems']:
-                        problem_conversation_mapping['integration_problems'][missing_feature] = []
-                    problem_conversation_mapping['integration_problems'][missing_feature].append(r['file'])
+                problems_found.append(missing_feature)
         
-        # Map improvement needs to conversations
+        # Check for improvement needs
         improvement = r.get("specific_improvement_needed", "no-improvement-needed")
         if improvement and improvement != "no-improvement-needed":
-            if improvement not in problem_conversation_mapping['missing_features']:
-                problem_conversation_mapping['missing_features'][improvement] = []
-            problem_conversation_mapping['missing_features'][improvement].append(r['file'])
-            
-            # Also categorize by problem type
-            if any(term in improvement.lower() for term in ['api', 'access', 'schema', 'system', 'database']):
-                if improvement not in problem_conversation_mapping['api_problems']:
-                    problem_conversation_mapping['api_problems'][improvement] = []
-                problem_conversation_mapping['api_problems'][improvement].append(r['file'])
-            
-            if any(term in improvement.lower() for term in ['ui', 'interface', 'workflow', 'form', 'button']):
-                if improvement not in problem_conversation_mapping['ui_problems']:
-                    problem_conversation_mapping['ui_problems'][improvement] = []
-                problem_conversation_mapping['ui_problems'][improvement].append(r['file'])
-            
-            if any(term in improvement.lower() for term in ['integration', 'clickmagick', 'weebly', 'wix', 'everflow']):
-                if improvement not in problem_conversation_mapping['integration_problems']:
-                    problem_conversation_mapping['integration_problems'][improvement] = []
-                problem_conversation_mapping['integration_problems'][improvement].append(r['file'])
+            # Filter out success indicators - these are not problems
+            if not any(phrase in improvement.lower() for phrase in [
+                'bot-handled-perfectly', 'user-request-fulfilled', 'conversation-successful',
+                'bot-solved-problem', 'user-satisfied', 'conversation-completed-successfully'
+            ]):
+                problems_found.append(improvement)
+        
+        # Check for escalation triggers
+        escalation_triggers = r.get("escalation_triggers", [])
+        for trigger in escalation_triggers:
+            if trigger and not any(phrase in trigger.lower() for phrase in [
+                'none', 'no-escalation-needed', 'bot-solved-problem', 'user-satisfied',
+                'conversation-completed-successfully', 'user-abandoned-conversation'
+            ]):
+                problems_found.append(trigger)
+        
+        # Check for error patterns
+        error_patterns = r.get("error_patterns", [])
+        for error in error_patterns:
+            if error and not any(phrase in error.lower() for phrase in [
+                'none', 'no-errors-detected', 'system-functioning-perfectly',
+                'all-requests-successful', 'no-technical-issues', 'conversation-abandoned'
+            ]):
+                problems_found.append(error)
+        
+        # Add all problems to the consolidated mapping
+        for problem in problems_found:
+            if problem not in problem_conversation_mapping['problems']:
+                problem_conversation_mapping['problems'][problem] = []
+            problem_conversation_mapping['problems'][problem].append(r['file'])
         
         # Map successful capabilities to conversations
         if r.get("solved", False):
+            # Add demonstrated skills
             for skill in r.get("demonstrated_skills", []):
                 if skill:
                     if skill not in problem_conversation_mapping['successful_capabilities']:
                         problem_conversation_mapping['successful_capabilities'][skill] = []
                     problem_conversation_mapping['successful_capabilities'][skill].append(r['file'])
+            
+            # Add success indicators from specific_improvement_needed
+            improvement = r.get("specific_improvement_needed", "")
+            if improvement and any(phrase in improvement.lower() for phrase in [
+                'bot-handled-perfectly', 'user-request-fulfilled', 'conversation-successful',
+                'bot-solved-problem', 'user-satisfied', 'conversation-completed-successfully'
+            ]):
+                # Extract the success type
+                success_type = "bot-handled-perfectly"  # Default
+                for phrase in ['bot-handled-perfectly', 'user-request-fulfilled', 'conversation-successful',
+                              'bot-solved-problem', 'user-satisfied', 'conversation-completed-successfully']:
+                    if phrase in improvement.lower():
+                        success_type = phrase
+                        break
+                
+                if success_type not in problem_conversation_mapping['successful_capabilities']:
+                    problem_conversation_mapping['successful_capabilities'][success_type] = []
+                problem_conversation_mapping['successful_capabilities'][success_type].append(r['file'])
 
     # Save problem-to-conversation mapping (needed for HTML report)
     mapping_path = os.path.join(outdir, "problem_conversation_mapping.json")

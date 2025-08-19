@@ -39,19 +39,19 @@ def load_analysis_data(analysis_dir):
         print(f"  ✅  Loaded problem mapping: {mapping_path}")
         print(f"  ✅  Created consolidated mapping in memory")
         
+        # Validate the mapping structure
+        validate_mapping_structure(data['problem_mapping'])
+        
         # Debug: Show what's in the consolidated mapping
         print(f"  🔍  CONSOLIDATED MAPPING DEBUG:")
-        print(f"     - Missing features keys: {list(data['problem_mapping'].get('missing_features', {}).keys())[:5]}")
-        print(f"     - API problems keys: {list(data['problem_mapping'].get('api_problems', {}).keys())[:5]}")
-        print(f"     - UI problems keys: {list(data['problem_mapping'].get('ui_problems', {}).keys())[:5]}")
-        print(f"     - Integration problems keys: {list(data['problem_mapping'].get('integration_problems', {}).keys())[:5]}")
+        print(f"     - Problems keys: {list(data['problem_mapping'].get('problems', {}).keys())[:5]}")
         print(f"     - Successful capabilities keys: {list(data['problem_mapping'].get('successful_capabilities', {}).keys())[:5]}")
         
         # Debug: Show actual data structure
         print(f"  🔍  DATA STRUCTURE DEBUG:")
         print(f"     - data['problem_mapping'] type: {type(data['problem_mapping'])}")
-        print(f"     - data['problem_mapping'] keys: {list(data['problem_mapping'].get('missing_features', {}).keys())[:5]}")
-        print(f"     - Sample missing_features: {list(data['problem_mapping'].get('missing_features', {}).items())[:2]}")
+        print(f"     - data['problem_mapping'] keys: {list(data['problem_mapping'].get('problems', {}).keys())[:5]}")
+        print(f"     - Sample problems: {list(data['problem_mapping'].get('problems', {}).items())[:2]}")
     else:
         print(f"  ⚠️  Problem mapping not found: {mapping_path}")
         data['problem_mapping'] = {}
@@ -704,54 +704,224 @@ def consolidate_similar_features(feature_name):
 def create_consolidated_mapping(raw_mapping):
     """Create a consolidated mapping from raw feature names to consolidated names."""
     consolidated_mapping = {
-        'missing_features': {},
-        'api_problems': {},
-        'ui_problems': {},
-        'integration_problems': {},
+        'problems': {},  # All problems consolidated
         'successful_capabilities': {}
     }
     
-    # Process each category
-    for category in consolidated_mapping:
-        if category in raw_mapping:
-            for raw_feature, conversations in raw_mapping[category].items():
-                consolidated_feature = consolidate_similar_features(raw_feature)
+    # Track which CSV has been assigned to which problem to avoid duplicates
+    csv_assignment = {}  # csv_filename -> (problem_name, sub_problem_name)
+    
+    # Process problems category
+    if 'problems' in raw_mapping:
+        print(f"  🔍  Processing {len(raw_mapping['problems'])} raw problems...")
+        
+        # First pass: collect all problems and their conversations
+        problem_candidates = []
+        for raw_problem, conversations in raw_mapping['problems'].items():
+            consolidated_problem = consolidate_similar_features(raw_problem)
+            problem_candidates.append((consolidated_problem, raw_problem, conversations))
+        
+        # Sort by problem name to ensure consistent ordering
+        problem_candidates.sort(key=lambda x: x[0])
+        
+        # Second pass: assign CSVs to problems, ensuring no duplicates
+        for consolidated_problem, raw_problem, conversations in problem_candidates:
+            if consolidated_problem not in consolidated_mapping['problems']:
+                consolidated_mapping['problems'][consolidated_problem] = {
+                    'conversations': [],
+                    'sub_problems': {}
+                }
+            
+            # Initialize sub-problem
+            if raw_problem not in consolidated_mapping['problems'][consolidated_problem]['sub_problems']:
+                consolidated_mapping['problems'][consolidated_problem]['sub_problems'][raw_problem] = []
+            
+            # Assign conversations to this problem/sub-problem, avoiding duplicates
+            for conv in conversations:
+                if conv not in csv_assignment:
+                    # This CSV hasn't been assigned yet - assign it here
+                    csv_assignment[conv] = (consolidated_problem, raw_problem)
+                    
+                    # Add to main conversations list (avoid duplicates)
+                    if conv not in consolidated_mapping['problems'][consolidated_problem]['conversations']:
+                        consolidated_mapping['problems'][consolidated_problem]['conversations'].append(conv)
+                    
+                    # Add to sub-problem
+                    if conv not in consolidated_mapping['problems'][consolidated_problem]['sub_problems'][raw_problem]:
+                        consolidated_mapping['problems'][consolidated_problem]['sub_problems'][raw_problem].append(conv)
+                    
+                    print(f"     - Assigned '{conv}' to '{consolidated_problem}' → '{raw_problem}'")
+                else:
+                    # This CSV was already assigned - check if it should be moved here instead
+                    current_problem, current_sub = csv_assignment[conv]
+                    if consolidated_problem < current_problem:  # Alphabetical priority
+                        # Move CSV to this problem (earlier alphabetically)
+                        print(f"     - MOVING '{conv}' from '{current_problem}' to '{consolidated_problem}' (alphabetical priority)")
+                        
+                        # Remove from old location
+                        if conv in consolidated_mapping['problems'][current_problem]['conversations']:
+                            consolidated_mapping['problems'][current_problem]['conversations'].remove(conv)
+                        if conv in consolidated_mapping['problems'][current_problem]['sub_problems'][current_sub]:
+                            consolidated_mapping['problems'][current_problem]['sub_problems'][current_sub].remove(conv)
+                        
+                        # Add to new location
+                        if conv not in consolidated_mapping['problems'][consolidated_problem]['conversations']:
+                            consolidated_mapping['problems'][consolidated_problem]['conversations'].append(conv)
+                        if conv not in consolidated_mapping['problems'][consolidated_problem]['sub_problems'][raw_problem]:
+                            consolidated_mapping['problems'][consolidated_problem]['sub_problems'][raw_problem].append(conv)
+                        
+                        # Update assignment
+                        csv_assignment[conv] = (consolidated_problem, raw_problem)
+                    else:
+                        print(f"     - SKIPPING '{conv}' (already assigned to '{current_problem}' with higher priority)")
+        
+        # Clean up empty problems and sub-problems
+        problems_to_remove = []
+        for problem_name, problem_data in list(consolidated_mapping['problems'].items()):
+            if not problem_data['conversations']:
+                problems_to_remove.append(problem_name)
+                print(f"  🗑️  Removing empty problem: '{problem_name}'")
+            else:
+                # Clean up empty sub-problems
+                sub_problems_to_remove = []
+                for sub_name, sub_convs in list(problem_data['sub_problems'].items()):
+                    if not sub_convs:
+                        sub_problems_to_remove.append(sub_name)
+                        print(f"    🗑️  Removing empty sub-problem: '{sub_name}' from '{problem_name}'")
                 
-                if consolidated_feature not in consolidated_mapping[category]:
-                    consolidated_mapping[category][consolidated_feature] = {
-                        'conversations': [],
-                        'sub_problems': {}
-                    }
-                
-                # Add conversations (avoid duplicates)
-                for conv in conversations:
-                    if conv not in consolidated_mapping[category][consolidated_feature]['conversations']:
-                        consolidated_mapping[category][consolidated_feature]['conversations'].append(conv)
-                
-                # Group by sub-problems (raw feature names)
-                if raw_feature not in consolidated_mapping[category][consolidated_feature]['sub_problems']:
-                    consolidated_mapping[category][consolidated_feature]['sub_problems'][raw_feature] = []
-                
-                # Add all conversations for this raw feature to the sub-problem
-                for conv in conversations:
-                    if conv not in consolidated_mapping[category][consolidated_feature]['sub_problems'][raw_feature]:
-                        consolidated_mapping[category][consolidated_feature]['sub_problems'][raw_feature].append(conv)
-                
-                # Also add some conversations from other raw features to show variety
-                # This ensures each sub-problem has multiple examples
-                other_conversations = []
-                for other_raw_feature, other_convs in raw_mapping[category].items():
-                    if other_raw_feature != raw_feature:
-                        for conv in other_convs:
-                            if conv not in other_conversations and conv not in consolidated_mapping[category][consolidated_feature]['sub_problems'][raw_feature]:
-                                other_conversations.append(conv)
-                
-                # Add up to 3 additional conversations from other features to show variety
-                for conv in other_conversations[:3]:
-                    if conv not in consolidated_mapping[category][consolidated_feature]['sub_problems'][raw_feature]:
-                        consolidated_mapping[category][consolidated_feature]['sub_problems'][raw_feature].append(conv)
+                for sub_name in sub_problems_to_remove:
+                    del problem_data['sub_problems'][sub_name]
+        
+        for problem_name in problems_to_remove:
+            del consolidated_mapping['problems'][problem_name]
+        
+        # Verify counts match and no duplicates
+        print(f"\n  🔍  FINAL VALIDATION:")
+        for consolidated_problem, problem_data in consolidated_mapping['problems'].items():
+            total_convs = len(problem_data['conversations'])
+            sub_problem_counts = sum(len(convs) for convs in problem_data['sub_problems'].values())
+            print(f"  ✅  '{consolidated_problem}': {total_convs} total conversations, {sub_problem_counts} in sub-problems")
+            if total_convs != sub_problem_counts:
+                print(f"  ⚠️  COUNT MISMATCH: {total_convs} vs {sub_problem_counts}")
+            
+            # Check for duplicates
+            all_convs = []
+            for sub_convs in problem_data['sub_problems'].values():
+                all_convs.extend(sub_convs)
+            unique_convs = set(all_convs)
+            if len(all_convs) != len(unique_convs):
+                print(f"  ⚠️  DUPLICATES FOUND: {len(all_convs)} total, {len(unique_convs)} unique")
+    
+    # Process successful capabilities (also ensure no duplicates with problems)
+    if 'successful_capabilities' in raw_mapping:
+        consolidated_mapping['successful_capabilities'] = {}
+        for capability, conversations in raw_mapping['successful_capabilities'].items():
+            # Only include CSVs that haven't been assigned to problems
+            unassigned_convs = [conv for conv in conversations if conv not in csv_assignment]
+            if unassigned_convs:
+                consolidated_mapping['successful_capabilities'][capability] = unassigned_convs
+                print(f"  ✅  Capability '{capability}': {len(unassigned_convs)} conversations (no overlap with problems)")
+            else:
+                print(f"  ⚠️  Capability '{capability}': All conversations already assigned to problems")
     
     return consolidated_mapping
+
+def validate_mapping_structure(consolidated_mapping):
+    """Validate that the consolidated mapping structure is correct and consistent."""
+    print(f"\n🔍  VALIDATING MAPPING STRUCTURE:")
+    
+    if 'problems' not in consolidated_mapping:
+        print("  ❌ No 'problems' category found!")
+        return False
+    
+    all_valid = True
+    
+    # Check for CSV uniqueness across ALL problems (critical for one-CSV-per-problem rule)
+    all_csvs = set()
+    csv_locations = {}  # csv -> [problem_names]
+    
+    for problem_name, problem_data in consolidated_mapping['problems'].items():
+        for conv in problem_data['conversations']:
+            all_csvs.add(conv)
+            if conv not in csv_locations:
+                csv_locations[conv] = []
+            csv_locations[conv].append(problem_name)
+    
+    # Check for duplicates across problems
+    duplicate_csvs = {csv: problems for csv, problems in csv_locations.items() if len(problems) > 1}
+    if duplicate_csvs:
+        print(f"  ❌ CRITICAL: Found CSVs assigned to multiple problems:")
+        for csv, problems in duplicate_csvs.items():
+            print(f"    - '{csv}' appears in: {problems}")
+        all_valid = False
+    else:
+        print(f"  ✅ All CSVs appear in exactly one problem (one-CSV-per-problem rule enforced)")
+    
+    # Check each problem individually
+    for problem_name, problem_data in consolidated_mapping['problems'].items():
+        print(f"\n  📊 Problem: '{problem_name}'")
+        
+        # Check main structure
+        if 'conversations' not in problem_data or 'sub_problems' not in problem_data:
+            print(f"    ❌ Missing required keys: {list(problem_data.keys())}")
+            all_valid = False
+            continue
+        
+        total_conversations = len(problem_data['conversations'])
+        sub_problems = problem_data['sub_problems']
+        
+        print(f"    📁 Total conversations: {total_conversations}")
+        print(f"    📂 Sub-problems: {len(sub_problems)}")
+        
+        # Check each sub-problem
+        sub_problem_total = 0
+        for sub_problem_name, sub_conversations in sub_problems.items():
+            sub_count = len(sub_conversations)
+            sub_problem_total += sub_count
+            print(f"      - '{sub_problem_name}': {sub_count} conversations")
+            
+            # Verify no duplicates in sub-problem
+            unique_convs = set(sub_conversations)
+            if len(unique_convs) != sub_count:
+                print(f"        ⚠️  DUPLICATES: {sub_count} total, {len(unique_convs)} unique")
+                all_valid = False
+        
+        # Verify total matches
+        if total_conversations != sub_problem_total:
+            print(f"    ❌ COUNT MISMATCH: {total_conversations} total vs {sub_problem_total} in sub-problems")
+            all_valid = False
+        else:
+            print(f"    ✅ Counts match perfectly!")
+        
+        # Verify all conversations in sub-problems are also in main conversations list
+        all_sub_convs = set()
+        for sub_convs in sub_problems.values():
+            all_sub_convs.update(sub_convs)
+        
+        main_convs = set(problem_data['conversations'])
+        if all_sub_convs != main_convs:
+            print(f"    ❌ CONVERSATION MISMATCH: Sub-problems contain conversations not in main list")
+            all_valid = False
+        else:
+            print(f"    ✅ All conversations properly accounted for!")
+    
+    # Check successful capabilities for overlap with problems
+    if 'successful_capabilities' in consolidated_mapping:
+        print(f"\n  📊 Successful Capabilities:")
+        for capability, conversations in consolidated_mapping['successful_capabilities'].items():
+            overlap = [conv for conv in conversations if conv in all_csvs]
+            if overlap:
+                print(f"    ⚠️  '{capability}': {len(overlap)} conversations overlap with problems")
+                all_valid = False
+            else:
+                print(f"    ✅ '{capability}': {len(conversations)} conversations (no overlap with problems)")
+    
+    if all_valid:
+        print(f"\n  🎉 All validation checks passed! Mapping structure is correct.")
+    else:
+        print(f"\n  ⚠️  Some validation issues found. Check the details above.")
+    
+    return all_valid
 
 def generate_concise_report(analysis_dir, output_file):
     """Generate a concise executive report for quick reviews."""
@@ -1365,239 +1535,49 @@ def generate_concise_report(analysis_dir, output_file):
                 </div>
             </div>
 
-            <div class="section">
-                <h2>🔍 Conversation Quality Breakdown</h2>
-                <div class="note-box" style="background: #f8f9fa; border-left: 4px solid #6c757d; padding: 15px; margin-bottom: 20px; border-radius: 4px;">
-                    <strong>🔍 Filtering Logic:</strong> We automatically filter out low-value conversations to focus on meaningful interactions. <strong>High-value conversations</strong> are those where users actually had problems to solve. <strong>Low-value conversations</strong> include conversations with <strong>≤2 user messages</strong> (hard threshold), just greetings, cancellations, or minimal interaction.
-                </div>
-                <div class="filtering-summary">
-                    <div class="filtering-item">
-                        <div class="filtering-number">{high_value:,}</div>
-                        <div class="filtering-label">High-Value Conversations</div>
-                        <div class="filtering-description">Meaningful interactions analyzed for problems</div>
-                    </div>
-                    <div class="filtering-item">
-                        <div class="filtering-number">{low_value:,}</div>
-                        <div class="filtering-label">Low-Value Filtered</div>
-                        <div class="filtering-description">≤2 user messages, greetings, cancellations</div>
-                    </div>
-                    <div class="filtering-item">
-                        <div class="filtering-number">{error_conversations:,}</div>
-                        <div class="filtering-label">Error Conversations</div>
-                        <div class="filtering-description">Processing errors, file issues</div>
-                    </div>
-                </div>
-            </div>
+
 
             <div class="section">
                 <h2>🚨 PROBLEMS THE CHATBOT CANNOT SOLVE</h2>
                 
-                <div class="note-box" style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin-bottom: 20px; border-radius: 4px;">
-                    <strong>🎯 Focus:</strong> This analysis is based on <strong>{high_value:,} high-value conversations</strong> where users had actual problems to solve. Low-value interactions (greetings, cancellations) are excluded to focus on real issues.
-                </div>
+
                 
-                <h3>1. Missing Functions & Features</h3>
+                <h3>All Identified Problems</h3>
                 <div class="issue-list">"""
     
-    if missing_features:
-        for feature, count, examples in missing_features[:8]:  # Top 8 missing features
-            # Get conversation files for this feature (feature is already consolidated)
-            print(f"  🔍  HTML LOOKUP: Looking for '{feature}' in consolidated mapping")
+    # Get all problems from the consolidated mapping
+    all_problems = []
+    if 'problems' in data.get('problem_mapping', {}):
+        for problem, problem_data in data['problem_mapping']['problems'].items():
+            if isinstance(problem_data, dict) and 'conversations' in problem_data:
+                count = len(problem_data['conversations'])
+                all_problems.append((problem, count, problem_data))
+    
+    # Sort by count (most frequent problems first)
+    all_problems.sort(key=lambda x: x[1], reverse=True)
+    
+    if all_problems:
+        for problem, count, problem_data in all_problems[:15]:  # Top 15 problems
+            # Verify count consistency
+            sub_problem_total = sum(len(convs) for convs in problem_data.get('sub_problems', {}).values())
+            if count != sub_problem_total:
+                print(f"  ⚠️  COUNT MISMATCH in HTML: '{problem}' shows {count} but sub-problems total {sub_problem_total}")
             
-            # Debug: Check what's in data at this moment
-            print(f"     - data['problem_mapping'] keys: {list(data.get('problem_mapping', {}).keys())}")
-            print(f"     - data['problem_mapping']['missing_features'] keys: {list(data.get('problem_mapping', {}).get('missing_features', {}).keys())[:3]}")
-            
-            # Check all mapping categories for this feature
-            feature_data = None
-            for category in ['missing_features', 'api_problems', 'ui_problems', 'integration_problems']:
-                feature_data = data.get('problem_mapping', {}).get(category, {}).get(feature)
-                if feature_data:
-                    print(f"     - Found feature data in {category}")
-                    break
-            
-            if feature_data and isinstance(feature_data, dict) and 'conversations' in feature_data:
-                # Encode JSON for safe embedding in data- attribute
-                popup_json = json.dumps(feature_data, ensure_ascii=False)
-                popup_data = urllib.parse.quote(popup_json)
-                print(f"     - Creating clickable item with popup data length: {len(popup_json)}")
-                html_report += f"""
-                    <div class="feature-item clickable-item" data-problem="{feature}" data-popup="{popup_data}" data-count="{count}" style="border: 2px solid #007bff; padding: 10px; margin: 5px 0;">
-                        <span class="feature-count">{count:,}</span>
-                        <strong>{feature}</strong>
-                        <div class="conversation-preview">Click to see {count} conversations grouped by sub-problems</div>
-                        <div style="font-size: 0.7em; color: #666; margin-top: 5px;">DEBUG: Clickable item with {len(popup_json)} chars of data</div>
-                    </div>"""
-            else:
-                print(f"     - Feature data not available or invalid structure: {type(feature_data)}")
-                html_report += f"""
-                    <div class="feature-item">
-                        <span class="feature-count">{count:,}</span>
-                        <strong>{feature}</strong>
-                        <div class="conversation-preview">No conversation data available</div>
-                    </div>"""
+            # Encode JSON for safe embedding in data- attribute
+            popup_json = json.dumps(problem_data, ensure_ascii=False)
+            popup_data = urllib.parse.quote(popup_json)
+            html_report += f"""
+                <div class="feature-item clickable-item" data-problem="{problem}" data-popup="{popup_data}" data-count="{count}">
+                    <span class="feature-count">{count:,}</span>
+                    <strong>{problem}</strong>
+                    <div class="conversation-preview">Click to see {count} conversations grouped by sub-problems (total: {sub_problem_total})</div>
+                </div>"""
     else:
         html_report += """
-                    <div class="feature-item">
-                        <span class="feature-count">0</span>
-                        <strong>No missing features identified</strong>
-                    </div>"""
-    
-    html_report += """
-                </div>
-
-                <h3>2. API & System Access Needed</h3>
-                <div class="issue-list">"""
-    
-    # Show API and system access problems
-    api_problems = []
-    for r in results:
-        if r.get('failure_category') == 'feature-not-supported':
-            feature = r.get('missing_feature', '')
-            if feature and any(term in feature.lower() for term in ['api', 'access', 'schema', 'system', 'database']):
-                # Consolidate the feature name to match the mapping
-                consolidated_feature = consolidate_similar_features(feature)
-                api_problems.append(consolidated_feature)
-    
-    if api_problems:
-        problem_counts = Counter(api_problems)
-        for problem, count in problem_counts.most_common(5):
-            # Get conversation files for this API problem
-            print(f"  🔍  API LOOKUP: Looking for '{problem}' in consolidated mapping")
-            
-            # Check all mapping categories for this problem
-            feature_data = None
-            for category in ['missing_features', 'api_problems', 'ui_problems', 'integration_problems']:
-                feature_data = data.get('problem_mapping', {}).get(category, {}).get(problem)
-                if feature_data:
-                    print(f"     - Found feature data in {category}")
-                    break
-            
-            if feature_data:
-                # Encode JSON for safe embedding in data- attribute
-                popup_json = json.dumps(feature_data, ensure_ascii=False)
-                popup_data = urllib.parse.quote(popup_json)
-                html_report += f"""
-                    <div class="feature-item clickable-item" data-problem="{problem}" data-popup="{popup_data}" data-count="{count}">
-                        <span class="feature-count">{count}</span>
-                        <strong>{problem}</strong>
-                        <div class="conversation-preview">Click to see {count} conversations grouped by sub-problems</div>
-                    </div>"""
-            else:
-                html_report += f"""
-                    <div class="feature-item">
-                        <span class="feature-count">{count}</span>
-                        <strong>{problem}</strong>
-                        <div class="conversation-preview">No conversation data available</div>
-                    </div>"""
-    else:
-        html_report += """
-                    <div class="feature-item">
-                        <span class="feature-count">0</span>
-                        <strong>No API access problems identified</strong>
-                    </div>"""
-    
-    html_report += """
-                </div>
-
-                <h3>3. UI & Workflow Improvements Needed</h3>
-                <div class="issue-list">"""
-    
-    # Show UI and workflow problems
-    ui_problems = []
-    for r in results:
-        if r.get('failure_category') == 'feature-not-supported':
-            feature = r.get('missing_feature', '')
-            if feature and any(term in feature.lower() for term in ['ui', 'interface', 'workflow', 'form', 'button', 'desktop']):
-                # Consolidate the feature name to match the mapping
-                consolidated_feature = consolidate_similar_features(feature)
-                ui_problems.append(consolidated_feature)
-    
-    if ui_problems:
-        problem_counts = Counter(ui_problems)
-        for problem, count in problem_counts.most_common(5):
-            # Get conversation files for this UI problem
-            # Check all mapping categories for this problem
-            feature_data = None
-            for category in ['missing_features', 'api_problems', 'ui_problems', 'integration_problems']:
-                feature_data = data.get('problem_mapping', {}).get(category, {}).get(problem)
-                if feature_data:
-                    break
-            
-            if feature_data:
-                # Encode JSON for safe embedding in data- attribute
-                popup_json = json.dumps(feature_data, ensure_ascii=False)
-                popup_data = urllib.parse.quote(popup_json)
-                html_report += f"""
-                    <div class="feature-item clickable-item" data-problem="{problem}" data-popup="{popup_data}" data-count="{count}">
-                        <span class="feature-count">{count}</span>
-                        <strong>{problem}</strong>
-                        <div class="conversation-preview">Click to see {count} conversations grouped by sub-problems</div>
-                    </div>"""
-            else:
-                html_report += f"""
-                    <div class="feature-item">
-                        <span class="feature-count">{count}</span>
-                        <strong>{problem}</strong>
-                        <div class="conversation-preview">No conversation data available</div>
-                    </div>"""
-    else:
-        html_report += """
-                    <div class="feature-item">
-                        <span class="feature-count">0</span>
-                        <strong>No UI improvements needed</strong>
-                    </div>"""
-    
-    html_report += """
-                </div>
-
-                <h3>4. Integration & Third-Party Support Needed</h3>
-                <div class="issue-list">"""
-    
-    # Show integration problems
-    integration_problems = []
-    for r in results:
-        if r.get('failure_category') == 'feature-not-supported':
-            feature = r.get('missing_feature', '')
-            if feature and any(term in feature.lower() for term in ['integration', 'clickmagick', 'weebly', 'wix', 'everflow']):
-                # Consolidate the feature name to match the mapping
-                consolidated_feature = consolidate_similar_features(feature)
-                integration_problems.append(consolidated_feature)
-    
-    if integration_problems:
-        problem_counts = Counter(integration_problems)
-        for problem, count in problem_counts.most_common(5):
-            # Get conversation files for this integration problem
-            # Check all mapping categories for this problem
-            feature_data = None
-            for category in ['missing_features', 'api_problems', 'ui_problems', 'integration_problems']:
-                feature_data = data.get('problem_mapping', {}).get(category, {}).get(problem)
-                if feature_data:
-                    break
-            
-            if feature_data:
-                # Encode JSON for safe embedding in data- attribute
-                popup_json = json.dumps(feature_data, ensure_ascii=False)
-                popup_data = urllib.parse.quote(popup_json)
-                html_report += f"""
-                    <div class="feature-item clickable-item" data-problem="{problem}" data-popup="{popup_data}" data-count="{count}">
-                        <span class="feature-count">{count}</span>
-                        <strong>{problem}</strong>
-                        <div class="conversation-preview">Click to see {count} conversations grouped by sub-problems</div>
-                    </div>"""
-            else:
-                html_report += f"""
-                    <div class="feature-item">
-                        <span class="feature-count">{count}</span>
-                        <strong>{problem}</strong>
-                        <div class="conversation-preview">No conversation data available</div>
-                    </div>"""
-    else:
-        html_report += """
-                    <div class="feature-item">
-                        <span class="feature-count">0</span>
-                        <strong>No integration problems identified</strong>
-                    </div>"""
+                <div class="feature-item">
+                    <span class="feature-count">0</span>
+                    <strong>No problems identified</strong>
+                </div>"""
     
     html_report += """
                 </div>
@@ -1607,50 +1587,96 @@ def generate_concise_report(analysis_dir, output_file):
                 <h2>✅ PROBLEMS THE CHATBOT CAN SOLVE WELL</h2>
                 
                 <div class="note-box" style="background: #e7f3ff; border-left: 4px solid #007bff; padding: 15px; margin-bottom: 20px; border-radius: 4px;">
-                    <strong>📊 Note:</strong> Success metrics are calculated only from <strong>high-value conversations</strong> where users actually had problems to solve. Greetings, cancellations, and minimal interactions are excluded from success calculations.
+                    <strong>📊 Note:</strong> Success metrics include conversations where the bot handled problems perfectly, demonstrated capabilities, and successfully completed user requests. This section shows what the bot does well.
                 </div>
                 
                 <h3>Successful Capabilities</h3>
                 <div class="issue-list">"""
     
-    # Show what the bot does well (only from high-value conversations)
+    # Show what the bot does well (including bot-handled-perfectly conversations)
     successful_capabilities = []
-    for r in high_value_results:  # Only look at high-value conversations
+    bot_handled_perfectly = []
+    successful_tasks = []
+    
+    # Collect from high-value conversations that were solved
+    for r in high_value_results:
         if r.get('solved', False):
+            # Get capabilities
             caps = r.get('capabilities', [])
             if isinstance(caps, list):
                 for cap in caps:
                     if cap and cap != 'unknown':
                         successful_capabilities.append(cap)
+            
+            # Get what task was handled
+            task_handled = r.get('specific_improvement_needed', '')
+            if task_handled and 'bot-handled-perfectly' in task_handled.lower():
+                bot_handled_perfectly.append(r.get('file', 'unknown-file'))
+            elif task_handled and task_handled != 'no-improvement-needed':
+                # Extract the actual task that was handled
+                task_name = task_handled.replace('bot-handled-perfectly', '').replace('user-request-fulfilled', '').strip()
+                if task_name and not any(phrase in task_name.lower() for phrase in ['none', 'no', 'unknown']):
+                    successful_tasks.append(task_name)
     
+    # Also check for any other successful patterns
+    for r in high_value_results:
+        improvement = r.get('specific_improvement_needed', '')
+        if improvement and any(phrase in improvement.lower() for phrase in [
+            'bot-handled-perfectly', 'user-request-fulfilled', 'conversation-successful', 
+            'bot-solved-problem', 'user-satisfied', 'conversation-completed-successfully'
+        ]):
+            # Extract the task that was handled
+            task_name = improvement
+            for phrase in ['bot-handled-perfectly', 'user-request-fulfilled', 'conversation-successful', 
+                          'bot-solved-problem', 'user-satisfied', 'conversation-completed-successfully']:
+                task_name = task_name.replace(phrase, '').strip()
+            
+            if task_name and not any(phrase in task_name.lower() for phrase in ['none', 'no', 'unknown']):
+                successful_tasks.append(task_name)
+    
+    # Show successful capabilities
     if successful_capabilities:
+        html_report += """
+                <h4>🎯 Demonstrated Capabilities</h4>"""
         cap_counts = Counter(successful_capabilities)
         for capability, count in cap_counts.most_common(5):
-            # Get conversation files for this successful capability
-            feature_data = data.get('problem_mapping', {}).get('successful_capabilities', {}).get(capability)
-            
-            if feature_data:
-                # Encode JSON for safe embedding in data- attribute
-                popup_json = json.dumps(feature_data, ensure_ascii=False)
-                popup_data = urllib.parse.quote(popup_json)
-                html_report += f"""
-                    <div class="feature-item clickable-item" data-problem="{capability}" data-popup="{popup_data}" data-count="{count}">
-                        <span class="feature-count">{count}</span>
-                        <strong>{capability}</strong>
-                        <div class="conversation-preview">Click to see {count} conversations grouped by sub-problems</div>
-                    </div>"""
-            else:
-                html_report += f"""
+            html_report += f"""
                     <div class="feature-item">
                         <span class="feature-count">{count}</span>
                         <strong>{capability}</strong>
-                        <div class="conversation-preview">No conversation data available</div>
+                        <div class="conversation-preview">Bot demonstrated this capability {count} times</div>
                     </div>"""
-    else:
+    
+    # Show bot-handled-perfectly conversations
+    if bot_handled_perfectly:
+        html_report += f"""
+                <h4>✅ Bot-Handled-Perfectly Conversations</h4>
+                <div class="feature-item">
+                    <span class="feature-count">{len(bot_handled_perfectly)}</span>
+                    <strong>Perfect Bot Handling</strong>
+                    <div class="conversation-preview">Bot handled {len(bot_handled_perfectly)} conversations perfectly without any issues</div>
+                </div>"""
+    
+    # Show successful tasks with counts
+    if successful_tasks:
+        html_report += """
+                <h4>🔄 Successfully Handled Tasks</h4>"""
+        task_counts = Counter(successful_tasks)
+        for task, count in task_counts.most_common(8):  # Top 8 tasks
+            html_report += f"""
+                    <div class="feature-item">
+                        <span class="feature-count">{count}</span>
+                        <strong>{task}</strong>
+                        <div class="conversation-preview">Bot successfully handled this task {count} times</div>
+                    </div>"""
+    
+    # If no successes found
+    if not successful_capabilities and not bot_handled_perfectly and not successful_tasks:
         html_report += """
                     <div class="feature-item">
                         <span class="feature-count">0</span>
                         <strong>No successful capabilities identified</strong>
+                        <div class="conversation-preview">No conversations were marked as successfully handled</div>
                     </div>"""
     
     html_report += """
@@ -2015,17 +2041,31 @@ def generate_concise_report(analysis_dir, output_file):
 </body>
 </html>"""
     
-    # Write HTML report
-    with open(output_file, 'w', encoding='utf-8') as f:
+    # Write HTML report for local testing (with Bot_* folder path)
+    local_output = output_file.replace('.html', '_local.html')
+    with open(local_output, 'w', encoding='utf-8') as f:
         f.write(html_report)
     
-    print(f"✅ HTML executive report generated: {output_file}")
-    print(f"📊 HTML report includes:")
+    # Write HTML report for Netlify deployment (with chat-data folder path)
+    netlify_output = output_file.replace('.html', '_netlify.html')
+    netlify_html = html_report.replace(
+        'const csvPath = `./Bot_714b4955-90a2-4693-9380-a28dffee2e3a_Year_2025_4a86f154be3a4925a510e33bdda399b3 (3)/${filename}`;',
+        'const csvPath = `./chat-data/${filename}`;'
+    )
+    with open(netlify_output, 'w', encoding='utf-8') as f:
+        f.write(netlify_html)
+    
+    print(f"✅ Generated two HTML reports:")
+    print(f"   📁 Local testing: {local_output} (CSV path: ./Bot_*/)")
+    print(f"   🌐 Netlify deployment: {netlify_output} (CSV path: ./chat-data/)")
+    print(f"📊 HTML reports include:")
     print(f"   📈 Key metrics and success rates")
     print(f"   🚨 Top 3 critical issues")
     print(f"   🔍 Detailed breakdown by impact")
     print(f"   📋 Summary statistics")
     print(f"   🌐 Open in any web browser on Mac")
+    print(f"\n💡 Use {local_output} for local testing with python -m http.server 8000")
+    print(f"💡 Use {netlify_output} for Netlify deployment")
 
 def generate_technical_analysis(data):
     """Generate detailed technical analysis with specific implementation details."""

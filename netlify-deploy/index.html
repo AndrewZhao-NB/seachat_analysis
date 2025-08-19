@@ -962,30 +962,38 @@
 
             document.body.appendChild(historyModal);
 
-            // Try to load CSV content from the chat-data directory
+            // Try to load CSV content from the Bot directory
             loadCSVContent(filename);
         }
 
         function loadCSVContent(filename) {
             // Try to find the CSV file in the Bot directory
-            const csvPath = `./chat-data/${filename}`;
+            const csvPath = `../Bot_714b4955-90a2-4693-9380-a28dffee2e3a_Year_2025_4a86f154be3a4925a510e33bdda399b3 (3)/${filename}`;
+
+            console.log('🔍 Attempting to load CSV:', filename);
+            console.log('📁 Full path:', csvPath);
+            console.log('🌐 Current URL:', window.location.href);
 
             fetch(csvPath)
                 .then(response => {
+                    console.log('📡 Response status:', response.status, response.statusText);
                     if (!response.ok) {
                         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
                     }
                     return response.text();
                 })
                 .then(csvText => {
+                    console.log('✅ CSV loaded successfully, length:', csvText.length);
                     displayConversationHistory(csvText, filename);
                 })
                 .catch(error => {
-                    console.error('Error loading CSV:', error);
+                    console.error('❌ Error loading CSV:', error);
+                    console.error('🔍 Failed path:', csvPath);
                     document.getElementById('conversationContent').innerHTML = `
                         <div style="text-align: center; color: #dc3545; padding: 20px;">
                             <h3>❌ Error Loading Conversation</h3>
                             <p><strong>File:</strong> ${filename}</p>
+                            <p><strong>Path:</strong> ${csvPath}</p>
                             <p><strong>Error:</strong> ${error.message}</p>
                             <p style="font-size: 0.9em; margin-top: 15px;">
                                 The CSV file may not be accessible from the browser.<br>
