@@ -10,6 +10,7 @@ import urllib.parse
 import pandas as pd
 from collections import Counter
 import argparse
+import glob
 
 def load_analysis_data(analysis_dir):
     """Load all analysis data from the output directory."""
@@ -664,45 +665,86 @@ Generated on: {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M:%S')}
     print(f"\n💡 Focus on FAILURE ANALYSIS sections for development priorities!")
 
 def consolidate_similar_features(feature_name):
-    """Consolidate similar features into meaningful categories."""
+    """Consolidate similar features into actionable problem categories."""
     feature_lower = feature_name.lower()
     
-    # Cancellation-related features
-    if any(term in feature_lower for term in ['cancellation', 'cancel']):
-        return 'cancellation-processing-system'
+    # Account and verification issues (broad category)
+    if any(term in feature_lower for term in ['account', 'verification', 'permission', 'access', 'login', 'password', 'security']):
+        return 'account-access-verification'
     
-    # Integration-related features
-    if any(term in feature_lower for term in ['integration', 'clickmagick', 'weebly', 'wix', 'everflow']):
-        return 'third-party-integration-support'
+    # Ad management and campaign issues (broad category)
+    if any(term in feature_lower for term in ['ad', 'campaign', 'event', 'approval', 'rejection', 'scheduling', 'pixel', 'tracking']):
+        return 'ad-campaign-management'
     
-    # API and system access
-    if any(term in feature_lower for term in ['api', 'access', 'schema', 'system']):
-        return 'api-system-access'
+    # API and system integration issues (broad category)
+    if any(term in feature_lower for term in ['api', 'system', 'integration', 'clickmagick', 'weebly', 'wix', 'everflow', 'third-party']):
+        return 'api-system-integration'
     
-    # UI/UX features
-    if any(term in feature_lower for term in ['ui', 'interface', 'workflow', 'form', 'desktop']):
-        return 'ui-ux-enhancements'
+    # Live support and human assistance (broad category)
+    if any(term in feature_lower for term in ['live', 'agent', 'human', 'support', 'escalation', 'assistance']):
+        return 'live-support-escalation'
     
-    # Live support features
-    if any(term in feature_lower for term in ['live', 'agent', 'human', 'support']):
-        return 'live-support-features'
+    # UI/UX and workflow improvements (broad category)
+    if any(term in feature_lower for term in ['ui', 'interface', 'workflow', 'form', 'desktop', 'navigation', 'user-experience']):
+        return 'ui-ux-workflow-improvements'
     
-    # Document and billing
-    if any(term in feature_lower for term in ['invoice', 'billing', 'document', 'ticket']):
-        return 'document-billing-system'
+    # Document and billing system issues (broad category)
+    if any(term in feature_lower for term in ['invoice', 'billing', 'document', 'ticket', 'payment', 'refund', 'credit']):
+        return 'document-billing-payment'
     
-    # Ad management
-    if any(term in feature_lower for term in ['ad', 'campaign', 'event', 'approval']):
-        return 'ad-management-features'
+    # Technical troubleshooting and complex issues (broad category)
+    if any(term in feature_lower for term in ['technical', 'troubleshooting', 'complex', 'debug', 'error', 'issue', 'problem']):
+        return 'technical-troubleshooting'
     
-    # Account management
-    if any(term in feature_lower for term in ['account', 'verification', 'permission']):
-        return 'account-management-features'
+    # Information and guidance requests (broad category)
+    if any(term in feature_lower for term in ['information', 'guidance', 'instruction', 'help', 'how-to', 'explanation', 'clarification']):
+        return 'information-guidance-requests'
     
-    return feature_name
+    # Policy and compliance questions (broad category)
+    if any(term in feature_lower for term in ['policy', 'compliance', 'terms', 'rules', 'guidelines', 'requirements']):
+        return 'policy-compliance-questions'
+    
+    # Performance and optimization (broad category)
+    if any(term in feature_lower for term in ['performance', 'optimization', 'speed', 'efficiency', 'improvement', 'enhancement']):
+        return 'performance-optimization'
+    
+    # Data and analytics (broad category)
+    if any(term in feature_lower for term in ['data', 'analytics', 'reporting', 'metrics', 'statistics', 'insights']):
+        return 'data-analytics-reporting'
+    
+    # Customer service and support (broad category)
+    if any(term in feature_lower for term in ['customer', 'service', 'support', 'help', 'assistance', 'contact']):
+        return 'customer-service-support'
+    
+    # Platform and infrastructure (broad category)
+    if any(term in feature_lower for term in ['platform', 'infrastructure', 'server', 'hosting', 'deployment', 'scalability']):
+        return 'platform-infrastructure'
+    
+    # Security and privacy (broad category)
+    if any(term in feature_lower for term in ['security', 'privacy', 'authentication', 'authorization', 'encryption', 'compliance']):
+        return 'security-privacy-compliance'
+    
+    # Mobile and accessibility (broad category)
+    if any(term in feature_lower for term in ['mobile', 'app', 'accessibility', 'responsive', 'device', 'tablet']):
+        return 'mobile-accessibility'
+    
+    # Content and media management (broad category)
+    if any(term in feature_lower for term in ['content', 'media', 'image', 'video', 'file', 'upload', 'download']):
+        return 'content-media-management'
+    
+    # Communication and notifications (broad category)
+    if any(term in feature_lower for term in ['communication', 'notification', 'email', 'message', 'alert', 'reminder']):
+        return 'communication-notifications'
+    
+    # Search and discovery (broad category)
+    if any(term in feature_lower for term in ['search', 'discovery', 'find', 'locate', 'browse', 'explore']):
+        return 'search-discovery-navigation'
+    
+    # Default fallback for very specific features
+    return 'other-specific-features'
 
 def create_consolidated_mapping(raw_mapping):
-    """Create a consolidated mapping from raw feature names to consolidated names."""
+    """Create a consolidated mapping from raw feature names to consolidated names with broader groupings."""
     consolidated_mapping = {
         'problems': {},  # All problems consolidated
         'successful_capabilities': {}
@@ -775,6 +817,28 @@ def create_consolidated_mapping(raw_mapping):
                     else:
                         print(f"     - SKIPPING '{conv}' (already assigned to '{current_problem}' with higher priority)")
         
+        # Third pass: further consolidate sub-problems to create broader groupings
+        print(f"\n  🔄  Further consolidating sub-problems for broader groupings...")
+        for problem_name, problem_data in list(consolidated_mapping['problems'].items()):
+            if len(problem_data['sub_problems']) > 1:
+                # Create broader sub-problem groupings
+                consolidated_sub_problems = {}
+                
+                # Group similar sub-problems together
+                for sub_name, sub_convs in problem_data['sub_problems'].items():
+                    # Create a broader category based on the sub-problem name
+                    broad_category = create_broad_sub_category(sub_name)
+                    
+                    if broad_category not in consolidated_sub_problems:
+                        consolidated_sub_problems[broad_category] = []
+                    
+                    consolidated_sub_problems[broad_category].extend(sub_convs)
+                
+                # Replace the detailed sub-problems with broader ones
+                problem_data['sub_problems'] = consolidated_sub_problems
+                
+                print(f"  ✅  '{problem_name}': Consolidated {len(problem_data['sub_problems'])} sub-problems into broader groups")
+        
         # Clean up empty problems and sub-problems
         problems_to_remove = []
         for problem_name, problem_data in list(consolidated_mapping['problems'].items()):
@@ -825,6 +889,77 @@ def create_consolidated_mapping(raw_mapping):
                 print(f"  ⚠️  Capability '{capability}': All conversations already assigned to problems")
     
     return consolidated_mapping
+
+def create_broad_sub_category(sub_problem_name):
+    """Create actionable sub-categories that clearly indicate what needs to be built or fixed."""
+    sub_lower = sub_problem_name.lower()
+    
+    # API and system access needs
+    if any(term in sub_lower for term in ['api', 'system', 'integration', 'access', 'endpoint', 'service', 'backend']):
+        return 'need-api-system-access'
+    
+    # Information and knowledge needs
+    if any(term in sub_lower for term in ['information', 'knowledge', 'guide', 'instruction', 'help', 'how-to', 'explanation', 'documentation']):
+        return 'need-information-knowledge'
+    
+    # Permission and access control needs
+    if any(term in sub_lower for term in ['permission', 'access', 'authorization', 'role', 'privilege', 'security', 'authentication']):
+        return 'need-permission-access-control'
+    
+    # UI and user experience needs
+    if any(term in sub_lower for term in ['ui', 'interface', 'button', 'form', 'workflow', 'navigation', 'user-experience', 'design']):
+        return 'need-ui-ux-improvements'
+    
+    # Data and analytics needs
+    if any(term in sub_lower for term in ['data', 'analytics', 'reporting', 'metrics', 'statistics', 'insights', 'dashboard']):
+        return 'need-data-analytics'
+    
+    # Feature and functionality needs
+    if any(term in sub_lower for term in ['feature', 'function', 'capability', 'tool', 'option', 'setting', 'configuration']):
+        return 'need-feature-functionality'
+    
+    # Integration and third-party needs
+    if any(term in sub_lower for term in ['integration', 'third-party', 'external', 'connect', 'sync', 'import', 'export']):
+        return 'need-integration-support'
+    
+    # Workflow and process needs
+    if any(term in sub_lower for term in ['workflow', 'process', 'automation', 'approval', 'review', 'step', 'sequence']):
+        return 'need-workflow-automation'
+    
+    # Support and assistance needs
+    if any(term in sub_lower for term in ['support', 'assistance', 'help', 'live', 'agent', 'human', 'escalation']):
+        return 'need-human-support'
+    
+    # Performance and optimization needs
+    if any(term in sub_lower for term in ['performance', 'speed', 'efficiency', 'optimization', 'scalability', 'resource']):
+        return 'need-performance-optimization'
+    
+    # Security and compliance needs
+    if any(term in sub_lower for term in ['security', 'compliance', 'privacy', 'encryption', 'audit', 'certification']):
+        return 'need-security-compliance'
+    
+    # Mobile and accessibility needs
+    if any(term in sub_lower for term in ['mobile', 'app', 'accessibility', 'responsive', 'device', 'tablet', 'mobile-friendly']):
+        return 'need-mobile-accessibility'
+    
+    # Content and media needs
+    if any(term in sub_lower for term in ['content', 'media', 'image', 'video', 'file', 'upload', 'download', 'storage']):
+        return 'need-content-media-support'
+    
+    # Communication and notification needs
+    if any(term in sub_lower for term in ['communication', 'notification', 'email', 'message', 'alert', 'reminder', 'update']):
+        return 'need-communication-notifications'
+    
+    # Search and discovery needs
+    if any(term in sub_lower for term in ['search', 'discovery', 'find', 'locate', 'browse', 'explore', 'filter']):
+        return 'need-search-discovery'
+    
+    # Billing and payment needs
+    if any(term in sub_lower for term in ['billing', 'payment', 'invoice', 'refund', 'credit', 'charge', 'subscription']):
+        return 'need-billing-payment-system'
+    
+    # Default fallback for very specific needs
+    return 'need-other-specific-features'
 
 def validate_mapping_structure(consolidated_mapping):
     """Validate that the consolidated mapping structure is correct and consistent."""
@@ -934,8 +1069,19 @@ def generate_concise_report(analysis_dir, output_file):
     
     print("📝 Generating concise executive report...")
     
+    # Count actual raw CSV files in the Bot directory
+    bot_dir_pattern = "Bot_714b4955-90a2-4693-9380-a28dffee2e3a_Year_2025_4a86f154be3a4925a510e33bdda399b3 (3)"
+    raw_csv_count = 0
+    try:
+        raw_csv_files = glob.glob(f"{bot_dir_pattern}/*.csv")
+        raw_csv_count = len(raw_csv_files)
+        print(f"  📁 Found {raw_csv_count} raw CSV files in {bot_dir_pattern}")
+    except Exception as e:
+        print(f"  ⚠️  Could not count raw CSV files: {e}")
+        raw_csv_count = 0
+    
     results = data['per_chat']
-    total = len(results)
+    analyzed_count = len(results)
     
     # Count conversation quality
     high_value = sum(1 for r in results if r.get('conversation_quality') == 'high-value')
@@ -948,71 +1094,12 @@ def generate_concise_report(analysis_dir, output_file):
     solved = sum(1 for r in high_value_results if r.get('solved', False))
     needs_human = sum(1 for r in high_value_results if r.get('needs_human', False))
     
-    # Get actionable improvements only
-    actionable_improvements = []
-    for r in results:
-        improvement = r.get('specific_improvement_needed', 'none')
-        effort = r.get('improvement_effort', 'low')
-        if (improvement and 
-            improvement != 'none' and 
-            not any(phrase in improvement.lower() for phrase in [
-                'no-improvement-needed', 'bot-handled-perfectly', 'user-request-fulfilled', 
-                'conversation-successful', 'bot-solved-problem', 'user-satisfied',
-                'conversation-completed-successfully', 'system-functioning-perfectly',
-                'all-requests-successful', 'no-technical-issues'
-            ])):
-            actionable_improvements.append((improvement, effort))
+    # Calculate other issues (high-value conversations that weren't solved and don't need human)
+    other_issues = high_value - solved - needs_human
     
-    # Get top failure categories
-    failure_categories = [r.get('failure_category', 'unknown') for r in results]
-    failure_counts = Counter(failure_categories)
+    # Calculate filtered out (raw CSVs that weren't analyzed)
+    filtered_out = raw_csv_count - analyzed_count if raw_csv_count > 0 else 0
     
-    # Get top missing features (consolidated)
-    missing_features = []
-    feature_consolidation = {}
-    
-    for r in results:
-        if r.get('failure_category') == 'feature-not-supported':
-            feature = r.get('missing_feature', 'unknown')
-            if feature and feature != 'unknown':
-                # Consolidate similar features
-                consolidated_feature = consolidate_similar_features(feature)
-                if consolidated_feature not in feature_consolidation:
-                    feature_consolidation[consolidated_feature] = {'count': 0, 'examples': []}
-                feature_consolidation[consolidated_feature]['count'] += 1
-                feature_consolidation[consolidated_feature]['examples'].append(feature)
-    
-    # Convert to list format for display
-    for consolidated_feature, feature_data in feature_consolidation.items():
-        missing_features.append((consolidated_feature, feature_data['count'], feature_data['examples']))
-    
-    # Sort by count
-    missing_features.sort(key=lambda x: x[1], reverse=True)
-    
-    # Debug: Show what features we're looking for
-    print(f"  🔍  MISSING FEATURES DEBUG:")
-    print(f"     - Top 5 missing features: {[f[0] for f in missing_features[:5]]}")
-    print(f"     - Total missing features: {len(missing_features)}")
-    
-    # Get human escalation reasons
-    human_escalation_reasons = []
-    for r in results:
-        if r.get('needs_human', False):
-            reason = r.get('why_unsolved', ['unknown'])[0] if isinstance(r.get('why_unsolved'), list) else r.get('why_unsolved', 'unknown')
-            human_escalation_reasons.append(reason)
-    
-    # Get user tasks that need human help
-    human_tasks = []
-    for r in results:
-        if r.get('needs_human', False):
-            tasks = r.get('user_tasks_attempted', ['unknown'])
-            if isinstance(tasks, list):
-                for task in tasks:
-                    human_tasks.append(task)
-            else:
-                human_tasks.append(task)
-    
-    # Generate HTML report
     html_report = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1499,37 +1586,41 @@ def generate_concise_report(analysis_dir, output_file):
                 <h2>📊 Key Metrics</h2>
                 <div class="metrics-grid">
                     <div class="metric-card">
-                        <div class="metric-number">""" + f"{total:,}" + """</div>
-                        <div class="metric-label">Total Conversations</div>
+                        <div class="metric-number">""" + f"{raw_csv_count:,}" + """</div>
+                        <div class="metric-label">Total Raw CSV Files</div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-number">""" + f"{high_value:,}" + """</div>
-                        <div class="metric-label">High-Value Conversations</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-number">""" + f"{low_value:,}" + """</div>
-                        <div class="metric-label">Low-Value Filtered</div>
+                        <div class="metric-number">""" + f"{analyzed_count:,}" + """</div>
+                        <div class="metric-label">Analyzed by Cooper (High-Value)</div>
                     </div>
                     <div class="metric-card">
                         <div class="metric-number">""" + f"{solved:,}" + """</div>
                         <div class="metric-label">Successfully Solved</div>
                     </div>
+                    <div class="metric-card">
+                        <div class="metric-number">""" + f"{needs_human:,}" + """</div>
+                        <div class="metric-label">Need Human Assistance</div>
+                    </div>
                 </div>
                 
                 <div class="summary-box" style="margin-top: 20px;">
-                    <h3>🔍 Conversation Quality Breakdown</h3>
+                    <h3>🔍 Analysis Results</h3>
                     <div class="summary-stats">
                         <div class="summary-stat">
-                            <div class="summary-number">""" + f"{high_value/total*100:.1f}%" + """</div>
-                            <div>High-Value (Analyzed)</div>
+                            <div class="summary-number">""" + f"{solved:,}" + """</div>
+                            <div>Bot Solved</div>
                         </div>
                         <div class="summary-stat">
-                            <div class="summary-number">""" + f"{low_value/total*100:.1f}%" + """</div>
-                            <div>Low-Value (Filtered)</div>
+                            <div class="summary-number">""" + f"{needs_human:,}" + """</div>
+                            <div>Need Human</div>
                         </div>
                         <div class="summary-stat">
-                            <div class="summary-number">""" + f"{error_conversations/total*100:.1f}%" + """</div>
-                            <div>Errors</div>
+                            <div class="summary-number">""" + f"{other_issues:,}" + """</div>
+                            <div>Other Issues</div>
+                        </div>
+                        <div class="summary-stat">
+                            <div class="summary-number">""" + f"{filtered_out:,}" + """</div>
+                            <div>Filtered Out (Too Short/Greetings)</div>
                         </div>
                     </div>
                 </div>
@@ -1590,94 +1681,41 @@ def generate_concise_report(analysis_dir, output_file):
                     <strong>📊 Note:</strong> Success metrics include conversations where the bot handled problems perfectly, demonstrated capabilities, and successfully completed user requests. This section shows what the bot does well.
                 </div>
                 
-                <h3>Successful Capabilities</h3>
                 <div class="issue-list">"""
     
-    # Show what the bot does well (including bot-handled-perfectly conversations)
-    successful_capabilities = []
-    bot_handled_perfectly = []
-    successful_tasks = []
-    
-    # Collect from high-value conversations that were solved
-    for r in high_value_results:
-        if r.get('solved', False):
-            # Get capabilities
-            caps = r.get('capabilities', [])
-            if isinstance(caps, list):
-                for cap in caps:
-                    if cap and cap != 'unknown':
-                        successful_capabilities.append(cap)
-            
-            # Get what task was handled
-            task_handled = r.get('specific_improvement_needed', '')
-            if task_handled and 'bot-handled-perfectly' in task_handled.lower():
-                bot_handled_perfectly.append(r.get('file', 'unknown-file'))
-            elif task_handled and task_handled != 'no-improvement-needed':
-                # Extract the actual task that was handled
-                task_name = task_handled.replace('bot-handled-perfectly', '').replace('user-request-fulfilled', '').strip()
-                if task_name and not any(phrase in task_name.lower() for phrase in ['none', 'no', 'unknown']):
-                    successful_tasks.append(task_name)
-    
-    # Also check for any other successful patterns
-    for r in high_value_results:
-        improvement = r.get('specific_improvement_needed', '')
-        if improvement and any(phrase in improvement.lower() for phrase in [
-            'bot-handled-perfectly', 'user-request-fulfilled', 'conversation-successful', 
-            'bot-solved-problem', 'user-satisfied', 'conversation-completed-successfully'
-        ]):
-            # Extract the task that was handled
-            task_name = improvement
-            for phrase in ['bot-handled-perfectly', 'user-request-fulfilled', 'conversation-successful', 
-                          'bot-solved-problem', 'user-satisfied', 'conversation-completed-successfully']:
-                task_name = task_name.replace(phrase, '').strip()
-            
-            if task_name and not any(phrase in task_name.lower() for phrase in ['none', 'no', 'unknown']):
-                successful_tasks.append(task_name)
-    
-    # Show successful capabilities
-    if successful_capabilities:
-        html_report += """
-                <h4>🎯 Demonstrated Capabilities</h4>"""
-        cap_counts = Counter(successful_capabilities)
-        for capability, count in cap_counts.most_common(5):
-            html_report += f"""
-                    <div class="feature-item">
-                        <span class="feature-count">{count}</span>
-                        <strong>{capability}</strong>
-                        <div class="conversation-preview">Bot demonstrated this capability {count} times</div>
-                    </div>"""
-    
-    # Show bot-handled-perfectly conversations
-    if bot_handled_perfectly:
-        html_report += f"""
-                <h4>✅ Bot-Handled-Perfectly Conversations</h4>
-                <div class="feature-item">
-                    <span class="feature-count">{len(bot_handled_perfectly)}</span>
-                    <strong>Perfect Bot Handling</strong>
-                    <div class="conversation-preview">Bot handled {len(bot_handled_perfectly)} conversations perfectly without any issues</div>
-                </div>"""
-    
-    # Show successful tasks with counts
-    if successful_tasks:
-        html_report += """
-                <h4>🔄 Successfully Handled Tasks</h4>"""
-        task_counts = Counter(successful_tasks)
-        for task, count in task_counts.most_common(8):  # Top 8 tasks
-            html_report += f"""
-                    <div class="feature-item">
-                        <span class="feature-count">{count}</span>
-                        <strong>{task}</strong>
-                        <div class="conversation-preview">Bot successfully handled this task {count} times</div>
+    # Show what the bot does well using the mapping data
+    if 'successful_capabilities' in data['problem_mapping'] and data['problem_mapping']['successful_capabilities']:
+        # Get all successful capabilities and make them clickable
+        for capability, conversations in data['problem_mapping']['successful_capabilities'].items():
+            if capability and conversations:
+                # Create popup data similar to problems section
+                popup_data = {
+                    'conversations': conversations,
+                    'sub_problems': {capability: conversations},
+                    'type': 'success'
+                }
+                popup_json = urllib.parse.quote(json.dumps(popup_data))
+                
+                # Clean up the capability name for display
+                display_name = capability.replace('-', ' ').title()
+                if capability == 'bot-handled-perfectly':
+                    display_name = 'Bot Handled Perfectly'
+                
+                html_report += f"""
+                    <div class="feature-item clickable-item" data-problem="{capability}" data-popup="{popup_json}" data-count="{len(conversations)}">
+                        <span class="feature-count">{len(conversations)}</span>
+                        <strong>{display_name}</strong>
+                        <div class="conversation-preview">Click to see {len(conversations)} conversations</div>
                     </div>"""
     
     # If no successes found
-    if not successful_capabilities and not bot_handled_perfectly and not successful_tasks:
+    else:
         html_report += """
-                    <div class="feature-item">
-                        <span class="feature-count">0</span>
-                        <strong>No successful capabilities identified</strong>
-                        <div class="conversation-preview">No conversations were marked as successfully handled</div>
-                    </div>"""
+                <div class="feature-item">
+                    <span class="feature-count">0</span>
+                    <strong>No successful capabilities identified</strong>
+                    <div class="conversation-preview">No conversations were marked as successfully handled</div>
+                </div>"""
     
     html_report += """
                 </div>
@@ -1687,16 +1725,16 @@ def generate_concise_report(analysis_dir, output_file):
                 <h3>📊 Summary</h3>
                 <div class="summary-stats">
                     <div class="summary-stat">
-                        <div class="summary-number">""" + f"{total:,}" + """</div>
-                        <div>Total Conversations</div>
+                        <div class="summary-number">""" + f"{raw_csv_count:,}" + """</div>
+                        <div>Total Raw CSVs</div>
                     </div>
                     <div class="summary-stat">
-                        <div class="summary-number">""" + f"{high_value:,}" + """</div>
-                        <div>High-Value (Analyzed)</div>
+                        <div class="summary-number">""" + f"{analyzed_count:,}" + """</div>
+                        <div>Analyzed by Cooper (High-Value)</div>
                     </div>
                     <div class="summary-stat">
-                        <div class="summary-number">""" + f"{low_value:,}" + """</div>
-                        <div>Low-Value (Filtered)</div>
+                        <div class="summary-number">""" + f"{filtered_out:,}" + """</div>
+                        <div>Filtered Out (Too Short/Greetings)</div>
                     </div>
                     <div class="summary-stat">
                         <div class="summary-number">""" + f"{solved:,}" + """</div>
@@ -2049,7 +2087,7 @@ def generate_concise_report(analysis_dir, output_file):
     # Write HTML report for Netlify deployment (with chat-data folder path)
     netlify_output = output_file.replace('.html', '_netlify.html')
     netlify_html = html_report.replace(
-        'const csvPath = `./Bot_714b4955-90a2-4693-9380-a28dffee2e3a_Year_2025_4a86f154be3a4925a510e33bdda399b3 (3)/${filename}`;',
+        'const csvPath = `Bot_714b4955-90a2-4693-9380-a28dffee2e3a_Year_2025_4a86f154be3a4925a510e33bdda399b3 (3)/${filename}`;',
         'const csvPath = `./chat-data/${filename}`;'
     )
     with open(netlify_output, 'w', encoding='utf-8') as f:
