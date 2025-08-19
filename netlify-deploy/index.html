@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Service Chatbot Report</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f7;
+            color: #1d1d1f;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 1.2em;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .metric-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #667eea;
+        }
+
+        .metric-number {
+            font-size: 2em;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #495057;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .section h3 {
+            color: #6c757d;
+            margin-top: 25px;
+        }
+
+        .issue-list {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .issue-item {
+            background: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #dc3545;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .issue-count {
+            background: #dc3545;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            float: right;
+        }
+
+        .feature-item {
+            background: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-count {
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            float: right;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .summary-box h3 {
+            margin-top: 0;
+            color: white;
+        }
+
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .summary-stat {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .summary-number {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .clickable-item {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .clickable-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+
+        .close:hover {
+            color: #000;
+        }
+
+        .conversation-example {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .conversation-header {
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 10px;
+        }
+
+        .conversation-text {
+            font-family: monospace;
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #e9ecef;
+            white-space: pre-wrap;
+            font-size: 0.9em;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .conversation-preview {
+            font-size: 0.8em;
+            color: #6c757d;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .filtering-summary {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .filtering-item {
+            text-align: center;
+            flex: 1;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+
+        .filtering-number {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 8px;
+        }
+
+        .filtering-label {
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 5px;
+        }
+
+        .filtering-description {
+            font-size: 0.85em;
+            color: #6c757d;
+            line-height: 1.3;
+        }
+
+        .conversation-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .conversation-modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .conversation-modal-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+
+        .conversation-modal-close:hover {
+            color: #000;
+        }
+
+        .conversation-list {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .conversation-item {
+            background: white;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+
+        .conversation-groups {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .sub-problem-group {
+            margin: 15px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .sub-problem-title {
+            margin: 0 0 10px 0;
+            color: #495057;
+            font-size: 1.1em;
+            font-weight: 600;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 5px;
+        }
+
+        .conversation-files {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .conversation-file {
+            padding: 8px 12px;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+
+        .conversation-file:hover {
+            background: #e3f2fd;
+            border-color: #2196f3;
+            transform: translateX(5px);
+        }
+
+        /* Conversation History Styles */
+        .conversation-header-info {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .conversation-header-info h3 {
+            margin: 0 0 15px 0;
+            color: #495057;
+        }
+
+        .conversation-header-info p {
+            margin: 5px 0;
+            color: #6c757d;
+        }
+
+        .conversation-messages {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message {
+            background: white;
+            border-radius: 12px;
+            padding: 8px 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin: 4px 0;
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+
+        .message.user-message {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            margin-left: auto;
+            margin-right: 0;
+            border-bottom-right-radius: 4px;
+        }
+
+        .message.bot-message {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #212529;
+            margin-left: 0;
+            margin-right: auto;
+            border-bottom-left-radius: 4px;
+        }
+
+        .message.system-message {
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+            color: white;
+            margin: 8px auto;
+            text-align: center;
+            max-width: 50%;
+        }
+
+        .message-header {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 4px;
+            font-size: 0.75em;
+        }
+
+        .speaker-icon {
+            font-size: 1em;
+        }
+
+        .speaker-name {
+            font-weight: 600;
+            opacity: 0.8;
+        }
+
+        .timestamp {
+            opacity: 0.7;
+            font-size: 0.75em;
+            margin-left: auto;
+        }
+
+        .user-message .speaker-name,
+        .user-message .timestamp {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .bot-message .speaker-name,
+        .bot-message .timestamp {
+            color: #6c757d;
+        }
+
+        .message-content {
+            color: #212529;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 Customer Service Chatbot Report</h1>
+            <p>Executive Summary - August 18, 2025</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>📊 Key Metrics</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-number">648</div>
+                        <div class="metric-label">Total Conversations</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">648</div>
+                        <div class="metric-label">High-Value Conversations</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">0</div>
+                        <div class="metric-label">Low-Value Filtered</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">200</div>
+                        <div class="metric-label">Successfully Solved</div>
+                    </div>
+                </div>
+
+                <div class="summary-box" style="margin-top: 20px;">
+                    <h3>🔍 Conversation Quality Breakdown</h3>
+                    <div class="summary-stats">
+                        <div class="summary-stat">
+                            <div class="summary-number">100.0%</div>
+                            <div>High-Value (Analyzed)</div>
+                        </div>
+                        <div class="summary-stat">
+                            <div class="summary-number">0.0%</div>
+                            <div>Low-Value (Filtered)</div>
+                        </div>
+                        <div class="summary-stat">
+                            <div class="summary-number">0.0%</div>
+                            <div>Errors</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="section">
+                <h2>🚨 PROBLEMS THE CHATBOT CANNOT SOLVE</h2>
+
+
+
+                <h3>All Identified Problems</h3>
+                <div class="issue-list">
+                    <div class="feature-item clickable-item" data-problem="bot-handled-perfectly"
+                        data-popup="%7B%22conversations%22%3A%20%5B%22Andy--2025-03-26%2012%3A34%3A19.409589--WEBCHAT.csv%22%2C%20%22Ali--2025-05-30%2016%3A55%3A53.561481--WEBCHAT.csv%22%2C%20%22Agustin%20Herebia--2025-07-23%2012%3A25%3A02.841000--WEBCHAT.csv%22%2C%20%22Anna--2025-02-27%2008%3A30%3A15.485575--WEBCHAT.csv%22%2C%20%22Alexander%20Klee--2025-07-22%2011%3A15%3A04.723000--WEBCHAT.csv%22%2C%20%22Anna--2025-03-06%2013%3A44%3A48.222224--WEBCHAT.csv%22%2C%20%221258--2025-08-08%2006%3A08%3A03.004000--WEBCHAT.csv%22%2C%20%22Ben--2025-03-06%2011%3A38%3A42.547869--WEBCHAT.csv%22%2C%20%22Artem--2025-03-17%2012%3A23%3A25.665446--WEBCHAT.csv%22%2C%20%22Anna--2025-08-11%2003%3A53%3A14.195000--WEBCHAT.csv%22%2C%20%22Aris--2025-03-04%2007%3A51%3A33.913060--WEBCHAT.csv%22%2C%20%22Bishal--2025-07-22%2011%3A42%3A29.626000--WEBCHAT.csv%22%2C%20%22Brad--2025-07-09%2002%3A18%3A27.584000--WEBCHAT.csv%22%2C%20%22Artem--2025-06-16%2018%3A03%3A28.206000--WEBCHAT.csv%22%2C%20%22Andrew--2025-04-02%2002%3A41%3A34.012286--WEBCHAT.csv%22%2C%20%22Boris--2025-07-10%2006%3A45%3A02.412000--WEBCHAT.csv%22%2C%20%22Bruno--2025-07-04%2002%3A23%3A07.807000--WEBCHAT.csv%22%2C%20%22Branimir--2025-04-03%2006%3A39%3A42.351431--WEBCHAT.csv%22%2C%20%22Brian%20Green--2025-03-31%2006%3A30%3A01.438008--WEBCHAT.csv%22%2C%20%22Anna--2025-03-06%2013%3A30%3A30.073738--WEBCHAT.csv%22%2C%20%22Anna--2025-03-27%2012%3A15%3A20.221545--WEBCHAT.csv%22%2C%20%22Charley--2025-05-14%2021%3A13%3A25.253611--WEBCHAT.csv%22%2C%20%22Constance--2025-05-21%2021%3A50%3A47.889112--WEBCHAT.csv%22%2C%20%22Constance--2025-05-12%2017%3A22%3A52.332652--WEBCHAT.csv%22%2C%20%22Daniel--2025-04-09%2012%3A06%3A23.881068--WEBCHAT.csv%22%2C%20%22Dalikh--2025-04-30%2015%3A08%3A15.250341--WEBCHAT.csv%22%2C%20%22Daniele--2025-06-30%2013%3A46%3A47.847000--WEBCHAT.csv%22%2C%20%22Constance%20Rose--2025-03-17%2021%3A06%3A57.765736--WEBCHAT.csv%22%2C%20%22Danny%20Greeson--2025-05-06%2018%3A10%3A06.646082--WEBCHAT.csv%22%2C%20%22Connor--2025-05-01%2013%3A56%3A10.018352--WEBCHAT.csv%22%2C%20%22Daniel%20Merki--2025-04-22%2020%3A58%3A51.239950--WEBCHAT.csv%22%2C%20%22Daria--2025-03-07%2009%3A41%3A08.899373--WEBCHAT.csv%22%2C%20%22Decide--2025-05-23%2016%3A10%3A34.288055--WEBCHAT.csv%22%2C%20%22Deema%20Towers--2025-04-29%2017%3A08%3A27.496280--WEBCHAT.csv%22%2C%20%22Dejvis--2025-08-07%2019%3A16%3A42.151000--WEBCHAT.csv%22%2C%20%22Divine--2025-07-22%2020%3A48%3A13.756000--WEBCHAT.csv%22%2C%20%22Divine--2025-07-22%2019%3A33%3A29.608000--WEBCHAT.csv%22%2C%20%22Evgenii--2025-06-13%2007%3A46%3A50.007000--WEBCHAT.csv%22%2C%20%22Francisco%20Valenzuela--2025-04-24%2013%3A59%3A44.573466--WEBCHAT.csv%22%2C%20%22Gary--2025-04-05%2021%3A10%3A47.167923--WEBCHAT.csv%22%2C%20%22Frank--2025-05-04%2019%3A01%3A30.396149--WEBCHAT.csv%22%2C%20%22Gary--2025-08-04%2011%3A00%3A23.207000--WEBCHAT.csv%22%2C%20%22Fancy%20Bounce%208a694293f2--2025-02-27%2007%3A27%3A49.457010--WEBCHAT.csv%22%2C%20%22Hillary--2025-04-25%2020%3A48%3A19.304963--WEBCHAT.csv%22%2C%20%22Hello--2025-06-08%2004%3A40%3A01.449000--WEBCHAT.csv%22%2C%20%22Hugo--2025-06-02%2020%3A34%3A00.470679--WEBCHAT.csv%22%2C%20%22Ian--2025-05-23%2018%3A26%3A24.304951--WEBCHAT.csv%22%2C%20%22Igal--2025-06-05%2012%3A57%3A01.652387--WEBCHAT.csv%22%2C%20%22Itamar--2025-04-25%2016%3A42%3A12.231373--WEBCHAT.csv%22%2C%20%22Imran--2025-05-19%2019%3A39%3A47.572571--WEBCHAT.csv%22%2C%20%22Jai%20Singh--2025-06-26%2017%3A12%3A01.319000--WEBCHAT.csv%22%2C%20%22Jason--2025-05-07%2015%3A21%3A28.817426--WEBCHAT.csv%22%2C%20%22Jessie--2025-03-19%2009%3A40%3A58.435302--WEBCHAT.csv%22%2C%20%22Jingming_test--2025-04-16%2007%3A00%3A18.083552--WEBCHAT.csv%22%2C%20%22Jessie--2025-03-19%2009%3A43%3A57.122056--WEBCHAT.csv%22%2C%20%22John%20Rowady--2025-05-20%2014%3A58%3A10.582832--WEBCHAT.csv%22%2C%20%22Jones--2025-04-08%2012%3A17%3A52.833049--WEBCHAT.csv%22%2C%20%22Jordan--2025-03-14%2015%3A26%3A57.485571--WEBCHAT.csv%22%2C%20%22Kaio--2025-06-20%2022%3A31%3A52.728000--WEBCHAT.csv%22%2C%20%22Josh%20Littler--2025-04-15%2020%3A25%3A58.472509--WEBCHAT.csv%22%2C%20%22Karen--2025-05-28%2006%3A17%3A25.253005--WEBCHAT.csv%22%2C%20%22Kim%20Test--2025-01-31%2001%3A11%3A23.965027--WEBCHAT.csv%22%2C%20%22Kevin--2025-08-07%2007%3A36%3A03.097000--WEBCHAT.csv%22%2C%20%22Kris--2025-07-29%2019%3A58%3A19.570000--WEBCHAT.csv%22%2C%20%22LUCA--2025-07-29%2003%3A19%3A34.010000--WEBCHAT.csv%22%2C%20%22Lo%20Trang%20Lam--2025-08-15%2000%3A39%3A11.880000--WEBCHAT.csv%22%2C%20%22Han--2025-03-25%2016%3A32%3A14.927473--WEBCHAT.csv%22%2C%20%22Lou--2025-03-14%2019%3A10%3A52.663685--WEBCHAT.csv%22%2C%20%22Marcus--2025-07-19%2021%3A17%3A49.352000--WEBCHAT.csv%22%2C%20%22Lukas--2025-07-03%2017%3A28%3A08.903000--WEBCHAT.csv%22%2C%20%22Marek%20Kubasiak--2025-05-15%2008%3A10%3A23.264845--WEBCHAT.csv%22%2C%20%22Matheus--2025-06-20%2015%3A03%3A00.147000--WEBCHAT.csv%22%2C%20%22Maxx%20Lipman--2025-08-07%2015%3A34%3A32.536000--WEBCHAT.csv%22%2C%20%22Michael%20Olaleye--2025-03-04%2021%3A41%3A52.347917--WEBCHAT.csv%22%2C%20%22Mohit--2025-02-28%2010%3A19%3A53.739916--WEBCHAT.csv%22%2C%20%22Mike--2025-04-01%2009%3A05%3A31.815477--WEBCHAT.csv%22%2C%20%22Mayur--2025-04-14%2012%3A26%3A19.764001--WEBCHAT.csv%22%2C%20%22Mike%20Appelt--2025-05-21%2021%3A50%3A08.571384--WEBCHAT.csv%22%2C%20%22Mirella%20Yzaguirre--2025-04-26%2018%3A41%3A45.268408--WEBCHAT.csv%22%2C%20%22Monika--2025-04-23%2018%3A49%3A27.164273--WEBCHAT.csv%22%2C%20%22Kristin--2025-03-27%2016%3A12%3A28.807679--WEBCHAT.csv%22%2C%20%22Noval--2025-06-11%2008%3A43%3A16.389000--WEBCHAT.csv%22%2C%20%22Nazma--2025-05-17%2009%3A54%3A57.285231--WEBCHAT.csv%22%2C%20%22Nikola--2025-05-09%2008%3A56%3A37.186223--WEBCHAT.csv%22%2C%20%22Nicolas--2025-06-17%2019%3A12%3A21.013000--WEBCHAT.csv%22%2C%20%22Phuong--2025-07-10%2009%3A49%3A18.035000--WEBCHAT.csv%22%2C%20%22Pratik--2025-07-28%2013%3A12%3A39.441000--WEBCHAT.csv%22%2C%20%22Regina%20McLean--2025-06-04%2016%3A43%3A21.586568--WEBCHAT.csv%22%2C%20%22Rolando%20Rivero--2025-08-12%2003%3A05%3A46.165000--WEBCHAT.csv%22%2C%20%22Roxy--2025-04-24%2018%3A24%3A35.239297--WEBCHAT.csv%22%2C%20%22Ordered%20Soldier%201b08ddaa06--2025-03-03%2015%3A20%3A20.416271--WEBCHAT.csv%22%2C%20%22Rutvik%20Vasani--2025-06-30%2012%3A55%3A59.549000--WEBCHAT.csv%22%2C%20%22Rizwan%20Patel--2025-03-20%2017%3A00%3A10.612898--WEBCHAT.csv%22%2C%20%22Ryan--2025-03-06%2000%3A32%3A24.811843--WEBCHAT.csv%22%2C%20%22Marc--2025-04-10%2012%3A08%3A42.126398--WEBCHAT.csv%22%2C%20%22Sachin--2025-07-21%2017%3A58%3A55.854000--WEBCHAT.csv%22%2C%20%22Sakshi--2025-04-20%2005%3A52%3A43.957214--WEBCHAT.csv%22%2C%20%22Saurav--2025-03-05%2015%3A34%3A58.371242--WEBCHAT.csv%22%2C%20%22Shahin--2025-06-25%2020%3A14%3A11.916000--WEBCHAT.csv%22%2C%20%22Sean--2025-03-13%2016%3A04%3A37.536003--WEBCHAT.csv%22%2C%20%22Ranjith--2025-07-17%2014%3A47%3A20.432000--WEBCHAT.csv%22%2C%20%22Shiva--2025-07-09%2005%3A09%3A18.984000--WEBCHAT.csv%22%2C%20%22Sharath--2025-07-04%2008%3A20%3A02.980000--WEBCHAT.csv%22%2C%20%22Prince--2025-05-15%2011%3A34%3A54.765179--WEBCHAT.csv%22%2C%20%22Some%20Analog%20816acc408e--2025-03-04%2009%3A53%3A43.572647--WEBCHAT.csv%22%2C%20%22Stef--2025-08-06%2014%3A14%3A57.742000--WEBCHAT.csv%22%2C%20%22Steve%20Gong--2025-03-13%2001%3A47%3A58.655325--WEBCHAT.csv%22%2C%20%22Suvi--2025-04-20%2015%3A28%3A48.574570--WEBCHAT.csv%22%2C%20%22QQ--2025-07-09%2012%3A19%3A12.307000--WEBCHAT.csv%22%2C%20%22Sumit--2025-04-22%2019%3A43%3A16.567963--WEBCHAT.csv%22%2C%20%22Sunni--2025-07-13%2016%3A08%3A19.534000--WEBCHAT.csv%22%2C%20%22Steve--2025-07-10%2001%3A23%3A57.229000--WEBCHAT.csv%22%2C%20%22Thomas--2025-03-28%2012%3A42%3A18.450148--WEBCHAT.csv%22%2C%20%22Thiago--2025-07-16%2000%3A58%3A40.798000--WEBCHAT.csv%22%2C%20%22Tijn%20va--2025-06-25%2017%3A11%3A24.062000--WEBCHAT.csv%22%2C%20%22Tinashe--2025-03-18%2009%3A54%3A01.718060--WEBCHAT.csv%22%2C%20%22Varun%20Sharma--2025-05-27%2006%3A41%3A01.096937--WEBCHAT.csv%22%2C%20%22Whalemo--2025-04-11%2007%3A17%3A27.656430--WEBCHAT.csv%22%2C%20%22Vince%20Czaplyski--2025-04-25%2019%3A51%3A28.663706--WEBCHAT.csv%22%2C%20%22alekosaldanaybz--2025-06-06%2002%3A25%3A01.209000--WEBCHAT.csv%22%2C%20%22anja%20--2025-07-16%2015%3A56%3A12.858000--WEBCHAT.csv%22%2C%20%22alan--2025-03-31%2016%3A34%3A41.927527--WEBCHAT.csv%22%2C%20%22brad--2025-05-30%2011%3A36%3A25.411851--WEBCHAT.csv%22%2C%20%22Tatiana--2025-07-31%2020%3A43%3A44.483000--WEBCHAT.csv%22%2C%20%22cazaresmary290--2025-06-06%2004%3A48%3A33.103000--WEBCHAT.csv%22%2C%20%22alex%20suarez--2025-06-24%2010%3A57%3A22.080000--WEBCHAT.csv%22%2C%20%22as--2025-07-23%2021%3A26%3A23.549000--WEBCHAT.csv%22%2C%20%22gu%20bassi--2025-06-30%2019%3A09%3A36.099000--WEBCHAT.csv%22%2C%20%22Trevor--2025-03-19%2021%3A53%3A48.198879--WEBCHAT.csv%22%2C%20%22gen--2025-07-18%2022%3A31%3A24.956000--WEBCHAT.csv%22%2C%20%22junyi--2025-04-08%2010%3A11%3A57.685492--WEBCHAT.csv%22%2C%20%22kishi--2025-05-28%2010%3A43%3A35.551180--WEBCHAT.csv%22%2C%20%22michel%20berbari--2025-06-10%2017%3A59%3A59.660000--WEBCHAT.csv%22%2C%20%22obenaufjayla893--2025-05-23%2002%3A02%3A12.606324--WEBCHAT.csv%22%2C%20%22ryan--2025-02-21%2023%3A58%3A52.372841--WEBCHAT.csv%22%2C%20%22sohil--2025-03-11%2012%3A39%3A04.961122--WEBCHAT.csv%22%2C%20%22sara%20test--2025-06-17%2023%3A54%3A37.716000--WEBCHAT.csv%22%2C%20%22sambranooktavec--2025-04-17%2002%3A00%3A55.239667--WEBCHAT.csv%22%2C%20%22ryan--2025-02-20%2021%3A50%3A49.053804--WEBCHAT.csv%22%2C%20%22saven--2025-05-10%2020%3A41%3A15.468021--WEBCHAT.csv%22%2C%20%22sunil--2025-03-20%2013%3A32%3A27.030105--WEBCHAT.csv%22%2C%20%22test%2Bazhar--2025-07-26%2000%3A02%3A06.449000--WEBCHAT.csv%22%2C%20%22tarun--2025-05-07%2007%3A08%3A50.612745--WEBCHAT.csv%22%2C%20%22steve--2025-08-09%2003%3A14%3A06.784000--WEBCHAT.csv%22%2C%20%22wang--2025-04-09%2007%3A02%3A34.809162--WEBCHAT.csv%22%2C%20%22wang--2025-02-27%2008%3A21%3A47.200157--WEBCHAT.csv%22%2C%20%22zuninoroxana883--2025-05-18%2015%3A52%3A06.866180--WEBCHAT.csv%22%2C%20%22x--2025-06-03%2016%3A38%3A34.801966--WEBCHAT.csv%22%2C%20%22zhaodaocrumb--2025-03-15%2014%3A34%3A35.655372--WEBCHAT.csv%22%2C%20%22Leo--2025-08-13%2017%3A54%3A58.598000--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22bot-handled-perfectly%22%3A%20%5B%22Andy--2025-03-26%2012%3A34%3A19.409589--WEBCHAT.csv%22%2C%20%22Ali--2025-05-30%2016%3A55%3A53.561481--WEBCHAT.csv%22%2C%20%22Agustin%20Herebia--2025-07-23%2012%3A25%3A02.841000--WEBCHAT.csv%22%2C%20%22Anna--2025-02-27%2008%3A30%3A15.485575--WEBCHAT.csv%22%2C%20%22Alexander%20Klee--2025-07-22%2011%3A15%3A04.723000--WEBCHAT.csv%22%2C%20%22Anna--2025-03-06%2013%3A44%3A48.222224--WEBCHAT.csv%22%2C%20%221258--2025-08-08%2006%3A08%3A03.004000--WEBCHAT.csv%22%2C%20%22Ben--2025-03-06%2011%3A38%3A42.547869--WEBCHAT.csv%22%2C%20%22Artem--2025-03-17%2012%3A23%3A25.665446--WEBCHAT.csv%22%2C%20%22Anna--2025-08-11%2003%3A53%3A14.195000--WEBCHAT.csv%22%2C%20%22Aris--2025-03-04%2007%3A51%3A33.913060--WEBCHAT.csv%22%2C%20%22Bishal--2025-07-22%2011%3A42%3A29.626000--WEBCHAT.csv%22%2C%20%22Brad--2025-07-09%2002%3A18%3A27.584000--WEBCHAT.csv%22%2C%20%22Artem--2025-06-16%2018%3A03%3A28.206000--WEBCHAT.csv%22%2C%20%22Andrew--2025-04-02%2002%3A41%3A34.012286--WEBCHAT.csv%22%2C%20%22Boris--2025-07-10%2006%3A45%3A02.412000--WEBCHAT.csv%22%2C%20%22Bruno--2025-07-04%2002%3A23%3A07.807000--WEBCHAT.csv%22%2C%20%22Branimir--2025-04-03%2006%3A39%3A42.351431--WEBCHAT.csv%22%2C%20%22Brian%20Green--2025-03-31%2006%3A30%3A01.438008--WEBCHAT.csv%22%2C%20%22Anna--2025-03-06%2013%3A30%3A30.073738--WEBCHAT.csv%22%2C%20%22Anna--2025-03-27%2012%3A15%3A20.221545--WEBCHAT.csv%22%2C%20%22Charley--2025-05-14%2021%3A13%3A25.253611--WEBCHAT.csv%22%2C%20%22Constance--2025-05-21%2021%3A50%3A47.889112--WEBCHAT.csv%22%2C%20%22Constance--2025-05-12%2017%3A22%3A52.332652--WEBCHAT.csv%22%2C%20%22Daniel--2025-04-09%2012%3A06%3A23.881068--WEBCHAT.csv%22%2C%20%22Dalikh--2025-04-30%2015%3A08%3A15.250341--WEBCHAT.csv%22%2C%20%22Daniele--2025-06-30%2013%3A46%3A47.847000--WEBCHAT.csv%22%2C%20%22Constance%20Rose--2025-03-17%2021%3A06%3A57.765736--WEBCHAT.csv%22%2C%20%22Danny%20Greeson--2025-05-06%2018%3A10%3A06.646082--WEBCHAT.csv%22%2C%20%22Connor--2025-05-01%2013%3A56%3A10.018352--WEBCHAT.csv%22%2C%20%22Daniel%20Merki--2025-04-22%2020%3A58%3A51.239950--WEBCHAT.csv%22%2C%20%22Daria--2025-03-07%2009%3A41%3A08.899373--WEBCHAT.csv%22%2C%20%22Decide--2025-05-23%2016%3A10%3A34.288055--WEBCHAT.csv%22%2C%20%22Deema%20Towers--2025-04-29%2017%3A08%3A27.496280--WEBCHAT.csv%22%2C%20%22Dejvis--2025-08-07%2019%3A16%3A42.151000--WEBCHAT.csv%22%2C%20%22Divine--2025-07-22%2020%3A48%3A13.756000--WEBCHAT.csv%22%2C%20%22Divine--2025-07-22%2019%3A33%3A29.608000--WEBCHAT.csv%22%2C%20%22Evgenii--2025-06-13%2007%3A46%3A50.007000--WEBCHAT.csv%22%2C%20%22Francisco%20Valenzuela--2025-04-24%2013%3A59%3A44.573466--WEBCHAT.csv%22%2C%20%22Gary--2025-04-05%2021%3A10%3A47.167923--WEBCHAT.csv%22%2C%20%22Frank--2025-05-04%2019%3A01%3A30.396149--WEBCHAT.csv%22%2C%20%22Gary--2025-08-04%2011%3A00%3A23.207000--WEBCHAT.csv%22%2C%20%22Fancy%20Bounce%208a694293f2--2025-02-27%2007%3A27%3A49.457010--WEBCHAT.csv%22%2C%20%22Hillary--2025-04-25%2020%3A48%3A19.304963--WEBCHAT.csv%22%2C%20%22Hello--2025-06-08%2004%3A40%3A01.449000--WEBCHAT.csv%22%2C%20%22Hugo--2025-06-02%2020%3A34%3A00.470679--WEBCHAT.csv%22%2C%20%22Ian--2025-05-23%2018%3A26%3A24.304951--WEBCHAT.csv%22%2C%20%22Igal--2025-06-05%2012%3A57%3A01.652387--WEBCHAT.csv%22%2C%20%22Itamar--2025-04-25%2016%3A42%3A12.231373--WEBCHAT.csv%22%2C%20%22Imran--2025-05-19%2019%3A39%3A47.572571--WEBCHAT.csv%22%2C%20%22Jai%20Singh--2025-06-26%2017%3A12%3A01.319000--WEBCHAT.csv%22%2C%20%22Jason--2025-05-07%2015%3A21%3A28.817426--WEBCHAT.csv%22%2C%20%22Jessie--2025-03-19%2009%3A40%3A58.435302--WEBCHAT.csv%22%2C%20%22Jingming_test--2025-04-16%2007%3A00%3A18.083552--WEBCHAT.csv%22%2C%20%22Jessie--2025-03-19%2009%3A43%3A57.122056--WEBCHAT.csv%22%2C%20%22John%20Rowady--2025-05-20%2014%3A58%3A10.582832--WEBCHAT.csv%22%2C%20%22Jones--2025-04-08%2012%3A17%3A52.833049--WEBCHAT.csv%22%2C%20%22Jordan--2025-03-14%2015%3A26%3A57.485571--WEBCHAT.csv%22%2C%20%22Kaio--2025-06-20%2022%3A31%3A52.728000--WEBCHAT.csv%22%2C%20%22Josh%20Littler--2025-04-15%2020%3A25%3A58.472509--WEBCHAT.csv%22%2C%20%22Karen--2025-05-28%2006%3A17%3A25.253005--WEBCHAT.csv%22%2C%20%22Kim%20Test--2025-01-31%2001%3A11%3A23.965027--WEBCHAT.csv%22%2C%20%22Kevin--2025-08-07%2007%3A36%3A03.097000--WEBCHAT.csv%22%2C%20%22Kris--2025-07-29%2019%3A58%3A19.570000--WEBCHAT.csv%22%2C%20%22LUCA--2025-07-29%2003%3A19%3A34.010000--WEBCHAT.csv%22%2C%20%22Lo%20Trang%20Lam--2025-08-15%2000%3A39%3A11.880000--WEBCHAT.csv%22%2C%20%22Han--2025-03-25%2016%3A32%3A14.927473--WEBCHAT.csv%22%2C%20%22Lou--2025-03-14%2019%3A10%3A52.663685--WEBCHAT.csv%22%2C%20%22Marcus--2025-07-19%2021%3A17%3A49.352000--WEBCHAT.csv%22%2C%20%22Lukas--2025-07-03%2017%3A28%3A08.903000--WEBCHAT.csv%22%2C%20%22Marek%20Kubasiak--2025-05-15%2008%3A10%3A23.264845--WEBCHAT.csv%22%2C%20%22Matheus--2025-06-20%2015%3A03%3A00.147000--WEBCHAT.csv%22%2C%20%22Maxx%20Lipman--2025-08-07%2015%3A34%3A32.536000--WEBCHAT.csv%22%2C%20%22Michael%20Olaleye--2025-03-04%2021%3A41%3A52.347917--WEBCHAT.csv%22%2C%20%22Mohit--2025-02-28%2010%3A19%3A53.739916--WEBCHAT.csv%22%2C%20%22Mike--2025-04-01%2009%3A05%3A31.815477--WEBCHAT.csv%22%2C%20%22Mayur--2025-04-14%2012%3A26%3A19.764001--WEBCHAT.csv%22%2C%20%22Mike%20Appelt--2025-05-21%2021%3A50%3A08.571384--WEBCHAT.csv%22%2C%20%22Mirella%20Yzaguirre--2025-04-26%2018%3A41%3A45.268408--WEBCHAT.csv%22%2C%20%22Monika--2025-04-23%2018%3A49%3A27.164273--WEBCHAT.csv%22%2C%20%22Kristin--2025-03-27%2016%3A12%3A28.807679--WEBCHAT.csv%22%2C%20%22Noval--2025-06-11%2008%3A43%3A16.389000--WEBCHAT.csv%22%2C%20%22Nazma--2025-05-17%2009%3A54%3A57.285231--WEBCHAT.csv%22%2C%20%22Nikola--2025-05-09%2008%3A56%3A37.186223--WEBCHAT.csv%22%2C%20%22Nicolas--2025-06-17%2019%3A12%3A21.013000--WEBCHAT.csv%22%2C%20%22Phuong--2025-07-10%2009%3A49%3A18.035000--WEBCHAT.csv%22%2C%20%22Pratik--2025-07-28%2013%3A12%3A39.441000--WEBCHAT.csv%22%2C%20%22Regina%20McLean--2025-06-04%2016%3A43%3A21.586568--WEBCHAT.csv%22%2C%20%22Rolando%20Rivero--2025-08-12%2003%3A05%3A46.165000--WEBCHAT.csv%22%2C%20%22Roxy--2025-04-24%2018%3A24%3A35.239297--WEBCHAT.csv%22%2C%20%22Ordered%20Soldier%201b08ddaa06--2025-03-03%2015%3A20%3A20.416271--WEBCHAT.csv%22%2C%20%22Rutvik%20Vasani--2025-06-30%2012%3A55%3A59.549000--WEBCHAT.csv%22%2C%20%22Rizwan%20Patel--2025-03-20%2017%3A00%3A10.612898--WEBCHAT.csv%22%2C%20%22Ryan--2025-03-06%2000%3A32%3A24.811843--WEBCHAT.csv%22%2C%20%22Marc--2025-04-10%2012%3A08%3A42.126398--WEBCHAT.csv%22%2C%20%22Sachin--2025-07-21%2017%3A58%3A55.854000--WEBCHAT.csv%22%2C%20%22Sakshi--2025-04-20%2005%3A52%3A43.957214--WEBCHAT.csv%22%2C%20%22Saurav--2025-03-05%2015%3A34%3A58.371242--WEBCHAT.csv%22%2C%20%22Shahin--2025-06-25%2020%3A14%3A11.916000--WEBCHAT.csv%22%2C%20%22Sean--2025-03-13%2016%3A04%3A37.536003--WEBCHAT.csv%22%2C%20%22Ranjith--2025-07-17%2014%3A47%3A20.432000--WEBCHAT.csv%22%2C%20%22Shiva--2025-07-09%2005%3A09%3A18.984000--WEBCHAT.csv%22%2C%20%22Sharath--2025-07-04%2008%3A20%3A02.980000--WEBCHAT.csv%22%2C%20%22Prince--2025-05-15%2011%3A34%3A54.765179--WEBCHAT.csv%22%2C%20%22Some%20Analog%20816acc408e--2025-03-04%2009%3A53%3A43.572647--WEBCHAT.csv%22%2C%20%22Stef--2025-08-06%2014%3A14%3A57.742000--WEBCHAT.csv%22%2C%20%22Steve%20Gong--2025-03-13%2001%3A47%3A58.655325--WEBCHAT.csv%22%2C%20%22Suvi--2025-04-20%2015%3A28%3A48.574570--WEBCHAT.csv%22%2C%20%22QQ--2025-07-09%2012%3A19%3A12.307000--WEBCHAT.csv%22%2C%20%22Sumit--2025-04-22%2019%3A43%3A16.567963--WEBCHAT.csv%22%2C%20%22Sunni--2025-07-13%2016%3A08%3A19.534000--WEBCHAT.csv%22%2C%20%22Steve--2025-07-10%2001%3A23%3A57.229000--WEBCHAT.csv%22%2C%20%22Thomas--2025-03-28%2012%3A42%3A18.450148--WEBCHAT.csv%22%2C%20%22Thiago--2025-07-16%2000%3A58%3A40.798000--WEBCHAT.csv%22%2C%20%22Tijn%20va--2025-06-25%2017%3A11%3A24.062000--WEBCHAT.csv%22%2C%20%22Tinashe--2025-03-18%2009%3A54%3A01.718060--WEBCHAT.csv%22%2C%20%22Varun%20Sharma--2025-05-27%2006%3A41%3A01.096937--WEBCHAT.csv%22%2C%20%22Whalemo--2025-04-11%2007%3A17%3A27.656430--WEBCHAT.csv%22%2C%20%22Vince%20Czaplyski--2025-04-25%2019%3A51%3A28.663706--WEBCHAT.csv%22%2C%20%22alekosaldanaybz--2025-06-06%2002%3A25%3A01.209000--WEBCHAT.csv%22%2C%20%22anja%20--2025-07-16%2015%3A56%3A12.858000--WEBCHAT.csv%22%2C%20%22alan--2025-03-31%2016%3A34%3A41.927527--WEBCHAT.csv%22%2C%20%22brad--2025-05-30%2011%3A36%3A25.411851--WEBCHAT.csv%22%2C%20%22Tatiana--2025-07-31%2020%3A43%3A44.483000--WEBCHAT.csv%22%2C%20%22cazaresmary290--2025-06-06%2004%3A48%3A33.103000--WEBCHAT.csv%22%2C%20%22alex%20suarez--2025-06-24%2010%3A57%3A22.080000--WEBCHAT.csv%22%2C%20%22as--2025-07-23%2021%3A26%3A23.549000--WEBCHAT.csv%22%2C%20%22gu%20bassi--2025-06-30%2019%3A09%3A36.099000--WEBCHAT.csv%22%2C%20%22Trevor--2025-03-19%2021%3A53%3A48.198879--WEBCHAT.csv%22%2C%20%22gen--2025-07-18%2022%3A31%3A24.956000--WEBCHAT.csv%22%2C%20%22junyi--2025-04-08%2010%3A11%3A57.685492--WEBCHAT.csv%22%2C%20%22kishi--2025-05-28%2010%3A43%3A35.551180--WEBCHAT.csv%22%2C%20%22michel%20berbari--2025-06-10%2017%3A59%3A59.660000--WEBCHAT.csv%22%2C%20%22obenaufjayla893--2025-05-23%2002%3A02%3A12.606324--WEBCHAT.csv%22%2C%20%22ryan--2025-02-21%2023%3A58%3A52.372841--WEBCHAT.csv%22%2C%20%22sohil--2025-03-11%2012%3A39%3A04.961122--WEBCHAT.csv%22%2C%20%22sara%20test--2025-06-17%2023%3A54%3A37.716000--WEBCHAT.csv%22%2C%20%22sambranooktavec--2025-04-17%2002%3A00%3A55.239667--WEBCHAT.csv%22%2C%20%22ryan--2025-02-20%2021%3A50%3A49.053804--WEBCHAT.csv%22%2C%20%22saven--2025-05-10%2020%3A41%3A15.468021--WEBCHAT.csv%22%2C%20%22sunil--2025-03-20%2013%3A32%3A27.030105--WEBCHAT.csv%22%2C%20%22test%2Bazhar--2025-07-26%2000%3A02%3A06.449000--WEBCHAT.csv%22%2C%20%22tarun--2025-05-07%2007%3A08%3A50.612745--WEBCHAT.csv%22%2C%20%22steve--2025-08-09%2003%3A14%3A06.784000--WEBCHAT.csv%22%2C%20%22wang--2025-04-09%2007%3A02%3A34.809162--WEBCHAT.csv%22%2C%20%22wang--2025-02-27%2008%3A21%3A47.200157--WEBCHAT.csv%22%2C%20%22zuninoroxana883--2025-05-18%2015%3A52%3A06.866180--WEBCHAT.csv%22%2C%20%22x--2025-06-03%2016%3A38%3A34.801966--WEBCHAT.csv%22%2C%20%22zhaodaocrumb--2025-03-15%2014%3A34%3A35.655372--WEBCHAT.csv%22%2C%20%22Leo--2025-08-13%2017%3A54%3A58.598000--WEBCHAT.csv%22%5D%7D%7D"
+                        data-count="150">
+                        <span class="feature-count">150</span>
+                        <strong>bot-handled-perfectly</strong>
+                        <div class="conversation-preview">Click to see 150 conversations grouped by sub-problems (total:
+                            150)</div>
+                    </div>
+                    <div class="feature-item clickable-item" data-problem="ad-management-features"
+                        data-popup="%7B%22conversations%22%3A%20%5B%22Akshay%20Singh--2025-08-10%2010%3A31%3A26.578000--WEBCHAT.csv%22%2C%20%22Aaron--2025-08-06%2017%3A13%3A07.187000--WEBCHAT.csv%22%2C%20%22Andrey--2025-04-26%2016%3A57%3A38.148512--WEBCHAT.csv%22%2C%20%22Anin--2025-03-25%2014%3A47%3A40.180146--WEBCHAT.csv%22%2C%20%22Blanche--2025-04-17%2014%3A46%3A49.452649--WEBCHAT.csv%22%2C%20%22Ben%20Hobbs--2025-08-11%2020%3A45%3A25.576000--WEBCHAT.csv%22%2C%20%22Asymptotic%20Lark%20cf0a003589--2025-02-27%2020%3A15%3A34.828978--WEBCHAT.csv%22%2C%20%22Anthony--2025-04-16%2018%3A44%3A51.565179--WEBCHAT.csv%22%2C%20%22Affif--2025-04-20%2022%3A59%3A53.437433--WEBCHAT.csv%22%2C%20%22Bruno--2025-07-16%2012%3A52%3A03.464000--WEBCHAT.csv%22%2C%20%22Benth--2025-05-24%2016%3A45%3A10.738216--WEBCHAT.csv%22%2C%20%22Brigita--2025-03-24%2009%3A09%3A23.023414--WEBCHAT.csv%22%2C%20%22BJ--2025-07-03%2000%3A57%3A25.437000--WEBCHAT.csv%22%2C%20%22Abhishek--2025-08-05%2019%3A23%3A35.468000--WEBCHAT.csv%22%2C%20%22Anna--2025-03-04%2011%3A55%3A30.013554--WEBCHAT.csv%22%2C%20%22Ben--2025-08-04%2023%3A11%3A09.462000--WEBCHAT.csv%22%2C%20%22Agustin%20Herebia--2025-03-12%2019%3A00%3A47.995606--WEBCHAT.csv%22%2C%20%22Candis%20Waltz--2025-03-04%2017%3A45%3A47.167804--WEBCHAT.csv%22%2C%20%22Candis--2025-03-10%2015%3A25%3A26.929807--WEBCHAT.csv%22%2C%20%22Danny%20Greeson--2025-06-30%2023%3A07%3A29.304000--WEBCHAT.csv%22%2C%20%22Developer--2025-07-22%2011%3A26%3A52.883000--WEBCHAT.csv%22%2C%20%22Dilshayar--2025-05-30%2015%3A18%3A49.925355--WEBCHAT.csv%22%2C%20%22Elijah--2025-04-24%2021%3A11%3A41.799427--WEBCHAT.csv%22%2C%20%22Eladio%20J%20Cabrera%20Riveiro--2025-03-03%2019%3A37%3A23.395466--WEBCHAT.csv%22%2C%20%22Emilija%20Bruz%CC%8Cilaite%CC%87--2025-03-27%2014%3A11%3A44.464520--WEBCHAT.csv%22%2C%20%22Himanshu%20Patel--2025-03-10%2018%3A11%3A58.296635--WEBCHAT.csv%22%2C%20%22Hidayat%20Rizvi--2025-04-26%2003%3A55%3A55.284209--WEBCHAT.csv%22%2C%20%22Gary--2025-07-04%2014%3A21%3A02.769000--WEBCHAT.csv%22%2C%20%22Gal--2025-03-20%2020%3A44%3A09.521973--WEBCHAT.csv%22%2C%20%22Gabriel--2025-05-22%2014%3A08%3A53.342686--WEBCHAT.csv%22%2C%20%22Instant%20Keep%208443ddfd47--2025-02-27%2020%3A58%3A59.838205--WEBCHAT.csv%22%2C%20%22John%20Newman--2025-02-27%2013%3A04%3A16.937436--WEBCHAT.csv%22%2C%20%22Jay--2025-03-05%2015%3A16%3A05.996396--WEBCHAT.csv%22%2C%20%22John%20Cobb--2025-05-20%2014%3A58%3A14.365774--WEBCHAT.csv%22%2C%20%22Jonathan--2025-04-18%2014%3A58%3A33.083467--WEBCHAT.csv%22%2C%20%22John--2025-06-21%2013%3A49%3A35.087000--WEBCHAT.csv%22%2C%20%22Kate%20Hendricks%20--2025-04-26%2020%3A13%3A11.870181--WEBCHAT.csv%22%2C%20%22John%20Nicolazzo--2025-07-23%2016%3A26%3A22.487000--WEBCHAT.csv%22%2C%20%22Nirmal--2025-03-02%2020%3A11%3A44.157129--WEBCHAT.csv%22%2C%20%22Katie--2025-02-27%2018%3A18%3A43.566133--WEBCHAT.csv%22%2C%20%22Khanh--2025-03-07%2008%3A10%3A18.409351--WEBCHAT.csv%22%2C%20%22Leandra--2025-03-12%2015%3A28%3A42.511565--WEBCHAT.csv%22%2C%20%22Leandra--2025-03-11%2020%3A27%3A20.659924--WEBCHAT.csv%22%2C%20%22Horizontal%20Loss%20fbc2b0f49b--2025-01-28%2021%3A48%3A46.377592--WEBCHAT.csv%22%2C%20%22Lorenz--2025-04-29%2023%3A35%3A09.911389--WEBCHAT.csv%22%2C%20%22Matt--2025-03-03%2017%3A09%3A09.384042--WEBCHAT.csv%22%2C%20%22Sreemon%20Sudevarajan--2025-06-23%2016%3A29%3A15.416000--WEBCHAT.csv%22%2C%20%22Mark%20Macharia--2025-03-04%2017%3A19%3A30.355490--WEBCHAT.csv%22%2C%20%22Matt--2025-03-04%2017%3A37%3A39.636594--WEBCHAT.csv%22%2C%20%22Ryan%20--2025-03-07%2019%3A49%3A00.081742--WEBCHAT.csv%22%2C%20%22jacob%20holstein--2025-06-22%2001%3A58%3A06.702000--WEBCHAT.csv%22%2C%20%22Matt%20Smith--2025-03-05%2001%3A07%3A11.987420--WEBCHAT.csv%22%2C%20%22Marquita--2025-06-09%2014%3A24%3A40.813000--WEBCHAT.csv%22%2C%20%22Medeza%20Rubery--2025-05-26%2011%3A10%3A14.591228--WEBCHAT.csv%22%2C%20%22Misha--2025-07-03%2018%3A20%3A27.564000--WEBCHAT.csv%22%2C%20%22Mihai%20Doaga--2025-03-11%2009%3A33%3A05.320886--WEBCHAT.csv%22%2C%20%22Milan--2025-03-18%2021%3A09%3A14.531463--WEBCHAT.csv%22%2C%20%22Murat%20Ordu--2025-07-14%2019%3A15%3A53.259000--WEBCHAT.csv%22%2C%20%22Polite%20Arrangement%209a21777918--2025-02-27%2006%3A40%3A08.562648--WEBCHAT.csv%22%2C%20%22Preeti--2025-05-27%2011%3A11%3A45.627175--WEBCHAT.csv%22%2C%20%22Raj%20Singh--2025-04-25%2009%3A37%3A04.336966--WEBCHAT.csv%22%2C%20%22Reeba--2025-03-19%2018%3A29%3A48.033779--WEBCHAT.csv%22%2C%20%22Riccardo--2025-03-04%2006%3A09%3A39.979637--WEBCHAT.csv%22%2C%20%22Ronnie--2025-08-03%2005%3A30%3A21.246000--WEBCHAT.csv%22%2C%20%22Rostyslav--2025-03-11%2009%3A59%3A11.342379--WEBCHAT.csv%22%2C%20%22Ryan--2025-08-11%2019%3A54%3A37.634000--WEBCHAT.csv%22%2C%20%22SOnny--2025-08-07%2002%3A27%3A52.423000--WEBCHAT.csv%22%2C%20%22Sanel%20Delic--2025-03-05%2010%3A48%3A22.437214--WEBCHAT.csv%22%2C%20%22Sean--2025-03-06%2020%3A10%3A01.859034--WEBCHAT.csv%22%2C%20%22Serhat%20Karatum--2025-07-22%2018%3A48%3A27.438000--WEBCHAT.csv%22%2C%20%22Shawn--2025-08-13%2023%3A20%3A21.548000--WEBCHAT.csv%22%2C%20%22Shabby%20Vertex%20edf3f6cbc0--2025-02-28%2012%3A01%3A24.859324--WEBCHAT.csv%22%2C%20%22Sharif--2025-06-27%2015%3A34%3A21.698000--WEBCHAT.csv%22%2C%20%22Soniya--2025-04-04%2020%3A19%3A47.454776--WEBCHAT.csv%22%2C%20%22Sourav%20gupta--2025-07-02%2013%3A41%3A57.064000--WEBCHAT.csv%22%2C%20%22Sonny%20Parker--2025-08-04%2021%3A04%3A29.388000--WEBCHAT.csv%22%2C%20%22Sreemon%20S--2025-06-27%2014%3A13%3A32.619000--WEBCHAT.csv%22%2C%20%22Tao%20Yue--2025-03-07%2014%3A24%3A39.160673--WEBCHAT.csv%22%2C%20%22TIna--2025-03-27%2006%3A05%3A48.539450--WEBCHAT.csv%22%2C%20%22Thin%20Sheave%20c73cc5a170--2025-01-16%2003%3A16%3A04.777784--WEBCHAT.csv%22%2C%20%22Tieoni--2025-03-04%2022%3A11%3A11.707952--WEBCHAT.csv%22%2C%20%22Tariq--2025-02-27%2019%3A34%3A08.118622--WEBCHAT.csv%22%2C%20%22Valiwe--2025-03-04%2015%3A53%3A08.740944--WEBCHAT.csv%22%2C%20%22VK--2025-06-24%2008%3A18%3A43.945000--WEBCHAT.csv%22%2C%20%22William%20Johnson--2025-07-02%2011%3A06%3A46.920000--WEBCHAT.csv%22%2C%20%22deepak--2025-07-02%2005%3A50%3A56.223000--WEBCHAT.csv%22%2C%20%22Vernon%20Brown--2025-05-12%2017%3A16%3A55.183914--WEBCHAT.csv%22%2C%20%22Vivek--2025-07-09%2021%3A14%3A57.979000--WEBCHAT.csv%22%2C%20%22Vivek--2025-08-08%2002%3A05%3A29.485000--WEBCHAT.csv%22%2C%20%22Wilson--2025-03-07%2006%3A10%3A07.677133--WEBCHAT.csv%22%2C%20%22adam--2025-02-28%2007%3A48%3A01.205166--WEBCHAT.csv%22%2C%20%22andi--2025-04-16%2019%3A48%3A34.391992--WEBCHAT.csv%22%2C%20%22adam--2025-03-25%2016%3A33%3A06.280452--WEBCHAT.csv%22%2C%20%22aryan--2025-08-05%2012%3A13%3A17.958000--WEBCHAT.csv%22%2C%20%22david%20laniado--2025-05-23%2017%3A09%3A05.328234--WEBCHAT.csv%22%2C%20%22bill--2025-04-17%2012%3A28%3A16.189476--WEBCHAT.csv%22%2C%20%22chen--2025-03-14%2011%3A09%3A39.410342--WEBCHAT.csv%22%2C%20%22cheng--2025-03-28%2007%3A09%3A55.113073--WEBCHAT.csv%22%2C%20%22elhai--2025-06-16%2017%3A22%3A04.768000--WEBCHAT.csv%22%2C%20%22Vishal--2025-04-29%2012%3A30%3A34.262060--WEBCHAT.csv%22%2C%20%22dermy--2025-05-12%2013%3A45%3A27.645973--WEBCHAT.csv%22%2C%20%22frank%20flores--2025-02-28%2016%3A31%3A23.103796--WEBCHAT.csv%22%2C%20%22greenegraeme5--2025-04-25%2006%3A19%3A30.964414--WEBCHAT.csv%22%2C%20%22jeff--2025-04-18%2022%3A31%3A41.739355--WEBCHAT.csv%22%2C%20%22jun--2025-05-27%2007%3A09%3A28.363098--WEBCHAT.csv%22%2C%20%22naifu--2025-02-07%2019%3A26%3A17.827051--WEBCHAT.csv%22%2C%20%22mohit--2025-07-29%2007%3A25%3A26.461000--WEBCHAT.csv%22%2C%20%22ori--2025-03-04%2012%3A00%3A41.792911--WEBCHAT.csv%22%2C%20%22alex--2025-07-27%2007%3A11%3A27.552000--WEBCHAT.csv%22%2C%20%22roxy--2025-04-23%2002%3A08%3A30.479703--WEBCHAT.csv%22%2C%20%22ry--2025-05-14%2021%3A11%3A22.807024--WEBCHAT.csv%22%2C%20%22ryan--2025-05-13%2019%3A09%3A41.635494--WEBCHAT.csv%22%2C%20%22ett--2025-04-02%2022%3A48%3A03.012275--WEBCHAT.csv%22%2C%20%22zakir--2025-05-20%2011%3A44%3A07.301620--WEBCHAT.csv%22%2C%20%22tarun--2025-04-03%2009%3A03%3A51.673188--WEBCHAT.csv%22%2C%20%22wxn--2025-04-02%2001%3A45%3A44.057209--WEBCHAT.csv%22%2C%20%22mun--2025-03-20%2022%3A19%3A39.487157--WEBCHAT.csv%22%2C%20%22Taylor%20Newman--2025-04-23%2014%3A53%3A04.625854--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22ad-review-expedition%22%3A%20%5B%22Akshay%20Singh--2025-08-10%2010%3A31%3A26.578000--WEBCHAT.csv%22%5D%2C%20%22campaign-spending-diagnosis%22%3A%20%5B%22Aaron--2025-08-06%2017%3A13%3A07.187000--WEBCHAT.csv%22%5D%2C%20%22integrate%20campaign%20diagnostic%20tool%20to%20analyze%20budget%20issues%22%3A%20%5B%22Andrey--2025-04-26%2016%3A57%3A38.148512--WEBCHAT.csv%22%5D%2C%20%22direct-time-zone-change-in-admanager%22%3A%20%5B%22Anin--2025-03-25%2014%3A47%3A40.180146--WEBCHAT.csv%22%5D%2C%20%22ad%20account%20deletion%20functionality%22%3A%20%5B%22Blanche--2025-04-17%2014%3A46%3A49.452649--WEBCHAT.csv%22%5D%2C%20%22integrate%20advanced%20debugging%20tools%20for%20custom%20code%20issues%22%3A%20%5B%22Ben%20Hobbs--2025-08-11%2020%3A45%3A25.576000--WEBCHAT.csv%22%5D%2C%20%22ad-scheduling-setup%22%3A%20%5B%22Asymptotic%20Lark%20cf0a003589--2025-02-27%2020%3A15%3A34.828978--WEBCHAT.csv%22%5D%2C%20%22real-time-ad-approval-status-check%22%3A%20%5B%22Anthony--2025-04-16%2018%3A44%3A51.565179--WEBCHAT.csv%22%5D%2C%20%22ads-account-closure-process%22%3A%20%5B%22Affif--2025-04-20%2022%3A59%3A53.437433--WEBCHAT.csv%22%5D%2C%20%22integrate%20direct%20campaign%20status%20check%20feature%22%3A%20%5B%22Bruno--2025-07-16%2012%3A52%3A03.464000--WEBCHAT.csv%22%5D%2C%20%22implement%20a%20direct%20verification%20process%20for%20individual%20advertisers%22%3A%20%5B%22Benth--2025-05-24%2016%3A45%3A10.738216--WEBCHAT.csv%22%5D%2C%20%22integrate%20landing%20page%20analysis%20tool%20to%20provide%20specific%20feedback%20on%20ad%20rejections%22%3A%20%5B%22Brigita--2025-03-24%2009%3A09%3A23.023414--WEBCHAT.csv%22%5D%2C%20%22implement%20a%20pixel%20verification%20tool%20within%20NewsBreak%20Ad%20Manager%22%3A%20%5B%22BJ--2025-07-03%2000%3A57%3A25.437000--WEBCHAT.csv%22%5D%2C%20%22ad%20credit%20granting%20for%20sweepstakes%22%3A%20%5B%22Abhishek--2025-08-05%2019%3A23%3A35.468000--WEBCHAT.csv%22%5D%2C%20%22campaign-settings-limitation%22%3A%20%5B%22Anna--2025-03-04%2011%3A55%3A30.013554--WEBCHAT.csv%22%5D%2C%20%22persistent%20ad%20rejection%22%3A%20%5B%22Ben--2025-08-04%2023%3A11%3A09.462000--WEBCHAT.csv%22%5D%2C%20%22postback-timestamp-adjustment%22%3A%20%5B%22Agustin%20Herebia--2025-03-12%2019%3A00%3A47.995606--WEBCHAT.csv%22%5D%2C%20%22campaign-status-checking%22%3A%20%5B%22Candis%20Waltz--2025-03-04%2017%3A45%3A47.167804--WEBCHAT.csv%22%5D%2C%20%22integrate%20ad%20scheduling%20modification%20functionality%22%3A%20%5B%22Candis--2025-03-10%2015%3A25%3A26.929807--WEBCHAT.csv%22%5D%2C%20%22integrate%20direct%20navigation%20assistance%20for%20campaign%20settings%22%3A%20%5B%22Danny%20Greeson--2025-06-30%2023%3A07%3A29.304000--WEBCHAT.csv%22%5D%2C%20%22web%20event%20deletion%20capability%22%3A%20%5B%22Developer--2025-07-22%2011%3A26%3A52.883000--WEBCHAT.csv%22%5D%2C%20%22real-time%20application%20status%20updates%2C%20advertisement%20background%20check%22%3A%20%5B%22Dilshayar--2025-05-30%2015%3A18%3A49.925355--WEBCHAT.csv%22%5D%2C%20%22integrate%20ad%20review%20initiation%20process%22%3A%20%5B%22Elijah--2025-04-24%2021%3A11%3A41.799427--WEBCHAT.csv%22%5D%2C%20%22improve-screenshot-upload-functionality%22%3A%20%5B%22Eladio%20J%20Cabrera%20Riveiro--2025-03-03%2019%3A37%3A23.395466--WEBCHAT.csv%22%5D%2C%20%22ad%20policy%20dispute%22%3A%20%5B%22Emilija%20Bruz%CC%8Cilaite%CC%87--2025-03-27%2014%3A11%3A44.464520--WEBCHAT.csv%22%5D%2C%20%22ad-credit-request%22%3A%20%5B%22Himanshu%20Patel--2025-03-10%2018%3A11%3A58.296635--WEBCHAT.csv%22%5D%2C%20%22integrate%20account%20verification%20and%20ad%20credit%20processing%20capabilities%22%3A%20%5B%22Hidayat%20Rizvi--2025-04-26%2003%3A55%3A55.284209--WEBCHAT.csv%22%5D%2C%20%22implement%20logo-saving%20feature%20for%20ad%20reuse%22%3A%20%5B%22Gary--2025-07-04%2014%3A21%3A02.769000--WEBCHAT.csv%22%5D%2C%20%22upload-size-modification%22%3A%20%5B%22Gal--2025-03-20%2020%3A44%3A09.521973--WEBCHAT.csv%22%5D%2C%20%22add%20detailed%20setup%20instructions%20for%20RedTrack%20postback%20tracking%22%3A%20%5B%22Gabriel--2025-05-22%2014%3A08%3A53.342686--WEBCHAT.csv%22%5D%2C%20%22implement%20ad%20review%20status%20tracking%20and%20expedite%20request%20feature%22%3A%20%5B%22Instant%20Keep%208443ddfd47--2025-02-27%2020%3A58%3A59.838205--WEBCHAT.csv%22%5D%2C%20%22add-ad-review-status-check-feature%22%3A%20%5B%22John%20Newman--2025-02-27%2013%3A04%3A16.937436--WEBCHAT.csv%22%5D%2C%20%22implement%20real-time%20account%20verification%20to%20confirm%20ad%20credit%20application%22%3A%20%5B%22Jay--2025-03-05%2015%3A16%3A05.996396--WEBCHAT.csv%22%5D%2C%20%22implement%20direct%20audience%20network%20exclusion%20feature%20in%20ad%20settings%22%3A%20%5B%22John%20Cobb--2025-05-20%2014%3A58%3A14.365774--WEBCHAT.csv%22%5D%2C%20%22integrate-direct-ad-status-check%22%3A%20%5B%22Jonathan--2025-04-18%2014%3A58%3A33.083467--WEBCHAT.csv%22%5D%2C%20%22integrate%20ad%20credit%20application%20process%22%3A%20%5B%22John--2025-06-21%2013%3A49%3A35.087000--WEBCHAT.csv%22%5D%2C%20%22implement%20direct%20communication%20channel%20for%20urgent%20ad%20approval%20requests%22%3A%20%5B%22Kate%20Hendricks%20--2025-04-26%2020%3A13%3A11.870181--WEBCHAT.csv%22%5D%2C%20%22ad-rejection-issue%22%3A%20%5B%22John%20Nicolazzo--2025-07-23%2016%3A26%3A22.487000--WEBCHAT.csv%22%2C%20%22Nirmal--2025-03-02%2020%3A11%3A44.157129--WEBCHAT.csv%22%5D%2C%20%22bot-cannot-approve-ad%22%3A%20%5B%22Katie--2025-02-27%2018%3A18%3A43.566133--WEBCHAT.csv%22%5D%2C%20%22time-zone-adjustment%22%3A%20%5B%22Khanh--2025-03-07%2008%3A10%3A18.409351--WEBCHAT.csv%22%5D%2C%20%22implement%20direct%20download%20functionality%20in%20Newsbreak%20Ad%20Manager%22%3A%20%5B%22Leandra--2025-03-12%2015%3A28%3A42.511565--WEBCHAT.csv%22%5D%2C%20%22missing-download-option%22%3A%20%5B%22Leandra--2025-03-11%2020%3A27%3A20.659924--WEBCHAT.csv%22%5D%2C%20%22integrate%20advanced%20troubleshooting%20capabilities%20for%20conversion%20tracking%20issues%22%3A%20%5B%22Horizontal%20Loss%20fbc2b0f49b--2025-01-28%2021%3A48%3A46.377592--WEBCHAT.csv%22%5D%2C%20%22ad-duration-modification%22%3A%20%5B%22Lorenz--2025-04-29%2023%3A35%3A09.911389--WEBCHAT.csv%22%5D%2C%20%22campaign%20approval%20capability%22%3A%20%5B%22Matt--2025-03-03%2017%3A09%3A09.384042--WEBCHAT.csv%22%5D%2C%20%22campaign-approval-request%22%3A%20%5B%22Sreemon%20Sudevarajan--2025-06-23%2016%3A29%3A15.416000--WEBCHAT.csv%22%5D%2C%20%22time%20zone%20adjustment%20in%20ad%20manager%22%3A%20%5B%22Mark%20Macharia--2025-03-04%2017%3A19%3A30.355490--WEBCHAT.csv%22%5D%2C%20%22ad-approval-request%22%3A%20%5B%22Matt--2025-03-04%2017%3A37%3A39.636594--WEBCHAT.csv%22%2C%20%22Ryan%20--2025-03-07%2019%3A49%3A00.081742--WEBCHAT.csv%22%2C%20%22jacob%20holstein--2025-06-22%2001%3A58%3A06.702000--WEBCHAT.csv%22%5D%2C%20%22spending%20limit%20per%20ad%20account%22%3A%20%5B%22Matt%20Smith--2025-03-05%2001%3A07%3A11.987420--WEBCHAT.csv%22%5D%2C%20%22implement%20event%20deletion%20feature%20in%20dashboard%22%3A%20%5B%22Marquita--2025-06-09%2014%3A24%3A40.813000--WEBCHAT.csv%22%5D%2C%20%22direct-pdf-download-option%22%3A%20%5B%22Medeza%20Rubery--2025-05-26%2011%3A10%3A14.591228--WEBCHAT.csv%22%5D%2C%20%22monthly-bill-download-functionality%22%3A%20%5B%22Misha--2025-07-03%2018%3A20%3A27.564000--WEBCHAT.csv%22%5D%2C%20%22missing-download-button%22%3A%20%5B%22Mihai%20Doaga--2025-03-11%2009%3A33%3A05.320886--WEBCHAT.csv%22%5D%2C%20%22non-functional%20email%20address%22%3A%20%5B%22Milan--2025-03-18%2021%3A09%3A14.531463--WEBCHAT.csv%22%5D%2C%20%22manual%20ad%20credit%20payment%20option%2C%20manual%20postback%20approval%22%3A%20%5B%22Murat%20Ordu--2025-07-14%2019%3A15%3A53.259000--WEBCHAT.csv%22%5D%2C%20%22implement-direct-ad-approval-or-automated-escalation%22%3A%20%5B%22Polite%20Arrangement%209a21777918--2025-02-27%2006%3A40%3A08.562648--WEBCHAT.csv%22%5D%2C%20%22ad-credit-transfer-capability%22%3A%20%5B%22Preeti--2025-05-27%2011%3A11%3A45.627175--WEBCHAT.csv%22%5D%2C%20%22provide-direct-lead-generation-info%22%3A%20%5B%22Raj%20Singh--2025-04-25%2009%3A37%3A04.336966--WEBCHAT.csv%22%5D%2C%20%22enhance-bot-capability-to-resolve-campaign-issues-directly%22%3A%20%5B%22Reeba--2025-03-19%2018%3A29%3A48.033779--WEBCHAT.csv%22%5D%2C%20%22implement-campaign-data-explanation-feature%22%3A%20%5B%22Riccardo--2025-03-04%2006%3A09%3A39.979637--WEBCHAT.csv%22%5D%2C%20%22undelete-campaign-functionality%22%3A%20%5B%22Ronnie--2025-08-03%2005%3A30%3A21.246000--WEBCHAT.csv%22%5D%2C%20%22specific-ad-status-needed%22%3A%20%5B%22Rostyslav--2025-03-11%2009%3A59%3A11.342379--WEBCHAT.csv%22%5D%2C%20%22integrate-direct-download-link-for-transaction-history%22%3A%20%5B%22Ryan--2025-08-11%2019%3A54%3A37.634000--WEBCHAT.csv%22%5D%2C%20%22direct-ad-link-retrieval%22%3A%20%5B%22SOnny--2025-08-07%2002%3A27%3A52.423000--WEBCHAT.csv%22%5D%2C%20%22enhance-bot-capability-for-advanced-troubleshooting%22%3A%20%5B%22Sanel%20Delic--2025-03-05%2010%3A48%3A22.437214--WEBCHAT.csv%22%5D%2C%20%22implement-ad-review-acceleration-feature%22%3A%20%5B%22Sean--2025-03-06%2020%3A10%3A01.859034--WEBCHAT.csv%22%5D%2C%20%22integrate%20detailed%20campaign%20diagnostics%20tool%22%3A%20%5B%22Serhat%20Karatum--2025-07-22%2018%3A48%3A27.438000--WEBCHAT.csv%22%5D%2C%20%22direct-industry-ad-examples%22%3A%20%5B%22Shawn--2025-08-13%2023%3A20%3A21.548000--WEBCHAT.csv%22%5D%2C%20%22specific-video-upload-troubleshooting%22%3A%20%5B%22Shabby%20Vertex%20edf3f6cbc0--2025-02-28%2012%3A01%3A24.859324--WEBCHAT.csv%22%5D%2C%20%22ad-set-status-discrepancy%22%3A%20%5B%22Sharif--2025-06-27%2015%3A34%3A21.698000--WEBCHAT.csv%22%5D%2C%20%22campaign%20approval%20expedition%22%3A%20%5B%22Soniya--2025-04-04%2020%3A19%3A47.454776--WEBCHAT.csv%22%5D%2C%20%22ad-pending-issue-unresolved%22%3A%20%5B%22Sourav%20gupta--2025-07-02%2013%3A41%3A57.064000--WEBCHAT.csv%22%5D%2C%20%22implement%20direct%20link%20retrieval%20feature%20in%20Ad%20Manager%22%3A%20%5B%22Sonny%20Parker--2025-08-04%2021%3A04%3A29.388000--WEBCHAT.csv%22%5D%2C%20%22user-already-tried-solutions%22%3A%20%5B%22Sreemon%20S--2025-06-27%2014%3A13%3A32.619000--WEBCHAT.csv%22%5D%2C%20%22implement%20ad%20credit%20eligibility%20verification%20for%20existing%20accounts%22%3A%20%5B%22Tao%20Yue--2025-03-07%2014%3A24%3A39.160673--WEBCHAT.csv%22%5D%2C%20%22implement%20expedited%20ad%20review%20process%20or%20direct%20contact%20with%20review%20team%22%3A%20%5B%22TIna--2025-03-27%2006%3A05%3A48.539450--WEBCHAT.csv%22%5D%2C%20%22add-personalized-recommendation-feature%22%3A%20%5B%22Thin%20Sheave%20c73cc5a170--2025-01-16%2003%3A16%3A04.777784--WEBCHAT.csv%22%5D%2C%20%22add%20automated%20pixel%20verification%20tool%22%3A%20%5B%22Tieoni--2025-03-04%2022%3A11%3A11.707952--WEBCHAT.csv%22%5D%2C%20%22ad-settings-modification%22%3A%20%5B%22Tariq--2025-02-27%2019%3A34%3A08.118622--WEBCHAT.csv%22%5D%2C%20%22ad%20approval%20delay%22%3A%20%5B%22Valiwe--2025-03-04%2015%3A53%3A08.740944--WEBCHAT.csv%22%5D%2C%20%22issue-specific-to-campaign%22%3A%20%5B%22VK--2025-06-24%2008%3A18%3A43.945000--WEBCHAT.csv%22%5D%2C%20%22implement%20quota%20management%20to%20prevent%20service%20interruption%22%3A%20%5B%22William%20Johnson--2025-07-02%2011%3A06%3A46.920000--WEBCHAT.csv%22%2C%20%22deepak--2025-07-02%2005%3A50%3A56.223000--WEBCHAT.csv%22%5D%2C%20%22gifting%20currency%20or%20ad%20credits%22%3A%20%5B%22Vernon%20Brown--2025-05-12%2017%3A16%3A55.183914--WEBCHAT.csv%22%5D%2C%20%22creative-download-functionality%22%3A%20%5B%22Vivek--2025-07-09%2021%3A14%3A57.979000--WEBCHAT.csv%22%5D%2C%20%22non-admin-user-role-assignment%22%3A%20%5B%22Vivek--2025-08-08%2002%3A05%3A29.485000--WEBCHAT.csv%22%5D%2C%20%22view-email-addresses-in-audience%22%3A%20%5B%22Wilson--2025-03-07%2006%3A10%3A07.677133--WEBCHAT.csv%22%5D%2C%20%22add%20capability%20for%20users%20to%20select%20ad%20placements%22%3A%20%5B%22adam--2025-02-28%2007%3A48%3A01.205166--WEBCHAT.csv%22%5D%2C%20%22integrate%20direct%20verification%20and%20approval%20process%20within%20the%20chatbot%22%3A%20%5B%22andi--2025-04-16%2019%3A48%3A34.391992--WEBCHAT.csv%22%5D%2C%20%22add%20feature%20to%20customize%20account%20time%20zone%22%3A%20%5B%22adam--2025-03-25%2016%3A33%3A06.280452--WEBCHAT.csv%22%5D%2C%20%22profile-approval-request%22%3A%20%5B%22aryan--2025-08-05%2012%3A13%3A17.958000--WEBCHAT.csv%22%5D%2C%20%22ad%20placement%20modification%20capability%22%3A%20%5B%22david%20laniado--2025-05-23%2017%3A09%3A05.328234--WEBCHAT.csv%22%5D%2C%20%22bot-cannot-verify-ad-content%22%3A%20%5B%22bill--2025-04-17%2012%3A28%3A16.189476--WEBCHAT.csv%22%5D%2C%20%22add%20troubleshooting%20steps%20for%20MaxConv%20postback%20issues%22%3A%20%5B%22chen--2025-03-14%2011%3A09%3A39.410342--WEBCHAT.csv%22%5D%2C%20%22direct%20pixel%20code%20troubleshooting%2C%20ad%20comment%20feature%22%3A%20%5B%22cheng--2025-03-28%2007%3A09%3A55.113073--WEBCHAT.csv%22%5D%2C%20%22add%20troubleshooting%20steps%20for%20missing%20dashboard%20options%22%3A%20%5B%22elhai--2025-06-16%2017%3A22%3A04.768000--WEBCHAT.csv%22%5D%2C%20%22ad%20credit%20application%20delay%22%3A%20%5B%22Vishal--2025-04-29%2012%3A30%3A34.262060--WEBCHAT.csv%22%5D%2C%20%22integrate%20real-time%20ad%20status%20tracking%22%3A%20%5B%22dermy--2025-05-12%2013%3A45%3A27.645973--WEBCHAT.csv%22%5D%2C%20%22unresolved-pending-ad-issue%22%3A%20%5B%22frank%20flores--2025-02-28%2016%3A31%3A23.103796--WEBCHAT.csv%22%5D%2C%20%22ad-content-modification-capability%22%3A%20%5B%22greenegraeme5--2025-04-25%2006%3A19%3A30.964414--WEBCHAT.csv%22%5D%2C%20%22integrate%20advanced%20troubleshooting%20capabilities%20for%20pixel%20issues%22%3A%20%5B%22jeff--2025-04-18%2022%3A31%3A41.739355--WEBCHAT.csv%22%5D%2C%20%22add-user-role-management-capability%22%3A%20%5B%22jun--2025-05-27%2007%3A09%3A28.363098--WEBCHAT.csv%22%5D%2C%20%22user-requested-additional-help%22%3A%20%5B%22naifu--2025-02-07%2019%3A26%3A17.827051--WEBCHAT.csv%22%5D%2C%20%22web-event-deletion%22%3A%20%5B%22mohit--2025-07-29%2007%3A25%3A26.461000--WEBCHAT.csv%22%5D%2C%20%22ad%20content%20analysis%20and%20offer%20eligibility%20check%22%3A%20%5B%22ori--2025-03-04%2012%3A00%3A41.792911--WEBCHAT.csv%22%5D%2C%20%22need-for-ad-review-expedition%22%3A%20%5B%22alex--2025-07-27%2007%3A11%3A27.552000--WEBCHAT.csv%22%5D%2C%20%22complex-campaign-issue%22%3A%20%5B%22roxy--2025-04-23%2002%3A08%3A30.479703--WEBCHAT.csv%22%5D%2C%20%22add%20language%20change%20functionality%22%3A%20%5B%22ry--2025-05-14%2021%3A11%3A22.807024--WEBCHAT.csv%22%5D%2C%20%22ability%20to%20modify%20video%20ad%20size%20limit%22%3A%20%5B%22ryan--2025-05-13%2019%3A09%3A41.635494--WEBCHAT.csv%22%5D%2C%20%22lookalike%20audience%20creation%2C%20direct%20upload%20for%20media%20plans%22%3A%20%5B%22ett--2025-04-02%2022%3A48%3A03.012275--WEBCHAT.csv%22%5D%2C%20%22direct-ad-credit-addition%22%3A%20%5B%22zakir--2025-05-20%2011%3A44%3A07.301620--WEBCHAT.csv%22%5D%2C%20%22user-received-conflicting-advice%22%3A%20%5B%22tarun--2025-04-03%2009%3A03%3A51.673188--WEBCHAT.csv%22%5D%2C%20%22campaign-spending-issue-unresolved%22%3A%20%5B%22wxn--2025-04-02%2001%3A45%3A44.057209--WEBCHAT.csv%22%5D%2C%20%22implement%20bulk%20edit%20functionality%20for%20ad%20headlines%22%3A%20%5B%22mun--2025-03-20%2022%3A19%3A39.487157--WEBCHAT.csv%22%5D%2C%20%22real-time-ad-status-check%22%3A%20%5B%22Taylor%20Newman--2025-04-23%2014%3A53%3A04.625854--WEBCHAT.csv%22%5D%7D%7D"
+                        data-count="118">
+                        <span class="feature-count">118</span>
+                        <strong>ad-management-features</strong>
+                        <div class="conversation-preview">Click to see 118 conversations grouped by sub-problems (total:
+                            118)</div>
+                    </div>
+                    <div class="feature-item clickable-item" data-problem="account-management-features"
+                        data-popup="%7B%22conversations%22%3A%20%5B%22Adriano%20Vitor%20Ruiz--2025-08-15%2017%3A26%3A25.143000--WEBCHAT.csv%22%2C%20%22Sam%20Paul--2025-05-02%2014%3A01%3A34.057367--WEBCHAT.csv%22%2C%20%22Aaron%20Gosling--2025-04-01%2014%3A06%3A23.955888--WEBCHAT.csv%22%2C%20%22Aspet%20Grigoryan--2025-04-29%2015%3A37%3A59.559291--WEBCHAT.csv%22%2C%20%22Aaron%20Chandler--2025-04-16%2021%3A27%3A33.196644--WEBCHAT.csv%22%2C%20%22Absolute%20Nest%20823db93d4f--2025-02-27%2012%3A42%3A50.018826--WEBCHAT.csv%22%2C%20%22Bruno%20VIdic%CC%81--2025-04-29%2010%3A45%3A13.413493--WEBCHAT.csv%22%2C%20%22Achlesh%20Walia--2025-04-16%2018%3A52%3A54.443114--WEBCHAT.csv%22%2C%20%22Bryan%20Higgins--2025-03-07%2016%3A59%3A00.497110--WEBCHAT.csv%22%2C%20%22Christian--2025-07-01%2013%3A35%3A56.033000--WEBCHAT.csv%22%2C%20%22ChenyuTest--2025-04-18%2005%3A02%3A39.942324--WEBCHAT.csv%22%2C%20%22Charley--2025-01-14%2022%3A47%3A46.627363--WEBCHAT.csv%22%2C%20%22Gaurav--2025-04-26%2013%3A43%3A18.456499--WEBCHAT.csv%22%2C%20%22Hitesh--2025-07-25%2009%3A02%3A21.494000--WEBCHAT.csv%22%2C%20%22Fenil--2025-06-11%2006%3A26%3A59.992000--WEBCHAT.csv%22%2C%20%22Javier%20Navarrete--2025-04-16%2015%3A56%3A20.129647--WEBCHAT.csv%22%2C%20%22Jitendra--2025-03-07%2009%3A02%3A55.607511--WEBCHAT.csv%22%2C%20%22Jordan--2025-04-22%2021%3A26%3A10.277124--WEBCHAT.csv%22%2C%20%22Local%20Tag%20962dbd0130--2025-02-28%2004%3A45%3A46.983308--WEBCHAT.csv%22%2C%20%22Jones--2025-07-22%2012%3A34%3A16.237000--WEBCHAT.csv%22%2C%20%22Milan%20Walraven--2025-06-25%2014%3A46%3A52.664000--WEBCHAT.csv%22%2C%20%22Prakhar--2025-04-29%2013%3A47%3A51.884967--WEBCHAT.csv%22%2C%20%22Praveen%20Kushwah--2025-06-04%2012%3A52%3A10.779967--WEBCHAT.csv%22%2C%20%22Paolo--2025-06-09%2015%3A31%3A10.983000--WEBCHAT.csv%22%2C%20%22Sonny--2025-08-07%2001%3A43%3A47.188000--WEBCHAT.csv%22%2C%20%22Steve--2025-06-16%2009%3A10%3A13.742000--WEBCHAT.csv%22%2C%20%22Sudhanshu--2025-07-08%2007%3A20%3A36.548000--WEBCHAT.csv%22%2C%20%22Suvi--2025-06-06%2019%3A28%3A41.768000--WEBCHAT.csv%22%2C%20%22Thorben%20Dinse--2025-03-24%2006%3A28%3A48.200943--WEBCHAT.csv%22%2C%20%22Vincent%20Czaplyski--2025-06-05%2019%3A53%3A36.421000--WEBCHAT.csv%22%2C%20%22casearty--2025-03-01%2010%3A02%3A54.171874--WEBCHAT.csv%22%2C%20%22Wenty%20Browne--2025-03-02%2015%3A37%3A19.468352--WEBCHAT.csv%22%2C%20%22julieshanap131--2025-06-16%2016%3A05%3A51.889000--WEBCHAT.csv%22%2C%20%22sumit--2025-08-16%2013%3A28%3A50.333000--WEBCHAT.csv%22%2C%20%22k--2025-07-07%2015%3A25%3A45.582000--WEBCHAT.csv%22%2C%20%22sofiaclarkooybvmpy--2025-04-10%2013%3A45%3A49.196345--WEBCHAT.csv%22%2C%20%22Andrew%20Pizzoferrato--2025-03-20%2021%3A20%3A58.464372--WEBCHAT.csv%22%2C%20%22Albert--2025-06-25%2004%3A57%3A56.553000--WEBCHAT.csv%22%2C%20%22Antonio%20--2025-03-13%2014%3A24%3A48.367277--WEBCHAT.csv%22%2C%20%22Anna--2025-03-14%2018%3A48%3A09.487134--WEBCHAT.csv%22%2C%20%22Glennice%20Weinburg--2025-04-30%2012%3A22%3A13.145966--WEBCHAT.csv%22%2C%20%22Robert--2025-07-22%2004%3A22%3A34.174000--WEBCHAT.csv%22%2C%20%22whalemo--2025-04-14%2007%3A12%3A27.634533--WEBCHAT.csv%22%2C%20%22Chris%20Rooke--2025-05-22%2014%3A40%3A39.399495--WEBCHAT.csv%22%2C%20%22Chris%20Kron--2025-06-03%2017%3A29%3A53.782741--WEBCHAT.csv%22%2C%20%22Chris--2025-05-17%2016%3A03%3A14.076184--WEBCHAT.csv%22%2C%20%22Davi--2025-03-12%2014%3A01%3A21.655168--WEBCHAT.csv%22%2C%20%22Domas--2025-07-16%2010%3A56%3A51.762000--WEBCHAT.csv%22%2C%20%22Duane--2025-04-15%2013%3A51%3A36.320124--WEBCHAT.csv%22%2C%20%22Erik%20Gyepes--2025-05-09%2009%3A10%3A00.205394--WEBCHAT.csv%22%2C%20%22EFELLE%20CREATIVE%20INC.--2025-05-26%2021%3A40%3A18.087203--WEBCHAT.csv%22%2C%20%22Gerry--2025-06-25%2005%3A36%3A56.550000--WEBCHAT.csv%22%2C%20%22Garrison%20Sakes--2025-03-17%2016%3A25%3A36.080694--WEBCHAT.csv%22%2C%20%22Gurpreet%20Singh--2025-03-17%2011%3A08%3A11.714283--WEBCHAT.csv%22%2C%20%22Gabriel%20Rodriguez--2025-07-31%2014%3A37%3A01.322000--WEBCHAT.csv%22%2C%20%22Hapsi--2025-07-01%2007%3A10%3A30.631000--WEBCHAT.csv%22%2C%20%22Gustavo--2025-04-09%2001%3A52%3A16.738665--WEBCHAT.csv%22%2C%20%22Jatin--2025-06-05%2017%3A54%3A32.234000--WEBCHAT.csv%22%2C%20%22James--2025-04-27%2019%3A13%3A56.911967--WEBCHAT.csv%22%2C%20%22Gen--2025-07-13%2021%3A54%3A56.132000--WEBCHAT.csv%22%2C%20%22Jeff--2025-04-19%2018%3A37%3A37.910169--WEBCHAT.csv%22%2C%20%22Kellie%20Morgan--2025-05-01%2013%3A05%3A39.483919--WEBCHAT.csv%22%2C%20%22Kent%20Hopkins--2025-08-14%2012%3A11%3A13.835000--WEBCHAT.csv%22%2C%20%22Mayukh%20Basu--2025-03-17%2016%3A35%3A18.420795--WEBCHAT.csv%22%2C%20%22Kyle%20Martin--2025-07-28%2016%3A27%3A45.587000--WEBCHAT.csv%22%2C%20%22Kyle%20Martin--2025-07-28%2016%3A22%3A10.514000--WEBCHAT.csv%22%2C%20%22Large%20Metaphor%200a95544013--2025-04-10%2001%3A57%3A34.805083--WEBCHAT.csv%22%2C%20%22Larry--2025-05-24%2002%3A30%3A01.433038--WEBCHAT.csv%22%2C%20%22lizzy--2025-05-27%2018%3A22%3A19.342290--WEBCHAT.csv%22%2C%20%22Mark--2025-08-09%2019%3A00%3A38.312000--WEBCHAT.csv%22%2C%20%22Mike%20Hodge--2025-07-22%2014%3A56%3A28.060000--WEBCHAT.csv%22%2C%20%22Nabil%20Oussama%20Brik--2025-04-18%2018%3A45%3A59.008881--WEBCHAT.csv%22%2C%20%22Nick--2025-06-20%2018%3A53%3A46.219000--WEBCHAT.csv%22%2C%20%22Nelson%20Dias--2025-03-06%2017%3A29%3A10.256874--WEBCHAT.csv%22%2C%20%22Raz--2025-08-08%2002%3A14%3A49.714000--WEBCHAT.csv%22%2C%20%22Rida%20Xiao--2025-03-02%2013%3A36%3A48.954991--WEBCHAT.csv%22%2C%20%22Samuel--2025-05-19%2013%3A55%3A52.080930--WEBCHAT.csv%22%2C%20%22Quinten%20Germeijs--2025-04-12%2010%3A29%3A35.772776--WEBCHAT.csv%22%2C%20%22Rassal%20Khan--2025-03-07%2006%3A24%3A43.461245--WEBCHAT.csv%22%2C%20%22ShivaKumar%20--2025-08-16%2005%3A37%3A31.496000--WEBCHAT.csv%22%2C%20%22Thomas%20Mulder--2025-05-02%2015%3A24%3A01.911629--WEBCHAT.csv%22%2C%20%22William--2025-03-13%2021%3A38%3A34.406656--WEBCHAT.csv%22%2C%20%22Yasha%20--2025-03-24%2017%3A32%3A41.452409--WEBCHAT.csv%22%2C%20%22alen--2025-06-28%2020%3A41%3A23.880000--WEBCHAT.csv%22%2C%20%22atakan%20go%CC%88l--2025-07-09%2021%3A51%3A26.358000--WEBCHAT.csv%22%2C%20%22gareth--2025-08-14%2012%3A28%3A21.083000--WEBCHAT.csv%22%2C%20%22jeff%20glass--2025-03-01%2001%3A01%3A27.524315--WEBCHAT.csv%22%2C%20%22jack--2025-05-23%2015%3A41%3A35.945840--WEBCHAT.csv%22%2C%20%22lizzy--2025-04-07%2017%3A43%3A59.270122--WEBCHAT.csv%22%2C%20%22micah--2025-04-18%2014%3A29%3A27.433757--WEBCHAT.csv%22%2C%20%22matteo--2025-07-03%2010%3A13%3A42.317000--WEBCHAT.csv%22%2C%20%22shaun--2025-07-09%2017%3A49%3A37.545000--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22integrate%20with%20verification%20team%20for%20direct%20issue%20resolution%22%3A%20%5B%22Adriano%20Vitor%20Ruiz--2025-08-15%2017%3A26%3A25.143000--WEBCHAT.csv%22%5D%2C%20%22verification-issue%22%3A%20%5B%22Sam%20Paul--2025-05-02%2014%3A01%3A34.057367--WEBCHAT.csv%22%5D%2C%20%22integrate%20account%20management%20tools%20for%20direct%20issue%20resolution%22%3A%20%5B%22Aaron%20Gosling--2025-04-01%2014%3A06%3A23.955888--WEBCHAT.csv%22%5D%2C%20%22account-specific-problem%22%3A%20%5B%22Aspet%20Grigoryan--2025-04-29%2015%3A37%3A59.559291--WEBCHAT.csv%22%2C%20%22Aaron%20Chandler--2025-04-16%2021%3A27%3A33.196644--WEBCHAT.csv%22%2C%20%22Absolute%20Nest%20823db93d4f--2025-02-27%2012%3A42%3A50.018826--WEBCHAT.csv%22%2C%20%22Bruno%20VIdic%CC%81--2025-04-29%2010%3A45%3A13.413493--WEBCHAT.csv%22%2C%20%22Achlesh%20Walia--2025-04-16%2018%3A52%3A54.443114--WEBCHAT.csv%22%2C%20%22Bryan%20Higgins--2025-03-07%2016%3A59%3A00.497110--WEBCHAT.csv%22%2C%20%22Christian--2025-07-01%2013%3A35%3A56.033000--WEBCHAT.csv%22%2C%20%22ChenyuTest--2025-04-18%2005%3A02%3A39.942324--WEBCHAT.csv%22%2C%20%22Charley--2025-01-14%2022%3A47%3A46.627363--WEBCHAT.csv%22%2C%20%22Gaurav--2025-04-26%2013%3A43%3A18.456499--WEBCHAT.csv%22%2C%20%22Hitesh--2025-07-25%2009%3A02%3A21.494000--WEBCHAT.csv%22%2C%20%22Fenil--2025-06-11%2006%3A26%3A59.992000--WEBCHAT.csv%22%2C%20%22Javier%20Navarrete--2025-04-16%2015%3A56%3A20.129647--WEBCHAT.csv%22%2C%20%22Jitendra--2025-03-07%2009%3A02%3A55.607511--WEBCHAT.csv%22%2C%20%22Jordan--2025-04-22%2021%3A26%3A10.277124--WEBCHAT.csv%22%2C%20%22Local%20Tag%20962dbd0130--2025-02-28%2004%3A45%3A46.983308--WEBCHAT.csv%22%2C%20%22Jones--2025-07-22%2012%3A34%3A16.237000--WEBCHAT.csv%22%2C%20%22Milan%20Walraven--2025-06-25%2014%3A46%3A52.664000--WEBCHAT.csv%22%2C%20%22Prakhar--2025-04-29%2013%3A47%3A51.884967--WEBCHAT.csv%22%2C%20%22Praveen%20Kushwah--2025-06-04%2012%3A52%3A10.779967--WEBCHAT.csv%22%2C%20%22Paolo--2025-06-09%2015%3A31%3A10.983000--WEBCHAT.csv%22%2C%20%22Sonny--2025-08-07%2001%3A43%3A47.188000--WEBCHAT.csv%22%2C%20%22Steve--2025-06-16%2009%3A10%3A13.742000--WEBCHAT.csv%22%2C%20%22Sudhanshu--2025-07-08%2007%3A20%3A36.548000--WEBCHAT.csv%22%2C%20%22Suvi--2025-06-06%2019%3A28%3A41.768000--WEBCHAT.csv%22%2C%20%22Thorben%20Dinse--2025-03-24%2006%3A28%3A48.200943--WEBCHAT.csv%22%2C%20%22Vincent%20Czaplyski--2025-06-05%2019%3A53%3A36.421000--WEBCHAT.csv%22%2C%20%22casearty--2025-03-01%2010%3A02%3A54.171874--WEBCHAT.csv%22%2C%20%22Wenty%20Browne--2025-03-02%2015%3A37%3A19.468352--WEBCHAT.csv%22%2C%20%22julieshanap131--2025-06-16%2016%3A05%3A51.889000--WEBCHAT.csv%22%2C%20%22sumit--2025-08-16%2013%3A28%3A50.333000--WEBCHAT.csv%22%2C%20%22k--2025-07-07%2015%3A25%3A45.582000--WEBCHAT.csv%22%2C%20%22sofiaclarkooybvmpy--2025-04-10%2013%3A45%3A49.196345--WEBCHAT.csv%22%5D%2C%20%22integrate-with-user-account-settings-for-direct-troubleshooting%22%3A%20%5B%22Andrew%20Pizzoferrato--2025-03-20%2021%3A20%3A58.464372--WEBCHAT.csv%22%5D%2C%20%22potential-permission-issue%22%3A%20%5B%22Albert--2025-06-25%2004%3A57%3A56.553000--WEBCHAT.csv%22%5D%2C%20%22implement-direct-raster-verification%22%3A%20%5B%22Antonio%20--2025-03-13%2014%3A24%3A48.367277--WEBCHAT.csv%22%5D%2C%20%22implement%20direct%20communication%20channel%20for%20verification%20expedition%22%3A%20%5B%22Anna--2025-03-14%2018%3A48%3A09.487134--WEBCHAT.csv%22%5D%2C%20%22verification-delay%22%3A%20%5B%22Glennice%20Weinburg--2025-04-30%2012%3A22%3A13.145966--WEBCHAT.csv%22%2C%20%22Robert--2025-07-22%2004%3A22%3A34.174000--WEBCHAT.csv%22%2C%20%22whalemo--2025-04-14%2007%3A12%3A27.634533--WEBCHAT.csv%22%5D%2C%20%22direct-verification-processing%22%3A%20%5B%22Chris%20Rooke--2025-05-22%2014%3A40%3A39.399495--WEBCHAT.csv%22%5D%2C%20%22integrate%20direct%20verification%20process%20within%20chatbot%22%3A%20%5B%22Chris%20Kron--2025-06-03%2017%3A29%3A53.782741--WEBCHAT.csv%22%5D%2C%20%22complex-verification-issue%22%3A%20%5B%22Chris--2025-05-17%2016%3A03%3A14.076184--WEBCHAT.csv%22%5D%2C%20%22integrate%20account%20verification%20and%20payment%20processing%20capabilities%22%3A%20%5B%22Davi--2025-03-12%2014%3A01%3A21.655168--WEBCHAT.csv%22%5D%2C%20%22user-lacks-permissions%22%3A%20%5B%22Domas--2025-07-16%2010%3A56%3A51.762000--WEBCHAT.csv%22%5D%2C%20%22complex-account-issue%22%3A%20%5B%22Duane--2025-04-15%2013%3A51%3A36.320124--WEBCHAT.csv%22%5D%2C%20%22user-requested-verification%22%3A%20%5B%22Erik%20Gyepes--2025-05-09%2009%3A10%3A00.205394--WEBCHAT.csv%22%5D%2C%20%22unable-to-complete-verification%22%3A%20%5B%22EFELLE%20CREATIVE%20INC.--2025-05-26%2021%3A40%3A18.087203--WEBCHAT.csv%22%5D%2C%20%22incorrect-account-review-info%22%3A%20%5B%22Gerry--2025-06-25%2005%3A36%3A56.550000--WEBCHAT.csv%22%5D%2C%20%22delayed-verification-response%22%3A%20%5B%22Garrison%20Sakes--2025-03-17%2016%3A25%3A36.080694--WEBCHAT.csv%22%5D%2C%20%22account-verification-pending%22%3A%20%5B%22Gurpreet%20Singh--2025-03-17%2011%3A08%3A11.714283--WEBCHAT.csv%22%5D%2C%20%22implement%20expedited%20verification%20process%20for%20urgent%20cases%22%3A%20%5B%22Gabriel%20Rodriguez--2025-07-31%2014%3A37%3A01.322000--WEBCHAT.csv%22%5D%2C%20%22increase%20reply%20quota%20or%20provide%20alternative%20contact%20method%20for%20account%20manager%22%3A%20%5B%22Hapsi--2025-07-01%2007%3A10%3A30.631000--WEBCHAT.csv%22%5D%2C%20%22integrate%20account%20verification%20and%20troubleshooting%20capabilities%22%3A%20%5B%22Gustavo--2025-04-09%2001%3A52%3A16.738665--WEBCHAT.csv%22%5D%2C%20%22web-specific-account-navigation-instructions%22%3A%20%5B%22Jatin--2025-06-05%2017%3A54%3A32.234000--WEBCHAT.csv%22%5D%2C%20%22integrate%20manual%20pixel%20verification%20process%20or%20improve%20account%20ID%20visibility%20in%20dashboard%22%3A%20%5B%22James--2025-04-27%2019%3A13%3A56.911967--WEBCHAT.csv%22%5D%2C%20%22integrate%20diagnostic%20tools%20for%20pixel%20setup%20verification%22%3A%20%5B%22Gen--2025-07-13%2021%3A54%3A56.132000--WEBCHAT.csv%22%5D%2C%20%22integrate%20direct%20troubleshooting%20tools%20and%20verification%20process%22%3A%20%5B%22Jeff--2025-04-19%2018%3A37%3A37.910169--WEBCHAT.csv%22%5D%2C%20%22inability-to-delete-account%22%3A%20%5B%22Kellie%20Morgan--2025-05-01%2013%3A05%3A39.483919--WEBCHAT.csv%22%5D%2C%20%22user-request-for-account-manager%22%3A%20%5B%22Kent%20Hopkins--2025-08-14%2012%3A11%3A13.835000--WEBCHAT.csv%22%2C%20%22Mayukh%20Basu--2025-03-17%2016%3A35%3A18.420795--WEBCHAT.csv%22%5D%2C%20%22implement-real-time-verification-feedback%22%3A%20%5B%22Kyle%20Martin--2025-07-28%2016%3A27%3A45.587000--WEBCHAT.csv%22%5D%2C%20%22account-manager-interaction-needed%22%3A%20%5B%22Kyle%20Martin--2025-07-28%2016%3A22%3A10.514000--WEBCHAT.csv%22%5D%2C%20%22integrate%20account%20verification%20and%20pixel%20status%20check%20capabilities%22%3A%20%5B%22Large%20Metaphor%200a95544013--2025-04-10%2001%3A57%3A34.805083--WEBCHAT.csv%22%5D%2C%20%22integrate%20real-time%20verification%20status%20updates%22%3A%20%5B%22Larry--2025-05-24%2002%3A30%3A01.433038--WEBCHAT.csv%22%2C%20%22lizzy--2025-05-27%2018%3A22%3A19.342290--WEBCHAT.csv%22%5D%2C%20%22user-account-specific-questions%22%3A%20%5B%22Mark--2025-08-09%2019%3A00%3A38.312000--WEBCHAT.csv%22%5D%2C%20%22integrate%20postback%20setup%20functionality%20and%20direct%20account%20manager%20contact%22%3A%20%5B%22Mike%20Hodge--2025-07-22%2014%3A56%3A28.060000--WEBCHAT.csv%22%5D%2C%20%22integrate%20direct%20account%20verification%20process%20within%20chatbot%22%3A%20%5B%22Nabil%20Oussama%20Brik--2025-04-18%2018%3A45%3A59.008881--WEBCHAT.csv%22%5D%2C%20%22integrate%20tracking%20data%20verification%20feature%22%3A%20%5B%22Nick--2025-06-20%2018%3A53%3A46.219000--WEBCHAT.csv%22%5D%2C%20%22promotional-credit-verification%22%3A%20%5B%22Nelson%20Dias--2025-03-06%2017%3A29%3A10.256874--WEBCHAT.csv%22%5D%2C%20%22integrate%20a%20tool%20for%20direct%20pixel%20verification%20and%20diagnostics%22%3A%20%5B%22Raz--2025-08-08%2002%3A14%3A49.714000--WEBCHAT.csv%22%5D%2C%20%22specific-account-issue%22%3A%20%5B%22Rida%20Xiao--2025-03-02%2013%3A36%3A48.954991--WEBCHAT.csv%22%5D%2C%20%22direct-account-verification%22%3A%20%5B%22Samuel--2025-05-19%2013%3A55%3A52.080930--WEBCHAT.csv%22%5D%2C%20%22account-restriction%22%3A%20%5B%22Quinten%20Germeijs--2025-04-12%2010%3A29%3A35.772776--WEBCHAT.csv%22%5D%2C%20%22integrate%20business%20verification%20process%20within%20chatbot%22%3A%20%5B%22Rassal%20Khan--2025-03-07%2006%3A24%3A43.461245--WEBCHAT.csv%22%5D%2C%20%22technical-issue-with-account-settings%22%3A%20%5B%22ShivaKumar%20--2025-08-16%2005%3A37%3A31.496000--WEBCHAT.csv%22%5D%2C%20%22url-verification-capability%22%3A%20%5B%22Thomas%20Mulder--2025-05-02%2015%3A24%3A01.911629--WEBCHAT.csv%22%5D%2C%20%22offer%20alternative%20verification%20methods%20such%20as%20instant%20messaging%20for%20onboarding%22%3A%20%5B%22William--2025-03-13%2021%3A38%3A34.406656--WEBCHAT.csv%22%5D%2C%20%22account-permission-issue%22%3A%20%5B%22Yasha%20--2025-03-24%2017%3A32%3A41.452409--WEBCHAT.csv%22%5D%2C%20%22account-specific-issue%22%3A%20%5B%22alen--2025-06-28%2020%3A41%3A23.880000--WEBCHAT.csv%22%5D%2C%20%22bot-cannot-modify-permissions%22%3A%20%5B%22atakan%20go%CC%88l--2025-07-09%2021%3A51%3A26.358000--WEBCHAT.csv%22%5D%2C%20%22bot-cannot-bypass-account%22%3A%20%5B%22gareth--2025-08-14%2012%3A28%3A21.083000--WEBCHAT.csv%22%5D%2C%20%22implement%20direct%20account%20and%20credit%20card%20deletion%20functionality%22%3A%20%5B%22jeff%20glass--2025-03-01%2001%3A01%3A27.524315--WEBCHAT.csv%22%5D%2C%20%22integrate%20pixel%20verification%20tool%20to%20assist%20users%20in%20real-time%22%3A%20%5B%22jack--2025-05-23%2015%3A41%3A35.945840--WEBCHAT.csv%22%5D%2C%20%22implement%20automated%20verification%20status%20updates%22%3A%20%5B%22lizzy--2025-04-07%2017%3A43%3A59.270122--WEBCHAT.csv%22%5D%2C%20%22implement%20automated%20account%20verification%20process%22%3A%20%5B%22micah--2025-04-18%2014%3A29%3A27.433757--WEBCHAT.csv%22%5D%2C%20%22permissions-issue%22%3A%20%5B%22matteo--2025-07-03%2010%3A13%3A42.317000--WEBCHAT.csv%22%5D%2C%20%22user-needs-verification%22%3A%20%5B%22shaun--2025-07-09%2017%3A49%3A37.545000--WEBCHAT.csv%22%5D%7D%7D"
+                        data-count="92">
+                        <span class="feature-count">92</span>
+                        <strong>account-management-features</strong>
+                        <div class="conversation-preview">Click to see 92 conversations grouped by sub-problems (total:
+                            92)</div>
+                    </div>
+                    <div class="feature-item clickable-item" data-problem="api-system-access"
+                        data-popup="%7B%22conversations%22%3A%20%5B%22Abhishek%20Patel--2025-03-23%2008%3A12%3A56.594428--WEBCHAT.csv%22%2C%20%22Alex--2025-07-17%2022%3A59%3A33.001000--WEBCHAT.csv%22%2C%20%22David%20Stal--2025-03-18%2015%3A11%3A04.426055--WEBCHAT.csv%22%2C%20%22Azhar--2025-02-11%2018%3A25%3A05.129501--WEBCHAT.csv%22%2C%20%22Rajan--2025-07-09%2006%3A15%3A41.666000--WEBCHAT.csv%22%2C%20%22Rob--2025-04-02%2002%3A01%3A21.928192--WEBCHAT.csv%22%2C%20%22Wilson--2025-03-14%2005%3A50%3A32.520500--WEBCHAT.csv%22%2C%20%22Agustin%20Herebia--2025-05-21%2014%3A53%3A59.984059--WEBCHAT.csv%22%2C%20%22Anna--2025-07-14%2013%3A16%3A32.656000--WEBCHAT.csv%22%2C%20%22Bharat--2025-06-19%2013%3A02%3A40.742000--WEBCHAT.csv%22%2C%20%22Hunter--2025-05-07%2022%3A16%3A47.992189--WEBCHAT.csv%22%2C%20%22Sonny--2025-08-05%2023%3A50%3A10.192000--WEBCHAT.csv%22%2C%20%22Anna%20Oksak--2025-05-28%2010%3A54%3A27.284864--WEBCHAT.csv%22%2C%20%22Alex--2025-08-11%2010%3A43%3A02.944000--WEBCHAT.csv%22%2C%20%22CHEN--2025-07-15%2013%3A16%3A39.531000--WEBCHAT.csv%22%2C%20%22Carlos--2025-03-05%2021%3A27%3A55.187749--WEBCHAT.csv%22%2C%20%22Chenyu--2025-02-27%2006%3A07%3A09.292716--WEBCHAT.csv%22%2C%20%22Collins--2025-06-28%2013%3A04%3A30.501000--WEBCHAT.csv%22%2C%20%22Cuong--2025-04-27%2008%3A19%3A34.918721--WEBCHAT.csv%22%2C%20%22David%20Namche--2025-07-02%2001%3A45%3A50.206000--WEBCHAT.csv%22%2C%20%22Chuck%20Testin--2025-02-20%2021%3A34%3A33.466748--WEBCHAT.csv%22%2C%20%22Dee--2025-05-23%2009%3A16%3A47.418055--WEBCHAT.csv%22%2C%20%22ENOCH%20SHAW--2025-03-26%2021%3A25%3A13.277629--WEBCHAT.csv%22%2C%20%22Chris%20Forrest--2025-03-27%2019%3A46%3A32.955540--WEBCHAT.csv%22%2C%20%22Gal--2025-03-20%2020%3A38%3A04.907652--WEBCHAT.csv%22%2C%20%22Forrest--2025-07-21%2017%3A43%3A26.834000--WEBCHAT.csv%22%2C%20%22Hugo%20--2025-04-28%2018%3A54%3A42.104177--WEBCHAT.csv%22%2C%20%22Fneil--2025-06-09%2006%3A24%3A22.143000--WEBCHAT.csv%22%2C%20%22Herman%20Noronna--2025-03-26%2022%3A27%3A53.787411--WEBCHAT.csv%22%2C%20%22Idris--2025-05-23%2009%3A46%3A36.274620--WEBCHAT.csv%22%2C%20%22Siim%20Roostalu--2025-05-01%2008%3A14%3A02.984346--WEBCHAT.csv%22%2C%20%22Jason%20Hale--2025-04-14%2016%3A54%3A28.765980--WEBCHAT.csv%22%2C%20%22James%20Stephens--2025-05-13%2009%3A27%3A42.450727--WEBCHAT.csv%22%2C%20%22Jasper%20Nwangere--2025-05-04%2015%3A17%3A32.741192--WEBCHAT.csv%22%2C%20%22Jhon--2025-06-18%2012%3A29%3A52.500000--WEBCHAT.csv%22%2C%20%22Joe%20Zarate--2025-07-16%2016%3A57%3A50.224000--WEBCHAT.csv%22%2C%20%22Kevin--2025-04-21%2018%3A07%3A25.687569--WEBCHAT.csv%22%2C%20%22Krishan--2025-04-02%2010%3A56%3A13.680214--WEBCHAT.csv%22%2C%20%22Suvi%20Eklund--2025-04-27%2008%3A54%3A59.929203--WEBCHAT.csv%22%2C%20%22Kristel--2025-07-30%2017%3A27%3A32.338000--WEBCHAT.csv%22%2C%20%22Kristin--2025-04-28%2020%3A32%3A17.713994--WEBCHAT.csv%22%2C%20%22Marco%20Sabino--2025-03-03%2011%3A47%3A47.952181--WEBCHAT.csv%22%2C%20%22Mahmood--2025-07-17%2008%3A53%3A26.810000--WEBCHAT.csv%22%2C%20%22Martin--2025-05-26%2020%3A04%3A49.641909--WEBCHAT.csv%22%2C%20%22Mati--2025-05-02%2003%3A57%3A36.696262--WEBCHAT.csv%22%2C%20%22Muhammad%20--2025-07-02%2009%3A01%3A55.385000--WEBCHAT.csv%22%2C%20%22Nikolay%20Saev--2025-03-02%2015%3A36%3A54.395857--WEBCHAT.csv%22%2C%20%22Melinda%20Pearson--2025-03-05%2021%3A43%3A01.905029--WEBCHAT.csv%22%2C%20%22Ma%CC%81te%CC%81%20Ge%CC%81recz--2025-07-22%2021%3A39%3A14.505000--WEBCHAT.csv%22%2C%20%22Nitzan%20Ronen--2025-07-31%2009%3A00%3A47.396000--WEBCHAT.csv%22%2C%20%22Niki--2025-07-23%2009%3A11%3A39.176000--WEBCHAT.csv%22%2C%20%22NJ--2025-03-03%2002%3A56%3A04.192022--WEBCHAT.csv%22%2C%20%22PATEL%20HARSHIL--2025-07-17%2012%3A17%3A14.475000--WEBCHAT.csv%22%2C%20%22Pedro%20Gonzalez--2025-07-25%2021%3A41%3A18.804000--WEBCHAT.csv%22%2C%20%22Nikolay%20Saev--2025-04-23%2010%3A34%3A47.180727--WEBCHAT.csv%22%2C%20%22Rich--2025-03-06%2015%3A08%3A59.472223--WEBCHAT.csv%22%2C%20%22Ryan--2025-06-19%2020%3A04%3A20.741000--WEBCHAT.csv%22%2C%20%22S--2025-03-12%2004%3A43%3A00.469160--WEBCHAT.csv%22%2C%20%22Paper%20Landfall%20d5c057a156--2025-02-10%2003%3A13%3A16.841921--WEBCHAT.csv%22%2C%20%22Peter%20Skotnicky--2025-03-10%2018%3A18%3A36.488992--WEBCHAT.csv%22%2C%20%22Sarath--2025-04-15%2019%3A55%3A18.065212--WEBCHAT.csv%22%2C%20%22Sar--2025-04-30%2015%3A48%3A33.806793--WEBCHAT.csv%22%2C%20%22Peter%20Skotnicky--2025-03-05%2022%3A57%3A57.960165--WEBCHAT.csv%22%2C%20%22Rajdeep%20Das--2025-06-20%2002%3A30%3A43.663000--WEBCHAT.csv%22%2C%20%22Scott%20Brown--2025-08-11%2019%3A35%3A52.144000--WEBCHAT.csv%22%2C%20%22Sharif%20Raghen--2025-07-03%2019%3A47%3A55.768000--WEBCHAT.csv%22%2C%20%22Solaced--2025-05-14%2010%3A52%3A48.259428--WEBCHAT.csv%22%2C%20%22Sreemon%20S--2025-06-20%2021%3A17%3A00.335000--WEBCHAT.csv%22%2C%20%22Thorben%20Dinse--2025-06-27%2010%3A51%3A01.743000--WEBCHAT.csv%22%2C%20%22Tosin%20eye--2025-05-17%2012%3A20%3A36.041270--WEBCHAT.csv%22%2C%20%22Vikash--2025-03-08%2002%3A15%3A07.108458--WEBCHAT.csv%22%2C%20%22William%20Johnson--2025-06-26%2012%3A08%3A12.967000--WEBCHAT.csv%22%2C%20%22Wintry%20Spire%2073f65bfe40--2025-03-01%2019%3A42%3A30.899772--WEBCHAT.csv%22%2C%20%22Yauhen--2025-07-01%2015%3A27%3A07.359000--WEBCHAT.csv%22%2C%20%22XSZTVDO--2025-08-12%2001%3A33%3A27.468000--WEBCHAT.csv%22%2C%20%22Yevhen--2025-07-14%2010%3A57%3A36.643000--WEBCHAT.csv%22%2C%20%22brenda--2025-06-16%2014%3A18%3A36.351000--WEBCHAT.csv%22%2C%20%22deepak--2025-03-21%2005%3A23%3A59.663572--WEBCHAT.csv%22%2C%20%22franco--2025-03-05%2014%3A48%3A07.471792--WEBCHAT.csv%22%2C%20%22joseph.xiang--2025-08-16%2006%3A41%3A08.775000--WEBCHAT.csv%22%2C%20%22matt%20hoyler--2025-04-24%2003%3A44%3A15.433347--WEBCHAT.csv%22%2C%20%22penny--2025-05-16%2011%3A08%3A05.743666--WEBCHAT.csv%22%2C%20%22parth--2025-03-07%2016%3A51%3A24.429955--WEBCHAT.csv%22%2C%20%22sid--2025-04-21%2014%3A25%3A29.181091--WEBCHAT.csv%22%2C%20%22ryan--2025-02-20%2023%3A55%3A38.896528--WEBCHAT.csv%22%2C%20%22shub--2025-06-17%2021%3A36%3A22.905000--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22implement-automated-verification-system%22%3A%20%5B%22Abhishek%20Patel--2025-03-23%2008%3A12%3A56.594428--WEBCHAT.csv%22%5D%2C%20%22bot-cannot-access-system%22%3A%20%5B%22Alex--2025-07-17%2022%3A59%3A33.001000--WEBCHAT.csv%22%2C%20%22David%20Stal--2025-03-18%2015%3A11%3A04.426055--WEBCHAT.csv%22%2C%20%22Azhar--2025-02-11%2018%3A25%3A05.129501--WEBCHAT.csv%22%2C%20%22Rajan--2025-07-09%2006%3A15%3A41.666000--WEBCHAT.csv%22%2C%20%22Rob--2025-04-02%2002%3A01%3A21.928192--WEBCHAT.csv%22%2C%20%22Wilson--2025-03-14%2005%3A50%3A32.520500--WEBCHAT.csv%22%5D%2C%20%22implement-email-confirmation-system-to-verify-sent-documents%22%3A%20%5B%22Agustin%20Herebia--2025-05-21%2014%3A53%3A59.984059--WEBCHAT.csv%22%5D%2C%20%22access-to-company-legal-details%22%3A%20%5B%22Anna--2025-07-14%2013%3A16%3A32.656000--WEBCHAT.csv%22%5D%2C%20%22refund%20processing%20system%22%3A%20%5B%22Bharat--2025-06-19%2013%3A02%3A40.742000--WEBCHAT.csv%22%2C%20%22Hunter--2025-05-07%2022%3A16%3A47.992189--WEBCHAT.csv%22%2C%20%22Sonny--2025-08-05%2023%3A50%3A10.192000--WEBCHAT.csv%22%5D%2C%20%22billing-document-access%22%3A%20%5B%22Anna%20Oksak--2025-05-28%2010%3A54%3A27.284864--WEBCHAT.csv%22%5D%2C%20%22api-schema-access%22%3A%20%5B%22Alex--2025-08-11%2010%3A43%3A02.944000--WEBCHAT.csv%22%5D%2C%20%22integrate-direct-reject-reason-access%22%3A%20%5B%22CHEN--2025-07-15%2013%3A16%3A39.531000--WEBCHAT.csv%22%5D%2C%20%22promotional-credit-information-access%22%3A%20%5B%22Carlos--2025-03-05%2021%3A27%3A55.187749--WEBCHAT.csv%22%5D%2C%20%22integrate%20system%20to%20provide%20specific%20ad%20rejection%20reasons%20and%20detailed%20budget%20analysis%22%3A%20%5B%22Chenyu--2025-02-27%2006%3A07%3A09.292716--WEBCHAT.csv%22%5D%2C%20%22implement-automated-ad-review-system%22%3A%20%5B%22Collins--2025-06-28%2013%3A04%3A30.501000--WEBCHAT.csv%22%5D%2C%20%22third-party-promotion-information-access%22%3A%20%5B%22Cuong--2025-04-27%2008%3A19%3A34.918721--WEBCHAT.csv%22%5D%2C%20%22quota%20management%20and%20notification%20system%22%3A%20%5B%22David%20Namche--2025-07-02%2001%3A45%3A50.206000--WEBCHAT.csv%22%5D%2C%20%22access%20to%20specific%20advertiser%20spending%20data%22%3A%20%5B%22Chuck%20Testin--2025-02-20%2021%3A34%3A33.466748--WEBCHAT.csv%22%5D%2C%20%22existing-ad-library-access%22%3A%20%5B%22Dee--2025-05-23%2009%3A16%3A47.418055--WEBCHAT.csv%22%5D%2C%20%22integrate-email-notification-system-for-purchases%22%3A%20%5B%22ENOCH%20SHAW--2025-03-26%2021%3A25%3A13.277629--WEBCHAT.csv%22%5D%2C%20%22integrate%20promo%20code%20distribution%20system%22%3A%20%5B%22Chris%20Forrest--2025-03-27%2019%3A46%3A32.955540--WEBCHAT.csv%22%5D%2C%20%22integrate%20with%20campaign%20management%20system%20to%20diagnose%20UI%20issues%22%3A%20%5B%22Gal--2025-03-20%2020%3A38%3A04.907652--WEBCHAT.csv%22%5D%2C%20%22integrate%20direct%20verification%20system%20for%20ad%20spend%20documents%22%3A%20%5B%22Forrest--2025-07-21%2017%3A43%3A26.834000--WEBCHAT.csv%22%5D%2C%20%22ensure-help-article-links-are-accessible%22%3A%20%5B%22Hugo%20--2025-04-28%2018%3A54%3A42.104177--WEBCHAT.csv%22%5D%2C%20%22implement%20a%20system%20to%20track%20and%20expedite%20verification%20requests%22%3A%20%5B%22Fneil--2025-06-09%2006%3A24%3A22.143000--WEBCHAT.csv%22%5D%2C%20%22implement-system-to-confirm-receipt-of-documents-and-provide-status-updates%22%3A%20%5B%22Herman%20Noronna--2025-03-26%2022%3A27%3A53.787411--WEBCHAT.csv%22%5D%2C%20%22api-error-message%22%3A%20%5B%22Idris--2025-05-23%2009%3A46%3A36.274620--WEBCHAT.csv%22%2C%20%22Siim%20Roostalu--2025-05-01%2008%3A14%3A02.984346--WEBCHAT.csv%22%5D%2C%20%22integrate-automated-business-verification-system%22%3A%20%5B%22Jason%20Hale--2025-04-14%2016%3A54%3A28.765980--WEBCHAT.csv%22%5D%2C%20%22ensure%20all%20help%20links%20are%20functional%20and%20accessible%22%3A%20%5B%22James%20Stephens--2025-05-13%2009%3A27%3A42.450727--WEBCHAT.csv%22%5D%2C%20%22ad-approval-system%22%3A%20%5B%22Jasper%20Nwangere--2025-05-04%2015%3A17%3A32.741192--WEBCHAT.csv%22%5D%2C%20%22direct%20access%20to%20pricing%20information%20or%20database%22%3A%20%5B%22Jhon--2025-06-18%2012%3A29%3A52.500000--WEBCHAT.csv%22%5D%2C%20%22integrate%20with%20technical%20support%20system%20for%20direct%20troubleshooting%22%3A%20%5B%22Joe%20Zarate--2025-07-16%2016%3A57%3A50.224000--WEBCHAT.csv%22%5D%2C%20%22integrate%20system%20to%20allow%20bot%20to%20modify%20ad%20set%20status%20directly%22%3A%20%5B%22Kevin--2025-04-21%2018%3A07%3A25.687569--WEBCHAT.csv%22%5D%2C%20%22integrate%20refund%20processing%20system%22%3A%20%5B%22Krishan--2025-04-02%2010%3A56%3A13.680214--WEBCHAT.csv%22%2C%20%22Suvi%20Eklund--2025-04-27%2008%3A54%3A59.929203--WEBCHAT.csv%22%5D%2C%20%22integrate%20with%20pixel%20tracking%20system%20for%20direct%20error%20resolution%22%3A%20%5B%22Kristel--2025-07-30%2017%3A27%3A32.338000--WEBCHAT.csv%22%5D%2C%20%22integrate-system-status-check-for-ad-performance%22%3A%20%5B%22Kristin--2025-04-28%2020%3A32%3A17.713994--WEBCHAT.csv%22%5D%2C%20%22integrate%20system%20to%20generate%20customized%20invoices%20with%20user-provided%20details%22%3A%20%5B%22Marco%20Sabino--2025-03-03%2011%3A47%3A47.952181--WEBCHAT.csv%22%5D%2C%20%22integrate%20with%20billing%20system%20for%20direct%20reimbursement%20processing%22%3A%20%5B%22Mahmood--2025-07-17%2008%3A53%3A26.810000--WEBCHAT.csv%22%5D%2C%20%22user-lacks-website-access%22%3A%20%5B%22Martin--2025-05-26%2020%3A04%3A49.641909--WEBCHAT.csv%22%5D%2C%20%22integrate%20with%20RedTrack%20API%20to%20fetch%20specific%20parameter%20details%22%3A%20%5B%22Mati--2025-05-02%2003%3A57%3A36.696262--WEBCHAT.csv%22%5D%2C%20%22quota-management-system%22%3A%20%5B%22Muhammad%20--2025-07-02%2009%3A01%3A55.385000--WEBCHAT.csv%22%2C%20%22Nikolay%20Saev--2025-03-02%2015%3A36%3A54.395857--WEBCHAT.csv%22%5D%2C%20%22integrate-user-specific-offer-details-access%22%3A%20%5B%22Melinda%20Pearson--2025-03-05%2021%3A43%3A01.905029--WEBCHAT.csv%22%5D%2C%20%22integrate%20system%20to%20allow%20bot%20to%20retrieve%20user-specific%20organization%20ID%22%3A%20%5B%22Ma%CC%81te%CC%81%20Ge%CC%81recz--2025-07-22%2021%3A39%3A14.505000--WEBCHAT.csv%22%5D%2C%20%22integrate%20a%20system%20to%20verify%20ad%20spend%20automatically%22%3A%20%5B%22Nitzan%20Ronen--2025-07-31%2009%3A00%3A47.396000--WEBCHAT.csv%22%5D%2C%20%22integrate%20detailed%20data%20processing%20information%20or%20direct%20access%20to%20support%20team%22%3A%20%5B%22Niki--2025-07-23%2009%3A11%3A39.176000--WEBCHAT.csv%22%5D%2C%20%22implement%20a%20system%20to%20handle%20message%20quota%20exhaustion%20gracefully%20and%20escalate%20to%20a%20live%20agent%22%3A%20%5B%22NJ--2025-03-03%2002%3A56%3A04.192022--WEBCHAT.csv%22%5D%2C%20%22integrate-with-banking-support-system%22%3A%20%5B%22PATEL%20HARSHIL--2025-07-17%2012%3A17%3A14.475000--WEBCHAT.csv%22%5D%2C%20%22integrate%20system%20to%20provide%20specific%20feedback%20on%20profile%20rejection%22%3A%20%5B%22Pedro%20Gonzalez--2025-07-25%2021%3A41%3A18.804000--WEBCHAT.csv%22%5D%2C%20%22integrate%20ad%20approval%20workflow%20with%20verification%20system%22%3A%20%5B%22Nikolay%20Saev--2025-04-23%2010%3A34%3A47.180727--WEBCHAT.csv%22%5D%2C%20%22integrate%20with%20Slack%20API%20to%20manage%20channel%20access%20requests%22%3A%20%5B%22Rich--2025-03-06%2015%3A08%3A59.472223--WEBCHAT.csv%22%5D%2C%20%22bot-cannot-access-specific-card-details%22%3A%20%5B%22Ryan--2025-06-19%2020%3A04%3A20.741000--WEBCHAT.csv%22%5D%2C%20%22implement%20system%20access%20for%20detailed%20troubleshooting%20or%20escalate%20to%20human%20support%22%3A%20%5B%22S--2025-03-12%2004%3A43%3A00.469160--WEBCHAT.csv%22%5D%2C%20%22integrate%20with%20financial%20reporting%20system%20for%20data%20access%22%3A%20%5B%22Paper%20Landfall%20d5c057a156--2025-02-10%2003%3A13%3A16.841921--WEBCHAT.csv%22%5D%2C%20%22integrate%20ad%20performance%20analysis%20and%20recommendation%20system%22%3A%20%5B%22Peter%20Skotnicky--2025-03-10%2018%3A18%3A36.488992--WEBCHAT.csv%22%5D%2C%20%22integrate%20system%20to%20allow%20access%20to%20historical%20billing%20data%20beyond%208%20months%22%3A%20%5B%22Sarath--2025-04-15%2019%3A55%3A18.065212--WEBCHAT.csv%22%5D%2C%20%22integrate%20with%20user%20account%20system%20for%20direct%20troubleshooting%22%3A%20%5B%22Sar--2025-04-30%2015%3A48%3A33.806793--WEBCHAT.csv%22%5D%2C%20%22implement%20reliable%20live%20agent%20transfer%20system%22%3A%20%5B%22Peter%20Skotnicky--2025-03-05%2022%3A57%3A57.960165--WEBCHAT.csv%22%5D%2C%20%22integrate%20with%20system%20to%20provide%20specific%20rejection%20reasons%22%3A%20%5B%22Rajdeep%20Das--2025-06-20%2002%3A30%3A43.663000--WEBCHAT.csv%22%5D%2C%20%22enhance%20bot%27s%20ability%20to%20troubleshoot%20API%20syntax%20issues%22%3A%20%5B%22Scott%20Brown--2025-08-11%2019%3A35%3A52.144000--WEBCHAT.csv%22%5D%2C%20%22access-to-targeting-values-list%22%3A%20%5B%22Sharif%20Raghen--2025-07-03%2019%3A47%3A55.768000--WEBCHAT.csv%22%5D%2C%20%22ensure%20bot%20consistently%20provides%20responses%20and%20detailed%20API%20usage%20instructions%22%3A%20%5B%22Solaced--2025-05-14%2010%3A52%3A48.259428--WEBCHAT.csv%22%5D%2C%20%22integrate%20with%20payment%20processing%20system%20to%20handle%20payment%20failures%20directly%22%3A%20%5B%22Sreemon%20S--2025-06-20%2021%3A17%3A00.335000--WEBCHAT.csv%22%5D%2C%20%22invoice-generation-system%22%3A%20%5B%22Thorben%20Dinse--2025-06-27%2010%3A51%3A01.743000--WEBCHAT.csv%22%5D%2C%20%22integrate%20billing%20support%20system%20for%20real-time%20discrepancy%20resolution%22%3A%20%5B%22Tosin%20eye--2025-05-17%2012%3A20%3A36.041270--WEBCHAT.csv%22%5D%2C%20%22implement%20flexible%20scheduling%20system%20or%20direct%20contact%20with%20account%20managers%22%3A%20%5B%22Vikash--2025-03-08%2002%3A15%3A07.108458--WEBCHAT.csv%22%5D%2C%20%22implement%20a%20system%20to%20provide%20real-time%20updates%20on%20verification%20status%22%3A%20%5B%22William%20Johnson--2025-06-26%2012%3A08%3A12.967000--WEBCHAT.csv%22%5D%2C%20%22transaction-error-detail-access%22%3A%20%5B%22Wintry%20Spire%2073f65bfe40--2025-03-01%2019%3A42%3A30.899772--WEBCHAT.csv%22%5D%2C%20%22integrate%20a%20system%20for%20ad%20review%20and%20approval%20or%20streamline%20escalation%20to%20human%20support%22%3A%20%5B%22Yauhen--2025-07-01%2015%3A27%3A07.359000--WEBCHAT.csv%22%5D%2C%20%22integrate%20direct%20editing%20or%20feedback%20system%20for%20landing%20pages%22%3A%20%5B%22XSZTVDO--2025-08-12%2001%3A33%3A27.468000--WEBCHAT.csv%22%5D%2C%20%22enhance%20bot%27s%20capability%20to%20diagnose%20specific%20technical%20issues%20or%20integrate%20with%20a%20system%20that%20can%20provide%20real-time%20diagnostics%22%3A%20%5B%22Yevhen--2025-07-14%2010%3A57%3A36.643000--WEBCHAT.csv%22%5D%2C%20%22demographic-data-access%22%3A%20%5B%22brenda--2025-06-16%2014%3A18%3A36.351000--WEBCHAT.csv%22%5D%2C%20%22access-to-ad-disapproval-reasons%22%3A%20%5B%22deepak--2025-03-21%2005%3A23%3A59.663572--WEBCHAT.csv%22%5D%2C%20%22integrate%20system%20to%20verify%20and%20resend%20promotional%20codes%20directly%22%3A%20%5B%22franco--2025-03-05%2014%3A48%3A07.471792--WEBCHAT.csv%22%5D%2C%20%22access-token-management-interface%22%3A%20%5B%22joseph.xiang--2025-08-16%2006%3A41%3A08.775000--WEBCHAT.csv%22%5D%2C%20%22integrate-system-to-provide-specific-rejection-reasons%22%3A%20%5B%22matt%20hoyler--2025-04-24%2003%3A44%3A15.433347--WEBCHAT.csv%22%5D%2C%20%22integrate%20system%20to%20allow%20bots%20to%20provide%20specific%20reasons%20for%20ad%20rejection%20or%20initiate%20resolution%20process%22%3A%20%5B%22penny--2025-05-16%2011%3A08%3A05.743666--WEBCHAT.csv%22%5D%2C%20%22integrate%20with%20billing%20system%20API%20for%20real-time%20transaction%20and%20billing%20issue%20resolution%22%3A%20%5B%22parth--2025-03-07%2016%3A51%3A24.429955--WEBCHAT.csv%22%5D%2C%20%22integrate%20with%20payment%20processing%20system%20to%20handle%20authorization%20issues%22%3A%20%5B%22sid--2025-04-21%2014%3A25%3A29.181091--WEBCHAT.csv%22%5D%2C%20%22integrate%20with%20billing%20system%20API%20for%20detailed%20charge%20explanations%20and%20add%20pixel%20management%20feature%22%3A%20%5B%22ryan--2025-02-20%2023%3A55%3A38.896528--WEBCHAT.csv%22%5D%2C%20%22implement%20a%20system%20for%20seamless%20escalation%20to%20human%20agents%20for%20complex%20issues%22%3A%20%5B%22shub--2025-06-17%2021%3A36%3A22.905000--WEBCHAT.csv%22%5D%7D%7D"
+                        data-count="86">
+                        <span class="feature-count">86</span>
+                        <strong>api-system-access</strong>
+                        <div class="conversation-preview">Click to see 86 conversations grouped by sub-problems (total:
+                            86)</div>
+                    </div>
+                    <div class="feature-item clickable-item" data-problem="live-support-features"
+                        data-popup="%7B%22conversations%22%3A%20%5B%22Andrew%20Pizzoferrato--2025-03-20%2023%3A47%3A50.785469--WEBCHAT.csv%22%2C%20%22Excel--2025-03-05%2014%3A34%3A06.736398--WEBCHAT.csv%22%2C%20%22Karen--2025-04-11%2006%3A52%3A20.847458--WEBCHAT.csv%22%2C%20%22Sohel--2025-06-18%2017%3A28%3A59.647000--WEBCHAT.csv%22%2C%20%22blue--2025-03-05%2017%3A51%3A16.859985--WEBCHAT.csv%22%2C%20%22Aminata%20Diallo--2025-05-05%2003%3A58%3A16.632318--WEBCHAT.csv%22%2C%20%22Bruno--2025-07-21%2013%3A43%3A52.454000--WEBCHAT.csv%22%2C%20%22Ella--2025-05-17%2023%3A17%3A09.440485--WEBCHAT.csv%22%2C%20%22Hussein%20hakim--2025-04-15%2019%3A21%3A00.045912--WEBCHAT.csv%22%2C%20%22Rodrigo%20Passos--2025-08-01%2014%3A53%3A27.806000--WEBCHAT.csv%22%2C%20%22Stefan--2025-06-20%2007%3A49%3A29.362000--WEBCHAT.csv%22%2C%20%22Victoria--2025-02-28%2013%3A39%3A53.785081--WEBCHAT.csv%22%2C%20%22Albert--2025-06-25%2017%3A53%3A10.980000--WEBCHAT.csv%22%2C%20%22lucy%20--2025-04-21%2009%3A16%3A51.627385--WEBCHAT.csv%22%2C%20%22Bruno--2025-07-18%2000%3A08%3A21.136000--WEBCHAT.csv%22%2C%20%22Charlie--2025-06-16%2012%3A52%3A46.585000--WEBCHAT.csv%22%2C%20%22rafik--2025-05-10%2003%3A22%3A14.825745--WEBCHAT.csv%22%2C%20%22Clear%20Davit%20f0917f319c--2025-03-03%2017%3A16%3A39.623556--WEBCHAT.csv%22%2C%20%22Emma%20Fulton--2025-03-06%2000%3A35%3A34.571908--WEBCHAT.csv%22%2C%20%22Jenny--2025-01-15%2023%3A10%3A09.273566--WEBCHAT.csv%22%2C%20%22Levi--2025-06-20%2018%3A50%3A59.147000--WEBCHAT.csv%22%2C%20%22Matheus%20Santana--2025-03-05%2018%3A24%3A22.432779--WEBCHAT.csv%22%2C%20%22Scared%20Overhang%2062bd541587--2025-03-04%2023%3A12%3A15.904489--WEBCHAT.csv%22%2C%20%22Stale%20Hypotenuse%2097aabe2f60--2025-02-07%2019%3A13%3A43.288302--WEBCHAT.csv%22%2C%20%22kristen--2025-02-27%2007%3A26%3A36.449291--WEBCHAT.csv%22%2C%20%22Anna--2025-08-14%2001%3A31%3A55.144000--WEBCHAT.csv%22%2C%20%22Sam%20Nihalani--2025-07-15%2018%3A19%3A15.129000--WEBCHAT.csv%22%2C%20%22Sofia--2025-08-05%2013%3A16%3A53.802000--WEBCHAT.csv%22%2C%20%22sonny--2025-08-07%2003%3A44%3A47.684000--WEBCHAT.csv%22%2C%20%22Steve--2025-04-14%2018%3A22%3A40.576181--WEBCHAT.csv%22%2C%20%22Yauhen--2025-07-30%2014%3A03%3A22.841000--WEBCHAT.csv%22%2C%20%22Alicia--2025-03-07%2000%3A39%3A01.180922--WEBCHAT.csv%22%2C%20%22Dalibor--2025-03-13%2011%3A57%3A17.168665--WEBCHAT.csv%22%2C%20%22Sandra--2025-04-03%2012%3A59%3A45.353383--WEBCHAT.csv%22%2C%20%22Floro--2025-05-21%2013%3A27%3A30.017561--WEBCHAT.csv%22%2C%20%22Iris--2025-07-09%2014%3A50%3A11.450000--WEBCHAT.csv%22%2C%20%22Greg--2025-03-13%2015%3A41%3A06.202288--WEBCHAT.csv%22%2C%20%22Raymond--2025-04-14%2019%3A24%3A40.146026--WEBCHAT.csv%22%2C%20%22Metallic%20Test%20d898dc1d85--2025-02-27%2006%3A21%3A40.918158--WEBCHAT.csv%22%2C%20%22Christian--2025-04-14%2015%3A34%3A02.445053--WEBCHAT.csv%22%2C%20%22Eddie--2025-03-06%2017%3A26%3A27.047671--WEBCHAT.csv%22%2C%20%22Jax--2025-07-20%2023%3A09%3A37.675000--WEBCHAT.csv%22%2C%20%22Kent%20Hopkins--2025-08-13%2015%3A46%3A11.439000--WEBCHAT.csv%22%2C%20%22Kyle%20Malin--2025-04-15%2020%3A51%3A24.784722--WEBCHAT.csv%22%2C%20%22MD%20ASRAF--2025-05-10%2007%3A26%3A15.132825--WEBCHAT.csv%22%2C%20%22Ruben--2025-07-25%2015%3A15%3A35.708000--WEBCHAT.csv%22%2C%20%22jane--2025-08-09%2012%3A23%3A43.487000--WEBCHAT.csv%22%2C%20%22Michko--2025-07-01%2013%3A45%3A39.044000--WEBCHAT.csv%22%2C%20%22Oleksandra--2025-03-06%2013%3A28%3A05.909336--WEBCHAT.csv%22%2C%20%22yasser--2025-07-22%2017%3A36%3A53.561000--WEBCHAT.csv%22%2C%20%22Saven--2025-05-13%2017%3A47%3A42.318797--WEBCHAT.csv%22%2C%20%22Saving%20Postback%20Not%20working%20please%20help%21%20--2025-07-23%2011%3A04%3A57.995000--WEBCHAT.csv%22%2C%20%22Seth%20Hornby--2025-07-08%2023%3A19%3A15.269000--WEBCHAT.csv%22%2C%20%22Regina--2025-05-22%2007%3A29%3A47.937688--WEBCHAT.csv%22%2C%20%22Sourav%20gupta--2025-05-27%2014%3A12%3A53.383222--WEBCHAT.csv%22%2C%20%22Tosin%20eye--2025-05-07%2020%3A22%3A23.604753--WEBCHAT.csv%22%2C%20%22Wayne%20Huang--2025-08-02%2005%3A00%3A39.632000--WEBCHAT.csv%22%2C%20%22carson%20oates--2025-04-27%2019%3A55%3A05.653121--WEBCHAT.csv%22%2C%20%22darren--2025-04-14%2016%3A34%3A56.913525--WEBCHAT.csv%22%2C%20%22mun--2025-03-19%2018%3A27%3A00.568146--WEBCHAT.csv%22%2C%20%22sharath--2025-04-02%2012%3A44%3A27.631436--WEBCHAT.csv%22%2C%20%22qiaosen--2025-07-02%2002%3A27%3A27.394000--WEBCHAT.csv%22%2C%20%22vikingmedia--2025-03-31%2008%3A51%3A11.267490--WEBCHAT.csv%22%2C%20%22zhou--2025-08-08%2006%3A21%3A14.020000--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22live-agent-transfer%22%3A%20%5B%22Andrew%20Pizzoferrato--2025-03-20%2023%3A47%3A50.785469--WEBCHAT.csv%22%5D%2C%20%22user-request-for-live-agent%22%3A%20%5B%22Excel--2025-03-05%2014%3A34%3A06.736398--WEBCHAT.csv%22%2C%20%22Karen--2025-04-11%2006%3A52%3A20.847458--WEBCHAT.csv%22%2C%20%22Sohel--2025-06-18%2017%3A28%3A59.647000--WEBCHAT.csv%22%2C%20%22blue--2025-03-05%2017%3A51%3A16.859985--WEBCHAT.csv%22%5D%2C%20%22integrate%20live%20chat%20feature%20for%20direct%20human%20assistance%22%3A%20%5B%22Aminata%20Diallo--2025-05-05%2003%3A58%3A16.632318--WEBCHAT.csv%22%5D%2C%20%22user-requested-human-assistance%22%3A%20%5B%22Bruno--2025-07-21%2013%3A43%3A52.454000--WEBCHAT.csv%22%2C%20%22Ella--2025-05-17%2023%3A17%3A09.440485--WEBCHAT.csv%22%2C%20%22Hussein%20hakim--2025-04-15%2019%3A21%3A00.045912--WEBCHAT.csv%22%2C%20%22Rodrigo%20Passos--2025-08-01%2014%3A53%3A27.806000--WEBCHAT.csv%22%2C%20%22Stefan--2025-06-20%2007%3A49%3A29.362000--WEBCHAT.csv%22%2C%20%22Victoria--2025-02-28%2013%3A39%3A53.785081--WEBCHAT.csv%22%5D%2C%20%22live-chat-transfer%22%3A%20%5B%22Albert--2025-06-25%2017%3A53%3A10.980000--WEBCHAT.csv%22%5D%2C%20%22feature-not-supported%22%3A%20%5B%22lucy%20--2025-04-21%2009%3A16%3A51.627385--WEBCHAT.csv%22%5D%2C%20%22implement-direct-human-escalation-feature%22%3A%20%5B%22Bruno--2025-07-18%2000%3A08%3A21.136000--WEBCHAT.csv%22%2C%20%22Charlie--2025-06-16%2012%3A52%3A46.585000--WEBCHAT.csv%22%2C%20%22rafik--2025-05-10%2003%3A22%3A14.825745--WEBCHAT.csv%22%5D%2C%20%22user-requested-live-agent%22%3A%20%5B%22Clear%20Davit%20f0917f319c--2025-03-03%2017%3A16%3A39.623556--WEBCHAT.csv%22%2C%20%22Emma%20Fulton--2025-03-06%2000%3A35%3A34.571908--WEBCHAT.csv%22%2C%20%22Jenny--2025-01-15%2023%3A10%3A09.273566--WEBCHAT.csv%22%2C%20%22Levi--2025-06-20%2018%3A50%3A59.147000--WEBCHAT.csv%22%2C%20%22Matheus%20Santana--2025-03-05%2018%3A24%3A22.432779--WEBCHAT.csv%22%2C%20%22Scared%20Overhang%2062bd541587--2025-03-04%2023%3A12%3A15.904489--WEBCHAT.csv%22%2C%20%22Stale%20Hypotenuse%2097aabe2f60--2025-02-07%2019%3A13%3A43.288302--WEBCHAT.csv%22%2C%20%22kristen--2025-02-27%2007%3A26%3A36.449291--WEBCHAT.csv%22%5D%2C%20%22support-ticket-creation%22%3A%20%5B%22Anna--2025-08-14%2001%3A31%3A55.144000--WEBCHAT.csv%22%5D%2C%20%22user-requested-live-support%22%3A%20%5B%22Sam%20Nihalani--2025-07-15%2018%3A19%3A15.129000--WEBCHAT.csv%22%2C%20%22Sofia--2025-08-05%2013%3A16%3A53.802000--WEBCHAT.csv%22%2C%20%22sonny--2025-08-07%2003%3A44%3A47.684000--WEBCHAT.csv%22%5D%2C%20%22user-request-for-human-support%22%3A%20%5B%22Steve--2025-04-14%2018%3A22%3A40.576181--WEBCHAT.csv%22%2C%20%22Yauhen--2025-07-30%2014%3A03%3A22.841000--WEBCHAT.csv%22%5D%2C%20%22external-support-unavailable%22%3A%20%5B%22Alicia--2025-03-07%2000%3A39%3A01.180922--WEBCHAT.csv%22%5D%2C%20%22enhance-bot-to-provide-direct-answers-on-ad-support%22%3A%20%5B%22Dalibor--2025-03-13%2011%3A57%3A17.168665--WEBCHAT.csv%22%5D%2C%20%22user-request-for-human-agent%22%3A%20%5B%22Sandra--2025-04-03%2012%3A59%3A45.353383--WEBCHAT.csv%22%5D%2C%20%22user-requested-human-support%22%3A%20%5B%22Floro--2025-05-21%2013%3A27%3A30.017561--WEBCHAT.csv%22%2C%20%22Iris--2025-07-09%2014%3A50%3A11.450000--WEBCHAT.csv%22%2C%20%22Greg--2025-03-13%2015%3A41%3A06.202288--WEBCHAT.csv%22%2C%20%22Raymond--2025-04-14%2019%3A24%3A40.146026--WEBCHAT.csv%22%2C%20%22Metallic%20Test%20d898dc1d85--2025-02-27%2006%3A21%3A40.918158--WEBCHAT.csv%22%5D%2C%20%22integrate%20real-time%20technical%20support%20or%20diagnostic%20tool%22%3A%20%5B%22Christian--2025-04-14%2015%3A34%3A02.445053--WEBCHAT.csv%22%5D%2C%20%22implement-direct-live-agent-connection%22%3A%20%5B%22Eddie--2025-03-06%2017%3A26%3A27.047671--WEBCHAT.csv%22%5D%2C%20%22integrate-direct-support-escalation%22%3A%20%5B%22Jax--2025-07-20%2023%3A09%3A37.675000--WEBCHAT.csv%22%5D%2C%20%22implement-direct-escalation-to-human-support%22%3A%20%5B%22Kent%20Hopkins--2025-08-13%2015%3A46%3A11.439000--WEBCHAT.csv%22%5D%2C%20%22need-for-human-approval%22%3A%20%5B%22Kyle%20Malin--2025-04-15%2020%3A51%3A24.784722--WEBCHAT.csv%22%5D%2C%20%22implement-live-agent-transfer-capability%22%3A%20%5B%22MD%20ASRAF--2025-05-10%2007%3A26%3A15.132825--WEBCHAT.csv%22%5D%2C%20%22user-requested-human-agent%22%3A%20%5B%22Ruben--2025-07-25%2015%3A15%3A35.708000--WEBCHAT.csv%22%2C%20%22jane--2025-08-09%2012%3A23%3A43.487000--WEBCHAT.csv%22%5D%2C%20%22implement%20direct%20support%20connection%20or%20escalation%20process%22%3A%20%5B%22Michko--2025-07-01%2013%3A45%3A39.044000--WEBCHAT.csv%22%5D%2C%20%22implement-escalation-to-live-support-feature%22%3A%20%5B%22Oleksandra--2025-03-06%2013%3A28%3A05.909336--WEBCHAT.csv%22%5D%2C%20%22implement-human-agent-transfer-capability%22%3A%20%5B%22yasser--2025-07-22%2017%3A36%3A53.561000--WEBCHAT.csv%22%5D%2C%20%22integrate-direct-technical-support-or-escalation-path%22%3A%20%5B%22Saven--2025-05-13%2017%3A47%3A42.318797--WEBCHAT.csv%22%5D%2C%20%22implement-live-support-connection-feature%22%3A%20%5B%22Saving%20Postback%20Not%20working%20please%20help%21%20--2025-07-23%2011%3A04%3A57.995000--WEBCHAT.csv%22%5D%2C%20%22implement-direct-human-transfer-capability%22%3A%20%5B%22Seth%20Hornby--2025-07-08%2023%3A19%3A15.269000--WEBCHAT.csv%22%5D%2C%20%22integrate%20direct%20support%20ticket%20creation%20or%20live%20chat%20with%20technical%20support%22%3A%20%5B%22Regina--2025-05-22%2007%3A29%3A47.937688--WEBCHAT.csv%22%5D%2C%20%22user-requested-support%22%3A%20%5B%22Sourav%20gupta--2025-05-27%2014%3A12%3A53.383222--WEBCHAT.csv%22%5D%2C%20%22live%20chat%20connection%22%3A%20%5B%22Tosin%20eye--2025-05-07%2020%3A22%3A23.604753--WEBCHAT.csv%22%5D%2C%20%22enhance%20bot%27s%20capability%20to%20troubleshoot%20pixel%20setup%20issues%20or%20escalate%20to%20human%20support%22%3A%20%5B%22Wayne%20Huang--2025-08-02%2005%3A00%3A39.632000--WEBCHAT.csv%22%5D%2C%20%22integrate-direct-support-channel-for-technical-issues%22%3A%20%5B%22carson%20oates--2025-04-27%2019%3A55%3A05.653121--WEBCHAT.csv%22%5D%2C%20%22implement-live-walkthrough-support%22%3A%20%5B%22darren--2025-04-14%2016%3A34%3A56.913525--WEBCHAT.csv%22%5D%2C%20%22no-response-from-support%22%3A%20%5B%22mun--2025-03-19%2018%3A27%3A00.568146--WEBCHAT.csv%22%5D%2C%20%22live-chat-escalation%22%3A%20%5B%22sharath--2025-04-02%2012%3A44%3A27.631436--WEBCHAT.csv%22%5D%2C%20%22implement%20direct%20escalation%20to%20human%20support%20for%20unresolved%20issues%22%3A%20%5B%22qiaosen--2025-07-02%2002%3A27%3A27.394000--WEBCHAT.csv%22%5D%2C%20%22expand-support-for-Pure-CPA%22%3A%20%5B%22vikingmedia--2025-03-31%2008%3A51%3A11.267490--WEBCHAT.csv%22%5D%2C%20%22integrate-support-ticket-submission-feature%22%3A%20%5B%22zhou--2025-08-08%2006%3A21%3A14.020000--WEBCHAT.csv%22%5D%7D%7D"
+                        data-count="64">
+                        <span class="feature-count">64</span>
+                        <strong>live-support-features</strong>
+                        <div class="conversation-preview">Click to see 64 conversations grouped by sub-problems (total:
+                            64)</div>
+                    </div>
+                    <div class="feature-item clickable-item" data-problem="ui-ux-enhancements"
+                        data-popup="%7B%22conversations%22%3A%20%5B%22Amanda--2025-08-14%2022%3A54%3A44.818000--WEBCHAT.csv%22%2C%20%22%20ADJ%20DIGITAL%20MARKETING%20LLC--2025-06-04%2005%3A11%3A59.628655--WEBCHAT.csv%22%2C%20%22Romina--2025-04-17%2015%3A22%3A01.903373--WEBCHAT.csv%22%2C%20%22nutribinature--2025-06-25%2020%3A27%3A47.596000--WEBCHAT.csv%22%2C%20%22Akshay--2025-04-18%2006%3A01%3A28.028770--WEBCHAT.csv%22%2C%20%22Anuj%20Sood--2025-07-09%2020%3A09%3A43.090000--WEBCHAT.csv%22%2C%20%22%20Bohdan%20%28bohdan.r%40point2web.com%29--2025-04-11%2015%3A11%3A10.213113--WEBCHAT.csv%22%2C%20%22Chris--2025-04-07%2000%3A28%3A24.001113--WEBCHAT.csv%22%2C%20%22Harun--2025-06-06%2008%3A12%3A23.737000--WEBCHAT.csv%22%2C%20%22Priyanka%20--2025-05-29%2013%3A57%3A24.360369--WEBCHAT.csv%22%2C%20%22Krisa--2025-05-27%2010%3A59%3A45.945362--WEBCHAT.csv%22%2C%20%22Lien--2025-06-06%2003%3A08%3A57.898000--WEBCHAT.csv%22%2C%20%22Mark--2025-08-08%2020%3A06%3A22.728000--WEBCHAT.csv%22%2C%20%22Lukas%20Beniusis--2025-05-14%2005%3A10%3A44.329750--WEBCHAT.csv%22%2C%20%22Michael%20--2025-06-14%2012%3A47%3A41.167000--WEBCHAT.csv%22%2C%20%22Nathaniel--2025-04-08%2002%3A01%3A16.028281--WEBCHAT.csv%22%2C%20%22Paula%20Carvalho--2025-04-10%2017%3A55%3A05.531960--WEBCHAT.csv%22%2C%20%22Shiva%20chaitanya--2025-08-11%2006%3A00%3A54.299000--WEBCHAT.csv%22%2C%20%22Zachary--2025-03-20%2005%3A31%3A58.742265--WEBCHAT.csv%22%2C%20%22Tim--2025-07-25%2016%3A24%3A47.977000--WEBCHAT.csv%22%2C%20%22jyothika--2025-08-14%2018%3A01%3A36.629000--WEBCHAT.csv%22%2C%20%22marthia%20--2025-05-14%2014%3A29%3A58.888019--WEBCHAT.csv%22%2C%20%22ulgz--2025-08-11%2001%3A58%3A41.710000--WEBCHAT.csv%22%2C%20%22steve%20m--2025-06-01%2003%3A08%3A58.923832--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22provide-specific-memory-size-guidelines%22%3A%20%5B%22Amanda--2025-08-14%2022%3A54%3A44.818000--WEBCHAT.csv%22%5D%2C%20%22integrate%20account%20status%20verification%20workflow%22%3A%20%5B%22%20ADJ%20DIGITAL%20MARKETING%20LLC--2025-06-04%2005%3A11%3A59.628655--WEBCHAT.csv%22%5D%2C%20%22account-verification-required%22%3A%20%5B%22Romina--2025-04-17%2015%3A22%3A01.903373--WEBCHAT.csv%22%5D%2C%20%22requires-human-intervention%22%3A%20%5B%22nutribinature--2025-06-25%2020%3A27%3A47.596000--WEBCHAT.csv%22%5D%2C%20%22incorrect-initial-guidance%22%3A%20%5B%22Akshay--2025-04-18%2006%3A01%3A28.028770--WEBCHAT.csv%22%5D%2C%20%22improve-context-awareness-for-platform-specific-instructions%22%3A%20%5B%22Anuj%20Sood--2025-07-09%2020%3A09%3A43.090000--WEBCHAT.csv%22%5D%2C%20%22enhance-bot-to-handle-interface-discrepancies%22%3A%20%5B%22%20Bohdan%20%28bohdan.r%40point2web.com%29--2025-04-11%2015%3A11%3A10.213113--WEBCHAT.csv%22%5D%2C%20%22integrate%20direct%20guidance%20for%20tax%20number%20submission%20within%20the%20chatbot%22%3A%20%5B%22Chris--2025-04-07%2000%3A28%3A24.001113--WEBCHAT.csv%22%5D%2C%20%22ensure-consistent-information-on-targeting-options%22%3A%20%5B%22Harun--2025-06-06%2008%3A12%3A23.737000--WEBCHAT.csv%22%5D%2C%20%22ad-approval-requires-human%22%3A%20%5B%22Priyanka%20--2025-05-29%2013%3A57%3A24.360369--WEBCHAT.csv%22%5D%2C%20%22implement%20token%20permission%20management%20interface%22%3A%20%5B%22Krisa--2025-05-27%2010%3A59%3A45.945362--WEBCHAT.csv%22%5D%2C%20%22integrate%20real-time%20interface%20navigation%20support%20or%20direct%20chat%20with%20human%20support%22%3A%20%5B%22Lien--2025-06-06%2003%3A08%3A57.898000--WEBCHAT.csv%22%5D%2C%20%22contact-information-provision%22%3A%20%5B%22Mark--2025-08-08%2020%3A06%3A22.728000--WEBCHAT.csv%22%5D%2C%20%22integrate%20account%20information%20retrieval%20feature%22%3A%20%5B%22Lukas%20Beniusis--2025-05-14%2005%3A10%3A44.329750--WEBCHAT.csv%22%5D%2C%20%22implement%20interface%20troubleshooting%20or%20direct%20user%20to%20support%20for%20UI%20issues%22%3A%20%5B%22Michael%20--2025-06-14%2012%3A47%3A41.167000--WEBCHAT.csv%22%5D%2C%20%22provide-tracker-specific-setup-guides%22%3A%20%5B%22Nathaniel--2025-04-08%2002%3A01%3A16.028281--WEBCHAT.csv%22%5D%2C%20%22integrate-visual-guide-or-screenshot-feature%22%3A%20%5B%22Paula%20Carvalho--2025-04-10%2017%3A55%3A05.531960--WEBCHAT.csv%22%5D%2C%20%22integrate%20real-time%20platform%20status%20updates%20into%20the%20chatbot%22%3A%20%5B%22Shiva%20chaitanya--2025-08-11%2006%3A00%3A54.299000--WEBCHAT.csv%22%5D%2C%20%22implement%20interface-specific%20guidance%20for%20language%20settings%20in%20ad%20manager%22%3A%20%5B%22Zachary--2025-03-20%2005%3A31%3A58.742265--WEBCHAT.csv%22%5D%2C%20%22improve-navigation-guidance-in-ui%22%3A%20%5B%22Tim--2025-07-25%2016%3A24%3A47.977000--WEBCHAT.csv%22%5D%2C%20%22add-feature-to-provide-specific-placement-performance-data%22%3A%20%5B%22jyothika--2025-08-14%2018%3A01%3A36.629000--WEBCHAT.csv%22%5D%2C%20%22implement%20personalized%20guidance%20for%20experienced%20users%22%3A%20%5B%22marthia%20--2025-05-14%2014%3A29%3A58.888019--WEBCHAT.csv%22%5D%2C%20%22integrate%20business%20verification%20workflow%22%3A%20%5B%22ulgz--2025-08-11%2001%3A58%3A41.710000--WEBCHAT.csv%22%5D%2C%20%22integrate%20real-time%20interface%20navigation%20assistance%22%3A%20%5B%22steve%20m--2025-06-01%2003%3A08%3A58.923832--WEBCHAT.csv%22%5D%7D%7D"
+                        data-count="24">
+                        <span class="feature-count">24</span>
+                        <strong>ui-ux-enhancements</strong>
+                        <div class="conversation-preview">Click to see 24 conversations grouped by sub-problems (total:
+                            24)</div>
+                    </div>
+                    <div class="feature-item clickable-item" data-problem="complex-technical-issue"
+                        data-popup="%7B%22conversations%22%3A%20%5B%22Adair--2025-04-07%2017%3A32%3A44.014896--WEBCHAT.csv%22%2C%20%22Chenyu--2025-04-16%2021%3A31%3A09.016853--WEBCHAT.csv%22%2C%20%22Daryl%20--2025-03-12%2022%3A52%3A32.309748--WEBCHAT.csv%22%2C%20%22J--2025-08-13%2009%3A28%3A49.998000--WEBCHAT.csv%22%2C%20%22Krishna--2025-03-07%2012%3A08%3A48.429084--WEBCHAT.csv%22%2C%20%22Lex--2025-04-03%2022%3A33%3A45.207431--WEBCHAT.csv%22%2C%20%22Paul--2025-07-04%2012%3A27%3A01.735000--WEBCHAT.csv%22%2C%20%22Reuben--2025-05-28%2004%3A22%3A27.831426--WEBCHAT.csv%22%2C%20%22Rodrigo%20Magno--2025-05-03%2014%3A35%3A27.956257--WEBCHAT.csv%22%2C%20%22Rudy%20S--2025-03-18%2015%3A40%3A57.357452--WEBCHAT.csv%22%2C%20%22Steven%20Soendker--2025-02-28%2016%3A15%3A52.821818--WEBCHAT.csv%22%2C%20%22T--2025-05-06%2019%3A12%3A05.939836--WEBCHAT.csv%22%2C%20%22andy--2025-05-09%2002%3A28%3A10.715906--WEBCHAT.csv%22%2C%20%22azha--2025-02-26%2000%3A21%3A21.199239--WEBCHAT.csv%22%2C%20%22hapsi--2025-05-19%2001%3A32%3A33.090388--WEBCHAT.csv%22%2C%20%22rachit--2025-07-25%2010%3A18%3A45.580000--WEBCHAT.csv%22%2C%20%22az--2025-01-14%2021%3A31%3A15.494692--WEBCHAT.csv%22%2C%20%22rory--2025-07-04%2020%3A24%3A49.281000--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22complex-technical-issue%22%3A%20%5B%22Adair--2025-04-07%2017%3A32%3A44.014896--WEBCHAT.csv%22%2C%20%22Chenyu--2025-04-16%2021%3A31%3A09.016853--WEBCHAT.csv%22%2C%20%22Daryl%20--2025-03-12%2022%3A52%3A32.309748--WEBCHAT.csv%22%2C%20%22J--2025-08-13%2009%3A28%3A49.998000--WEBCHAT.csv%22%2C%20%22Krishna--2025-03-07%2012%3A08%3A48.429084--WEBCHAT.csv%22%2C%20%22Lex--2025-04-03%2022%3A33%3A45.207431--WEBCHAT.csv%22%2C%20%22Paul--2025-07-04%2012%3A27%3A01.735000--WEBCHAT.csv%22%2C%20%22Reuben--2025-05-28%2004%3A22%3A27.831426--WEBCHAT.csv%22%2C%20%22Rodrigo%20Magno--2025-05-03%2014%3A35%3A27.956257--WEBCHAT.csv%22%2C%20%22Rudy%20S--2025-03-18%2015%3A40%3A57.357452--WEBCHAT.csv%22%2C%20%22Steven%20Soendker--2025-02-28%2016%3A15%3A52.821818--WEBCHAT.csv%22%2C%20%22T--2025-05-06%2019%3A12%3A05.939836--WEBCHAT.csv%22%2C%20%22andy--2025-05-09%2002%3A28%3A10.715906--WEBCHAT.csv%22%2C%20%22azha--2025-02-26%2000%3A21%3A21.199239--WEBCHAT.csv%22%2C%20%22hapsi--2025-05-19%2001%3A32%3A33.090388--WEBCHAT.csv%22%2C%20%22rachit--2025-07-25%2010%3A18%3A45.580000--WEBCHAT.csv%22%2C%20%22az--2025-01-14%2021%3A31%3A15.494692--WEBCHAT.csv%22%2C%20%22rory--2025-07-04%2020%3A24%3A49.281000--WEBCHAT.csv%22%5D%7D%7D"
+                        data-count="18">
+                        <span class="feature-count">18</span>
+                        <strong>complex-technical-issue</strong>
+                        <div class="conversation-preview">Click to see 18 conversations grouped by sub-problems (total:
+                            18)</div>
+                    </div>
+                    <div class="feature-item clickable-item" data-problem="third-party-integration-support"
+                        data-popup="%7B%22conversations%22%3A%20%5B%22Albert--2025-03-29%2006%3A22%3A30.321654--WEBCHAT.csv%22%2C%20%22Chris--2025-05-08%2018%3A45%3A13.917604--WEBCHAT.csv%22%2C%20%22Davi--2025-04-15%2016%3A26%3A47.078402--WEBCHAT.csv%22%2C%20%22Steve--2025-04-20%2014%3A09%3A10.128851--WEBCHAT.csv%22%2C%20%22Jason--2025-03-16%2019%3A58%3A46.211158--WEBCHAT.csv%22%2C%20%22Jermaine--2025-04-21%2002%3A04%3A50.008603--WEBCHAT.csv%22%2C%20%22Marcus--2025-06-22%2011%3A26%3A07.686000--WEBCHAT.csv%22%2C%20%22pedro--2025-07-11%2016%3A16%3A13.908000--WEBCHAT.csv%22%2C%20%22Mayur--2025-04-24%2017%3A43%3A36.545300--WEBCHAT.csv%22%2C%20%22Peter%20Schaub--2025-05-11%2009%3A43%3A18.060754--WEBCHAT.csv%22%2C%20%22Muhammad%20Umair--2025-03-30%2021%3A50%3A35.790891--WEBCHAT.csv%22%2C%20%22Yanin--2025-04-10%2007%3A08%3A21.096748--WEBCHAT.csv%22%2C%20%22bvkj--2025-04-11%2003%3A16%3A56.564336--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22ClickMagick%20integration%20instructions%22%3A%20%5B%22Albert--2025-03-29%2006%3A22%3A30.321654--WEBCHAT.csv%22%5D%2C%20%22complex-integration-issue%22%3A%20%5B%22Chris--2025-05-08%2018%3A45%3A13.917604--WEBCHAT.csv%22%2C%20%22Davi--2025-04-15%2016%3A26%3A47.078402--WEBCHAT.csv%22%2C%20%22Steve--2025-04-20%2014%3A09%3A10.128851--WEBCHAT.csv%22%5D%2C%20%22provide%20detailed%20integration%20steps%20for%20GoHighLevel%22%3A%20%5B%22Jason--2025-03-16%2019%3A58%3A46.211158--WEBCHAT.csv%22%5D%2C%20%22specific-integration-guide-for-amazon%22%3A%20%5B%22Jermaine--2025-04-21%2002%3A04%3A50.008603--WEBCHAT.csv%22%5D%2C%20%22integration-guidance-for-everflow%22%3A%20%5B%22Marcus--2025-06-22%2011%3A26%3A07.686000--WEBCHAT.csv%22%5D%2C%20%22lack-of-specific-integration-guidance%22%3A%20%5B%22pedro--2025-07-11%2016%3A16%3A13.908000--WEBCHAT.csv%22%5D%2C%20%22specific%20RedTrack%20integration%20guide%22%3A%20%5B%22Mayur--2025-04-24%2017%3A43%3A36.545300--WEBCHAT.csv%22%5D%2C%20%22create-specific-integration-guide-for-clickmagick%22%3A%20%5B%22Peter%20Schaub--2025-05-11%2009%3A43%3A18.060754--WEBCHAT.csv%22%5D%2C%20%22external%20website%20evaluation%2C%20accurate%20audience%20segment%20information%2C%20complete%20integration%20instructions%22%3A%20%5B%22Muhammad%20Umair--2025-03-30%2021%3A50%3A35.790891--WEBCHAT.csv%22%5D%2C%20%22establish-direct-support-channel-for-third-party-integration-issues%22%3A%20%5B%22Yanin--2025-04-10%2007%3A08%3A21.096748--WEBCHAT.csv%22%5D%2C%20%22expand-platform-specific-integration-guides%22%3A%20%5B%22bvkj--2025-04-11%2003%3A16%3A56.564336--WEBCHAT.csv%22%5D%7D%7D"
+                        data-count="13">
+                        <span class="feature-count">13</span>
+                        <strong>third-party-integration-support</strong>
+                        <div class="conversation-preview">Click to see 13 conversations grouped by sub-problems (total:
+                            13)</div>
+                    </div>
+                    <div class="feature-item clickable-item" data-problem="document-billing-system"
+                        data-popup="%7B%22conversations%22%3A%20%5B%22Artem--2025-04-07%2011%3A00%3A35.994951--WEBCHAT.csv%22%2C%20%22Arvydas--2025-03-26%2014%3A19%3A31.145424--WEBCHAT.csv%22%2C%20%22David--2025-08-07%2006%3A46%3A29.157000--WEBCHAT.csv%22%2C%20%22Don%20Cerullo--2025-06-25%2019%3A57%3A04.914000--WEBCHAT.csv%22%2C%20%22Hugo--2025-07-10%2018%3A24%3A53.016000--WEBCHAT.csv%22%2C%20%22Gabriel--2025-07-22%2019%3A17%3A01.573000--WEBCHAT.csv%22%2C%20%22Thiago--2025-07-17%2017%3A00%3A36.058000--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22integrate%20direct%20invoice%20retrieval%20functionality%22%3A%20%5B%22Artem--2025-04-07%2011%3A00%3A35.994951--WEBCHAT.csv%22%5D%2C%20%22detailed-invoice-generation%22%3A%20%5B%22Arvydas--2025-03-26%2014%3A19%3A31.145424--WEBCHAT.csv%22%5D%2C%20%22pdf-invoice-generation%22%3A%20%5B%22David--2025-08-07%2006%3A46%3A29.157000--WEBCHAT.csv%22%5D%2C%20%22billing-threshold-adjustment%22%3A%20%5B%22Don%20Cerullo--2025-06-25%2019%3A57%3A04.914000--WEBCHAT.csv%22%5D%2C%20%22direct-billing-dispute-resolution%22%3A%20%5B%22Hugo--2025-07-10%2018%3A24%3A53.016000--WEBCHAT.csv%22%5D%2C%20%22average-metrics-document%22%3A%20%5B%22Gabriel--2025-07-22%2019%3A17%3A01.573000--WEBCHAT.csv%22%5D%2C%20%22integrate%20direct%20billing%20update%20functionality%22%3A%20%5B%22Thiago--2025-07-17%2017%3A00%3A36.058000--WEBCHAT.csv%22%5D%7D%7D"
+                        data-count="7">
+                        <span class="feature-count">7</span>
+                        <strong>document-billing-system</strong>
+                        <div class="conversation-preview">Click to see 7 conversations grouped by sub-problems (total:
+                            7)</div>
+                    </div>
+                    <div class="feature-item clickable-item" data-problem="no-improvement-needed-user-abandoned"
+                        data-popup="%7B%22conversations%22%3A%20%5B%22123--2025-07-25%2022%3A03%3A27.126000--WEBCHAT.csv%22%2C%20%22Shukree%20Abuwi--2025-04-07%2002%3A11%3A44.279741--WEBCHAT.csv%22%2C%20%22Xuchen%20Yao--2025-02-27%2019%3A04%3A45.070151--WEBCHAT.csv%22%2C%20%22William--2025-03-13%2016%3A27%3A56.418212--WEBCHAT.csv%22%2C%20%22hello--2025-05-16%2006%3A06%3A22.293370--WEBCHAT.csv%22%2C%20%22philip--2025-07-23%2021%3A25%3A17.348000--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22no-improvement-needed-user-abandoned%22%3A%20%5B%22123--2025-07-25%2022%3A03%3A27.126000--WEBCHAT.csv%22%2C%20%22Shukree%20Abuwi--2025-04-07%2002%3A11%3A44.279741--WEBCHAT.csv%22%2C%20%22Xuchen%20Yao--2025-02-27%2019%3A04%3A45.070151--WEBCHAT.csv%22%2C%20%22William--2025-03-13%2016%3A27%3A56.418212--WEBCHAT.csv%22%2C%20%22hello--2025-05-16%2006%3A06%3A22.293370--WEBCHAT.csv%22%2C%20%22philip--2025-07-23%2021%3A25%3A17.348000--WEBCHAT.csv%22%5D%7D%7D"
+                        data-count="6">
+                        <span class="feature-count">6</span>
+                        <strong>no-improvement-needed-user-abandoned</strong>
+                        <div class="conversation-preview">Click to see 6 conversations grouped by sub-problems (total:
+                            6)</div>
+                    </div>
+                    <div class="feature-item clickable-item" data-problem="cancellation-processing-system"
+                        data-popup="%7B%22conversations%22%3A%20%5B%22Sweet%20Denouement%209a1ce65f83--2025-02-28%2003%3A56%3A32.178208--WEBCHAT.csv%22%2C%20%22Weighted%20Mixture%201c65354b19--2025-02-13%2020%3A10%3A01.006444--WEBCHAT.csv%22%2C%20%22YAN%20LIU--2025-04-09%2021%3A45%3A35.325977--WEBCHAT.csv%22%2C%20%22hayley--2025-04-06%2016%3A24%3A17.103889--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22implement-direct-cancellation-feature%22%3A%20%5B%22Sweet%20Denouement%209a1ce65f83--2025-02-28%2003%3A56%3A32.178208--WEBCHAT.csv%22%5D%2C%20%22service-cancellation-functionality%22%3A%20%5B%22Weighted%20Mixture%201c65354b19--2025-02-13%2020%3A10%3A01.006444--WEBCHAT.csv%22%5D%2C%20%22direct-ad-cancellation%22%3A%20%5B%22YAN%20LIU--2025-04-09%2021%3A45%3A35.325977--WEBCHAT.csv%22%5D%2C%20%22direct-account-cancellation%22%3A%20%5B%22hayley--2025-04-06%2016%3A24%3A17.103889--WEBCHAT.csv%22%5D%7D%7D"
+                        data-count="4">
+                        <span class="feature-count">4</span>
+                        <strong>cancellation-processing-system</strong>
+                        <div class="conversation-preview">Click to see 4 conversations grouped by sub-problems (total:
+                            4)</div>
+                    </div>
+                    <div class="feature-item clickable-item" data-problem="bot-cannot-resolve-technical-issue"
+                        data-popup="%7B%22conversations%22%3A%20%5B%22Dan%20Salem--2025-03-23%2015%3A27%3A35.303470--WEBCHAT.csv%22%2C%20%22VLad--2025-07-29%2018%3A59%3A56.442000--WEBCHAT.csv%22%2C%20%22cole--2025-07-04%2020%3A51%3A43.053000--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22bot-cannot-resolve-technical-issue%22%3A%20%5B%22Dan%20Salem--2025-03-23%2015%3A27%3A35.303470--WEBCHAT.csv%22%2C%20%22VLad--2025-07-29%2018%3A59%3A56.442000--WEBCHAT.csv%22%2C%20%22cole--2025-07-04%2020%3A51%3A43.053000--WEBCHAT.csv%22%5D%7D%7D"
+                        data-count="3">
+                        <span class="feature-count">3</span>
+                        <strong>bot-cannot-resolve-technical-issue</strong>
+                        <div class="conversation-preview">Click to see 3 conversations grouped by sub-problems (total:
+                            3)</div>
+                    </div>
+                    <div class="feature-item clickable-item" data-problem="implement-response-deduplication"
+                        data-popup="%7B%22conversations%22%3A%20%5B%22Amanda%20Morales--2025-05-10%2017%3A17%3A46.392263--WEBCHAT.csv%22%2C%20%22Miles%20Baker--2025-04-28%2020%3A48%3A11.656804--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22implement-response-deduplication%22%3A%20%5B%22Amanda%20Morales--2025-05-10%2017%3A17%3A46.392263--WEBCHAT.csv%22%2C%20%22Miles%20Baker--2025-04-28%2020%3A48%3A11.656804--WEBCHAT.csv%22%5D%7D%7D"
+                        data-count="2">
+                        <span class="feature-count">2</span>
+                        <strong>implement-response-deduplication</strong>
+                        <div class="conversation-preview">Click to see 2 conversations grouped by sub-problems (total:
+                            2)</div>
+                    </div>
+                    <div class="feature-item clickable-item" data-problem="Invalid operation"
+                        data-popup="%7B%22conversations%22%3A%20%5B%22Harun--2025-05-23%2018%3A48%3A43.440802--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22Invalid%20operation%22%3A%20%5B%22Harun--2025-05-23%2018%3A48%3A43.440802--WEBCHAT.csv%22%5D%7D%7D"
+                        data-count="1">
+                        <span class="feature-count">1</span>
+                        <strong>Invalid operation</strong>
+                        <div class="conversation-preview">Click to see 1 conversations grouped by sub-problems (total:
+                            1)</div>
+                    </div>
+                    <div class="feature-item clickable-item" data-problem="Shopify setup assistance"
+                        data-popup="%7B%22conversations%22%3A%20%5B%22Massive%20Concrete%200e5c6708ff--2025-02-26%2000%3A14%3A23.030953--WEBCHAT.csv%22%5D%2C%20%22sub_problems%22%3A%20%7B%22Shopify%20setup%20assistance%22%3A%20%5B%22Massive%20Concrete%200e5c6708ff--2025-02-26%2000%3A14%3A23.030953--WEBCHAT.csv%22%5D%7D%7D"
+                        data-count="1">
+                        <span class="feature-count">1</span>
+                        <strong>Shopify setup assistance</strong>
+                        <div class="conversation-preview">Click to see 1 conversations grouped by sub-problems (total:
+                            1)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>✅ PROBLEMS THE CHATBOT CAN SOLVE WELL</h2>
+
+                <div class="note-box"
+                    style="background: #e7f3ff; border-left: 4px solid #007bff; padding: 15px; margin-bottom: 20px; border-radius: 4px;">
+                    <strong>📊 Note:</strong> Success metrics include conversations where the bot handled problems
+                    perfectly, demonstrated capabilities, and successfully completed user requests. This section shows
+                    what the bot does well.
+                </div>
+
+                <h3>Successful Capabilities</h3>
+                <div class="issue-list">
+                    <h4>🎯 Demonstrated Capabilities</h4>
+                    <div class="feature-item">
+                        <span class="feature-count">17</span>
+                        <strong>provided-clear-instructions</strong>
+                        <div class="conversation-preview">Bot demonstrated this capability 17 times</div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">11</span>
+                        <strong>provided-step-by-step-guidance</strong>
+                        <div class="conversation-preview">Bot demonstrated this capability 11 times</div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">8</span>
+                        <strong>information-provision</strong>
+                        <div class="conversation-preview">Bot demonstrated this capability 8 times</div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">8</span>
+                        <strong>provided-detailed-instructions</strong>
+                        <div class="conversation-preview">Bot demonstrated this capability 8 times</div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">8</span>
+                        <strong>step-by-step-guidance</strong>
+                        <div class="conversation-preview">Bot demonstrated this capability 8 times</div>
+                    </div>
+                    <h4>✅ Bot-Handled-Perfectly Conversations</h4>
+                    <div class="feature-item">
+                        <span class="feature-count">153</span>
+                        <strong>Perfect Bot Handling</strong>
+                        <div class="conversation-preview">Bot handled 153 conversations perfectly without any issues
+                        </div>
+                    </div>
+                    <h4>🔄 Successfully Handled Tasks</h4>
+                    <div class="feature-item">
+                        <span class="feature-count">2</span>
+                        <strong>implement-response-deduplication</strong>
+                        <div class="conversation-preview">Bot successfully handled this task 2 times</div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">1</span>
+                        <strong>implement-automated-verification-system</strong>
+                        <div class="conversation-preview">Bot successfully handled this task 1 times</div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">1</span>
+                        <strong>provide-specific-memory-size-guidelines</strong>
+                        <div class="conversation-preview">Bot successfully handled this task 1 times</div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">1</span>
+                        <strong>implement-request-reopening-feature</strong>
+                        <div class="conversation-preview">Bot successfully handled this task 1 times</div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">1</span>
+                        <strong>integrate direct invoice retrieval functionality</strong>
+                        <div class="conversation-preview">Bot successfully handled this task 1 times</div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">1</span>
+                        <strong>implement-direct-raster-verification</strong>
+                        <div class="conversation-preview">Bot successfully handled this task 1 times</div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">1</span>
+                        <strong>improve-context-awareness-for-platform-specific-instructions</strong>
+                        <div class="conversation-preview">Bot successfully handled this task 1 times</div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-count">1</span>
+                        <strong>integrate-direct-reject-reason-access</strong>
+                        <div class="conversation-preview">Bot successfully handled this task 1 times</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <h3>📊 Summary</h3>
+                <div class="summary-stats">
+                    <div class="summary-stat">
+                        <div class="summary-number">648</div>
+                        <div>Total Conversations</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-number">648</div>
+                        <div>High-Value (Analyzed)</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-number">0</div>
+                        <div>Low-Value (Filtered)</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-number">200</div>
+                        <div>Successfully Solved</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conversation Modal -->
+    <div id="conversationModal" class="conversation-modal">
+        <div class="conversation-modal-content">
+            <span class="conversation-modal-close" onclick="closeConversationModal()">&times;</span>
+            <h2 id="modalTitle">Conversation Details</h2>
+            <div id="modalContent">
+                <div class="conversation-list" id="conversationList">
+                    <!-- Conversations will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Test button to verify JavaScript is working -->
+    <div style="text-align: center; margin: 20px; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+        <button onclick="alert('JavaScript is working!')"
+            style="padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Test JavaScript
+        </button>
+        <button onclick="testModal()"
+            style="padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">
+            Test Modal
+        </button>
+        <p style="margin-top: 10px; font-size: 0.9em; color: #666;">Click these buttons to verify JavaScript and modal
+            are working</p>
+    </div>
+
+    <script>
+        console.log('JavaScript loaded successfully');
+
+        // Delegate click handling for all feature items
+        document.addEventListener('click', function (e) {
+            console.log('Click event detected on:', e.target);
+            console.log('Target classes:', e.target.className);
+            console.log('Closest feature-item:', e.target.closest('.feature-item.clickable-item'));
+
+            const featureItem = e.target.closest('.feature-item.clickable-item');
+            if (!featureItem) {
+                console.log('No clickable feature item found');
+                return;
+            }
+
+            console.log('Found clickable feature item:', featureItem);
+            const problem = featureItem.getAttribute('data-problem');
+            const encoded = featureItem.getAttribute('data-popup') || '';
+            const countAttr = featureItem.getAttribute('data-count') || '0';
+
+            console.log('Problem:', problem);
+            console.log('Encoded popup data length:', encoded.length);
+            console.log('Count:', countAttr);
+
+            try {
+                const popupData = decodeURIComponent(encoded);
+                console.log('Decoded popup data length:', popupData.length);
+                showConversations(problem || 'Unknown', popupData, parseInt(countAttr, 10) || 0);
+            } catch (err) {
+                console.error('Failed to decode popup data', err);
+                alert('Unable to open conversations for this item.');
+            }
+        }, false);
+
+        function showConversations(problem, popupData, count) {
+            console.log('showConversations called with:', { problem, popupData, count });
+            try {
+                const data = JSON.parse(popupData);
+                console.log('Parsed data:', data);
+
+                const modal = document.getElementById('conversationModal');
+                const modalTitle = document.getElementById('modalTitle');
+                const conversationListDiv = document.getElementById('conversationList');
+
+                // Set title
+                modalTitle.textContent = `${problem} (${count} conversations)`;
+
+                // Build HTML content with sub-problems grouped
+                let html = '<div class="conversation-groups">';
+
+                if (data.sub_problems) {
+                    console.log('Using sub_problems structure');
+                    // Group by sub-problems
+                    for (const [subProblem, conversations] of Object.entries(data.sub_problems)) {
+                        // Deduplicate conversations and limit to 10
+                        const uniqueConversations = [...new Set(conversations)].slice(0, 10);
+                        const totalCount = conversations.length;
+
+                        html += `<div class="sub-problem-group">
+                            <h4 class="sub-problem-title">${subProblem} (${totalCount} conversations)</h4>
+                            <div class="conversation-files">`;
+
+                        uniqueConversations.forEach(conv => {
+                            html += `<div class="conversation-file" onclick="showConversationHistory('${conv}')">
+                                📄 ${conv}
+                            </div>`;
+                        });
+
+                        if (totalCount > 10) {
+                            html += `<div class="conversation-file-more" style="text-align: center; color: #6c757d; font-style: italic; padding: 8px;">
+                                ... and ${totalCount - 10} more conversations
+                            </div>`;
+                        }
+
+                        html += `</div></div>`;
+                    }
+                } else if (data.conversations) {
+                    console.log('Using conversations structure');
+                    // Fallback to simple list - also deduplicate and limit
+                    const uniqueConversations = [...new Set(data.conversations)].slice(0, 10);
+                    const totalCount = data.conversations.length;
+
+                    uniqueConversations.forEach(conv => {
+                        html += `<div class="conversation-file" onclick="showConversationHistory('${conv}')">
+                            📄 ${conv}
+                        </div>`;
+                    });
+
+                    if (totalCount > 10) {
+                        html += `<div class="conversation-file-more" style="text-align: center; color: #6c757d; font-style: italic; padding: 8px;">
+                            ... and ${totalCount - 10} more conversations
+                        </div>`;
+                    }
+                } else {
+                    console.log('No valid data structure found');
+                }
+
+                html += '</div>';
+                conversationListDiv.innerHTML = html;
+                modal.style.display = 'block';
+
+            } catch (error) {
+                console.error('Error parsing popup data:', error);
+                console.log('Raw popup data:', popupData);
+                // Fallback to simple display
+                conversationListDiv.innerHTML = popupData;
+                modal.style.display = 'block';
+            }
+        }
+
+        function showConversationHistory(filename) {
+            // Create a new modal for conversation history
+            const historyModal = document.createElement('div');
+            historyModal.id = 'historyModal';
+            historyModal.className = 'conversation-modal';
+            historyModal.style.display = 'block';
+
+            // Create modal content
+            historyModal.innerHTML = `
+                <div class="conversation-modal-content" style="max-width: 90%; max-height: 90%;">
+                    <span class="conversation-modal-close" onclick="closeHistoryModal()">&times;</span>
+                    <h2>📄 Conversation History: ${filename}</h2>
+                    <div id="conversationContent" style="max-height: 70vh; overflow-y: auto; padding: 20px; background: #f8f9fa; border-radius: 8px; margin-top: 20px;">
+                        <div style="text-align: center; color: #6c757d;">
+                            <p>Loading conversation data...</p>
+                            <p>Searching for CSV file...</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(historyModal);
+
+            // Try to load CSV content from the chat-data directory
+            loadCSVContent(filename);
+        }
+
+        function loadCSVContent(filename) {
+            // Try to find the CSV file in the Bot directory
+            const csvPath = `./chat-data/${filename}`;
+
+            fetch(csvPath)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+                    return response.text();
+                })
+                .then(csvText => {
+                    displayConversationHistory(csvText, filename);
+                })
+                .catch(error => {
+                    console.error('Error loading CSV:', error);
+                    document.getElementById('conversationContent').innerHTML = `
+                        <div style="text-align: center; color: #dc3545; padding: 20px;">
+                            <h3>❌ Error Loading Conversation</h3>
+                            <p><strong>File:</strong> ${filename}</p>
+                            <p><strong>Error:</strong> ${error.message}</p>
+                            <p style="font-size: 0.9em; margin-top: 15px;">
+                                The CSV file may not be accessible from the browser.<br>
+                                Try opening the HTML file from the same directory as the chat-data folder.
+                            </p>
+                        </div>
+                    `;
+                });
+        }
+
+        function displayConversationHistory(csvText, filename) {
+            try {
+                // Parse CSV content
+                const lines = csvText.split('\n').filter(line => line.trim());
+                if (lines.length === 0) {
+                    throw new Error('Empty CSV file');
+                }
+
+                // Parse headers (assuming first line is headers)
+                const headers = lines[0].split(',').map(h => h.trim().replace(/"/g, ''));
+
+                // Parse data rows
+                const conversations = [];
+                for (let i = 1; i < lines.length; i++) {
+                    const values = parseCSVLine(lines[i]);
+                    if (values.length >= headers.length) {
+                        const conversation = {};
+                        headers.forEach((header, index) => {
+                            conversation[header] = values[index] || '';
+                        });
+                        // Only add messages that have actual content
+                        if (conversation['Message'] && conversation['Message'].trim()) {
+                            conversations.push(conversation);
+                        }
+                    }
+                }
+
+                // Display conversation history beautifully
+                const contentDiv = document.getElementById('conversationContent');
+                contentDiv.innerHTML = `
+                    <div class="conversation-header-info">
+                        <h3>📊 Conversation Analysis</h3>
+                        <p><strong>File:</strong> ${filename}</p>
+                        <p><strong>Total Messages:</strong> ${conversations.length}</p>
+                    </div>
+                    <div class="conversation-messages">
+                        ${conversations.map((msg, index) => {
+                    const isUser = msg['Sender type'] && msg['Sender type'].toLowerCase().includes('web');
+                    const isBot = msg['Sender type'] && msg['Sender type'].toLowerCase().includes('bot');
+                    const speakerClass = isUser ? 'user-message' : isBot ? 'bot-message' : 'system-message';
+                    const speakerIcon = isUser ? '👤' : isBot ? '🤖' : '⚙️';
+
+                    return `
+                                <div class="message ${speakerClass}">
+                                    <div class="message-header">
+                                        <span class="speaker-icon">${speakerIcon}</span>
+                                        <span class="speaker-name">${msg['Sender full name'] || msg['Sender name'] || 'Unknown'}</span>
+                                        ${msg['Time in GMT'] ? `<span class="timestamp">${msg['Time in GMT']}</span>` : ''}
+                                    </div>
+                                    <div class="message-content">
+                                        ${msg['Message'] || 'No message content'}
+                                    </div>
+                                </div>
+                            `;
+                }).join('')}
+                    </div>
+                `;
+
+            } catch (error) {
+                console.error('Error parsing CSV:', error);
+                document.getElementById('conversationContent').innerHTML = `
+                    <div style="text-align: center; color: #dc3545; padding: 20px;">
+                        <h3>❌ Error Parsing Conversation</h3>
+                        <p><strong>File:</strong> ${filename}</p>
+                        <p><strong>Error:</strong> ${error.message}</p>
+                        <p style="font-size: 0.9em; margin-top: 15px;">
+                            The CSV format may be different than expected.<br>
+                            Raw content preview:
+                        </p>
+                        <div style="background: white; padding: 15px; border-radius: 8px; margin-top: 15px; text-align: left; font-family: monospace; font-size: 0.8em; max-height: 200px; overflow-y: auto;">
+                            <pre>${csvText.substring(0, 1000)}${csvText.length > 1000 ? '...' : ''}</pre>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function parseCSVLine(line) {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                if (char === '"') {
+                    inQuotes = !inQuotes;
+                } else if (char === ',' && !inQuotes) {
+                    result.push(current.trim());
+                    if (current.includes('"')) {
+                        result[result.length - 1] = result[result.length - 1].replace(/^"|"$/g, '');
+                    }
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            result.push(current.trim());
+            if (current.includes('"')) {
+                result[result.length - 1] = result[result.length - 1].replace(/^"|"$/g, '');
+            }
+            return result;
+        }
+
+        function closeHistoryModal() {
+            const modal = document.getElementById('historyModal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        function testModal() {
+            console.log('Testing modal display...');
+            const modal = document.getElementById('conversationModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const conversationListDiv = document.getElementById('conversationList');
+
+            if (modal && modalTitle && conversationListDiv) {
+                modalTitle.textContent = 'Test Modal (Testing)';
+                conversationListDiv.innerHTML = '<div style="padding: 20px; text-align: center;"><h3>Modal is working!</h3><p>This is a test to verify the modal can be displayed.</p></div>';
+                modal.style.display = 'block';
+                console.log('Modal displayed successfully');
+            } else {
+                console.error('Modal elements not found:', { modal, modalTitle, conversationListDiv });
+                alert('Modal elements not found! Check console for details.');
+            }
+        }
+
+        function closeConversationModal() {
+            const modal = document.getElementById('conversationModal');
+            modal.style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function (event) {
+            const modal = document.getElementById('conversationModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>

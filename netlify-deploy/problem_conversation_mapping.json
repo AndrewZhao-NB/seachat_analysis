@@ -1,0 +1,4363 @@
+{
+  "problems": {
+    "ClickMagick integration instructions": [
+      "Albert--2025-03-29 06:22:30.321654--WEBCHAT.csv"
+    ],
+    "add detailed integration instructions for ClickMagick": [
+      "Albert--2025-03-29 06:22:30.321654--WEBCHAT.csv"
+    ],
+    "no-improvement-needed-user-abandoned": [
+      "123--2025-07-25 22:03:27.126000--WEBCHAT.csv",
+      "Excel--2025-03-05 14:34:06.736398--WEBCHAT.csv",
+      "Scared Overhang 62bd541587--2025-03-04 23:12:15.904489--WEBCHAT.csv",
+      "Shukree Abuwi--2025-04-07 02:11:44.279741--WEBCHAT.csv",
+      "Stale Hypotenuse 97aabe2f60--2025-02-07 19:13:43.288302--WEBCHAT.csv",
+      "Xuchen Yao--2025-02-27 19:04:45.070151--WEBCHAT.csv",
+      "William--2025-03-13 16:27:56.418212--WEBCHAT.csv",
+      "hello--2025-05-16 06:06:22.293370--WEBCHAT.csv",
+      "philip--2025-07-23 21:25:17.348000--WEBCHAT.csv",
+      "kristen--2025-02-27 07:26:36.449291--WEBCHAT.csv"
+    ],
+    "implement-automated-verification-system": [
+      "Abhishek Patel--2025-03-23 08:12:56.594428--WEBCHAT.csv"
+    ],
+    "live-agent-transfer": [
+      "Andrew Pizzoferrato--2025-03-20 23:47:50.785469--WEBCHAT.csv",
+      "gareth--2025-08-14 12:28:21.083000--WEBCHAT.csv"
+    ],
+    "implement-live-agent-transfer-feature": [
+      "Andrew Pizzoferrato--2025-03-20 23:47:50.785469--WEBCHAT.csv"
+    ],
+    "user-request-for-live-agent": [
+      "Andrew Pizzoferrato--2025-03-20 23:47:50.785469--WEBCHAT.csv",
+      "Excel--2025-03-05 14:34:06.736398--WEBCHAT.csv",
+      "Karen--2025-04-11 06:52:20.847458--WEBCHAT.csv",
+      "Peter Skotnicky--2025-03-05 22:57:57.960165--WEBCHAT.csv",
+      "Sohel--2025-06-18 17:28:59.647000--WEBCHAT.csv",
+      "Sweet Denouement 9a1ce65f83--2025-02-28 03:56:32.178208--WEBCHAT.csv",
+      "blue--2025-03-05 17:51:16.859985--WEBCHAT.csv"
+    ],
+    "integrate live chat feature for direct human assistance": [
+      "Aminata Diallo--2025-05-05 03:58:16.632318--WEBCHAT.csv"
+    ],
+    "user-requested-human-assistance": [
+      "Aminata Diallo--2025-05-05 03:58:16.632318--WEBCHAT.csv",
+      "Anthony--2025-05-12 17:31:51.580373--WEBCHAT.csv",
+      "Bruno--2025-07-21 13:43:52.454000--WEBCHAT.csv",
+      "Ella--2025-05-17 23:17:09.440485--WEBCHAT.csv",
+      "Hussein hakim--2025-04-15 19:21:00.045912--WEBCHAT.csv",
+      "Idris--2025-05-23 09:46:36.274620--WEBCHAT.csv",
+      "Rodrigo Passos--2025-08-01 14:53:27.806000--WEBCHAT.csv",
+      "S--2025-03-12 04:43:00.469160--WEBCHAT.csv",
+      "Stefan--2025-06-20 07:49:29.362000--WEBCHAT.csv",
+      "Victoria--2025-02-28 13:39:53.785081--WEBCHAT.csv",
+      "andy--2025-05-09 02:28:10.715906--WEBCHAT.csv",
+      "azha--2025-02-26 00:21:21.199239--WEBCHAT.csv",
+      "gareth--2025-08-14 12:28:21.083000--WEBCHAT.csv"
+    ],
+    "live-chat-transfer": [
+      "Albert--2025-06-25 17:53:10.980000--WEBCHAT.csv"
+    ],
+    "implement-live-chat-transfer-capability": [
+      "Albert--2025-06-25 17:53:10.980000--WEBCHAT.csv"
+    ],
+    "user-requested-human-operator": [
+      "Albert--2025-06-25 17:53:10.980000--WEBCHAT.csv"
+    ],
+    "bot-handled-perfectly": [
+      "Andy--2025-03-26 12:34:19.409589--WEBCHAT.csv",
+      "Ali--2025-05-30 16:55:53.561481--WEBCHAT.csv",
+      "Agustin Herebia--2025-07-23 12:25:02.841000--WEBCHAT.csv",
+      "Anna--2025-02-27 08:30:15.485575--WEBCHAT.csv",
+      "Alexander Klee--2025-07-22 11:15:04.723000--WEBCHAT.csv",
+      "Anna--2025-03-06 13:44:48.222224--WEBCHAT.csv",
+      "1258--2025-08-08 06:08:03.004000--WEBCHAT.csv",
+      "Ben--2025-03-06 11:38:42.547869--WEBCHAT.csv",
+      "Artem--2025-03-17 12:23:25.665446--WEBCHAT.csv",
+      "Anna--2025-08-11 03:53:14.195000--WEBCHAT.csv",
+      "Aris--2025-03-04 07:51:33.913060--WEBCHAT.csv",
+      "Bishal--2025-07-22 11:42:29.626000--WEBCHAT.csv",
+      "Brad--2025-07-09 02:18:27.584000--WEBCHAT.csv",
+      "Artem--2025-06-16 18:03:28.206000--WEBCHAT.csv",
+      "Andrew--2025-04-02 02:41:34.012286--WEBCHAT.csv",
+      "Boris--2025-07-10 06:45:02.412000--WEBCHAT.csv",
+      "Abhishek--2025-08-05 19:23:35.468000--WEBCHAT.csv",
+      "Bruno--2025-07-04 02:23:07.807000--WEBCHAT.csv",
+      "Branimir--2025-04-03 06:39:42.351431--WEBCHAT.csv",
+      "Brian Green--2025-03-31 06:30:01.438008--WEBCHAT.csv",
+      "Anna--2025-03-06 13:30:30.073738--WEBCHAT.csv",
+      "Anna--2025-03-27 12:15:20.221545--WEBCHAT.csv",
+      "Charley--2025-05-14 21:13:25.253611--WEBCHAT.csv",
+      "Constance--2025-05-21 21:50:47.889112--WEBCHAT.csv",
+      "Constance--2025-05-12 17:22:52.332652--WEBCHAT.csv",
+      "Daniel--2025-04-09 12:06:23.881068--WEBCHAT.csv",
+      "Dalikh--2025-04-30 15:08:15.250341--WEBCHAT.csv",
+      "Daniele--2025-06-30 13:46:47.847000--WEBCHAT.csv",
+      "Constance Rose--2025-03-17 21:06:57.765736--WEBCHAT.csv",
+      "Danny Greeson--2025-05-06 18:10:06.646082--WEBCHAT.csv",
+      "Connor--2025-05-01 13:56:10.018352--WEBCHAT.csv",
+      "Daniel Merki--2025-04-22 20:58:51.239950--WEBCHAT.csv",
+      "Daria--2025-03-07 09:41:08.899373--WEBCHAT.csv",
+      "Decide--2025-05-23 16:10:34.288055--WEBCHAT.csv",
+      "Deema Towers--2025-04-29 17:08:27.496280--WEBCHAT.csv",
+      "Dejvis--2025-08-07 19:16:42.151000--WEBCHAT.csv",
+      "Divine--2025-07-22 20:48:13.756000--WEBCHAT.csv",
+      "Divine--2025-07-22 19:33:29.608000--WEBCHAT.csv",
+      "Evgenii--2025-06-13 07:46:50.007000--WEBCHAT.csv",
+      "Francisco Valenzuela--2025-04-24 13:59:44.573466--WEBCHAT.csv",
+      "Gary--2025-04-05 21:10:47.167923--WEBCHAT.csv",
+      "Frank--2025-05-04 19:01:30.396149--WEBCHAT.csv",
+      "Gary--2025-08-04 11:00:23.207000--WEBCHAT.csv",
+      "Fancy Bounce 8a694293f2--2025-02-27 07:27:49.457010--WEBCHAT.csv",
+      "Hillary--2025-04-25 20:48:19.304963--WEBCHAT.csv",
+      "Hello--2025-06-08 04:40:01.449000--WEBCHAT.csv",
+      "Hugo--2025-06-02 20:34:00.470679--WEBCHAT.csv",
+      "Ian--2025-05-23 18:26:24.304951--WEBCHAT.csv",
+      "Igal--2025-06-05 12:57:01.652387--WEBCHAT.csv",
+      "Itamar--2025-04-25 16:42:12.231373--WEBCHAT.csv",
+      "Imran--2025-05-19 19:39:47.572571--WEBCHAT.csv",
+      "Jai Singh--2025-06-26 17:12:01.319000--WEBCHAT.csv",
+      "Jason--2025-05-07 15:21:28.817426--WEBCHAT.csv",
+      "Jessie--2025-03-19 09:40:58.435302--WEBCHAT.csv",
+      "Jingming_test--2025-04-16 07:00:18.083552--WEBCHAT.csv",
+      "Jessie--2025-03-19 09:43:57.122056--WEBCHAT.csv",
+      "John Rowady--2025-05-20 14:58:10.582832--WEBCHAT.csv",
+      "Jones--2025-04-08 12:17:52.833049--WEBCHAT.csv",
+      "Jordan--2025-03-14 15:26:57.485571--WEBCHAT.csv",
+      "Kaio--2025-06-20 22:31:52.728000--WEBCHAT.csv",
+      "Josh Littler--2025-04-15 20:25:58.472509--WEBCHAT.csv",
+      "Karen--2025-05-28 06:17:25.253005--WEBCHAT.csv",
+      "Kim Test--2025-01-31 01:11:23.965027--WEBCHAT.csv",
+      "Kevin--2025-08-07 07:36:03.097000--WEBCHAT.csv",
+      "Kris--2025-07-29 19:58:19.570000--WEBCHAT.csv",
+      "LUCA--2025-07-29 03:19:34.010000--WEBCHAT.csv",
+      "Lo Trang Lam--2025-08-15 00:39:11.880000--WEBCHAT.csv",
+      "Han--2025-03-25 16:32:14.927473--WEBCHAT.csv",
+      "Lou--2025-03-14 19:10:52.663685--WEBCHAT.csv",
+      "Marcus--2025-07-19 21:17:49.352000--WEBCHAT.csv",
+      "Lukas--2025-07-03 17:28:08.903000--WEBCHAT.csv",
+      "Marek Kubasiak--2025-05-15 08:10:23.264845--WEBCHAT.csv",
+      "Mayukh Basu--2025-03-17 16:35:18.420795--WEBCHAT.csv",
+      "Matheus--2025-06-20 15:03:00.147000--WEBCHAT.csv",
+      "Maxx Lipman--2025-08-07 15:34:32.536000--WEBCHAT.csv",
+      "Michael Olaleye--2025-03-04 21:41:52.347917--WEBCHAT.csv",
+      "Mohit--2025-02-28 10:19:53.739916--WEBCHAT.csv",
+      "Mike--2025-04-01 09:05:31.815477--WEBCHAT.csv",
+      "Mayur--2025-04-14 12:26:19.764001--WEBCHAT.csv",
+      "Mike Appelt--2025-05-21 21:50:08.571384--WEBCHAT.csv",
+      "Mirella Yzaguirre--2025-04-26 18:41:45.268408--WEBCHAT.csv",
+      "Monika--2025-04-23 18:49:27.164273--WEBCHAT.csv",
+      "Kristin--2025-03-27 16:12:28.807679--WEBCHAT.csv",
+      "Noval--2025-06-11 08:43:16.389000--WEBCHAT.csv",
+      "Nazma--2025-05-17 09:54:57.285231--WEBCHAT.csv",
+      "Nikola--2025-05-09 08:56:37.186223--WEBCHAT.csv",
+      "Nicolas--2025-06-17 19:12:21.013000--WEBCHAT.csv",
+      "Phuong--2025-07-10 09:49:18.035000--WEBCHAT.csv",
+      "Pratik--2025-07-28 13:12:39.441000--WEBCHAT.csv",
+      "Regina McLean--2025-06-04 16:43:21.586568--WEBCHAT.csv",
+      "Rolando Rivero--2025-08-12 03:05:46.165000--WEBCHAT.csv",
+      "Roxy--2025-04-24 18:24:35.239297--WEBCHAT.csv",
+      "Ordered Soldier 1b08ddaa06--2025-03-03 15:20:20.416271--WEBCHAT.csv",
+      "Rutvik Vasani--2025-06-30 12:55:59.549000--WEBCHAT.csv",
+      "Rizwan Patel--2025-03-20 17:00:10.612898--WEBCHAT.csv",
+      "Ryan--2025-03-06 00:32:24.811843--WEBCHAT.csv",
+      "Marc--2025-04-10 12:08:42.126398--WEBCHAT.csv",
+      "Sachin--2025-07-21 17:58:55.854000--WEBCHAT.csv",
+      "Sakshi--2025-04-20 05:52:43.957214--WEBCHAT.csv",
+      "Saurav--2025-03-05 15:34:58.371242--WEBCHAT.csv",
+      "Shahin--2025-06-25 20:14:11.916000--WEBCHAT.csv",
+      "Sean--2025-03-13 16:04:37.536003--WEBCHAT.csv",
+      "Ranjith--2025-07-17 14:47:20.432000--WEBCHAT.csv",
+      "Shiva--2025-07-09 05:09:18.984000--WEBCHAT.csv",
+      "Sharath--2025-07-04 08:20:02.980000--WEBCHAT.csv",
+      "Prince--2025-05-15 11:34:54.765179--WEBCHAT.csv",
+      "Some Analog 816acc408e--2025-03-04 09:53:43.572647--WEBCHAT.csv",
+      "Stef--2025-08-06 14:14:57.742000--WEBCHAT.csv",
+      "Steve Gong--2025-03-13 01:47:58.655325--WEBCHAT.csv",
+      "Suvi--2025-04-20 15:28:48.574570--WEBCHAT.csv",
+      "QQ--2025-07-09 12:19:12.307000--WEBCHAT.csv",
+      "Sumit--2025-04-22 19:43:16.567963--WEBCHAT.csv",
+      "Sunni--2025-07-13 16:08:19.534000--WEBCHAT.csv",
+      "Steve--2025-07-10 01:23:57.229000--WEBCHAT.csv",
+      "Thomas--2025-03-28 12:42:18.450148--WEBCHAT.csv",
+      "Thiago--2025-07-16 00:58:40.798000--WEBCHAT.csv",
+      "Tijn va--2025-06-25 17:11:24.062000--WEBCHAT.csv",
+      "Tinashe--2025-03-18 09:54:01.718060--WEBCHAT.csv",
+      "Varun Sharma--2025-05-27 06:41:01.096937--WEBCHAT.csv",
+      "Whalemo--2025-04-11 07:17:27.656430--WEBCHAT.csv",
+      "Vince Czaplyski--2025-04-25 19:51:28.663706--WEBCHAT.csv",
+      "Wilson--2025-03-07 06:10:07.677133--WEBCHAT.csv",
+      "alekosaldanaybz--2025-06-06 02:25:01.209000--WEBCHAT.csv",
+      "anja --2025-07-16 15:56:12.858000--WEBCHAT.csv",
+      "alan--2025-03-31 16:34:41.927527--WEBCHAT.csv",
+      "brad--2025-05-30 11:36:25.411851--WEBCHAT.csv",
+      "Tatiana--2025-07-31 20:43:44.483000--WEBCHAT.csv",
+      "cazaresmary290--2025-06-06 04:48:33.103000--WEBCHAT.csv",
+      "alex suarez--2025-06-24 10:57:22.080000--WEBCHAT.csv",
+      "as--2025-07-23 21:26:23.549000--WEBCHAT.csv",
+      "gu bassi--2025-06-30 19:09:36.099000--WEBCHAT.csv",
+      "Trevor--2025-03-19 21:53:48.198879--WEBCHAT.csv",
+      "gen--2025-07-18 22:31:24.956000--WEBCHAT.csv",
+      "junyi--2025-04-08 10:11:57.685492--WEBCHAT.csv",
+      "kishi--2025-05-28 10:43:35.551180--WEBCHAT.csv",
+      "michel berbari--2025-06-10 17:59:59.660000--WEBCHAT.csv",
+      "naifu--2025-02-07 19:26:17.827051--WEBCHAT.csv",
+      "obenaufjayla893--2025-05-23 02:02:12.606324--WEBCHAT.csv",
+      "ryan--2025-02-21 23:58:52.372841--WEBCHAT.csv",
+      "sohil--2025-03-11 12:39:04.961122--WEBCHAT.csv",
+      "sara test--2025-06-17 23:54:37.716000--WEBCHAT.csv",
+      "sambranooktavec--2025-04-17 02:00:55.239667--WEBCHAT.csv",
+      "ryan--2025-02-20 21:50:49.053804--WEBCHAT.csv",
+      "saven--2025-05-10 20:41:15.468021--WEBCHAT.csv",
+      "sunil--2025-03-20 13:32:27.030105--WEBCHAT.csv",
+      "test+azhar--2025-07-26 00:02:06.449000--WEBCHAT.csv",
+      "tarun--2025-05-07 07:08:50.612745--WEBCHAT.csv",
+      "steve--2025-08-09 03:14:06.784000--WEBCHAT.csv",
+      "wang--2025-04-09 07:02:34.809162--WEBCHAT.csv",
+      "wang--2025-02-27 08:21:47.200157--WEBCHAT.csv",
+      "zuninoroxana883--2025-05-18 15:52:06.866180--WEBCHAT.csv",
+      "x--2025-06-03 16:38:34.801966--WEBCHAT.csv",
+      "zhaodaocrumb--2025-03-15 14:34:35.655372--WEBCHAT.csv",
+      "Leo--2025-08-13 17:54:58.598000--WEBCHAT.csv"
+    ],
+    "user-request-for-specific-invoices": [
+      "Andy--2025-03-26 12:34:19.409589--WEBCHAT.csv"
+    ],
+    "provide-specific-memory-size-guidelines": [
+      "Amanda--2025-08-14 22:54:44.818000--WEBCHAT.csv"
+    ],
+    "ad-review-expedition": [
+      "Akshay Singh--2025-08-10 10:31:26.578000--WEBCHAT.csv"
+    ],
+    "implement-ad-review-expedition-feature": [
+      "Akshay Singh--2025-08-10 10:31:26.578000--WEBCHAT.csv"
+    ],
+    "feature-not-supported": [
+      "Akshay Singh--2025-08-10 10:31:26.578000--WEBCHAT.csv",
+      "Blanche--2025-04-17 14:46:49.452649--WEBCHAT.csv",
+      "Developer--2025-07-22 11:26:52.883000--WEBCHAT.csv",
+      "Dilshayar--2025-05-30 15:18:49.925355--WEBCHAT.csv",
+      "Gary--2025-07-04 14:21:02.769000--WEBCHAT.csv",
+      "John Cobb--2025-05-20 14:58:14.365774--WEBCHAT.csv",
+      "Matt Smith--2025-03-05 01:07:11.987420--WEBCHAT.csv",
+      "Misha--2025-07-03 18:20:27.564000--WEBCHAT.csv",
+      "Murat Ordu--2025-07-14 19:15:53.259000--WEBCHAT.csv",
+      "Steve--2025-04-12 10:33:40.189061--WEBCHAT.csv",
+      "adam--2025-02-28 07:48:01.205166--WEBCHAT.csv",
+      "adam--2025-03-25 16:33:06.280452--WEBCHAT.csv",
+      "carson--2025-03-12 22:52:40.008921--WEBCHAT.csv",
+      "david laniado--2025-05-23 17:09:05.328234--WEBCHAT.csv",
+      "katie--2025-07-11 00:14:12.843000--WEBCHAT.csv",
+      "lucy --2025-04-21 09:16:51.627385--WEBCHAT.csv",
+      "mohit--2025-07-29 07:25:26.461000--WEBCHAT.csv",
+      "ett--2025-04-02 22:48:03.012275--WEBCHAT.csv",
+      "mun--2025-03-20 22:19:39.487157--WEBCHAT.csv"
+    ],
+    "campaign-spending-diagnosis": [
+      "Aaron--2025-08-06 17:13:07.187000--WEBCHAT.csv"
+    ],
+    "integrate campaign spending diagnostics and resolution capabilities": [
+      "Aaron--2025-08-06 17:13:07.187000--WEBCHAT.csv"
+    ],
+    "bot-cannot-access-system": [
+      "Aaron--2025-08-06 17:13:07.187000--WEBCHAT.csv",
+      "Alex--2025-07-17 22:59:33.001000--WEBCHAT.csv",
+      "David Stal--2025-03-18 15:11:04.426055--WEBCHAT.csv",
+      "Azhar--2025-02-11 18:25:05.129501--WEBCHAT.csv",
+      "Gen--2025-07-13 21:54:56.132000--WEBCHAT.csv",
+      "Large Metaphor 0a95544013--2025-04-10 01:57:34.805083--WEBCHAT.csv",
+      "Jones--2025-07-22 12:34:16.237000--WEBCHAT.csv",
+      "Rajan--2025-07-09 06:15:41.666000--WEBCHAT.csv",
+      "Rob--2025-04-02 02:01:21.928192--WEBCHAT.csv",
+      "Rida Xiao--2025-03-02 13:36:48.954991--WEBCHAT.csv",
+      "Paolo--2025-06-09 15:31:10.983000--WEBCHAT.csv",
+      "Wilson--2025-03-14 05:50:32.520500--WEBCHAT.csv",
+      "k--2025-07-07 15:25:45.582000--WEBCHAT.csv",
+      "Taylor Newman--2025-04-23 14:53:04.625854--WEBCHAT.csv"
+    ],
+    "integrate account status verification workflow": [
+      " ADJ DIGITAL MARKETING LLC--2025-06-04 05:11:59.628655--WEBCHAT.csv"
+    ],
+    "account-verification-required": [
+      " ADJ DIGITAL MARKETING LLC--2025-06-04 05:11:59.628655--WEBCHAT.csv",
+      "Brian Green--2025-03-31 06:30:01.438008--WEBCHAT.csv",
+      "Gustavo--2025-04-09 01:52:16.738665--WEBCHAT.csv",
+      "Hidayat Rizvi--2025-04-26 03:55:55.284209--WEBCHAT.csv",
+      "Jason Hale--2025-04-14 16:54:28.765980--WEBCHAT.csv",
+      "Kate Hendricks --2025-04-26 20:13:11.870181--WEBCHAT.csv",
+      "Nabil Oussama Brik--2025-04-18 18:45:59.008881--WEBCHAT.csv",
+      "Nikolay Saev--2025-04-23 10:34:47.180727--WEBCHAT.csv",
+      "Romina--2025-04-17 15:22:01.903373--WEBCHAT.csv",
+      "Sourav gupta--2025-05-27 14:12:53.383222--WEBCHAT.csv",
+      "andi--2025-04-16 19:48:34.391992--WEBCHAT.csv",
+      "micah--2025-04-18 14:29:27.433757--WEBCHAT.csv"
+    ],
+    "direct-payment-issue-resolution": [
+      "Alisa--2025-04-20 18:16:27.915436--WEBCHAT.csv"
+    ],
+    "integrate direct payment resolution capability or automated billing update workflow": [
+      "Alisa--2025-04-20 18:16:27.915436--WEBCHAT.csv"
+    ],
+    "bot-cannot-directly-resolve-payment-issues": [
+      "Alisa--2025-04-20 18:16:27.915436--WEBCHAT.csv"
+    ],
+    "implement-response-deduplication": [
+      "Amanda Morales--2025-05-10 17:17:46.392263--WEBCHAT.csv",
+      "Miles Baker--2025-04-28 20:48:11.656804--WEBCHAT.csv"
+    ],
+    "integrate with verification team for direct issue resolution": [
+      "Adriano Vitor Ruiz--2025-08-15 17:26:25.143000--WEBCHAT.csv"
+    ],
+    "verification-issue": [
+      "Adriano Vitor Ruiz--2025-08-15 17:26:25.143000--WEBCHAT.csv",
+      "Sam Paul--2025-05-02 14:01:34.057367--WEBCHAT.csv"
+    ],
+    "requires-human-intervention": [
+      "Adriano Vitor Ruiz--2025-08-15 17:26:25.143000--WEBCHAT.csv",
+      "nutribinature--2025-06-25 20:27:47.596000--WEBCHAT.csv"
+    ],
+    "implement-diagnostic-tool-for-pixel-integration-issues": [
+      "Amy Roth--2025-05-06 16:09:13.372563--WEBCHAT.csv"
+    ],
+    "persistent-technical-issue": [
+      "Amy Roth--2025-05-06 16:09:13.372563--WEBCHAT.csv",
+      "Idris--2025-05-23 09:46:36.274620--WEBCHAT.csv",
+      "Kent Hopkins--2025-08-13 15:46:11.439000--WEBCHAT.csv",
+      "Metallic Test d898dc1d85--2025-02-27 06:21:40.918158--WEBCHAT.csv",
+      "Saven--2025-05-13 17:47:42.318797--WEBCHAT.csv"
+    ],
+    "request-reopening-functionality": [
+      "Anait--2025-03-20 12:15:56.626556--WEBCHAT.csv"
+    ],
+    "implement-request-reopening-feature": [
+      "Anait--2025-03-20 12:15:56.626556--WEBCHAT.csv"
+    ],
+    "integrate account management tools for direct issue resolution": [
+      "Aaron Gosling--2025-04-01 14:06:23.955888--WEBCHAT.csv"
+    ],
+    "account-specific-problem": [
+      "Aaron Gosling--2025-04-01 14:06:23.955888--WEBCHAT.csv",
+      "Aspet Grigoryan--2025-04-29 15:37:59.559291--WEBCHAT.csv",
+      "Aaron Chandler--2025-04-16 21:27:33.196644--WEBCHAT.csv",
+      "Absolute Nest 823db93d4f--2025-02-27 12:42:50.018826--WEBCHAT.csv",
+      "Bruno VIdić--2025-04-29 10:45:13.413493--WEBCHAT.csv",
+      "Achlesh Walia--2025-04-16 18:52:54.443114--WEBCHAT.csv",
+      "Bryan Higgins--2025-03-07 16:59:00.497110--WEBCHAT.csv",
+      "Christian--2025-07-01 13:35:56.033000--WEBCHAT.csv",
+      "ChenyuTest--2025-04-18 05:02:39.942324--WEBCHAT.csv",
+      "Charley--2025-01-14 22:47:46.627363--WEBCHAT.csv",
+      "Gaurav--2025-04-26 13:43:18.456499--WEBCHAT.csv",
+      "Hitesh--2025-07-25 09:02:21.494000--WEBCHAT.csv",
+      "Fenil--2025-06-11 06:26:59.992000--WEBCHAT.csv",
+      "Javier Navarrete--2025-04-16 15:56:20.129647--WEBCHAT.csv",
+      "Jitendra--2025-03-07 09:02:55.607511--WEBCHAT.csv",
+      "Jordan--2025-04-22 21:26:10.277124--WEBCHAT.csv",
+      "Harun--2025-05-23 18:48:43.440802--WEBCHAT.csv",
+      "Local Tag 962dbd0130--2025-02-28 04:45:46.983308--WEBCHAT.csv",
+      "Jones--2025-07-22 12:34:16.237000--WEBCHAT.csv",
+      "Milan Walraven--2025-06-25 14:46:52.664000--WEBCHAT.csv",
+      "Prakhar--2025-04-29 13:47:51.884967--WEBCHAT.csv",
+      "Praveen Kushwah--2025-06-04 12:52:10.779967--WEBCHAT.csv",
+      "Paolo--2025-06-09 15:31:10.983000--WEBCHAT.csv",
+      "Sam Paul--2025-05-02 14:01:34.057367--WEBCHAT.csv",
+      "Sonny--2025-08-07 01:43:47.188000--WEBCHAT.csv",
+      "Steve--2025-06-16 09:10:13.742000--WEBCHAT.csv",
+      "Sudhanshu--2025-07-08 07:20:36.548000--WEBCHAT.csv",
+      "Suvi--2025-06-06 19:28:41.768000--WEBCHAT.csv",
+      "Thorben Dinse--2025-03-24 06:28:48.200943--WEBCHAT.csv",
+      "Vincent Czaplyski--2025-06-05 19:53:36.421000--WEBCHAT.csv",
+      "casearty--2025-03-01 10:02:54.171874--WEBCHAT.csv",
+      "Wenty Browne--2025-03-02 15:37:19.468352--WEBCHAT.csv",
+      "julieshanap131--2025-06-16 16:05:51.889000--WEBCHAT.csv",
+      "sumit--2025-08-16 13:28:50.333000--WEBCHAT.csv",
+      "k--2025-07-07 15:25:45.582000--WEBCHAT.csv",
+      "sofiaclarkooybvmpy--2025-04-10 13:45:49.196345--WEBCHAT.csv"
+    ],
+    "implement-email-confirmation-system-to-verify-sent-documents": [
+      "Agustin Herebia--2025-05-21 14:53:59.984059--WEBCHAT.csv"
+    ],
+    "user-did-not-receive-email": [
+      "Agustin Herebia--2025-05-21 14:53:59.984059--WEBCHAT.csv"
+    ],
+    "no-email-confirmation": [
+      "Agustin Herebia--2025-05-21 14:53:59.984059--WEBCHAT.csv"
+    ],
+    "user-requested-support-contact": [
+      "Anna--2025-03-06 13:44:48.222224--WEBCHAT.csv"
+    ],
+    "integrate campaign diagnostic tool to analyze budget issues": [
+      "Andrey--2025-04-26 16:57:38.148512--WEBCHAT.csv"
+    ],
+    "specific-campaign-issue": [
+      "Andrey--2025-04-26 16:57:38.148512--WEBCHAT.csv"
+    ],
+    "requires-deeper-investigation": [
+      "Andrey--2025-04-26 16:57:38.148512--WEBCHAT.csv"
+    ],
+    "implement-direct-human-escalation-feature": [
+      "Alex--2025-07-17 22:59:33.001000--WEBCHAT.csv",
+      "Bruno--2025-07-18 00:08:21.136000--WEBCHAT.csv",
+      "Charlie--2025-06-16 12:52:46.585000--WEBCHAT.csv",
+      "Hussein hakim--2025-04-15 19:21:00.045912--WEBCHAT.csv",
+      "rafik--2025-05-10 03:22:14.825745--WEBCHAT.csv"
+    ],
+    "implement-automatic-checks-for-duplicate-media-and-suggest-alternatives": [
+      "Ange Campuzano--2025-02-28 00:22:07.201195--WEBCHAT.csv"
+    ],
+    "duplicate-media-error": [
+      "Ange Campuzano--2025-02-28 00:22:07.201195--WEBCHAT.csv",
+      "Ange Campuzano--2025-02-28 00:22:07.201195--WEBCHAT.csv"
+    ],
+    "user-requested-live-agent": [
+      "Ange Campuzano--2025-02-28 00:22:07.201195--WEBCHAT.csv",
+      "Clear Davit f0917f319c--2025-03-03 17:16:39.623556--WEBCHAT.csv",
+      "Chenyu--2025-02-27 06:07:09.292716--WEBCHAT.csv",
+      "Azhar--2025-02-11 18:25:05.129501--WEBCHAT.csv",
+      "Eladio J Cabrera Riveiro--2025-03-03 19:37:23.395466--WEBCHAT.csv",
+      "Emma Fulton--2025-03-06 00:35:34.571908--WEBCHAT.csv",
+      "Instant Keep 8443ddfd47--2025-02-27 20:58:59.838205--WEBCHAT.csv",
+      "John Newman--2025-02-27 13:04:16.937436--WEBCHAT.csv",
+      "Jay--2025-03-05 15:16:05.996396--WEBCHAT.csv",
+      "Jenny--2025-01-15 23:10:09.273566--WEBCHAT.csv",
+      "Jitendra--2025-03-07 09:02:55.607511--WEBCHAT.csv",
+      "Levi--2025-06-20 18:50:59.147000--WEBCHAT.csv",
+      "Massive Concrete 0e5c6708ff--2025-02-26 00:14:23.030953--WEBCHAT.csv",
+      "Matheus Santana--2025-03-05 18:24:22.432779--WEBCHAT.csv",
+      "Riccardo--2025-03-04 06:09:39.979637--WEBCHAT.csv",
+      "Rostyslav--2025-03-11 09:59:11.342379--WEBCHAT.csv",
+      "Scared Overhang 62bd541587--2025-03-04 23:12:15.904489--WEBCHAT.csv",
+      "Rassal Khan--2025-03-07 06:24:43.461245--WEBCHAT.csv",
+      "Stale Hypotenuse 97aabe2f60--2025-02-07 19:13:43.288302--WEBCHAT.csv",
+      "Weighted Mixture 1c65354b19--2025-02-13 20:10:01.006444--WEBCHAT.csv",
+      "ori--2025-03-04 12:00:41.792911--WEBCHAT.csv",
+      "kristen--2025-02-27 07:26:36.449291--WEBCHAT.csv",
+      "shivani--2025-06-24 13:04:40.636000--WEBCHAT.csv",
+      "az--2025-01-14 21:31:15.494692--WEBCHAT.csv"
+    ],
+    "direct-time-zone-change-in-admanager": [
+      "Anin--2025-03-25 14:47:40.180146--WEBCHAT.csv"
+    ],
+    "integrate-time-zone-change-functionality": [
+      "Anin--2025-03-25 14:47:40.180146--WEBCHAT.csv"
+    ],
+    "bot-cannot-change-time-zone": [
+      "Anin--2025-03-25 14:47:40.180146--WEBCHAT.csv"
+    ],
+    "user-needs-detailed-assistance": [
+      "Anin--2025-03-25 14:47:40.180146--WEBCHAT.csv"
+    ],
+    "integrate-with-user-account-settings-for-direct-troubleshooting": [
+      "Andrew Pizzoferrato--2025-03-20 21:20:58.464372--WEBCHAT.csv"
+    ],
+    "technical-issue-not-resolved": [
+      "Andrew Pizzoferrato--2025-03-20 21:20:58.464372--WEBCHAT.csv"
+    ],
+    "user-unable-to-solve-with-guidance": [
+      "Andrew Pizzoferrato--2025-03-20 21:20:58.464372--WEBCHAT.csv"
+    ],
+    "implement direct support for pixel configuration or enhance bot's troubleshooting capabilities": [
+      "Adair--2025-04-07 17:32:44.014896--WEBCHAT.csv"
+    ],
+    "complex-technical-issue": [
+      "Adair--2025-04-07 17:32:44.014896--WEBCHAT.csv",
+      "BJ--2025-07-03 00:57:25.437000--WEBCHAT.csv",
+      "Charley--2025-01-14 22:47:46.627363--WEBCHAT.csv",
+      "Chenyu--2025-04-16 21:31:09.016853--WEBCHAT.csv",
+      "Daryl --2025-03-12 22:52:32.309748--WEBCHAT.csv",
+      "J--2025-08-13 09:28:49.998000--WEBCHAT.csv",
+      "Gen--2025-07-13 21:54:56.132000--WEBCHAT.csv",
+      "Jeff--2025-04-19 18:37:37.910169--WEBCHAT.csv",
+      "Krishna--2025-03-07 12:08:48.429084--WEBCHAT.csv",
+      "Lex--2025-04-03 22:33:45.207431--WEBCHAT.csv",
+      "Milan Walraven--2025-06-25 14:46:52.664000--WEBCHAT.csv",
+      "Paul--2025-07-04 12:27:01.735000--WEBCHAT.csv",
+      "Reuben--2025-05-28 04:22:27.831426--WEBCHAT.csv",
+      "Rodrigo Magno--2025-05-03 14:35:27.956257--WEBCHAT.csv",
+      "Rudy S--2025-03-18 15:40:57.357452--WEBCHAT.csv",
+      "Sanel Delic--2025-03-05 10:48:22.437214--WEBCHAT.csv",
+      "Scott Brown--2025-08-11 19:35:52.144000--WEBCHAT.csv",
+      "Steven Soendker--2025-02-28 16:15:52.821818--WEBCHAT.csv",
+      "T--2025-05-06 19:12:05.939836--WEBCHAT.csv",
+      "andy--2025-05-09 02:28:10.715906--WEBCHAT.csv",
+      "azha--2025-02-26 00:21:21.199239--WEBCHAT.csv",
+      "atakan göl--2025-07-09 21:51:26.358000--WEBCHAT.csv",
+      "hapsi--2025-05-19 01:32:33.090388--WEBCHAT.csv",
+      "jeff--2025-04-18 22:31:41.739355--WEBCHAT.csv",
+      "rachit--2025-07-25 10:18:45.580000--WEBCHAT.csv",
+      "ry--2025-05-14 21:11:22.807024--WEBCHAT.csv",
+      "az--2025-01-14 21:31:15.494692--WEBCHAT.csv",
+      "rory--2025-07-04 20:24:49.281000--WEBCHAT.csv",
+      "k--2025-07-07 15:25:45.582000--WEBCHAT.csv"
+    ],
+    "postback-url-not-recognized": [
+      "Adair--2025-04-07 17:32:44.014896--WEBCHAT.csv"
+    ],
+    "update bot knowledge base with accurate pixel deletion instructions for NewsBreak": [
+      "Akshay--2025-04-18 06:01:28.028770--WEBCHAT.csv"
+    ],
+    "incorrect-initial-guidance": [
+      "Akshay--2025-04-18 06:01:28.028770--WEBCHAT.csv",
+      "Akshay--2025-04-18 06:01:28.028770--WEBCHAT.csv"
+    ],
+    "user-confusion": [
+      "Akshay--2025-04-18 06:01:28.028770--WEBCHAT.csv",
+      "Solaced--2025-05-14 10:52:48.259428--WEBCHAT.csv"
+    ],
+    "direct-url-testing-capability": [
+      "Andres Chavez--2025-07-01 14:03:46.289000--WEBCHAT.csv"
+    ],
+    "implement-url-testing-feature": [
+      "Andres Chavez--2025-07-01 14:03:46.289000--WEBCHAT.csv"
+    ],
+    "bot-cannot-perform-url-testing": [
+      "Andres Chavez--2025-07-01 14:03:46.289000--WEBCHAT.csv"
+    ],
+    "user-ran-out-of-message-quota": [
+      "Andres Chavez--2025-07-01 14:03:46.289000--WEBCHAT.csv"
+    ],
+    "quota-exhaustion-message": [
+      "Andres Chavez--2025-07-01 14:03:46.289000--WEBCHAT.csv",
+      "Nirmal--2025-03-02 20:11:44.157129--WEBCHAT.csv"
+    ],
+    "enhance bot capability to diagnose and resolve save issues or escalate to human support": [
+      "Albert--2025-06-25 04:57:56.553000--WEBCHAT.csv"
+    ],
+    "unable-to-save-url": [
+      "Albert--2025-06-25 04:57:56.553000--WEBCHAT.csv"
+    ],
+    "potential-permission-issue": [
+      "Albert--2025-06-25 04:57:56.553000--WEBCHAT.csv"
+    ],
+    "no-specific-error-messages": [
+      "Albert--2025-06-25 04:57:56.553000--WEBCHAT.csv"
+    ],
+    "integrate direct invoice retrieval functionality": [
+      "Artem--2025-04-07 11:00:35.994951--WEBCHAT.csv"
+    ],
+    "implement-direct-raster-verification": [
+      "Antonio --2025-03-13 14:24:48.367277--WEBCHAT.csv"
+    ],
+    "implement-url-validation-feature": [
+      "Anthony--2025-05-12 17:31:51.580373--WEBCHAT.csv"
+    ],
+    "repetitive-response": [
+      "Anthony--2025-05-12 17:31:51.580373--WEBCHAT.csv"
+    ],
+    "improve-context-awareness-for-platform-specific-instructions": [
+      "Anuj Sood--2025-07-09 20:09:43.090000--WEBCHAT.csv"
+    ],
+    "initial-platform-misunderstanding": [
+      "Anuj Sood--2025-07-09 20:09:43.090000--WEBCHAT.csv"
+    ],
+    "access-to-company-legal-details": [
+      "Anna--2025-07-14 13:16:32.656000--WEBCHAT.csv"
+    ],
+    "integrate-access-to-company-legal-details-or-direct-contact-information": [
+      "Anna--2025-07-14 13:16:32.656000--WEBCHAT.csv"
+    ],
+    "bot-cannot-access-company-legal-details": [
+      "Anna--2025-07-14 13:16:32.656000--WEBCHAT.csv"
+    ],
+    "ad account deletion functionality": [
+      "Blanche--2025-04-17 14:46:49.452649--WEBCHAT.csv"
+    ],
+    "implement ad account deletion feature": [
+      "Blanche--2025-04-17 14:46:49.452649--WEBCHAT.csv"
+    ],
+    "potential policy misunderstanding": [
+      "Blanche--2025-04-17 14:46:49.452649--WEBCHAT.csv"
+    ],
+    "implement direct support ticket creation for unresolved issues": [
+      "Aspet Grigoryan--2025-04-29 15:37:59.559291--WEBCHAT.csv"
+    ],
+    "ad-approval-delay": [
+      "Aspet Grigoryan--2025-04-29 15:37:59.559291--WEBCHAT.csv"
+    ],
+    "integrate advanced debugging tools for custom code issues": [
+      "Ben Hobbs--2025-08-11 20:45:25.576000--WEBCHAT.csv"
+    ],
+    "custom-code-issue": [
+      "Ben Hobbs--2025-08-11 20:45:25.576000--WEBCHAT.csv"
+    ],
+    "bot-troubleshooting-insufficient": [
+      "Ben Hobbs--2025-08-11 20:45:25.576000--WEBCHAT.csv"
+    ],
+    "implement automated permission troubleshooting or escalation workflow": [
+      "Aaron Chandler--2025-04-16 21:27:33.196644--WEBCHAT.csv"
+    ],
+    "ad-scheduling-setup": [
+      "Asymptotic Lark cf0a003589--2025-02-27 20:15:34.828978--WEBCHAT.csv"
+    ],
+    "integrate ad scheduling setup functionality": [
+      "Asymptotic Lark cf0a003589--2025-02-27 20:15:34.828978--WEBCHAT.csv"
+    ],
+    "bot-cannot-set-up-schedule": [
+      "Asymptotic Lark cf0a003589--2025-02-27 20:15:34.828978--WEBCHAT.csv"
+    ],
+    "refund processing system": [
+      "Bharat--2025-06-19 13:02:40.742000--WEBCHAT.csv",
+      "Hunter--2025-05-07 22:16:47.992189--WEBCHAT.csv",
+      "Sonny--2025-08-05 23:50:10.192000--WEBCHAT.csv"
+    ],
+    "integrate with billing system API": [
+      "Bharat--2025-06-19 13:02:40.742000--WEBCHAT.csv"
+    ],
+    "refund-request": [
+      "Bharat--2025-06-19 13:02:40.742000--WEBCHAT.csv",
+      "Hunter--2025-05-07 22:16:47.992189--WEBCHAT.csv",
+      "Sonny--2025-08-05 23:50:10.192000--WEBCHAT.csv"
+    ],
+    "real-time-ad-approval-status-check": [
+      "Anthony--2025-04-16 18:44:51.565179--WEBCHAT.csv"
+    ],
+    "integrate-real-time-status-checking-for-ad-approval": [
+      "Anthony--2025-04-16 18:44:51.565179--WEBCHAT.csv"
+    ],
+    "delay-in-ad-approval": [
+      "Anthony--2025-04-16 18:44:51.565179--WEBCHAT.csv"
+    ],
+    "ads-account-closure-process": [
+      "Affif--2025-04-20 22:59:53.437433--WEBCHAT.csv"
+    ],
+    "integrate-ads-account-closure-workflow": [
+      "Affif--2025-04-20 22:59:53.437433--WEBCHAT.csv"
+    ],
+    "bot-cannot-process-ads-account-closure": [
+      "Affif--2025-04-20 22:59:53.437433--WEBCHAT.csv"
+    ],
+    "detailed-invoice-generation": [
+      "Arvydas--2025-03-26 14:19:31.145424--WEBCHAT.csv"
+    ],
+    "integrate detailed invoice generation capability within the bot": [
+      "Arvydas--2025-03-26 14:19:31.145424--WEBCHAT.csv"
+    ],
+    "bot-cannot-generate-detailed-invoices": [
+      "Arvydas--2025-03-26 14:19:31.145424--WEBCHAT.csv"
+    ],
+    "integrate direct campaign status check feature": [
+      "Bruno--2025-07-16 12:52:03.464000--WEBCHAT.csv"
+    ],
+    "campaign-delay": [
+      "Bruno--2025-07-16 12:52:03.464000--WEBCHAT.csv"
+    ],
+    "requires-additional-information": [
+      "Bruno--2025-07-16 12:52:03.464000--WEBCHAT.csv"
+    ],
+    "implement a direct verification process for individual advertisers": [
+      "Benth--2025-05-24 16:45:10.738216--WEBCHAT.csv"
+    ],
+    "verification-requires-human-intervention": [
+      "Benth--2025-05-24 16:45:10.738216--WEBCHAT.csv"
+    ],
+    "support-ticket-creation": [
+      "Anna--2025-08-14 01:31:55.144000--WEBCHAT.csv"
+    ],
+    "implement-support-ticket-creation-feature": [
+      "Anna--2025-08-14 01:31:55.144000--WEBCHAT.csv"
+    ],
+    "bot-cannot-create-support-tickets": [
+      "Anna--2025-08-14 01:31:55.144000--WEBCHAT.csv"
+    ],
+    "improve email attachment handling and delivery verification": [
+      "Arnas--2025-03-14 04:15:23.154697--WEBCHAT.csv"
+    ],
+    "email-attachment-issue": [
+      "Arnas--2025-03-14 04:15:23.154697--WEBCHAT.csv"
+    ],
+    "user-requested-live-support": [
+      "Arnas--2025-03-14 04:15:23.154697--WEBCHAT.csv",
+      "Sam Nihalani--2025-07-15 18:19:15.129000--WEBCHAT.csv",
+      "Sofia--2025-08-05 13:16:53.802000--WEBCHAT.csv",
+      "sonny--2025-08-07 03:44:47.684000--WEBCHAT.csv"
+    ],
+    "email-attachment-failure": [
+      "Arnas--2025-03-14 04:15:23.154697--WEBCHAT.csv"
+    ],
+    "integrate landing page analysis tool to provide specific feedback on ad rejections": [
+      "Brigita--2025-03-24 09:09:23.023414--WEBCHAT.csv"
+    ],
+    "user-requested-specific-clarification": [
+      "Brigita--2025-03-24 09:09:23.023414--WEBCHAT.csv"
+    ],
+    "repeated-response": [
+      "Brigita--2025-03-24 09:09:23.023414--WEBCHAT.csv"
+    ],
+    "add automated account verification process": [
+      "Absolute Nest 823db93d4f--2025-02-27 12:42:50.018826--WEBCHAT.csv"
+    ],
+    "verification-required": [
+      "Absolute Nest 823db93d4f--2025-02-27 12:42:50.018826--WEBCHAT.csv",
+      "Davi--2025-03-12 14:01:21.655168--WEBCHAT.csv",
+      "Elijah--2025-04-24 21:11:41.799427--WEBCHAT.csv",
+      "Nitzan Ronen--2025-07-31 09:00:47.396000--WEBCHAT.csv",
+      "Sean--2025-03-06 20:10:01.859034--WEBCHAT.csv",
+      "Wenty Browne--2025-03-02 15:37:19.468352--WEBCHAT.csv"
+    ],
+    "integrate direct account verification and ad flagging resolution capabilities": [
+      "Bruno VIdić--2025-04-29 10:45:13.413493--WEBCHAT.csv"
+    ],
+    "ad-flagging-issue": [
+      "Bruno VIdić--2025-04-29 10:45:13.413493--WEBCHAT.csv"
+    ],
+    "implement user-specific navigation guidance based on account setup": [
+      "Achlesh Walia--2025-04-16 18:52:54.443114--WEBCHAT.csv"
+    ],
+    "incorrect-navigation-information": [
+      "Achlesh Walia--2025-04-16 18:52:54.443114--WEBCHAT.csv"
+    ],
+    "incorrect-navigation-instructions": [
+      "Achlesh Walia--2025-04-16 18:52:54.443114--WEBCHAT.csv"
+    ],
+    "implement a pixel verification tool within NewsBreak Ad Manager": [
+      "BJ--2025-07-03 00:57:25.437000--WEBCHAT.csv"
+    ],
+    "user-uncertainty": [
+      "BJ--2025-07-03 00:57:25.437000--WEBCHAT.csv"
+    ],
+    "ad credit granting for sweepstakes": [
+      "Abhishek--2025-08-05 19:23:35.468000--WEBCHAT.csv"
+    ],
+    "desktop-targeting-option-in-campaign-settings": [
+      "Anna--2025-03-04 11:55:30.013554--WEBCHAT.csv"
+    ],
+    "add-desktop-targeting-option-in-campaign-settings": [
+      "Anna--2025-03-04 11:55:30.013554--WEBCHAT.csv"
+    ],
+    "campaign-settings-limitation": [
+      "Anna--2025-03-04 11:55:30.013554--WEBCHAT.csv"
+    ],
+    "implement a system for direct URL verification and feedback on ad compliance": [
+      "Ben--2025-08-04 23:11:09.462000--WEBCHAT.csv"
+    ],
+    "persistent ad rejection": [
+      "Ben--2025-08-04 23:11:09.462000--WEBCHAT.csv"
+    ],
+    "lack of direct resolution": [
+      "Ben--2025-08-04 23:11:09.462000--WEBCHAT.csv"
+    ],
+    "integrate live chat with human support for complex issues": [
+      "Archie Brown--2025-06-16 14:30:43.422000--WEBCHAT.csv"
+    ],
+    "user-request-for-human-support": [
+      "Archie Brown--2025-06-16 14:30:43.422000--WEBCHAT.csv",
+      "Steve--2025-04-14 18:22:40.576181--WEBCHAT.csv",
+      "Yauhen--2025-07-30 14:03:22.841000--WEBCHAT.csv"
+    ],
+    "complex-targeting-issue": [
+      "Archie Brown--2025-06-16 14:30:43.422000--WEBCHAT.csv"
+    ],
+    "integrate invoice retrieval functionality in the bot": [
+      "Anna Oksak--2025-05-28 10:54:27.284864--WEBCHAT.csv"
+    ],
+    "billing-document-access": [
+      "Anna Oksak--2025-05-28 10:54:27.284864--WEBCHAT.csv"
+    ],
+    "implement direct communication channel for verification expedition": [
+      "Anna--2025-03-14 18:48:09.487134--WEBCHAT.csv"
+    ],
+    "verification-delay": [
+      "Anna--2025-03-14 18:48:09.487134--WEBCHAT.csv",
+      "Glennice Weinburg--2025-04-30 12:22:13.145966--WEBCHAT.csv",
+      "Robert--2025-07-22 04:22:34.174000--WEBCHAT.csv",
+      "whalemo--2025-04-14 07:12:27.634533--WEBCHAT.csv"
+    ],
+    "need-for-human-interaction": [
+      "Anna--2025-03-14 18:48:09.487134--WEBCHAT.csv"
+    ],
+    "api-schema-access": [
+      "Alex--2025-08-11 10:43:02.944000--WEBCHAT.csv"
+    ],
+    "integrate-api-schema-access-or-enhanced-documentation-link": [
+      "Alex--2025-08-11 10:43:02.944000--WEBCHAT.csv"
+    ],
+    "bot-cannot-access-api-schema": [
+      "Alex--2025-08-11 10:43:02.944000--WEBCHAT.csv"
+    ],
+    "enhance-bot-capability-to-handle-technical-issues": [
+      "Amir--2025-03-11 10:02:08.899118--WEBCHAT.csv"
+    ],
+    "technical-issue-unresolved": [
+      "Amir--2025-03-11 10:02:08.899118--WEBCHAT.csv",
+      "Gustavo--2025-04-09 01:52:16.738665--WEBCHAT.csv",
+      "Jax--2025-07-20 23:09:37.675000--WEBCHAT.csv",
+      "John--2025-05-04 17:46:56.517429--WEBCHAT.csv",
+      "Sharif--2025-06-27 15:34:21.698000--WEBCHAT.csv",
+      "carson oates--2025-04-27 19:55:05.653121--WEBCHAT.csv"
+    ],
+    "navigation-instructions-failed": [
+      "Amir--2025-03-11 10:02:08.899118--WEBCHAT.csv"
+    ],
+    "inaccurate-navigation-instructions": [
+      "Amir--2025-03-11 10:02:08.899118--WEBCHAT.csv"
+    ],
+    "postback-timestamp-adjustment": [
+      "Agustin Herebia--2025-03-12 19:00:47.995606--WEBCHAT.csv"
+    ],
+    "add capability to adjust postback settings for testing purposes": [
+      "Agustin Herebia--2025-03-12 19:00:47.995606--WEBCHAT.csv"
+    ],
+    "bot-cannot-modify-settings": [
+      "Agustin Herebia--2025-03-12 19:00:47.995606--WEBCHAT.csv",
+      "Tariq--2025-02-27 19:34:08.118622--WEBCHAT.csv"
+    ],
+    "complex-integration-issue": [
+      "Agustin Herebia--2025-03-12 19:00:47.995606--WEBCHAT.csv",
+      "Chris--2025-05-08 18:45:13.917604--WEBCHAT.csv",
+      "Davi--2025-04-15 16:26:47.078402--WEBCHAT.csv",
+      "Steve--2025-04-20 14:09:10.128851--WEBCHAT.csv"
+    ],
+    "improve bot's ability to distinguish between mobile and web advertising requests": [
+      "Anna--2025-03-04 11:21:18.252563--WEBCHAT.csv"
+    ],
+    "bot-cannot-provide-specific-web-advertising-guidance": [
+      "Anna--2025-03-04 11:21:18.252563--WEBCHAT.csv"
+    ],
+    "misinterpretation of user request": [
+      "Anna--2025-03-04 11:21:18.252563--WEBCHAT.csv"
+    ],
+    "implement-human-escalation-protocol": [
+      "Bruno--2025-07-21 13:43:52.454000--WEBCHAT.csv"
+    ],
+    "technical-issue": [
+      "Bruno--2025-07-18 00:08:21.136000--WEBCHAT.csv",
+      "Christian--2025-04-14 15:34:02.445053--WEBCHAT.csv"
+    ],
+    "user-request-for-human": [
+      "Bruno--2025-07-18 00:08:21.136000--WEBCHAT.csv",
+      "Siim Roostalu--2025-05-01 08:14:02.984346--WEBCHAT.csv"
+    ],
+    "no-direct-human-escalation": [
+      "Bruno--2025-07-18 00:08:21.136000--WEBCHAT.csv"
+    ],
+    "enhance-bot-to-handle-interface-discrepancies": [
+      " Bohdan (bohdan.r@point2web.com)--2025-04-11 15:11:10.213113--WEBCHAT.csv"
+    ],
+    "user-unable-to-find-option": [
+      " Bohdan (bohdan.r@point2web.com)--2025-04-11 15:11:10.213113--WEBCHAT.csv",
+      "shahul meeran--2025-03-06 03:46:07.340972--WEBCHAT.csv"
+    ],
+    "interface-mismatch": [
+      " Bohdan (bohdan.r@point2web.com)--2025-04-11 15:11:10.213113--WEBCHAT.csv"
+    ],
+    "integrate-direct-reject-reason-access": [
+      "CHEN--2025-07-15 13:16:39.531000--WEBCHAT.csv"
+    ],
+    "integrate-ad-credit-explanation": [
+      "Bryan Higgins--2025-03-07 16:59:00.497110--WEBCHAT.csv"
+    ],
+    "integrate direct guidance for tax number submission within the chatbot": [
+      "Chris--2025-04-07 00:28:24.001113--WEBCHAT.csv"
+    ],
+    "user-unable-to-find-submission-area": [
+      "Chris--2025-04-07 00:28:24.001113--WEBCHAT.csv"
+    ],
+    "enable bot to handle account-specific pixel integration issues": [
+      "Christian--2025-07-01 13:35:56.033000--WEBCHAT.csv"
+    ],
+    "invalid-operation-message": [
+      "Christian--2025-07-01 13:35:56.033000--WEBCHAT.csv"
+    ],
+    "promotional-credit-information-access": [
+      "Carlos--2025-03-05 21:27:55.187749--WEBCHAT.csv"
+    ],
+    "integrate-promotional-credit-information-access": [
+      "Carlos--2025-03-05 21:27:55.187749--WEBCHAT.csv"
+    ],
+    "bot-lacks-promotional-credit-info": [
+      "Carlos--2025-03-05 21:27:55.187749--WEBCHAT.csv"
+    ],
+    "develop-weebly-specific-integration-guidelines": [
+      "Alicia--2025-03-07 00:39:01.180922--WEBCHAT.csv"
+    ],
+    "platform-specific-issue": [
+      "Alicia--2025-03-07 00:39:01.180922--WEBCHAT.csv"
+    ],
+    "external-support-unavailable": [
+      "Alicia--2025-03-07 00:39:01.180922--WEBCHAT.csv"
+    ],
+    "no-specific-weebly-guidance": [
+      "Alicia--2025-03-07 00:39:01.180922--WEBCHAT.csv"
+    ],
+    "clarify-agent-status-transition": [
+      "Clear Davit f0917f319c--2025-03-03 17:16:39.623556--WEBCHAT.csv"
+    ],
+    "user-requested-human-contact": [
+      "Dalikh--2025-04-30 15:08:15.250341--WEBCHAT.csv",
+      "Some Analog 816acc408e--2025-03-04 09:53:43.572647--WEBCHAT.csv"
+    ],
+    "campaign-status-checking": [
+      "Candis Waltz--2025-03-04 17:45:47.167804--WEBCHAT.csv"
+    ],
+    "integrate-campaign-status-checking": [
+      "Candis Waltz--2025-03-04 17:45:47.167804--WEBCHAT.csv"
+    ],
+    "bot-cannot-access-campaign-status": [
+      "Candis Waltz--2025-03-04 17:45:47.167804--WEBCHAT.csv"
+    ],
+    "direct-integration-troubleshooting": [
+      "Chris--2025-05-08 18:45:13.917604--WEBCHAT.csv"
+    ],
+    "add direct troubleshooting support for integration issues": [
+      "Chris--2025-05-08 18:45:13.917604--WEBCHAT.csv"
+    ],
+    "direct-verification-processing": [
+      "Chris Rooke--2025-05-22 14:40:39.399495--WEBCHAT.csv"
+    ],
+    "integrate direct verification processing capability within chat": [
+      "Chris Rooke--2025-05-22 14:40:39.399495--WEBCHAT.csv"
+    ],
+    "bot-cannot-process-verification": [
+      "Chris Rooke--2025-05-22 14:40:39.399495--WEBCHAT.csv"
+    ],
+    "integrate ad scheduling modification functionality": [
+      "Candis--2025-03-10 15:25:26.929807--WEBCHAT.csv"
+    ],
+    "greyed-out scheduling option": [
+      "Candis--2025-03-10 15:25:26.929807--WEBCHAT.csv"
+    ],
+    "user unable to modify ad settings": [
+      "Candis--2025-03-10 15:25:26.929807--WEBCHAT.csv"
+    ],
+    "implement direct support escalation feature": [
+      "ChenyuTest--2025-04-18 05:02:39.942324--WEBCHAT.csv"
+    ],
+    "user-request-for-human-assistance": [
+      "Charlie--2025-06-16 12:52:46.585000--WEBCHAT.csv",
+      "Ignacio--2025-06-19 20:56:53.963000--WEBCHAT.csv",
+      "rafik--2025-05-10 03:22:14.825745--WEBCHAT.csv"
+    ],
+    "integrate direct verification process within chatbot": [
+      "Chris Kron--2025-06-03 17:29:53.782741--WEBCHAT.csv"
+    ],
+    "requires-email-to-support": [
+      "Chris Kron--2025-06-03 17:29:53.782741--WEBCHAT.csv"
+    ],
+    "integrate system to provide specific ad rejection reasons and detailed budget analysis": [
+      "Chenyu--2025-02-27 06:07:09.292716--WEBCHAT.csv"
+    ],
+    "specific-issue-requires-human": [
+      "Chenyu--2025-02-27 06:07:09.292716--WEBCHAT.csv"
+    ],
+    "implement-automated-ad-review-system": [
+      "Collins--2025-06-28 13:04:30.501000--WEBCHAT.csv"
+    ],
+    "ad-review-requires-human-intervention": [
+      "Collins--2025-06-28 13:04:30.501000--WEBCHAT.csv"
+    ],
+    "third-party-promotion-information-access": [
+      "Cuong--2025-04-27 08:19:34.918721--WEBCHAT.csv"
+    ],
+    "integrate-third-party-promotion-information": [
+      "Cuong--2025-04-27 08:19:34.918721--WEBCHAT.csv"
+    ],
+    "enhance-bot-to-provide-direct-answers-on-ad-support": [
+      "Dalibor--2025-03-13 11:57:17.168665--WEBCHAT.csv"
+    ],
+    "integrate account unlocking workflow or direct connection to support": [
+      "Charley--2025-01-14 22:47:46.627363--WEBCHAT.csv"
+    ],
+    "implement image analysis or direct human escalation for complex configurations": [
+      "Chenyu--2025-04-16 21:31:09.016853--WEBCHAT.csv"
+    ],
+    "image-analysis-required": [
+      "Chenyu--2025-04-16 21:31:09.016853--WEBCHAT.csv"
+    ],
+    "implement escalation workflow to connect users with human agents": [
+      "Dan--2025-05-15 21:20:13.628172--WEBCHAT.csv"
+    ],
+    "user-request-for-human-agent": [
+      "Dan--2025-05-15 21:20:13.628172--WEBCHAT.csv",
+      "Jasper Nwangere--2025-05-04 15:17:32.741192--WEBCHAT.csv",
+      "Sandra--2025-04-03 12:59:45.353383--WEBCHAT.csv"
+    ],
+    "dissatisfaction-with-automated-response": [
+      "Dan--2025-05-15 21:20:13.628172--WEBCHAT.csv"
+    ],
+    "integrate support ticket submission workflow for ad credit redemption": [
+      "Corey--2025-03-18 02:13:49.967033--WEBCHAT.csv"
+    ],
+    "initial-incomplete-instructions": [
+      "Corey--2025-03-18 02:13:49.967033--WEBCHAT.csv"
+    ],
+    "support-ticket-requirement": [
+      "Corey--2025-03-18 02:13:49.967033--WEBCHAT.csv"
+    ],
+    "initial-missing-step": [
+      "Corey--2025-03-18 02:13:49.967033--WEBCHAT.csv"
+    ],
+    "quota management and notification system": [
+      "David Namche--2025-07-02 01:45:50.206000--WEBCHAT.csv"
+    ],
+    "implement quota management system to notify users before quota is exhausted and provide alternative contact methods": [
+      "David Namche--2025-07-02 01:45:50.206000--WEBCHAT.csv"
+    ],
+    "quota-exceeded": [
+      "David Namche--2025-07-02 01:45:50.206000--WEBCHAT.csv",
+      "Muhammad --2025-07-02 09:01:55.385000--WEBCHAT.csv",
+      "Nikolay Saev--2025-03-02 15:36:54.395857--WEBCHAT.csv",
+      "William Johnson--2025-07-02 11:06:46.920000--WEBCHAT.csv",
+      "William Johnson--2025-07-02 11:06:46.920000--WEBCHAT.csv",
+      "deepak--2025-07-02 05:50:56.223000--WEBCHAT.csv",
+      "deepak--2025-07-02 05:50:56.223000--WEBCHAT.csv"
+    ],
+    "quota-exceeded-notification": [
+      "David Namche--2025-07-02 01:45:50.206000--WEBCHAT.csv",
+      "Muhammad --2025-07-02 09:01:55.385000--WEBCHAT.csv",
+      "Nikolay Saev--2025-03-02 15:36:54.395857--WEBCHAT.csv"
+    ],
+    "integrate direct troubleshooting tools for ad performance issues": [
+      "Dan Salem--2025-03-23 15:27:35.303470--WEBCHAT.csv"
+    ],
+    "bot-cannot-resolve-technical-issue": [
+      "Dan Salem--2025-03-23 15:27:35.303470--WEBCHAT.csv",
+      "VLad--2025-07-29 18:59:56.442000--WEBCHAT.csv",
+      "cole--2025-07-04 20:51:43.053000--WEBCHAT.csv"
+    ],
+    "user-requested-human-support": [
+      "Dan Salem--2025-03-23 15:27:35.303470--WEBCHAT.csv",
+      "Floro--2025-05-21 13:27:30.017561--WEBCHAT.csv",
+      "Iris--2025-07-09 14:50:11.450000--WEBCHAT.csv",
+      "Greg--2025-03-13 15:41:06.202288--WEBCHAT.csv",
+      "Kim Test--2025-01-31 01:11:23.965027--WEBCHAT.csv",
+      "Raymond--2025-04-14 19:24:40.146026--WEBCHAT.csv",
+      "Reeba--2025-03-19 18:29:48.033779--WEBCHAT.csv",
+      "Metallic Test d898dc1d85--2025-02-27 06:21:40.918158--WEBCHAT.csv",
+      "Serhat Karatum--2025-07-22 18:48:27.438000--WEBCHAT.csv",
+      "TIna--2025-03-27 06:05:48.539450--WEBCHAT.csv",
+      "XSZTVDO--2025-08-11 13:00:39.196000--WEBCHAT.csv",
+      "XSZTVDO--2025-08-12 01:33:27.468000--WEBCHAT.csv"
+    ],
+    "implement live agent escalation feature": [
+      "Chris--2025-05-17 16:03:14.076184--WEBCHAT.csv"
+    ],
+    "bot-cannot-connect-live-agent": [
+      "Chris--2025-05-17 16:03:14.076184--WEBCHAT.csv"
+    ],
+    "complex-verification-issue": [
+      "Chris--2025-05-17 16:03:14.076184--WEBCHAT.csv"
+    ],
+    "provide detailed instructions for retrieving Click ID from NewsBreak UI": [
+      "Daryl --2025-03-12 22:52:32.309748--WEBCHAT.csv"
+    ],
+    "add guidance on retrieving click ID for postback integration": [
+      "Cole Danielson--2025-03-07 17:01:05.512580--WEBCHAT.csv"
+    ],
+    "unresolved-invalid-ipn-error": [
+      "Cole Danielson--2025-03-07 17:01:05.512580--WEBCHAT.csv"
+    ],
+    "missing-click-id-information": [
+      "Cole Danielson--2025-03-07 17:01:05.512580--WEBCHAT.csv"
+    ],
+    "invalid-ipn-error": [
+      "Cole Danielson--2025-03-07 17:01:05.512580--WEBCHAT.csv"
+    ],
+    "pdf-invoice-generation": [
+      "David--2025-08-07 06:46:29.157000--WEBCHAT.csv"
+    ],
+    "add-pdf-invoice-generation-feature": [
+      "David--2025-08-07 06:46:29.157000--WEBCHAT.csv"
+    ],
+    "pdf-invoice-request": [
+      "David--2025-08-07 06:46:29.157000--WEBCHAT.csv"
+    ],
+    "integrate real-time technical support or diagnostic tool": [
+      "Christian--2025-04-14 15:34:02.445053--WEBCHAT.csv"
+    ],
+    "user-unable-to-complete-task": [
+      "Christian--2025-04-14 15:34:02.445053--WEBCHAT.csv",
+      "Medeza Rubery--2025-05-26 11:10:14.591228--WEBCHAT.csv"
+    ],
+    "integrate-account-timezone-access": [
+      "David Stal--2025-03-18 15:11:04.426055--WEBCHAT.csv"
+    ],
+    "support-email-failure": [
+      "David Stal--2025-03-18 15:11:04.426055--WEBCHAT.csv"
+    ],
+    "support-email-not-working": [
+      "David Stal--2025-03-18 15:11:04.426055--WEBCHAT.csv"
+    ],
+    "access to specific advertiser spending data": [
+      "Chuck Testin--2025-02-20 21:34:33.466748--WEBCHAT.csv"
+    ],
+    "integrate access to advertiser spending data for detailed insights": [
+      "Chuck Testin--2025-02-20 21:34:33.466748--WEBCHAT.csv"
+    ],
+    "bot-cannot-access-specific-data": [
+      "Chuck Testin--2025-02-20 21:34:33.466748--WEBCHAT.csv"
+    ],
+    "integrate account verification and payment processing capabilities": [
+      "Davi--2025-03-12 14:01:21.655168--WEBCHAT.csv"
+    ],
+    "payment-setup-issue": [
+      "Davi--2025-03-12 14:01:21.655168--WEBCHAT.csv"
+    ],
+    "integrate direct navigation assistance for campaign settings": [
+      "Danny Greeson--2025-06-30 23:07:29.304000--WEBCHAT.csv"
+    ],
+    "user-unable-to-find-settings": [
+      "Danny Greeson--2025-06-30 23:07:29.304000--WEBCHAT.csv",
+      "Myroslav--2025-08-05 14:09:45.015000--WEBCHAT.csv",
+      "Sudhanshu--2025-07-08 07:20:36.548000--WEBCHAT.csv"
+    ],
+    "develop specific integration guide for Digistore24": [
+      "Davi--2025-04-15 16:26:47.078402--WEBCHAT.csv"
+    ],
+    "lack-of-specific-guide": [
+      "Davi--2025-04-15 16:26:47.078402--WEBCHAT.csv",
+      "Greg--2025-03-13 15:41:06.202288--WEBCHAT.csv"
+    ],
+    "provide-clearer-permission-requirements": [
+      "Domas--2025-07-16 10:56:51.762000--WEBCHAT.csv"
+    ],
+    "user-lacks-permissions": [
+      "Domas--2025-07-16 10:56:51.762000--WEBCHAT.csv"
+    ],
+    "integrate with user account systems for direct data access and technical task execution": [
+      "Azhar--2025-02-11 18:25:05.129501--WEBCHAT.csv"
+    ],
+    "implement live chat support for immediate assistance": [
+      "Duane--2025-04-15 13:51:36.320124--WEBCHAT.csv"
+    ],
+    "live-chat-unavailable": [
+      "Duane--2025-04-15 13:51:36.320124--WEBCHAT.csv"
+    ],
+    "complex-account-issue": [
+      "Duane--2025-04-15 13:51:36.320124--WEBCHAT.csv"
+    ],
+    "existing-ad-library-access": [
+      "Dee--2025-05-23 09:16:47.418055--WEBCHAT.csv"
+    ],
+    "implement feature to access and view existing running ads": [
+      "Dee--2025-05-23 09:16:47.418055--WEBCHAT.csv"
+    ],
+    "web event deletion capability": [
+      "Developer--2025-07-22 11:26:52.883000--WEBCHAT.csv"
+    ],
+    "implement web event deletion feature in UI": [
+      "Developer--2025-07-22 11:26:52.883000--WEBCHAT.csv"
+    ],
+    "persistent-error": [
+      "Developer--2025-07-22 11:26:52.883000--WEBCHAT.csv",
+      "mohit--2025-07-29 07:25:26.461000--WEBCHAT.csv"
+    ],
+    "invalid-operation-error": [
+      "Developer--2025-07-22 11:26:52.883000--WEBCHAT.csv",
+      "Kristel--2025-07-30 17:27:32.338000--WEBCHAT.csv",
+      "mohit--2025-07-29 07:25:26.461000--WEBCHAT.csv",
+      "rachit--2025-07-25 10:18:45.580000--WEBCHAT.csv"
+    ],
+    "billing-threshold-adjustment": [
+      "Don Cerullo--2025-06-25 19:57:04.914000--WEBCHAT.csv"
+    ],
+    "integrate-billing-adjustment-capability": [
+      "Don Cerullo--2025-06-25 19:57:04.914000--WEBCHAT.csv"
+    ],
+    "billing-adjustment-requires-human": [
+      "Don Cerullo--2025-06-25 19:57:04.914000--WEBCHAT.csv"
+    ],
+    "initial-misunderstanding-of-request": [
+      "Don Cerullo--2025-06-25 19:57:04.914000--WEBCHAT.csv"
+    ],
+    "integrate direct support verification capability": [
+      "Erik Gyepes--2025-05-09 09:10:00.205394--WEBCHAT.csv"
+    ],
+    "user-requested-verification": [
+      "Erik Gyepes--2025-05-09 09:10:00.205394--WEBCHAT.csv"
+    ],
+    "integrate-email-notification-system-for-purchases": [
+      "ENOCH SHAW--2025-03-26 21:25:13.277629--WEBCHAT.csv"
+    ],
+    "real-time application status updates, advertisement background check": [
+      "Dilshayar--2025-05-30 15:18:49.925355--WEBCHAT.csv"
+    ],
+    "integrate real-time status update system and advertisement background check functionality": [
+      "Dilshayar--2025-05-30 15:18:49.925355--WEBCHAT.csv"
+    ],
+    "bot-cannot-provide-real-time-status": [
+      "Dilshayar--2025-05-30 15:18:49.925355--WEBCHAT.csv"
+    ],
+    "implement live agent handoff capability": [
+      "EFELLE CREATIVE INC.--2025-05-26 21:40:18.087203--WEBCHAT.csv"
+    ],
+    "unable-to-complete-verification": [
+      "EFELLE CREATIVE INC.--2025-05-26 21:40:18.087203--WEBCHAT.csv"
+    ],
+    "request-for-human-support": [
+      "EFELLE CREATIVE INC.--2025-05-26 21:40:18.087203--WEBCHAT.csv"
+    ],
+    "integrate ad review initiation process": [
+      "Elijah--2025-04-24 21:11:41.799427--WEBCHAT.csv"
+    ],
+    "implement-direct-live-agent-connection": [
+      "Eddie--2025-03-06 17:26:27.047671--WEBCHAT.csv"
+    ],
+    "live-agent-unavailability": [
+      "Eddie--2025-03-06 17:26:27.047671--WEBCHAT.csv"
+    ],
+    "user-dissatisfaction": [
+      "Eddie--2025-03-06 17:26:27.047671--WEBCHAT.csv",
+      "Sonny--2025-08-05 23:50:10.192000--WEBCHAT.csv",
+      "Tosin eye--2025-05-17 12:20:36.041270--WEBCHAT.csv"
+    ],
+    "improve-screenshot-upload-functionality": [
+      "Eladio J Cabrera Riveiro--2025-03-03 19:37:23.395466--WEBCHAT.csv"
+    ],
+    "screenshot-upload-failure": [
+      "Eladio J Cabrera Riveiro--2025-03-03 19:37:23.395466--WEBCHAT.csv"
+    ],
+    "implement direct connection to human support for complex issues": [
+      "Ella--2025-05-17 23:17:09.440485--WEBCHAT.csv"
+    ],
+    "implement pixel troubleshooting workflow for Shopify integration": [
+      "Emma Fulton--2025-03-06 00:35:34.571908--WEBCHAT.csv"
+    ],
+    "integration-issue": [
+      "Emma Fulton--2025-03-06 00:35:34.571908--WEBCHAT.csv"
+    ],
+    "organization deletion functionality": [
+      "Gabriel--2025-08-04 16:21:04.449000--WEBCHAT.csv"
+    ],
+    "add organization deletion feature or workflow": [
+      "Gabriel--2025-08-04 16:21:04.449000--WEBCHAT.csv"
+    ],
+    "profile-rejection-requires-human": [
+      "Gabriel--2025-08-04 16:21:04.449000--WEBCHAT.csv"
+    ],
+    "organization-deletion-requires-human": [
+      "Gabriel--2025-08-04 16:21:04.449000--WEBCHAT.csv"
+    ],
+    "implement-live-agent-escalation": [
+      "Floro--2025-05-21 13:27:30.017561--WEBCHAT.csv"
+    ],
+    "deduplication enforcement within NewsBreak": [
+      "Chitranjan--2025-03-27 10:26:45.360525--WEBCHAT.csv"
+    ],
+    "implement deduplication feature within NewsBreak to limit conversions per click ID": [
+      "Chitranjan--2025-03-27 10:26:45.360525--WEBCHAT.csv"
+    ],
+    "bot-cannot-enforce-deduplication": [
+      "Chitranjan--2025-03-27 10:26:45.360525--WEBCHAT.csv"
+    ],
+    "live chat service": [
+      "Gerry--2025-06-25 05:36:56.550000--WEBCHAT.csv"
+    ],
+    "implement live chat service or provide more detailed account review information": [
+      "Gerry--2025-06-25 05:36:56.550000--WEBCHAT.csv"
+    ],
+    "lack-of-live-chat": [
+      "Gerry--2025-06-25 05:36:56.550000--WEBCHAT.csv"
+    ],
+    "incorrect-account-review-info": [
+      "Gerry--2025-06-25 05:36:56.550000--WEBCHAT.csv"
+    ],
+    "miscommunication-about-review-timings": [
+      "Gerry--2025-06-25 05:36:56.550000--WEBCHAT.csv"
+    ],
+    "implement real-time support escalation for verification issues": [
+      "Garrison Sakes--2025-03-17 16:25:36.080694--WEBCHAT.csv"
+    ],
+    "delayed-verification-response": [
+      "Garrison Sakes--2025-03-17 16:25:36.080694--WEBCHAT.csv"
+    ],
+    "user-frustration": [
+      "Garrison Sakes--2025-03-17 16:25:36.080694--WEBCHAT.csv",
+      "rory--2025-07-04 20:24:49.281000--WEBCHAT.csv"
+    ],
+    "integrate promo code distribution system": [
+      "Chris Forrest--2025-03-27 19:46:32.955540--WEBCHAT.csv"
+    ],
+    "promo-code-not-received": [
+      "Chris Forrest--2025-03-27 19:46:32.955540--WEBCHAT.csv"
+    ],
+    "integrate ad credit processing capability": [
+      "Gaurav--2025-04-26 13:43:18.456499--WEBCHAT.csv"
+    ],
+    "integrate-account-verification-system": [
+      "Gurpreet Singh--2025-03-17 11:08:11.714283--WEBCHAT.csv"
+    ],
+    "account-verification-pending": [
+      "Gurpreet Singh--2025-03-17 11:08:11.714283--WEBCHAT.csv"
+    ],
+    "integrate with campaign management system to diagnose UI issues": [
+      "Gal--2025-03-20 20:38:04.907652--WEBCHAT.csv"
+    ],
+    "UI-issue": [
+      "Gal--2025-03-20 20:38:04.907652--WEBCHAT.csv"
+    ],
+    "troubleshooting-steps-insufficient": [
+      "Gal--2025-03-20 20:38:04.907652--WEBCHAT.csv"
+    ],
+    "ad policy dispute resolution and invoice generation": [
+      "Emilija Bružilaitė--2025-03-27 14:11:44.464520--WEBCHAT.csv"
+    ],
+    "integrate ad policy dispute resolution and invoice generation capabilities": [
+      "Emilija Bružilaitė--2025-03-27 14:11:44.464520--WEBCHAT.csv"
+    ],
+    "ad policy dispute": [
+      "Emilija Bružilaitė--2025-03-27 14:11:44.464520--WEBCHAT.csv"
+    ],
+    "invoice generation request": [
+      "Emilija Bružilaitė--2025-03-27 14:11:44.464520--WEBCHAT.csv"
+    ],
+    "integrate with verification and ad activation systems to provide real-time updates": [
+      "Glennice Weinburg--2025-04-30 12:22:13.145966--WEBCHAT.csv"
+    ],
+    "ad-activation-failure": [
+      "Glennice Weinburg--2025-04-30 12:22:13.145966--WEBCHAT.csv"
+    ],
+    "integrate direct verification system for ad spend documents": [
+      "Forrest--2025-07-21 17:43:26.834000--WEBCHAT.csv"
+    ],
+    "implement expedited verification process for urgent cases": [
+      "Gabriel Rodriguez--2025-07-31 14:37:01.322000--WEBCHAT.csv"
+    ],
+    "verification-expedition-request": [
+      "Gabriel Rodriguez--2025-07-31 14:37:01.322000--WEBCHAT.csv"
+    ],
+    "dedicated-account-management-request": [
+      "Gabriel Rodriguez--2025-07-31 14:37:01.322000--WEBCHAT.csv"
+    ],
+    "ensure-help-article-links-are-accessible": [
+      "Hugo --2025-04-28 18:54:42.104177--WEBCHAT.csv"
+    ],
+    "increase reply quota or provide alternative contact method for account manager": [
+      "Hapsi--2025-07-01 07:10:30.631000--WEBCHAT.csv"
+    ],
+    "bot-reply-quota-exhausted": [
+      "Hapsi--2025-07-01 07:10:30.631000--WEBCHAT.csv"
+    ],
+    "reply-quota-exhausted": [
+      "Hapsi--2025-07-01 07:10:30.631000--WEBCHAT.csv"
+    ],
+    "integrate-ad-credit-allocation-system": [
+      "Himanshu Patel--2025-03-10 18:11:58.296635--WEBCHAT.csv"
+    ],
+    "ad-credit-request": [
+      "Himanshu Patel--2025-03-10 18:11:58.296635--WEBCHAT.csv"
+    ],
+    "affiliate-specific-query": [
+      "Himanshu Patel--2025-03-10 18:11:58.296635--WEBCHAT.csv"
+    ],
+    "ensure-consistent-information-on-targeting-options": [
+      "Harun--2025-06-06 08:12:23.737000--WEBCHAT.csv"
+    ],
+    "conflicting-information-on-targeting": [
+      "Harun--2025-06-06 08:12:23.737000--WEBCHAT.csv"
+    ],
+    "inconsistent-targeting-information": [
+      "Harun--2025-06-06 08:12:23.737000--WEBCHAT.csv"
+    ],
+    "enable direct fund addition for accounts meeting certain criteria without account manager intervention": [
+      "Hitesh--2025-07-25 09:02:21.494000--WEBCHAT.csv"
+    ],
+    "integrate account verification and troubleshooting capabilities": [
+      "Gustavo--2025-04-09 01:52:16.738665--WEBCHAT.csv"
+    ],
+    "integrate account verification workflow into chatbot": [
+      "Fenil--2025-06-11 06:26:59.992000--WEBCHAT.csv"
+    ],
+    "integrate account verification and ad credit processing capabilities": [
+      "Hidayat Rizvi--2025-04-26 03:55:55.284209--WEBCHAT.csv"
+    ],
+    "ad-credit-issue": [
+      "Hidayat Rizvi--2025-04-26 03:55:55.284209--WEBCHAT.csv"
+    ],
+    "implement pixel deletion feature": [
+      "Data Ram--2025-05-29 17:40:45.451074--WEBCHAT.csv"
+    ],
+    "bot-cannot-delete-pixel": [
+      "Data Ram--2025-05-29 17:40:45.451074--WEBCHAT.csv"
+    ],
+    "tracking-issue-persisted": [
+      "Data Ram--2025-05-29 17:40:45.451074--WEBCHAT.csv"
+    ],
+    "integrate refund processing capability within the chatbot": [
+      "Hunter--2025-05-07 22:16:47.992189--WEBCHAT.csv"
+    ],
+    "ad-delivery-issue": [
+      "Hunter--2025-05-07 22:16:47.992189--WEBCHAT.csv"
+    ],
+    "direct-billing-dispute-resolution": [
+      "Hugo--2025-07-10 18:24:53.016000--WEBCHAT.csv"
+    ],
+    "integrate billing dispute resolution workflow": [
+      "Hugo--2025-07-10 18:24:53.016000--WEBCHAT.csv"
+    ],
+    "billing-issue-requires-human": [
+      "Hugo--2025-07-10 18:24:53.016000--WEBCHAT.csv"
+    ],
+    "implement a system to track and expedite verification requests": [
+      "Fneil--2025-06-09 06:24:22.143000--WEBCHAT.csv"
+    ],
+    "requires-human-review": [
+      "Fneil--2025-06-09 06:24:22.143000--WEBCHAT.csv"
+    ],
+    "implement-system-to-confirm-receipt-of-documents-and-provide-status-updates": [
+      "Herman Noronna--2025-03-26 22:27:53.787411--WEBCHAT.csv"
+    ],
+    "lack-of-confirmation": [
+      "Herman Noronna--2025-03-26 22:27:53.787411--WEBCHAT.csv"
+    ],
+    "no-status-update": [
+      "Herman Noronna--2025-03-26 22:27:53.787411--WEBCHAT.csv"
+    ],
+    "logo-saving-functionality": [
+      "Gary--2025-07-04 14:21:02.769000--WEBCHAT.csv"
+    ],
+    "implement logo-saving feature for ad reuse": [
+      "Gary--2025-07-04 14:21:02.769000--WEBCHAT.csv"
+    ],
+    "requires-human-approval": [
+      "Gary--2025-07-04 14:21:02.769000--WEBCHAT.csv"
+    ],
+    "conflicting-information": [
+      "Gary--2025-07-04 14:21:02.769000--WEBCHAT.csv"
+    ],
+    "upload-size-modification": [
+      "Gal--2025-03-20 20:44:09.521973--WEBCHAT.csv"
+    ],
+    "add capability to modify upload size limits or streamline escalation to support": [
+      "Gal--2025-03-20 20:44:09.521973--WEBCHAT.csv"
+    ],
+    "bot-cannot-modify-system-settings": [
+      "Gal--2025-03-20 20:44:09.521973--WEBCHAT.csv"
+    ],
+    "detailed-redtrack-integration-guide": [
+      "Gabriel--2025-05-22 14:08:53.342686--WEBCHAT.csv"
+    ],
+    "add detailed setup instructions for RedTrack postback tracking": [
+      "Gabriel--2025-05-22 14:08:53.342686--WEBCHAT.csv"
+    ],
+    "lack-of-specific-guidance": [
+      "Gabriel--2025-05-22 14:08:53.342686--WEBCHAT.csv"
+    ],
+    "integrate live chat support with human agents for unresolved technical issues": [
+      "Iris--2025-07-09 14:50:11.450000--WEBCHAT.csv"
+    ],
+    "unresolved technical issue": [
+      "Iris--2025-07-09 14:50:11.450000--WEBCHAT.csv"
+    ],
+    "implement ad review status tracking and expedite request feature": [
+      "Instant Keep 8443ddfd47--2025-02-27 20:58:59.838205--WEBCHAT.csv"
+    ],
+    "implement diagnostic tools for custom tracking issues": [
+      "Jacob--2025-06-16 14:32:35.364000--WEBCHAT.csv"
+    ],
+    "custom-tracking-issue": [
+      "Jacob--2025-06-16 14:32:35.364000--WEBCHAT.csv"
+    ],
+    "ad-approval-requires-human": [
+      "Jacob--2025-06-16 14:32:35.364000--WEBCHAT.csv",
+      "Priyanka --2025-05-29 13:57:24.360369--WEBCHAT.csv",
+      "Tariq--2025-02-27 19:34:08.118622--WEBCHAT.csv"
+    ],
+    "enhance bot capability to verify media processing status and provide real-time updates": [
+      "Idris--2025-05-23 09:46:36.274620--WEBCHAT.csv"
+    ],
+    "api-error-message": [
+      "Idris--2025-05-23 09:46:36.274620--WEBCHAT.csv",
+      "Siim Roostalu--2025-05-01 08:14:02.984346--WEBCHAT.csv"
+    ],
+    "media-processing-delay": [
+      "Idris--2025-05-23 09:46:36.274620--WEBCHAT.csv"
+    ],
+    "integrate direct chat with human support": [
+      "J--2025-08-13 09:28:49.998000--WEBCHAT.csv"
+    ],
+    "user-requested-human": [
+      "J--2025-08-13 09:28:49.998000--WEBCHAT.csv",
+      "Lucas--2025-06-24 16:53:25.087000--WEBCHAT.csv",
+      "Mohit--2025-02-28 10:19:53.739916--WEBCHAT.csv"
+    ],
+    "enhance-bot-capability-to-diagnose-idfa-tracking-issues": [
+      "Ignacio--2025-06-19 20:56:53.963000--WEBCHAT.csv"
+    ],
+    "persistent-idfa-issue": [
+      "Ignacio--2025-06-19 20:56:53.963000--WEBCHAT.csv"
+    ],
+    "web-specific-account-navigation-instructions": [
+      "Jatin--2025-06-05 17:54:32.234000--WEBCHAT.csv"
+    ],
+    "add-web-specific-navigation-instructions": [
+      "Jatin--2025-06-05 17:54:32.234000--WEBCHAT.csv"
+    ],
+    "web-specific-guidance-needed": [
+      "Jatin--2025-06-05 17:54:32.234000--WEBCHAT.csv"
+    ],
+    "provide detailed integration steps for GoHighLevel": [
+      "Jason--2025-03-16 19:58:46.211158--WEBCHAT.csv"
+    ],
+    "integrate-automated-business-verification-system": [
+      "Jason Hale--2025-04-14 16:54:28.765980--WEBCHAT.csv"
+    ],
+    "ensure all help links are functional and accessible": [
+      "James Stephens--2025-05-13 09:27:42.450727--WEBCHAT.csv"
+    ],
+    "link-access-issue": [
+      "James Stephens--2025-05-13 09:27:42.450727--WEBCHAT.csv"
+    ],
+    "complex-integration-problem": [
+      "James Stephens--2025-05-13 09:27:42.450727--WEBCHAT.csv"
+    ],
+    "link-not-working": [
+      "James Stephens--2025-05-13 09:27:42.450727--WEBCHAT.csv"
+    ],
+    "integrate-direct-support-escalation": [
+      "Jax--2025-07-20 23:09:37.675000--WEBCHAT.csv"
+    ],
+    "user-unable-to-click": [
+      "Jax--2025-07-20 23:09:37.675000--WEBCHAT.csv"
+    ],
+    "credit card removal capability": [
+      "Erin--2025-06-17 15:12:40.324000--WEBCHAT.csv"
+    ],
+    "implement credit card removal feature": [
+      "Erin--2025-06-17 15:12:40.324000--WEBCHAT.csv"
+    ],
+    "credit-card-removal-not-supported": [
+      "Erin--2025-06-17 15:12:40.324000--WEBCHAT.csv"
+    ],
+    "display-issue-potentially-unresolved": [
+      "Erin--2025-06-17 15:12:40.324000--WEBCHAT.csv"
+    ],
+    "integrate manual pixel verification process or improve account ID visibility in dashboard": [
+      "James--2025-04-27 19:13:56.911967--WEBCHAT.csv"
+    ],
+    "manual-verification-required": [
+      "James--2025-04-27 19:13:56.911967--WEBCHAT.csv"
+    ],
+    "account-id-visibility-issue": [
+      "James--2025-04-27 19:13:56.911967--WEBCHAT.csv"
+    ],
+    "integrate account status check feature": [
+      "Javier Navarrete--2025-04-16 15:56:20.129647--WEBCHAT.csv"
+    ],
+    "specific-integration-guide-for-amazon": [
+      "Jermaine--2025-04-21 02:04:50.008603--WEBCHAT.csv"
+    ],
+    "develop-specific-integration-guide-for-amazon": [
+      "Jermaine--2025-04-21 02:04:50.008603--WEBCHAT.csv"
+    ],
+    "ad-approval-system": [
+      "Jasper Nwangere--2025-05-04 15:17:32.741192--WEBCHAT.csv"
+    ],
+    "implement-ad-approval-system": [
+      "Jasper Nwangere--2025-05-04 15:17:32.741192--WEBCHAT.csv"
+    ],
+    "add-ad-review-status-check-feature": [
+      "John Newman--2025-02-27 13:04:16.937436--WEBCHAT.csv"
+    ],
+    "implement real-time account verification to confirm ad credit application": [
+      "Jay--2025-03-05 15:16:05.996396--WEBCHAT.csv"
+    ],
+    "complex-billing-issue": [
+      "Jay--2025-03-05 15:16:05.996396--WEBCHAT.csv",
+      "parth--2025-03-07 16:51:24.429955--WEBCHAT.csv"
+    ],
+    "implement direct live agent connection feature": [
+      "Jenny--2025-01-15 23:10:09.273566--WEBCHAT.csv"
+    ],
+    "tracking-issue-unresolved": [
+      "Jenny--2025-01-15 23:10:09.273566--WEBCHAT.csv"
+    ],
+    "integrate diagnostic tools for pixel setup verification": [
+      "Gen--2025-07-13 21:54:56.132000--WEBCHAT.csv"
+    ],
+    "specific-guide-for-HasOffers-postback": [
+      "Greg--2025-03-13 15:41:06.202288--WEBCHAT.csv"
+    ],
+    "add-specific-guide-for-HasOffers-postback-integration": [
+      "Greg--2025-03-13 15:41:06.202288--WEBCHAT.csv"
+    ],
+    "integrate direct credit addition capability for authorized users": [
+      "Jitendra--2025-03-07 09:02:55.607511--WEBCHAT.csv"
+    ],
+    "direct-audience-network-exclusion": [
+      "John Cobb--2025-05-20 14:58:14.365774--WEBCHAT.csv"
+    ],
+    "implement direct audience network exclusion feature in ad settings": [
+      "John Cobb--2025-05-20 14:58:14.365774--WEBCHAT.csv"
+    ],
+    "broken-link": [
+      "John Cobb--2025-05-20 14:58:14.365774--WEBCHAT.csv",
+      "John Cobb--2025-05-20 14:58:14.365774--WEBCHAT.csv"
+    ],
+    "add capability to apply for 'Add Ad Credits' feature directly through chatbot": [
+      "Jordan--2025-04-22 21:26:10.277124--WEBCHAT.csv"
+    ],
+    "feature-application-required": [
+      "Jordan--2025-04-22 21:26:10.277124--WEBCHAT.csv"
+    ],
+    "direct access to pricing information or database": [
+      "Jhon--2025-06-18 12:29:52.500000--WEBCHAT.csv"
+    ],
+    "integrate pricing information access within the chatbot": [
+      "Jhon--2025-06-18 12:29:52.500000--WEBCHAT.csv"
+    ],
+    "bot-cannot-access-pricing-information": [
+      "Jhon--2025-06-18 12:29:52.500000--WEBCHAT.csv"
+    ],
+    "integrate-direct-ad-status-check": [
+      "Jonathan--2025-04-18 14:58:33.083467--WEBCHAT.csv"
+    ],
+    "integrate ad credit application process": [
+      "John--2025-06-21 13:49:35.087000--WEBCHAT.csv"
+    ],
+    "ad-credit-not-applied": [
+      "John--2025-06-21 13:49:35.087000--WEBCHAT.csv"
+    ],
+    "integrate direct troubleshooting tools and verification process": [
+      "Jeff--2025-04-19 18:37:37.910169--WEBCHAT.csv"
+    ],
+    "business-verification-required": [
+      "Jeff--2025-04-19 18:37:37.910169--WEBCHAT.csv"
+    ],
+    "integrate direct support ticket creation for unresolved technical issues": [
+      "Gilson--2025-07-28 17:25:14.092000--WEBCHAT.csv"
+    ],
+    "persistent-dashboard-issue": [
+      "Gilson--2025-07-28 17:25:14.092000--WEBCHAT.csv"
+    ],
+    "conversion-tracking-problem": [
+      "Gilson--2025-07-28 17:25:14.092000--WEBCHAT.csv"
+    ],
+    "integrate with technical support system for direct troubleshooting": [
+      "Joe Zarate--2025-07-16 16:57:50.224000--WEBCHAT.csv"
+    ],
+    "issue-persisted-beyond-expected-timeframe": [
+      "Joe Zarate--2025-07-16 16:57:50.224000--WEBCHAT.csv"
+    ],
+    "integrate real-time CPC data retrieval feature": [
+      "Dee--2025-03-07 18:42:26.855131--WEBCHAT.csv"
+    ],
+    "postback-integration-issue": [
+      "Dee--2025-03-07 18:42:26.855131--WEBCHAT.csv"
+    ],
+    "cpc-data-unavailability": [
+      "Dee--2025-03-07 18:42:26.855131--WEBCHAT.csv"
+    ],
+    "integrate direct support for resolving event creation errors without needing human intervention": [
+      "Harun--2025-05-23 18:48:43.440802--WEBCHAT.csv"
+    ],
+    "technical-error": [
+      "Harun--2025-05-23 18:48:43.440802--WEBCHAT.csv",
+      "Kristel--2025-07-30 17:27:32.338000--WEBCHAT.csv"
+    ],
+    "Invalid operation": [
+      "Harun--2025-05-23 18:48:43.440802--WEBCHAT.csv"
+    ],
+    "implement direct communication channel for urgent ad approval requests": [
+      "Kate Hendricks --2025-04-26 20:13:11.870181--WEBCHAT.csv"
+    ],
+    "implement direct support contact options or escalation workflow": [
+      "John--2025-05-04 17:46:56.517429--WEBCHAT.csv"
+    ],
+    "user-requested-direct-contact": [
+      "John--2025-05-04 17:46:56.517429--WEBCHAT.csv"
+    ],
+    "reduce-redundancy-in-responses": [
+      "Kasparas--2025-03-12 17:02:13.184900--WEBCHAT.csv"
+    ],
+    "integrate system to connect users with human representatives and schedule meetings": [
+      "John Nicolazzo--2025-07-23 16:26:22.487000--WEBCHAT.csv"
+    ],
+    "user-request-human-representative": [
+      "John Nicolazzo--2025-07-23 16:26:22.487000--WEBCHAT.csv"
+    ],
+    "ad-rejection-issue": [
+      "John Nicolazzo--2025-07-23 16:26:22.487000--WEBCHAT.csv",
+      "Nirmal--2025-03-02 20:11:44.157129--WEBCHAT.csv"
+    ],
+    "develop a guide for integrating NewsBreak ads with platforms like Etsy that do not support custom tracking codes": [
+      "Karen--2025-04-11 06:52:20.847458--WEBCHAT.csv"
+    ],
+    "platform-specific-limitation": [
+      "Karen--2025-04-11 06:52:20.847458--WEBCHAT.csv"
+    ],
+    "provide-direct-webinar-signup-link": [
+      "Klinsman da silva--2025-08-14 01:02:57.787000--WEBCHAT.csv"
+    ],
+    "implement-direct-escalation-to-human-support": [
+      "Kent Hopkins--2025-08-13 15:46:11.439000--WEBCHAT.csv",
+      "XSZTVDO--2025-08-11 13:00:39.196000--WEBCHAT.csv",
+      "cole--2025-07-04 20:51:43.053000--WEBCHAT.csv"
+    ],
+    "integrate system to allow bot to modify ad set status directly": [
+      "Kevin--2025-04-21 18:07:25.687569--WEBCHAT.csv"
+    ],
+    "bot-cannot-resolve-issue": [
+      "Kevin--2025-04-21 18:07:25.687569--WEBCHAT.csv"
+    ],
+    "recommendation-to-contact-support": [
+      "Kevin--2025-04-21 18:07:25.687569--WEBCHAT.csv"
+    ],
+    "implement token permission management interface": [
+      "Krisa--2025-05-27 10:59:45.945362--WEBCHAT.csv"
+    ],
+    "requires-permission-change": [
+      "Krisa--2025-05-27 10:59:45.945362--WEBCHAT.csv"
+    ],
+    "ad-account-deletion": [
+      "Kellie Morgan--2025-05-01 13:05:39.483919--WEBCHAT.csv"
+    ],
+    "implement-ad-account-deletion-feature": [
+      "Kellie Morgan--2025-05-01 13:05:39.483919--WEBCHAT.csv"
+    ],
+    "inability-to-delete-account": [
+      "Kellie Morgan--2025-05-01 13:05:39.483919--WEBCHAT.csv"
+    ],
+    "payment-method-removal-issue": [
+      "Kellie Morgan--2025-05-01 13:05:39.483919--WEBCHAT.csv"
+    ],
+    "ad approval system, email notification editing, detailed verification feedback": [
+      "Katie--2025-02-27 18:18:43.566133--WEBCHAT.csv"
+    ],
+    "integrate ad approval workflow, enable email notification editing, provide detailed verification feedback": [
+      "Katie--2025-02-27 18:18:43.566133--WEBCHAT.csv"
+    ],
+    "bot-cannot-approve-ad": [
+      "Katie--2025-02-27 18:18:43.566133--WEBCHAT.csv"
+    ],
+    "email-notification-editing-not-supported": [
+      "Katie--2025-02-27 18:18:43.566133--WEBCHAT.csv"
+    ],
+    "verification-feedback-required": [
+      "Katie--2025-02-27 18:18:43.566133--WEBCHAT.csv"
+    ],
+    "personalized ad feedback system": [
+      "Kent Hopkins--2025-08-14 12:11:13.835000--WEBCHAT.csv"
+    ],
+    "implement a system for personalized ad feedback for users below the spend threshold": [
+      "Kent Hopkins--2025-08-14 12:11:13.835000--WEBCHAT.csv"
+    ],
+    "user-request-for-account-manager": [
+      "Kent Hopkins--2025-08-14 12:11:13.835000--WEBCHAT.csv",
+      "Mayukh Basu--2025-03-17 16:35:18.420795--WEBCHAT.csv"
+    ],
+    "time-zone-adjustment": [
+      "Khanh--2025-03-07 08:10:18.409351--WEBCHAT.csv"
+    ],
+    "implement-time-zone-adjustment-feature": [
+      "Khanh--2025-03-07 08:10:18.409351--WEBCHAT.csv"
+    ],
+    "time-zone-adjustment-unavailable": [
+      "Khanh--2025-03-07 08:10:18.409351--WEBCHAT.csv"
+    ],
+    "cost-discrepancy-unresolved": [
+      "Khanh--2025-03-07 08:10:18.409351--WEBCHAT.csv"
+    ],
+    "integrate refund processing system": [
+      "Krishan--2025-04-02 10:56:13.680214--WEBCHAT.csv",
+      "Suvi Eklund--2025-04-27 08:54:59.929203--WEBCHAT.csv"
+    ],
+    "refund processing": [
+      "Krishan--2025-04-02 10:56:13.680214--WEBCHAT.csv"
+    ],
+    "complex pixel creation issue": [
+      "Krishan--2025-04-02 10:56:13.680214--WEBCHAT.csv"
+    ],
+    "traffic quality control and analysis": [
+      "Kyle Malin--2025-04-01 02:01:06.823131--WEBCHAT.csv"
+    ],
+    "develop feature to analyze and improve traffic quality": [
+      "Kyle Malin--2025-04-01 02:01:06.823131--WEBCHAT.csv"
+    ],
+    "user-dissatisfaction-with-traffic-quality": [
+      "Kyle Malin--2025-04-01 02:01:06.823131--WEBCHAT.csv"
+    ],
+    "average-metrics-document": [
+      "Gabriel--2025-07-22 19:17:01.573000--WEBCHAT.csv"
+    ],
+    "create-and-provide-average-metrics-document": [
+      "Gabriel--2025-07-22 19:17:01.573000--WEBCHAT.csv"
+    ],
+    "direct-error-resolution-for-pixel-tracking": [
+      "Kristel--2025-07-30 17:27:32.338000--WEBCHAT.csv"
+    ],
+    "integrate with pixel tracking system for direct error resolution": [
+      "Kristel--2025-07-30 17:27:32.338000--WEBCHAT.csv"
+    ],
+    "user-urgency": [
+      "Kristel--2025-07-30 17:27:32.338000--WEBCHAT.csv"
+    ],
+    "implement real-time configuration validation and error detection for tracking setups": [
+      "Krishna--2025-03-07 12:08:48.429084--WEBCHAT.csv"
+    ],
+    "user-unable-to-resolve": [
+      "Krishna--2025-03-07 12:08:48.429084--WEBCHAT.csv"
+    ],
+    "implement-real-time-verification-feedback": [
+      "Kyle Martin--2025-07-28 16:27:45.587000--WEBCHAT.csv"
+    ],
+    "integrate a system for business verification and account manager assignment": [
+      "Kyle Martin--2025-07-28 16:22:10.514000--WEBCHAT.csv"
+    ],
+    "requires-business-verification": [
+      "Kyle Martin--2025-07-28 16:22:10.514000--WEBCHAT.csv"
+    ],
+    "account-manager-interaction-needed": [
+      "Kyle Martin--2025-07-28 16:22:10.514000--WEBCHAT.csv"
+    ],
+    "implement direct download functionality in Newsbreak Ad Manager": [
+      "Leandra--2025-03-12 15:28:42.511565--WEBCHAT.csv"
+    ],
+    "missing-download-option": [
+      "Leandra--2025-03-12 15:28:42.511565--WEBCHAT.csv",
+      "Leandra--2025-03-11 20:27:20.659924--WEBCHAT.csv"
+    ],
+    "specific-guidance-for-missing-download-option": [
+      "Leandra--2025-03-11 20:27:20.659924--WEBCHAT.csv"
+    ],
+    "add-specific-guidance-for-missing-download-option": [
+      "Leandra--2025-03-11 20:27:20.659924--WEBCHAT.csv"
+    ],
+    "integrate account verification and pixel status check capabilities": [
+      "Large Metaphor 0a95544013--2025-04-10 01:57:34.805083--WEBCHAT.csv"
+    ],
+    "integrate-system-status-check-for-ad-performance": [
+      "Kristin--2025-04-28 20:32:17.713994--WEBCHAT.csv"
+    ],
+    "persistent-issue-despite-correct-settings": [
+      "Kristin--2025-04-28 20:32:17.713994--WEBCHAT.csv"
+    ],
+    "integrate real-time verification status updates": [
+      "Larry--2025-05-24 02:30:01.433038--WEBCHAT.csv",
+      "lizzy--2025-05-27 18:22:19.342290--WEBCHAT.csv"
+    ],
+    "system-delay": [
+      "Larry--2025-05-24 02:30:01.433038--WEBCHAT.csv"
+    ],
+    "verification-confirmation-issue": [
+      "Larry--2025-05-24 02:30:01.433038--WEBCHAT.csv"
+    ],
+    "integrate real-time interface navigation support or direct chat with human support": [
+      "Lien--2025-06-06 03:08:57.898000--WEBCHAT.csv"
+    ],
+    "user-unable-to-locate-feature": [
+      "Lien--2025-06-06 03:08:57.898000--WEBCHAT.csv",
+      "steve m--2025-06-01 03:08:58.923832--WEBCHAT.csv"
+    ],
+    "integrate advanced troubleshooting capabilities for conversion tracking issues": [
+      "Horizontal Loss fbc2b0f49b--2025-01-28 21:48:46.377592--WEBCHAT.csv"
+    ],
+    "technical-issue-with-conversion-tracking": [
+      "Horizontal Loss fbc2b0f49b--2025-01-28 21:48:46.377592--WEBCHAT.csv"
+    ],
+    "user-reported-technical-issue": [
+      "Horizontal Loss fbc2b0f49b--2025-01-28 21:48:46.377592--WEBCHAT.csv"
+    ],
+    "integrate ad approval workflow to allow direct processing within chat": [
+      "Kyle Malin--2025-04-15 20:51:24.784722--WEBCHAT.csv"
+    ],
+    "user-dissatisfaction-with-policy-link": [
+      "Kyle Malin--2025-04-15 20:51:24.784722--WEBCHAT.csv"
+    ],
+    "need-for-human-approval": [
+      "Kyle Malin--2025-04-15 20:51:24.784722--WEBCHAT.csv"
+    ],
+    "announcement-diagnosis-tool": [
+      "Leemn--2025-02-27 12:28:16.525059--WEBCHAT.csv"
+    ],
+    "develop-announcement-diagnosis-tool": [
+      "Leemn--2025-02-27 12:28:16.525059--WEBCHAT.csv"
+    ],
+    "bot-cannot-diagnose-issue": [
+      "Leemn--2025-02-27 12:28:16.525059--WEBCHAT.csv"
+    ],
+    "contact-information-provision": [
+      "Mark--2025-08-08 20:06:22.728000--WEBCHAT.csv"
+    ],
+    "add-contact-information-provision": [
+      "Mark--2025-08-08 20:06:22.728000--WEBCHAT.csv"
+    ],
+    "customized-invoice-generation": [
+      "Marco Sabino--2025-03-03 11:47:47.952181--WEBCHAT.csv"
+    ],
+    "integrate system to generate customized invoices with user-provided details": [
+      "Marco Sabino--2025-03-03 11:47:47.952181--WEBCHAT.csv"
+    ],
+    "customized-invoice-request": [
+      "Marco Sabino--2025-03-03 11:47:47.952181--WEBCHAT.csv"
+    ],
+    "ad-duration-modification": [
+      "Lorenz--2025-04-29 23:35:09.911389--WEBCHAT.csv"
+    ],
+    "add capability to modify ad settings directly or provide detailed guidance on how to contact support": [
+      "Lorenz--2025-04-29 23:35:09.911389--WEBCHAT.csv"
+    ],
+    "bot-cannot-change-settings": [
+      "Lorenz--2025-04-29 23:35:09.911389--WEBCHAT.csv"
+    ],
+    "integrate account credit checking and modification capabilities": [
+      "Local Tag 962dbd0130--2025-02-28 04:45:46.983308--WEBCHAT.csv"
+    ],
+    "implement live chat feature to connect users with human agents": [
+      "Levi--2025-06-20 18:50:59.147000--WEBCHAT.csv"
+    ],
+    "implement-live-agent-transfer-capability": [
+      "MD ASRAF--2025-05-10 07:26:15.132825--WEBCHAT.csv",
+      "gareth--2025-08-14 12:28:21.083000--WEBCHAT.csv"
+    ],
+    "user-requested-human-agent": [
+      "MD ASRAF--2025-05-10 07:26:15.132825--WEBCHAT.csv",
+      "Ruben--2025-07-25 15:15:35.708000--WEBCHAT.csv",
+      "West--2025-06-20 23:25:14.900000--WEBCHAT.csv",
+      "jane--2025-08-09 12:23:43.487000--WEBCHAT.csv",
+      "shub--2025-06-17 21:36:22.905000--WEBCHAT.csv"
+    ],
+    "implement advanced diagnostic tools for pixel integration issues": [
+      "Lex--2025-04-03 22:33:45.207431--WEBCHAT.csv"
+    ],
+    "persistent-problem-despite-guidance": [
+      "Lex--2025-04-03 22:33:45.207431--WEBCHAT.csv"
+    ],
+    "no-specific-error-detected": [
+      "Lex--2025-04-03 22:33:45.207431--WEBCHAT.csv"
+    ],
+    "integration-guidance-for-everflow": [
+      "Marcus--2025-06-22 11:26:07.686000--WEBCHAT.csv"
+    ],
+    "add detailed integration instructions for uploading offline conversions with Everflow": [
+      "Marcus--2025-06-22 11:26:07.686000--WEBCHAT.csv"
+    ],
+    "lack-of-specific-integration-guidance": [
+      "Marcus--2025-06-22 11:26:07.686000--WEBCHAT.csv",
+      "pedro--2025-07-11 16:16:13.908000--WEBCHAT.csv"
+    ],
+    "integrate account information retrieval feature": [
+      "Lukas Beniusis--2025-05-14 05:10:44.329750--WEBCHAT.csv"
+    ],
+    "user-unable-to-find-information": [
+      "Lukas Beniusis--2025-05-14 05:10:44.329750--WEBCHAT.csv"
+    ],
+    "integrate direct support escalation for unresolved technical issues": [
+      "Lucas--2025-06-24 16:53:25.087000--WEBCHAT.csv",
+      "Victoria--2025-02-28 13:39:53.785081--WEBCHAT.csv"
+    ],
+    "bot-suggestions-unsuccessful": [
+      "Lucas--2025-06-24 16:53:25.087000--WEBCHAT.csv"
+    ],
+    "campaign approval capability": [
+      "Matt--2025-03-03 17:09:09.384042--WEBCHAT.csv"
+    ],
+    "integrate campaign approval workflow": [
+      "Matt--2025-03-03 17:09:09.384042--WEBCHAT.csv",
+      "Sreemon Sudevarajan--2025-06-23 16:29:15.416000--WEBCHAT.csv"
+    ],
+    "campaign-approval-request": [
+      "Matt--2025-03-03 17:09:09.384042--WEBCHAT.csv",
+      "Sreemon Sudevarajan--2025-06-23 16:29:15.416000--WEBCHAT.csv"
+    ],
+    "time zone adjustment in ad manager": [
+      "Mark Macharia--2025-03-04 17:19:30.355490--WEBCHAT.csv"
+    ],
+    "implement time zone adjustment feature in ad manager": [
+      "Mark Macharia--2025-03-04 17:19:30.355490--WEBCHAT.csv"
+    ],
+    "conversion tag issue required human intervention": [
+      "Mark Macharia--2025-03-04 17:19:30.355490--WEBCHAT.csv"
+    ],
+    "integrate with billing system for direct reimbursement processing": [
+      "Mahmood--2025-07-17 08:53:26.810000--WEBCHAT.csv"
+    ],
+    "billing-issue": [
+      "Mahmood--2025-07-17 08:53:26.810000--WEBCHAT.csv",
+      "Sreemon Sudevarajan--2025-06-23 16:29:15.416000--WEBCHAT.csv"
+    ],
+    "reimbursement-request": [
+      "Mahmood--2025-07-17 08:53:26.810000--WEBCHAT.csv"
+    ],
+    "integrate ad approval workflow": [
+      "Matt--2025-03-04 17:37:39.636594--WEBCHAT.csv"
+    ],
+    "ad-approval-request": [
+      "Matt--2025-03-04 17:37:39.636594--WEBCHAT.csv",
+      "Ryan --2025-03-07 19:49:00.081742--WEBCHAT.csv",
+      "jacob holstein--2025-06-22 01:58:06.702000--WEBCHAT.csv"
+    ],
+    "pending-status-issue": [
+      "Matt--2025-03-04 17:37:39.636594--WEBCHAT.csv"
+    ],
+    "Shopify setup assistance": [
+      "Massive Concrete 0e5c6708ff--2025-02-26 00:14:23.030953--WEBCHAT.csv"
+    ],
+    "add Shopify setup support or guidance": [
+      "Massive Concrete 0e5c6708ff--2025-02-26 00:14:23.030953--WEBCHAT.csv"
+    ],
+    "shopify-setup-issue": [
+      "Massive Concrete 0e5c6708ff--2025-02-26 00:14:23.030953--WEBCHAT.csv"
+    ],
+    "integrate account detail access for billing settings": [
+      "Mark--2025-08-09 19:00:38.312000--WEBCHAT.csv"
+    ],
+    "user-account-specific-questions": [
+      "Mark--2025-08-09 19:00:38.312000--WEBCHAT.csv"
+    ],
+    "implement a direct support channel for complex integration issues": [
+      "Martin--2025-05-26 20:04:49.641909--WEBCHAT.csv"
+    ],
+    "user-lacks-website-access": [
+      "Martin--2025-05-26 20:04:49.641909--WEBCHAT.csv"
+    ],
+    "complex-integration-requirement": [
+      "Martin--2025-05-26 20:04:49.641909--WEBCHAT.csv"
+    ],
+    "integrate server-side pixel activation status check": [
+      "John--2025-07-16 21:01:39.600000--WEBCHAT.csv"
+    ],
+    "bot-cannot-verify-pixel-activation": [
+      "John--2025-07-16 21:01:39.600000--WEBCHAT.csv"
+    ],
+    "integrate account status verification feature": [
+      "Jones--2025-07-22 12:34:16.237000--WEBCHAT.csv"
+    ],
+    "spending limit per ad account": [
+      "Matt Smith--2025-03-05 01:07:11.987420--WEBCHAT.csv"
+    ],
+    "implement spending limit per ad account feature": [
+      "Matt Smith--2025-03-05 01:07:11.987420--WEBCHAT.csv"
+    ],
+    "user-could-not-find-settings": [
+      "Matt Smith--2025-03-05 01:07:11.987420--WEBCHAT.csv"
+    ],
+    "specific RedTrack integration guide": [
+      "Mayur--2025-04-24 17:43:36.545300--WEBCHAT.csv"
+    ],
+    "develop and provide a specific guide for RedTrack integration": [
+      "Mayur--2025-04-24 17:43:36.545300--WEBCHAT.csv"
+    ],
+    "lack of specific integration guide": [
+      "Mayur--2025-04-24 17:43:36.545300--WEBCHAT.csv"
+    ],
+    "implement interface troubleshooting or direct user to support for UI issues": [
+      "Michael --2025-06-14 12:47:41.167000--WEBCHAT.csv"
+    ],
+    "interface-issue": [
+      "Michael --2025-06-14 12:47:41.167000--WEBCHAT.csv"
+    ],
+    "access-to-specific-third-party-integration-details": [
+      "Mati--2025-05-02 03:57:36.696262--WEBCHAT.csv"
+    ],
+    "integrate with RedTrack API to fetch specific parameter details": [
+      "Mati--2025-05-02 03:57:36.696262--WEBCHAT.csv"
+    ],
+    "lack-of-specific-integration-details": [
+      "Mati--2025-05-02 03:57:36.696262--WEBCHAT.csv"
+    ],
+    "implement event deletion feature in dashboard": [
+      "Marquita--2025-06-09 14:24:40.813000--WEBCHAT.csv"
+    ],
+    "bot-cannot-delete-events": [
+      "Marquita--2025-06-09 14:24:40.813000--WEBCHAT.csv"
+    ],
+    "bot-lacks-change-log-access": [
+      "Marquita--2025-06-09 14:24:40.813000--WEBCHAT.csv"
+    ],
+    "compensation-discussion": [
+      "Marquita--2025-06-09 14:24:40.813000--WEBCHAT.csv"
+    ],
+    "direct-pdf-download-option": [
+      "Medeza Rubery--2025-05-26 11:10:14.591228--WEBCHAT.csv"
+    ],
+    "integrate direct PDF download functionality in the billing section": [
+      "Medeza Rubery--2025-05-26 11:10:14.591228--WEBCHAT.csv"
+    ],
+    "feature-not-available": [
+      "Medeza Rubery--2025-05-26 11:10:14.591228--WEBCHAT.csv"
+    ],
+    "monthly-bill-download-functionality": [
+      "Misha--2025-07-03 18:20:27.564000--WEBCHAT.csv"
+    ],
+    "implement-monthly-bill-download-feature": [
+      "Misha--2025-07-03 18:20:27.564000--WEBCHAT.csv"
+    ],
+    "quota-management-system": [
+      "Muhammad --2025-07-02 09:01:55.385000--WEBCHAT.csv",
+      "Nikolay Saev--2025-03-02 15:36:54.395857--WEBCHAT.csv",
+      "William Johnson--2025-07-02 11:06:46.920000--WEBCHAT.csv",
+      "deepak--2025-07-02 05:50:56.223000--WEBCHAT.csv"
+    ],
+    "implement-quota-notification-and-management-system": [
+      "Muhammad --2025-07-02 09:01:55.385000--WEBCHAT.csv"
+    ],
+    "user-request-not-processed": [
+      "Muhammad --2025-07-02 09:01:55.385000--WEBCHAT.csv"
+    ],
+    "integrate-user-specific-offer-details-access": [
+      "Melinda Pearson--2025-03-05 21:43:01.905029--WEBCHAT.csv"
+    ],
+    "specific-offer-details-needed": [
+      "Melinda Pearson--2025-03-05 21:43:01.905029--WEBCHAT.csv"
+    ],
+    "integrate direct invoice download functionality or improve UI guidance": [
+      "Mihai Doaga--2025-03-11 09:33:05.320886--WEBCHAT.csv"
+    ],
+    "user-interface-issue": [
+      "Mihai Doaga--2025-03-11 09:33:05.320886--WEBCHAT.csv"
+    ],
+    "missing-download-button": [
+      "Mihai Doaga--2025-03-11 09:33:05.320886--WEBCHAT.csv"
+    ],
+    "integrate system to allow bot to retrieve user-specific organization ID": [
+      "Máté Gérecz--2025-07-22 21:39:14.505000--WEBCHAT.csv"
+    ],
+    "unable-to-find-organization-id": [
+      "Máté Gérecz--2025-07-22 21:39:14.505000--WEBCHAT.csv"
+    ],
+    "direct postback integration setup and account manager connection": [
+      "Mike Hodge--2025-07-22 14:56:28.060000--WEBCHAT.csv"
+    ],
+    "integrate postback setup functionality and direct account manager contact": [
+      "Mike Hodge--2025-07-22 14:56:28.060000--WEBCHAT.csv"
+    ],
+    "user-request-for-account-manager-contact": [
+      "Mike Hodge--2025-07-22 14:56:28.060000--WEBCHAT.csv"
+    ],
+    "implement direct support connection or escalation process": [
+      "Michko--2025-07-01 13:45:39.044000--WEBCHAT.csv"
+    ],
+    "bot-cannot-connect-to-support": [
+      "Michko--2025-07-01 13:45:39.044000--WEBCHAT.csv"
+    ],
+    "unanswered-email": [
+      "Michko--2025-07-01 13:45:39.044000--WEBCHAT.csv"
+    ],
+    "quota-exceeded-message": [
+      "Michko--2025-07-01 13:45:39.044000--WEBCHAT.csv"
+    ],
+    "initial-bot-responses-not-helpful": [
+      "Kristin--2025-03-27 16:12:28.807679--WEBCHAT.csv"
+    ],
+    "implement a direct chat or call feature to connect users with human support": [
+      "Milan--2025-03-18 21:09:14.531463--WEBCHAT.csv"
+    ],
+    "non-functional email": [
+      "Milan--2025-03-18 21:09:14.531463--WEBCHAT.csv"
+    ],
+    "need for human interaction": [
+      "Milan--2025-03-18 21:09:14.531463--WEBCHAT.csv"
+    ],
+    "non-functional email address": [
+      "Milan--2025-03-18 21:09:14.531463--WEBCHAT.csv"
+    ],
+    "provide direct access to human support for integration issues": [
+      "Milan Walraven--2025-06-25 14:46:52.664000--WEBCHAT.csv"
+    ],
+    "integrate with website UI to provide direct navigation instructions": [
+      "Myroslav--2025-08-05 14:09:45.015000--WEBCHAT.csv"
+    ],
+    "bot-cannot-provide-specific-navigation": [
+      "Myroslav--2025-08-05 14:09:45.015000--WEBCHAT.csv"
+    ],
+    "integrate direct account verification process within chatbot": [
+      "Nabil Oussama Brik--2025-04-18 18:45:59.008881--WEBCHAT.csv"
+    ],
+    "ad-policy-compliance-check": [
+      "Nabil Oussama Brik--2025-04-18 18:45:59.008881--WEBCHAT.csv"
+    ],
+    "manual ad credit payment option, manual postback approval": [
+      "Murat Ordu--2025-07-14 19:15:53.259000--WEBCHAT.csv"
+    ],
+    "implement manual payment option and manual postback approval process": [
+      "Murat Ordu--2025-07-14 19:15:53.259000--WEBCHAT.csv"
+    ],
+    "integrate tracking data verification feature": [
+      "Nick--2025-06-20 18:53:46.219000--WEBCHAT.csv"
+    ],
+    "discrepancy requires further investigation": [
+      "Nick--2025-06-20 18:53:46.219000--WEBCHAT.csv"
+    ],
+    "integrate-with-rejection-reason-database": [
+      "Nir--2025-06-02 17:43:34.460385--WEBCHAT.csv"
+    ],
+    "user-unsure-about-rejection-reason": [
+      "Nir--2025-06-02 17:43:34.460385--WEBCHAT.csv"
+    ],
+    "provide-tracker-specific-setup-guides": [
+      "Nathaniel--2025-04-08 02:01:16.028281--WEBCHAT.csv"
+    ],
+    "implement system to handle quota exhaustion gracefully and provide alternative contact methods": [
+      "Nikolay Saev--2025-03-02 15:36:54.395857--WEBCHAT.csv"
+    ],
+    "campaign-release-control": [
+      "Nelson Dias--2025-03-06 17:29:10.256874--WEBCHAT.csv"
+    ],
+    "integrate-campaign-release-functionality": [
+      "Nelson Dias--2025-03-06 17:29:10.256874--WEBCHAT.csv"
+    ],
+    "campaign-release-request": [
+      "Nelson Dias--2025-03-06 17:29:10.256874--WEBCHAT.csv"
+    ],
+    "promotional-credit-verification": [
+      "Nelson Dias--2025-03-06 17:29:10.256874--WEBCHAT.csv"
+    ],
+    "integrate a system to verify ad spend automatically": [
+      "Nitzan Ronen--2025-07-31 09:00:47.396000--WEBCHAT.csv"
+    ],
+    "integrate detailed data processing information or direct access to support team": [
+      "Niki--2025-07-23 09:11:39.176000--WEBCHAT.csv"
+    ],
+    "lack-of-specific-processing-details": [
+      "Niki--2025-07-23 09:11:39.176000--WEBCHAT.csv"
+    ],
+    "implement a system to handle message quota exhaustion gracefully and escalate to a live agent": [
+      "NJ--2025-03-03 02:56:04.192022--WEBCHAT.csv"
+    ],
+    "quota-exhaustion": [
+      "NJ--2025-03-03 02:56:04.192022--WEBCHAT.csv",
+      "Nirmal--2025-03-02 20:11:44.157129--WEBCHAT.csv"
+    ],
+    "live-agent-request": [
+      "NJ--2025-03-03 02:56:04.192022--WEBCHAT.csv"
+    ],
+    "quota-exhaustion-notice": [
+      "NJ--2025-03-03 02:56:04.192022--WEBCHAT.csv"
+    ],
+    "implement-escalation-to-live-support-feature": [
+      "Oleksandra--2025-03-06 13:28:05.909336--WEBCHAT.csv"
+    ],
+    "user-requested-live-manager": [
+      "Oleksandra--2025-03-06 13:28:05.909336--WEBCHAT.csv"
+    ],
+    "no-escalation-to-human-support": [
+      "Oleksandra--2025-03-06 13:28:05.909336--WEBCHAT.csv"
+    ],
+    "provide direct troubleshooting support or integration diagnostics": [
+      "Paul--2025-07-04 12:27:01.735000--WEBCHAT.csv"
+    ],
+    "direct-banking-issue-resolution": [
+      "PATEL HARSHIL--2025-07-17 12:17:14.475000--WEBCHAT.csv"
+    ],
+    "integrate-with-banking-support-system": [
+      "PATEL HARSHIL--2025-07-17 12:17:14.475000--WEBCHAT.csv"
+    ],
+    "user-needs-to-contact-bank": [
+      "PATEL HARSHIL--2025-07-17 12:17:14.475000--WEBCHAT.csv"
+    ],
+    "integrate system to provide specific feedback on profile rejection": [
+      "Pedro Gonzalez--2025-07-25 21:41:18.804000--WEBCHAT.csv"
+    ],
+    "implement-seamless-live-agent-escalation": [
+      "Matheus Santana--2025-03-05 18:24:22.432779--WEBCHAT.csv"
+    ],
+    "create-specific-integration-guide-for-clickmagick": [
+      "Peter Schaub--2025-05-11 09:43:18.060754--WEBCHAT.csv"
+    ],
+    "implement-direct-ad-approval-or-automated-escalation": [
+      "Polite Arrangement 9a21777918--2025-02-27 06:40:08.562648--WEBCHAT.csv"
+    ],
+    "user-request-for-quick-approval": [
+      "Polite Arrangement 9a21777918--2025-02-27 06:40:08.562648--WEBCHAT.csv"
+    ],
+    "integrate-payment-method-resolution-system": [
+      "Prakhar--2025-04-29 13:47:51.884967--WEBCHAT.csv"
+    ],
+    "technical-glitch": [
+      "Prakhar--2025-04-29 13:47:51.884967--WEBCHAT.csv",
+      "Regina--2025-05-22 07:29:47.937688--WEBCHAT.csv"
+    ],
+    "account threshold modification capability": [
+      "Praveen Kushwah--2025-06-04 12:52:10.779967--WEBCHAT.csv"
+    ],
+    "integrate account management features to allow threshold adjustments": [
+      "Praveen Kushwah--2025-06-04 12:52:10.779967--WEBCHAT.csv"
+    ],
+    "request for human contact": [
+      "Praveen Kushwah--2025-06-04 12:52:10.779967--WEBCHAT.csv"
+    ],
+    "integrate ad approval workflow or provide real-time status updates": [
+      "Priyanka --2025-05-29 13:57:24.360369--WEBCHAT.csv"
+    ],
+    "ad-credit-transfer-capability": [
+      "Preeti--2025-05-27 11:11:45.627175--WEBCHAT.csv"
+    ],
+    "implement ad credit transfer feature or provide clear escalation path for exceptions": [
+      "Preeti--2025-05-27 11:11:45.627175--WEBCHAT.csv"
+    ],
+    "policy-restriction": [
+      "Preeti--2025-05-27 11:11:45.627175--WEBCHAT.csv"
+    ],
+    "user-request-for-exception": [
+      "Preeti--2025-05-27 11:11:45.627175--WEBCHAT.csv"
+    ],
+    "provide-direct-lead-generation-info": [
+      "Raj Singh--2025-04-25 09:37:04.336966--WEBCHAT.csv"
+    ],
+    "API endpoint information retrieval": [
+      "Rajan--2025-07-09 06:15:41.666000--WEBCHAT.csv"
+    ],
+    "integrate with API documentation to provide endpoint details": [
+      "Rajan--2025-07-09 06:15:41.666000--WEBCHAT.csv"
+    ],
+    "specific-information-request": [
+      "Rajan--2025-07-09 06:15:41.666000--WEBCHAT.csv"
+    ],
+    "implement-direct-human-support-connection-feature": [
+      "Raymond--2025-04-14 19:24:40.146026--WEBCHAT.csv"
+    ],
+    "enhance-bot-capability-to-resolve-campaign-issues-directly": [
+      "Reeba--2025-03-19 18:29:48.033779--WEBCHAT.csv"
+    ],
+    "integrate a tool for direct pixel verification and diagnostics": [
+      "Raz--2025-08-08 02:14:49.714000--WEBCHAT.csv"
+    ],
+    "potential-technical-issue": [
+      "Raz--2025-08-08 02:14:49.714000--WEBCHAT.csv"
+    ],
+    "user-may-need-human-support": [
+      "Raz--2025-08-08 02:14:49.714000--WEBCHAT.csv"
+    ],
+    "implement-campaign-data-explanation-feature": [
+      "Riccardo--2025-03-04 06:09:39.979637--WEBCHAT.csv"
+    ],
+    "campaign-data-query": [
+      "Riccardo--2025-03-04 06:09:39.979637--WEBCHAT.csv"
+    ],
+    "enhance bot's capability to diagnose and troubleshoot integration issues directly": [
+      "Metallic Test d898dc1d85--2025-02-27 06:21:40.918158--WEBCHAT.csv"
+    ],
+    "integrate with tracking platforms for direct diagnostics and automated troubleshooting": [
+      "Reuben--2025-05-28 04:22:27.831426--WEBCHAT.csv"
+    ],
+    "integrate ad approval workflow with verification system": [
+      "Nikolay Saev--2025-04-23 10:34:47.180727--WEBCHAT.csv"
+    ],
+    "integrate with Slack API to manage channel access requests": [
+      "Rich--2025-03-06 15:08:59.472223--WEBCHAT.csv"
+    ],
+    "requires-organization-admin-intervention": [
+      "Rich--2025-03-06 15:08:59.472223--WEBCHAT.csv"
+    ],
+    "implement-direct-appeal-submission-feature": [
+      "Robert--2025-07-28 11:46:30.588000--WEBCHAT.csv"
+    ],
+    "lack-of-response-from-support-email": [
+      "Robert--2025-07-28 11:46:30.588000--WEBCHAT.csv"
+    ],
+    "integrate real-time verification status tracking": [
+      "Robert--2025-07-22 04:22:34.174000--WEBCHAT.csv"
+    ],
+    "user-already-submitted-info": [
+      "Robert--2025-07-22 04:22:34.174000--WEBCHAT.csv"
+    ],
+    "integrate system to allow bot to access and review ad setups": [
+      "Rob--2025-04-02 02:01:21.928192--WEBCHAT.csv"
+    ],
+    "implement-human-assistant-transfer-capability": [
+      "Rodrigo Passos--2025-08-01 14:53:27.806000--WEBCHAT.csv"
+    ],
+    "undelete-campaign-functionality": [
+      "Ronnie--2025-08-03 05:30:21.246000--WEBCHAT.csv"
+    ],
+    "add-undelete-campaign-feature": [
+      "Ronnie--2025-08-03 05:30:21.246000--WEBCHAT.csv"
+    ],
+    "bot-cannot-undelete-campaign": [
+      "Ronnie--2025-08-03 05:30:21.246000--WEBCHAT.csv"
+    ],
+    "initial-platform-confusion": [
+      "Rolando Rivero--2025-08-12 03:05:46.165000--WEBCHAT.csv"
+    ],
+    "initial-misunderstanding-resolved": [
+      "Rolando Rivero--2025-08-12 03:05:46.165000--WEBCHAT.csv"
+    ],
+    "integrate direct account verification workflow within the chatbot": [
+      "Romina--2025-04-17 15:22:01.903373--WEBCHAT.csv"
+    ],
+    "integrate-system-to-access-and-analyze-specific-ad-performance-data": [
+      "Rida Xiao--2025-03-02 13:36:48.954991--WEBCHAT.csv"
+    ],
+    "specific-account-issue": [
+      "Rida Xiao--2025-03-02 13:36:48.954991--WEBCHAT.csv"
+    ],
+    "enhance bot's capability to diagnose and troubleshoot complex tracking issues": [
+      "Rodrigo Magno--2025-05-03 14:35:27.956257--WEBCHAT.csv"
+    ],
+    "enable-bot-to-activate-features-or-escalate-appropriately": [
+      "Rony--2025-03-03 14:09:15.527529--WEBCHAT.csv"
+    ],
+    "platform-restriction": [
+      "Rony--2025-03-03 14:09:15.527529--WEBCHAT.csv"
+    ],
+    "feature-activation-required": [
+      "Rony--2025-03-03 14:09:15.527529--WEBCHAT.csv"
+    ],
+    "integrate direct API token retrieval functionality": [
+      "Paolo--2025-06-09 15:31:10.983000--WEBCHAT.csv"
+    ],
+    "implement-human-agent-transfer-capability": [
+      "Ruben--2025-07-25 15:15:35.708000--WEBCHAT.csv",
+      "yasser--2025-07-22 17:36:53.561000--WEBCHAT.csv"
+    ],
+    "integrate ad status tracking system": [
+      "Rostyslav--2025-03-11 09:59:11.342379--WEBCHAT.csv"
+    ],
+    "specific-ad-status-needed": [
+      "Rostyslav--2025-03-11 09:59:11.342379--WEBCHAT.csv"
+    ],
+    "implement ad rejection resolution workflow": [
+      "Nirmal--2025-03-02 20:11:44.157129--WEBCHAT.csv"
+    ],
+    "integrate direct troubleshooting capabilities for postback issues": [
+      "Rudy S--2025-03-18 15:40:57.357452--WEBCHAT.csv"
+    ],
+    "integrate-direct-download-link-for-transaction-history": [
+      "Ryan--2025-08-11 19:54:37.634000--WEBCHAT.csv"
+    ],
+    "detailed-transaction-card-information": [
+      "Ryan--2025-06-19 20:04:20.741000--WEBCHAT.csv"
+    ],
+    "integrate-detailed-card-info-in-transaction-history": [
+      "Ryan--2025-06-19 20:04:20.741000--WEBCHAT.csv"
+    ],
+    "bot-cannot-access-specific-card-details": [
+      "Ryan--2025-06-19 20:04:20.741000--WEBCHAT.csv"
+    ],
+    "direct-ad-link-retrieval": [
+      "SOnny--2025-08-07 02:27:52.423000--WEBCHAT.csv"
+    ],
+    "implement ad link retrieval feature": [
+      "SOnny--2025-08-07 02:27:52.423000--WEBCHAT.csv"
+    ],
+    "integrate ad approval process and billing dispute resolution": [
+      "Ryan --2025-03-07 19:49:00.081742--WEBCHAT.csv"
+    ],
+    "billing-dispute": [
+      "Ryan --2025-03-07 19:49:00.081742--WEBCHAT.csv"
+    ],
+    "implement-direct-human-agent-connection-feature": [
+      "Sandra--2025-04-03 12:59:45.353383--WEBCHAT.csv"
+    ],
+    "implement system access for detailed troubleshooting or escalate to human support": [
+      "S--2025-03-12 04:43:00.469160--WEBCHAT.csv"
+    ],
+    "integration-issue-unresolved": [
+      "S--2025-03-12 04:43:00.469160--WEBCHAT.csv"
+    ],
+    "enhance-bot-capability-for-advanced-troubleshooting": [
+      "Sanel Delic--2025-03-05 10:48:22.437214--WEBCHAT.csv"
+    ],
+    "direct-account-verification": [
+      "Samuel--2025-05-19 13:55:52.080930--WEBCHAT.csv"
+    ],
+    "integrate-direct-verification-system": [
+      "Samuel--2025-05-19 13:55:52.080930--WEBCHAT.csv"
+    ],
+    "verification-requires-human": [
+      "Samuel--2025-05-19 13:55:52.080930--WEBCHAT.csv"
+    ],
+    "integrate with financial reporting system for data access": [
+      "Paper Landfall d5c057a156--2025-02-10 03:13:16.841921--WEBCHAT.csv"
+    ],
+    "lack-of-financial-data-access": [
+      "Paper Landfall d5c057a156--2025-02-10 03:13:16.841921--WEBCHAT.csv"
+    ],
+    "user-did-not-specify-platform": [
+      "Paper Landfall d5c057a156--2025-02-10 03:13:16.841921--WEBCHAT.csv"
+    ],
+    "ad-performance-analysis-and-recommendation": [
+      "Peter Skotnicky--2025-03-10 18:18:36.488992--WEBCHAT.csv"
+    ],
+    "integrate ad performance analysis and recommendation system": [
+      "Peter Skotnicky--2025-03-10 18:18:36.488992--WEBCHAT.csv"
+    ],
+    "complex-ad-performance-question": [
+      "Peter Skotnicky--2025-03-10 18:18:36.488992--WEBCHAT.csv"
+    ],
+    "integrate-visual-guide-or-screenshot-feature": [
+      "Paula Carvalho--2025-04-10 17:55:05.531960--WEBCHAT.csv"
+    ],
+    "unable-to-locate-settings": [
+      "Paula Carvalho--2025-04-10 17:55:05.531960--WEBCHAT.csv",
+      "zhou--2025-08-08 06:21:14.020000--WEBCHAT.csv"
+    ],
+    "integrate system to allow access to historical billing data beyond 8 months": [
+      "Sarath--2025-04-15 19:55:18.065212--WEBCHAT.csv"
+    ],
+    "need-for-historical-data-access": [
+      "Sarath--2025-04-15 19:55:18.065212--WEBCHAT.csv"
+    ],
+    "integrate with user account system for direct troubleshooting": [
+      "Sar--2025-04-30 15:48:33.806793--WEBCHAT.csv"
+    ],
+    "lack-of-specific-account-access": [
+      "Sar--2025-04-30 15:48:33.806793--WEBCHAT.csv"
+    ],
+    "generic-invoice-instructions": [
+      "Sar--2025-04-30 15:48:33.806793--WEBCHAT.csv"
+    ],
+    "implement reliable live agent transfer system": [
+      "Peter Skotnicky--2025-03-05 22:57:57.960165--WEBCHAT.csv"
+    ],
+    "ad-performance-issues": [
+      "Peter Skotnicky--2025-03-05 22:57:57.960165--WEBCHAT.csv"
+    ],
+    "feature-not-enabled": [
+      "Saurav--2025-03-05 15:34:58.371242--WEBCHAT.csv"
+    ],
+    "integrate-account-status-checking-capability": [
+      "Sam Paul--2025-05-02 14:01:34.057367--WEBCHAT.csv"
+    ],
+    "implement live support escalation process when requested by user": [
+      "Sam Nihalani--2025-07-15 18:19:15.129000--WEBCHAT.csv"
+    ],
+    "integrate direct payment resolution capabilities or automated support escalation": [
+      "Quinten Germeijs--2025-04-12 10:29:35.772776--WEBCHAT.csv"
+    ],
+    "user-lacks-alternative-payment-methods": [
+      "Quinten Germeijs--2025-04-12 10:29:35.772776--WEBCHAT.csv"
+    ],
+    "account-restriction": [
+      "Quinten Germeijs--2025-04-12 10:29:35.772776--WEBCHAT.csv"
+    ],
+    "integrate with system to provide specific rejection reasons": [
+      "Rajdeep Das--2025-06-20 02:30:43.663000--WEBCHAT.csv"
+    ],
+    "bot-cannot-access-specific-rejection-details": [
+      "Rajdeep Das--2025-06-20 02:30:43.663000--WEBCHAT.csv"
+    ],
+    "integrate business verification process within chatbot": [
+      "Rassal Khan--2025-03-07 06:24:43.461245--WEBCHAT.csv"
+    ],
+    "business-verification-failure": [
+      "Rassal Khan--2025-03-07 06:24:43.461245--WEBCHAT.csv"
+    ],
+    "enhance bot's ability to troubleshoot API syntax issues": [
+      "Scott Brown--2025-08-11 19:35:52.144000--WEBCHAT.csv"
+    ],
+    "invalid-token-error": [
+      "Scott Brown--2025-08-11 19:35:52.144000--WEBCHAT.csv"
+    ],
+    "integrate-direct-technical-support-or-escalation-path": [
+      "Saven--2025-05-13 17:47:42.318797--WEBCHAT.csv"
+    ],
+    "user-losing-money": [
+      "Saven--2025-05-13 17:47:42.318797--WEBCHAT.csv"
+    ],
+    "implement-ad-review-acceleration-feature": [
+      "Sean--2025-03-06 20:10:01.859034--WEBCHAT.csv"
+    ],
+    "bot-cannot-accelerate-review": [
+      "Sean--2025-03-06 20:10:01.859034--WEBCHAT.csv"
+    ],
+    "implement-live-support-connection-feature": [
+      "Saving Postback Not working please help! --2025-07-23 11:04:57.995000--WEBCHAT.csv"
+    ],
+    "user-dissatisfaction-with-bot-assistance": [
+      "Saving Postback Not working please help! --2025-07-23 11:04:57.995000--WEBCHAT.csv"
+    ],
+    "request-for-live-support": [
+      "Saving Postback Not working please help! --2025-07-23 11:04:57.995000--WEBCHAT.csv"
+    ],
+    "real-time competitive insights and max cpc/cpm setting": [
+      "Randy--2025-08-07 18:18:55.612000--WEBCHAT.csv"
+    ],
+    "implement real-time competitive insights and max cpc/cpm settings": [
+      "Randy--2025-08-07 18:18:55.612000--WEBCHAT.csv"
+    ],
+    "need for real-time competitive insights": [
+      "Randy--2025-08-07 18:18:55.612000--WEBCHAT.csv"
+    ],
+    "lack of max cpc/cpm feature": [
+      "Randy--2025-08-07 18:18:55.612000--WEBCHAT.csv"
+    ],
+    "implement-direct-human-transfer-capability": [
+      "Seth Hornby--2025-07-08 23:19:15.269000--WEBCHAT.csv"
+    ],
+    "user-requested-human-review": [
+      "Seth Hornby--2025-07-08 23:19:15.269000--WEBCHAT.csv"
+    ],
+    "integrate detailed campaign diagnostics tool": [
+      "Serhat Karatum--2025-07-22 18:48:27.438000--WEBCHAT.csv"
+    ],
+    "specific-issue-identification-needed": [
+      "Serhat Karatum--2025-07-22 18:48:27.438000--WEBCHAT.csv"
+    ],
+    "direct-industry-ad-examples": [
+      "Shawn--2025-08-13 23:20:21.548000--WEBCHAT.csv"
+    ],
+    "integrate-industry-ad-examples-access": [
+      "Shawn--2025-08-13 23:20:21.548000--WEBCHAT.csv"
+    ],
+    "integrate direct support ticket creation or live chat with technical support": [
+      "Regina--2025-05-22 07:29:47.937688--WEBCHAT.csv"
+    ],
+    "persistent-issue": [
+      "Regina--2025-05-22 07:29:47.937688--WEBCHAT.csv"
+    ],
+    "integrate direct technical support for account-specific issues": [
+      "ShivaKumar --2025-08-16 05:37:31.496000--WEBCHAT.csv"
+    ],
+    "technical-issue-with-account-settings": [
+      "ShivaKumar --2025-08-16 05:37:31.496000--WEBCHAT.csv"
+    ],
+    "specific-video-upload-troubleshooting": [
+      "Shabby Vertex edf3f6cbc0--2025-02-28 12:01:24.859324--WEBCHAT.csv"
+    ],
+    "add troubleshooting steps for common video upload issues": [
+      "Shabby Vertex edf3f6cbc0--2025-02-28 12:01:24.859324--WEBCHAT.csv"
+    ],
+    "user-specific-technical-issue": [
+      "Shabby Vertex edf3f6cbc0--2025-02-28 12:01:24.859324--WEBCHAT.csv"
+    ],
+    "integrate real-time platform status updates into the chatbot": [
+      "Shiva chaitanya--2025-08-11 06:00:54.299000--WEBCHAT.csv"
+    ],
+    "platform-wide-issue": [
+      "Shiva chaitanya--2025-08-11 06:00:54.299000--WEBCHAT.csv"
+    ],
+    "live-agent-escalation": [
+      "Sohel--2025-06-18 17:28:59.647000--WEBCHAT.csv"
+    ],
+    "implement-live-agent-escalation-feature": [
+      "Sohel--2025-06-18 17:28:59.647000--WEBCHAT.csv",
+      "Sofia--2025-08-05 13:16:53.802000--WEBCHAT.csv"
+    ],
+    "access-to-targeting-values-list": [
+      "Sharif Raghen--2025-07-03 19:47:55.768000--WEBCHAT.csv"
+    ],
+    "integrate targeting values list into bot responses": [
+      "Sharif Raghen--2025-07-03 19:47:55.768000--WEBCHAT.csv"
+    ],
+    "lack-of-specific-targeting-values": [
+      "Sharif Raghen--2025-07-03 19:47:55.768000--WEBCHAT.csv"
+    ],
+    "integrate system to directly troubleshoot and resolve ad set status issues": [
+      "Sharif--2025-06-27 15:34:21.698000--WEBCHAT.csv"
+    ],
+    "ad-set-status-discrepancy": [
+      "Sharif--2025-06-27 15:34:21.698000--WEBCHAT.csv"
+    ],
+    "no-live-agent-escalation": [
+      "Sofia--2025-08-05 13:16:53.802000--WEBCHAT.csv"
+    ],
+    "external website evaluation, accurate audience segment information, complete integration instructions": [
+      "Muhammad Umair--2025-03-30 21:50:35.790891--WEBCHAT.csv"
+    ],
+    "add capability to evaluate external websites, ensure audience segment information is accurate, provide complete integration instructions for all supported platforms": [
+      "Muhammad Umair--2025-03-30 21:50:35.790891--WEBCHAT.csv"
+    ],
+    "incorrect-audience-information": [
+      "Muhammad Umair--2025-03-30 21:50:35.790891--WEBCHAT.csv"
+    ],
+    "incomplete-integration-guidance": [
+      "Muhammad Umair--2025-03-30 21:50:35.790891--WEBCHAT.csv"
+    ],
+    "incorrect-audience-segment-information": [
+      "Muhammad Umair--2025-03-30 21:50:35.790891--WEBCHAT.csv"
+    ],
+    "incomplete-integration-instructions": [
+      "Muhammad Umair--2025-03-30 21:50:35.790891--WEBCHAT.csv"
+    ],
+    "campaign approval expedition": [
+      "Soniya--2025-04-04 20:19:47.454776--WEBCHAT.csv"
+    ],
+    "integrate with approval system to allow expedited requests": [
+      "Soniya--2025-04-04 20:19:47.454776--WEBCHAT.csv"
+    ],
+    "bot-cannot-expedite-approval": [
+      "Soniya--2025-04-04 20:19:47.454776--WEBCHAT.csv"
+    ],
+    "payment-system-access-required": [
+      "Soniya--2025-04-04 20:19:47.454776--WEBCHAT.csv"
+    ],
+    "implement-direct-human-escalation-option": [
+      "Siim Roostalu--2025-05-01 08:14:02.984346--WEBCHAT.csv"
+    ],
+    "api-error": [
+      "Siim Roostalu--2025-05-01 08:14:02.984346--WEBCHAT.csv"
+    ],
+    "enhance bot's ability to diagnose and resolve conversion tracking issues": [
+      "Nicolas--2025-07-07 15:05:09.435000--WEBCHAT.csv"
+    ],
+    "ongoing conversion tracking issue": [
+      "Nicolas--2025-07-07 15:05:09.435000--WEBCHAT.csv"
+    ],
+    "URL parameter modification limitation": [
+      "Nicolas--2025-07-07 15:05:09.435000--WEBCHAT.csv"
+    ],
+    "ensure bot consistently provides responses and detailed API usage instructions": [
+      "Solaced--2025-05-14 10:52:48.259428--WEBCHAT.csv"
+    ],
+    "bot-sent-blank-responses": [
+      "Solaced--2025-05-14 10:52:48.259428--WEBCHAT.csv"
+    ],
+    "blank-responses": [
+      "Solaced--2025-05-14 10:52:48.259428--WEBCHAT.csv"
+    ],
+    "integrate account verification workflow": [
+      "Sourav gupta--2025-05-27 14:12:53.383222--WEBCHAT.csv"
+    ],
+    "user-requested-support": [
+      "Sourav gupta--2025-05-27 14:12:53.383222--WEBCHAT.csv"
+    ],
+    "implement direct escalation or resolution workflow for ad pending issues": [
+      "Sourav gupta--2025-07-02 13:41:57.064000--WEBCHAT.csv"
+    ],
+    "ad-pending-issue-unresolved": [
+      "Sourav gupta--2025-07-02 13:41:57.064000--WEBCHAT.csv"
+    ],
+    "implement direct link retrieval feature in Ad Manager": [
+      "Sonny Parker--2025-08-04 21:04:29.388000--WEBCHAT.csv"
+    ],
+    "user-unable-to-find-ad-link": [
+      "Sonny Parker--2025-08-04 21:04:29.388000--WEBCHAT.csv"
+    ],
+    "integrate with payment processing system to handle payment failures directly": [
+      "Sreemon S--2025-06-20 21:17:00.335000--WEBCHAT.csv"
+    ],
+    "specific-payment-issue": [
+      "Sreemon S--2025-06-20 21:17:00.335000--WEBCHAT.csv"
+    ],
+    "lookalike audience targeting": [
+      "Steve--2025-04-12 10:33:40.189061--WEBCHAT.csv"
+    ],
+    "implement lookalike audience targeting feature": [
+      "Steve--2025-04-12 10:33:40.189061--WEBCHAT.csv"
+    ],
+    "integrate with billing system API to process refunds": [
+      "Sonny--2025-08-05 23:50:10.192000--WEBCHAT.csv"
+    ],
+    "implement direct troubleshooting support or enhanced UI guidance for locating tabs": [
+      "Sonny--2025-08-07 01:43:47.188000--WEBCHAT.csv"
+    ],
+    "integrate direct support for payment issue resolution": [
+      "Sreemon S--2025-06-27 14:13:32.619000--WEBCHAT.csv"
+    ],
+    "payment-issue-unresolved": [
+      "Sreemon S--2025-06-27 14:13:32.619000--WEBCHAT.csv"
+    ],
+    "user-already-tried-solutions": [
+      "Sreemon S--2025-06-27 14:13:32.619000--WEBCHAT.csv"
+    ],
+    "integrate with support team for seamless escalation": [
+      "Steve--2025-06-16 09:10:13.742000--WEBCHAT.csv"
+    ],
+    "implement-direct-cancellation-feature": [
+      "Sweet Denouement 9a1ce65f83--2025-02-28 03:56:32.178208--WEBCHAT.csv"
+    ],
+    "implement direct human handoff feature": [
+      "Stefan--2025-06-20 07:49:29.362000--WEBCHAT.csv"
+    ],
+    "implement direct chat or call option for human support": [
+      "Steve--2025-04-14 18:22:40.576181--WEBCHAT.csv"
+    ],
+    "account balance modification, direct campaign control": [
+      "Sudhanshu--2025-07-08 07:20:36.548000--WEBCHAT.csv"
+    ],
+    "integrate account balance modification and direct campaign control features": [
+      "Sudhanshu--2025-07-08 07:20:36.548000--WEBCHAT.csv"
+    ],
+    "enhance bot's ability to troubleshoot integration issues or provide direct support contact": [
+      "Steve--2025-04-20 14:09:10.128851--WEBCHAT.csv"
+    ],
+    "integrate with billing system API for direct refund processing": [
+      "Suvi--2025-06-06 19:28:41.768000--WEBCHAT.csv"
+    ],
+    "refund-delay": [
+      "Suvi Eklund--2025-04-27 08:54:59.929203--WEBCHAT.csv"
+    ],
+    "billing-discrepancy": [
+      "Suvi Eklund--2025-04-27 08:54:59.929203--WEBCHAT.csv",
+      "Tosin eye--2025-05-17 12:20:36.041270--WEBCHAT.csv",
+      "casearty--2025-03-01 10:02:54.171874--WEBCHAT.csv"
+    ],
+    "conversion tracking troubleshooting, site-specific performance reporting": [
+      "Steven Soendker--2025-02-28 16:15:52.821818--WEBCHAT.csv"
+    ],
+    "integrate conversion tracking troubleshooting and site-specific performance reporting features": [
+      "Steven Soendker--2025-02-28 16:15:52.821818--WEBCHAT.csv"
+    ],
+    "detailed-performance-request": [
+      "Steven Soendker--2025-02-28 16:15:52.821818--WEBCHAT.csv"
+    ],
+    "implement ad credit eligibility verification for existing accounts": [
+      "Tao Yue--2025-03-07 14:24:39.160673--WEBCHAT.csv"
+    ],
+    "ad-credit-eligibility-confirmation": [
+      "Tao Yue--2025-03-07 14:24:39.160673--WEBCHAT.csv"
+    ],
+    "implement expedited ad review process or direct contact with review team": [
+      "TIna--2025-03-27 06:05:48.539450--WEBCHAT.csv"
+    ],
+    "add-personalized-recommendation-feature": [
+      "Thin Sheave c73cc5a170--2025-01-16 03:16:04.777784--WEBCHAT.csv"
+    ],
+    "add automated pixel verification tool": [
+      "Tieoni--2025-03-04 22:11:11.707952--WEBCHAT.csv"
+    ],
+    "user-unable-to-verify-pixel": [
+      "Tieoni--2025-03-04 22:11:11.707952--WEBCHAT.csv"
+    ],
+    "enable bot to perform basic diagnostics on postback configurations": [
+      "T--2025-05-06 19:12:05.939836--WEBCHAT.csv"
+    ],
+    "integrate direct billing update functionality": [
+      "Thiago--2025-07-17 17:00:36.058000--WEBCHAT.csv"
+    ],
+    "invoice-generation-system": [
+      "Thorben Dinse--2025-06-27 10:51:01.743000--WEBCHAT.csv"
+    ],
+    "integrate invoice generation capability": [
+      "Thorben Dinse--2025-06-27 10:51:01.743000--WEBCHAT.csv"
+    ],
+    "bot-cannot-generate-invoice": [
+      "Thorben Dinse--2025-06-27 10:51:01.743000--WEBCHAT.csv"
+    ],
+    "user-needs-human-support": [
+      "Thorben Dinse--2025-06-27 10:51:01.743000--WEBCHAT.csv"
+    ],
+    "url-verification-capability": [
+      "Thomas Mulder--2025-05-02 15:24:01.911629--WEBCHAT.csv"
+    ],
+    "integrate-url-verification-tool": [
+      "Thomas Mulder--2025-05-02 15:24:01.911629--WEBCHAT.csv"
+    ],
+    "bot-cannot-verify-url": [
+      "Thomas Mulder--2025-05-02 15:24:01.911629--WEBCHAT.csv"
+    ],
+    "ad-settings-modification": [
+      "Tariq--2025-02-27 19:34:08.118622--WEBCHAT.csv"
+    ],
+    "integrate ad settings modification capability": [
+      "Tariq--2025-02-27 19:34:08.118622--WEBCHAT.csv"
+    ],
+    "specific-integration-instructions-for-Offer18": [
+      "Udit Kapoor--2025-02-28 12:49:33.556005--WEBCHAT.csv"
+    ],
+    "add-integration-instructions-for-Offer18": [
+      "Udit Kapoor--2025-02-28 12:49:33.556005--WEBCHAT.csv"
+    ],
+    "lack-of-specific-instructions": [
+      "Udit Kapoor--2025-02-28 12:49:33.556005--WEBCHAT.csv"
+    ],
+    "enhance bot's ability to diagnose and troubleshoot account-specific issues": [
+      "Thorben Dinse--2025-03-24 06:28:48.200943--WEBCHAT.csv"
+    ],
+    "system-glitch": [
+      "Thorben Dinse--2025-03-24 06:28:48.200943--WEBCHAT.csv"
+    ],
+    "enhance bot's capability to troubleshoot and resolve postback test issues": [
+      "Tarcisio--2025-03-13 13:52:40.982221--WEBCHAT.csv"
+    ],
+    "postback test issue": [
+      "Tarcisio--2025-03-13 13:52:40.982221--WEBCHAT.csv"
+    ],
+    "bot's inability to resolve technical problem": [
+      "Tarcisio--2025-03-13 13:52:40.982221--WEBCHAT.csv"
+    ],
+    "live chat connection": [
+      "Tosin eye--2025-05-07 20:22:23.604753--WEBCHAT.csv"
+    ],
+    "implement live chat connection feature": [
+      "Tosin eye--2025-05-07 20:22:23.604753--WEBCHAT.csv"
+    ],
+    "live-chat-request": [
+      "Tosin eye--2025-05-07 20:22:23.604753--WEBCHAT.csv"
+    ],
+    "response-delay": [
+      "Tosin eye--2025-05-07 20:22:23.604753--WEBCHAT.csv"
+    ],
+    "improve-clarification-prompts-for-ambiguous-requests": [
+      "Undecidable Team 0c8b6d4212--2025-02-04 22:14:55.683146--WEBCHAT.csv"
+    ],
+    "integrate billing support system for real-time discrepancy resolution": [
+      "Tosin eye--2025-05-17 12:20:36.041270--WEBCHAT.csv"
+    ],
+    "integrate technical troubleshooting workflow for pixel creation errors": [
+      "VLad--2025-07-29 18:59:56.442000--WEBCHAT.csv"
+    ],
+    "service-cancellation-functionality": [
+      "Weighted Mixture 1c65354b19--2025-02-13 20:10:01.006444--WEBCHAT.csv"
+    ],
+    "add-service-cancellation-feature": [
+      "Weighted Mixture 1c65354b19--2025-02-13 20:10:01.006444--WEBCHAT.csv"
+    ],
+    "integrate with ad approval system to provide real-time status updates": [
+      "Valiwe--2025-03-04 15:53:08.740944--WEBCHAT.csv"
+    ],
+    "ad approval delay": [
+      "Valiwe--2025-03-04 15:53:08.740944--WEBCHAT.csv"
+    ],
+    "business verification requirement": [
+      "Valiwe--2025-03-04 15:53:08.740944--WEBCHAT.csv"
+    ],
+    "enhance bot's ability to diagnose integration issues with external platforms": [
+      "VK--2025-06-24 08:18:43.945000--WEBCHAT.csv"
+    ],
+    "issue-specific-to-campaign": [
+      "VK--2025-06-24 08:18:43.945000--WEBCHAT.csv"
+    ],
+    "external-system-integration": [
+      "VK--2025-06-24 08:18:43.945000--WEBCHAT.csv"
+    ],
+    "implement quota management to prevent service interruption": [
+      "William Johnson--2025-07-02 11:06:46.920000--WEBCHAT.csv",
+      "deepak--2025-07-02 05:50:56.223000--WEBCHAT.csv"
+    ],
+    "gifting currency or ad credits": [
+      "Vernon Brown--2025-05-12 17:16:55.183914--WEBCHAT.csv"
+    ],
+    "consider implementing a gifting feature for ad credits": [
+      "Vernon Brown--2025-05-12 17:16:55.183914--WEBCHAT.csv"
+    ],
+    "creative-download-functionality": [
+      "Vivek--2025-07-09 21:14:57.979000--WEBCHAT.csv"
+    ],
+    "implement-creative-download-feature": [
+      "Vivek--2025-07-09 21:14:57.979000--WEBCHAT.csv"
+    ],
+    "enhance bot's capability to troubleshoot pixel setup issues or escalate to human support": [
+      "Wayne Huang--2025-08-02 05:00:39.632000--WEBCHAT.csv"
+    ],
+    "technical-issue-with-pixel-setup": [
+      "Wayne Huang--2025-08-02 05:00:39.632000--WEBCHAT.csv"
+    ],
+    "unresolved-technical-issue": [
+      "Victoria--2025-02-28 13:39:53.785081--WEBCHAT.csv"
+    ],
+    "implement flexible scheduling system or direct contact with account managers": [
+      "Vikash--2025-03-08 02:15:07.108458--WEBCHAT.csv"
+    ],
+    "scheduling-conflict": [
+      "Vikash--2025-03-08 02:15:07.108458--WEBCHAT.csv"
+    ],
+    "integrate with payment gateway for real-time troubleshooting": [
+      "Vishal--2025-07-16 20:01:14.394000--WEBCHAT.csv"
+    ],
+    "persistent-payment-issue": [
+      "Vishal--2025-07-16 20:01:14.394000--WEBCHAT.csv"
+    ],
+    "user-tried-all-suggestions": [
+      "Vishal--2025-07-16 20:01:14.394000--WEBCHAT.csv"
+    ],
+    "non-admin-user-role-assignment": [
+      "Vivek--2025-08-08 02:05:29.485000--WEBCHAT.csv"
+    ],
+    "add capability to assign non-admin roles": [
+      "Vivek--2025-08-08 02:05:29.485000--WEBCHAT.csv"
+    ],
+    "user-role-limitation": [
+      "Vivek--2025-08-08 02:05:29.485000--WEBCHAT.csv"
+    ],
+    "persistent-campaign-issue": [
+      "Vivek--2025-08-08 02:05:29.485000--WEBCHAT.csv"
+    ],
+    "implement a system to provide real-time updates on verification status": [
+      "William Johnson--2025-06-26 12:08:12.967000--WEBCHAT.csv"
+    ],
+    "user-inquired-about-timeline": [
+      "William Johnson--2025-06-26 12:08:12.967000--WEBCHAT.csv"
+    ],
+    "offer alternative verification methods such as instant messaging for onboarding": [
+      "William--2025-03-13 21:38:34.406656--WEBCHAT.csv"
+    ],
+    "mandatory-verification-process": [
+      "William--2025-03-13 21:38:34.406656--WEBCHAT.csv"
+    ],
+    "implement direct connection to human agents for complex issues": [
+      "West--2025-06-20 23:25:14.900000--WEBCHAT.csv"
+    ],
+    "complex-issue": [
+      "West--2025-06-20 23:25:14.900000--WEBCHAT.csv"
+    ],
+    "integrate account troubleshooting tools for bots": [
+      "Vincent Czaplyski--2025-06-05 19:53:36.421000--WEBCHAT.csv"
+    ],
+    "technical-issue-with-url": [
+      "Vincent Czaplyski--2025-06-05 19:53:36.421000--WEBCHAT.csv"
+    ],
+    "view-email-addresses-in-audience": [
+      "Wilson--2025-03-07 06:10:07.677133--WEBCHAT.csv"
+    ],
+    "third-party promotion handling": [
+      "William--2025-03-13 16:27:56.418212--WEBCHAT.csv"
+    ],
+    "transaction-error-detail-access": [
+      "Wintry Spire 73f65bfe40--2025-03-01 19:42:30.899772--WEBCHAT.csv"
+    ],
+    "integrate with payment gateway to provide specific error messages": [
+      "Wintry Spire 73f65bfe40--2025-03-01 19:42:30.899772--WEBCHAT.csv"
+    ],
+    "bot-cannot-access-specific-error-details": [
+      "Wintry Spire 73f65bfe40--2025-03-01 19:42:30.899772--WEBCHAT.csv"
+    ],
+    "integrate with audience upload system to provide specific error diagnostics": [
+      "Wilson--2025-03-14 05:50:32.520500--WEBCHAT.csv"
+    ],
+    "operator-connection-capability": [
+      "Yauhen--2025-07-01 15:51:11.600000--WEBCHAT.csv"
+    ],
+    "implement-operator-connection-feature": [
+      "Yauhen--2025-07-01 15:51:11.600000--WEBCHAT.csv"
+    ],
+    "user-request-for-human-operator": [
+      "Yauhen--2025-07-01 15:51:11.600000--WEBCHAT.csv"
+    ],
+    "placement-targeting-selection": [
+      "adam--2025-02-28 07:48:01.205166--WEBCHAT.csv"
+    ],
+    "add capability for users to select ad placements": [
+      "adam--2025-02-28 07:48:01.205166--WEBCHAT.csv"
+    ],
+    "implement direct chat escalation to human agents": [
+      "Yasha --2025-03-24 17:32:41.452409--WEBCHAT.csv"
+    ],
+    "user-request-for-human-contact": [
+      "Yasha --2025-03-24 17:32:41.452409--WEBCHAT.csv"
+    ],
+    "account-permission-issue": [
+      "Yasha --2025-03-24 17:32:41.452409--WEBCHAT.csv"
+    ],
+    "integrate a system for ad review and approval or streamline escalation to human support": [
+      "Yauhen--2025-07-01 15:27:07.359000--WEBCHAT.csv"
+    ],
+    "task-requires-human-intervention": [
+      "Yauhen--2025-07-01 15:27:07.359000--WEBCHAT.csv"
+    ],
+    "direct-human-connection-capability": [
+      "Yauhen--2025-07-30 14:03:22.841000--WEBCHAT.csv"
+    ],
+    "implement-direct-human-connection-feature": [
+      "Yauhen--2025-07-30 14:03:22.841000--WEBCHAT.csv"
+    ],
+    "bot-unable-to-resolve": [
+      "XSZTVDO--2025-08-11 13:00:39.196000--WEBCHAT.csv"
+    ],
+    "repetitive-responses": [
+      "XSZTVDO--2025-08-11 13:00:39.196000--WEBCHAT.csv"
+    ],
+    "integrate direct verification and approval process within the chatbot": [
+      "andi--2025-04-16 19:48:34.391992--WEBCHAT.csv"
+    ],
+    "establish-direct-support-channel-for-third-party-integration-issues": [
+      "Yanin--2025-04-10 07:08:21.096748--WEBCHAT.csv"
+    ],
+    "third-party-integration-issue": [
+      "Yanin--2025-04-10 07:08:21.096748--WEBCHAT.csv"
+    ],
+    "integrate direct editing or feedback system for landing pages": [
+      "XSZTVDO--2025-08-12 01:33:27.468000--WEBCHAT.csv"
+    ],
+    "enhance bot's capability to diagnose specific technical issues or integrate with a system that can provide real-time diagnostics": [
+      "Yevhen--2025-07-14 10:57:36.643000--WEBCHAT.csv"
+    ],
+    "user-confirmed-troubleshooting-steps-ineffective": [
+      "Yevhen--2025-07-14 10:57:36.643000--WEBCHAT.csv"
+    ],
+    "time zone customization": [
+      "adam--2025-03-25 16:33:06.280452--WEBCHAT.csv"
+    ],
+    "add feature to customize account time zone": [
+      "adam--2025-03-25 16:33:06.280452--WEBCHAT.csv"
+    ],
+    "unresolved-campaign-issue": [
+      "adam--2025-03-25 16:33:06.280452--WEBCHAT.csv"
+    ],
+    "direct-ad-cancellation": [
+      "YAN LIU--2025-04-09 21:45:35.325977--WEBCHAT.csv"
+    ],
+    "implement direct ad cancellation feature within the chatbot": [
+      "YAN LIU--2025-04-09 21:45:35.325977--WEBCHAT.csv"
+    ],
+    "bot-cannot-cancel-ad": [
+      "YAN LIU--2025-04-09 21:45:35.325977--WEBCHAT.csv"
+    ],
+    "implement interface-specific guidance for language settings in ad manager": [
+      "Zachary--2025-03-20 05:31:58.742265--WEBCHAT.csv"
+    ],
+    "user-cannot-find-setting": [
+      "Zachary--2025-03-20 05:31:58.742265--WEBCHAT.csv"
+    ],
+    "interface-specific-issue": [
+      "Zachary--2025-03-20 05:31:58.742265--WEBCHAT.csv"
+    ],
+    "enhance bot's capability to diagnose server-side issues or provide direct integration support": [
+      "andy--2025-05-09 02:28:10.715906--WEBCHAT.csv"
+    ],
+    "integrate-escalation-to-human-support": [
+      "aryan--2025-08-05 12:13:17.958000--WEBCHAT.csv"
+    ],
+    "profile-approval-request": [
+      "aryan--2025-08-05 12:13:17.958000--WEBCHAT.csv"
+    ],
+    "duplicate-response": [
+      "aryan--2025-08-05 12:13:17.958000--WEBCHAT.csv"
+    ],
+    "provide language-specific instructions in user's preferred language": [
+      "blue--2025-03-05 17:51:16.859985--WEBCHAT.csv"
+    ],
+    "demographic-data-access": [
+      "brenda--2025-06-16 14:18:36.351000--WEBCHAT.csv"
+    ],
+    "integrate-demographic-data-access": [
+      "brenda--2025-06-16 14:18:36.351000--WEBCHAT.csv"
+    ],
+    "bot-cannot-provide-specific-data": [
+      "brenda--2025-06-16 14:18:36.351000--WEBCHAT.csv"
+    ],
+    "in-chat business information entry and verification": [
+      "awab--2025-06-30 19:16:41.605000--WEBCHAT.csv"
+    ],
+    "implement in-chat business information entry and verification process": [
+      "awab--2025-06-30 19:16:41.605000--WEBCHAT.csv"
+    ],
+    "bot-cannot-process-request-in-chat": [
+      "awab--2025-06-30 19:16:41.605000--WEBCHAT.csv"
+    ],
+    "improve-navigation-guidance-in-ui": [
+      "Tim--2025-07-25 16:24:47.977000--WEBCHAT.csv"
+    ],
+    "expand-platform-specific-integration-guides": [
+      "bvkj--2025-04-11 03:16:56.564336--WEBCHAT.csv"
+    ],
+    "provide-detailed-cost-breakdown-for-postback": [
+      "chen--2025-05-30 13:28:25.055022--WEBCHAT.csv"
+    ],
+    "view-edit-existing-pixel-code": [
+      "carson--2025-03-12 22:52:40.008921--WEBCHAT.csv"
+    ],
+    "implement feature to view and edit existing pixel codes in NewsBreak dashboard": [
+      "carson--2025-03-12 22:52:40.008921--WEBCHAT.csv"
+    ],
+    "integrate with billing system API to verify transactions and resolve discrepancies": [
+      "casearty--2025-03-01 10:02:54.171874--WEBCHAT.csv"
+    ],
+    "integrate-direct-support-channel-for-technical-issues": [
+      "carson oates--2025-04-27 19:55:05.653121--WEBCHAT.csv"
+    ],
+    "user-directed-to-support": [
+      "carson oates--2025-04-27 19:55:05.653121--WEBCHAT.csv"
+    ],
+    "no-specific-error-messages-reported": [
+      "carson oates--2025-04-27 19:55:05.653121--WEBCHAT.csv"
+    ],
+    "ad placement modification capability": [
+      "david laniado--2025-05-23 17:09:05.328234--WEBCHAT.csv"
+    ],
+    "add capability for users to manually select ad placements": [
+      "david laniado--2025-05-23 17:09:05.328234--WEBCHAT.csv"
+    ],
+    "implement-live-walkthrough-support": [
+      "darren--2025-04-14 16:34:56.913525--WEBCHAT.csv"
+    ],
+    "access-to-ad-disapproval-reasons": [
+      "deepak--2025-03-21 05:23:59.663572--WEBCHAT.csv"
+    ],
+    "integrate-system-to-access-ad-disapproval-reasons": [
+      "deepak--2025-03-21 05:23:59.663572--WEBCHAT.csv"
+    ],
+    "bot-cannot-access-specific-ad-disapproval-reasons": [
+      "deepak--2025-03-21 05:23:59.663572--WEBCHAT.csv"
+    ],
+    "integrate ad content verification system": [
+      "bill--2025-04-17 12:28:16.189476--WEBCHAT.csv"
+    ],
+    "bot-cannot-verify-ad-content": [
+      "bill--2025-04-17 12:28:16.189476--WEBCHAT.csv"
+    ],
+    "add troubleshooting steps for MaxConv postback issues": [
+      "chen--2025-03-14 11:09:39.410342--WEBCHAT.csv"
+    ],
+    "bot-cannot-resolve-specific-issue": [
+      "chen--2025-03-14 11:09:39.410342--WEBCHAT.csv"
+    ],
+    "direct pixel code troubleshooting, ad comment feature": [
+      "cheng--2025-03-28 07:09:55.113073--WEBCHAT.csv"
+    ],
+    "implement direct pixel code troubleshooting or provide more detailed diagnostic tools": [
+      "cheng--2025-03-28 07:09:55.113073--WEBCHAT.csv"
+    ],
+    "persistent technical issue": [
+      "cheng--2025-03-28 07:09:55.113073--WEBCHAT.csv"
+    ],
+    "unsupported feature inquiry": [
+      "cheng--2025-03-28 07:09:55.113073--WEBCHAT.csv"
+    ],
+    "add troubleshooting steps for missing dashboard options": [
+      "elhai--2025-06-16 17:22:04.768000--WEBCHAT.csv"
+    ],
+    "user-cannot-find-option": [
+      "elhai--2025-06-16 17:22:04.768000--WEBCHAT.csv"
+    ],
+    "integrate direct support for payment processing issues": [
+      "Vishal--2025-04-29 12:30:34.262060--WEBCHAT.csv"
+    ],
+    "persistent payment issues": [
+      "Vishal--2025-04-29 12:30:34.262060--WEBCHAT.csv"
+    ],
+    "ad credit application delay": [
+      "Vishal--2025-04-29 12:30:34.262060--WEBCHAT.csv"
+    ],
+    "integrate business verification process into chatbot capabilities": [
+      "Wenty Browne--2025-03-02 15:37:19.468352--WEBCHAT.csv"
+    ],
+    "integrate real-time ad status tracking": [
+      "dermy--2025-05-12 13:45:27.645973--WEBCHAT.csv"
+    ],
+    "ad-still-pending": [
+      "dermy--2025-05-12 13:45:27.645973--WEBCHAT.csv"
+    ],
+    "request-for-pub-manager": [
+      "dermy--2025-05-12 13:45:27.645973--WEBCHAT.csv"
+    ],
+    "include detailed documentation on conversion postback time windows": [
+      "alen--2025-06-28 20:41:23.880000--WEBCHAT.csv"
+    ],
+    "lack-of-specific-information": [
+      "alen--2025-06-28 20:41:23.880000--WEBCHAT.csv"
+    ],
+    "account-specific-issue": [
+      "alen--2025-06-28 20:41:23.880000--WEBCHAT.csv"
+    ],
+    "no-specific-time-window-info": [
+      "alen--2025-06-28 20:41:23.880000--WEBCHAT.csv"
+    ],
+    "account-permission-error": [
+      "alen--2025-06-28 20:41:23.880000--WEBCHAT.csv"
+    ],
+    "implement direct escalation to human support for unresolved technical issues": [
+      "azha--2025-02-26 00:21:21.199239--WEBCHAT.csv"
+    ],
+    "enhance bot's ability to handle conflicting user inputs and provide guidance for non-Shopify pixel issues": [
+      "ehh--2025-05-05 17:22:58.664090--WEBCHAT.csv"
+    ],
+    "conflicting platform information": [
+      "ehh--2025-05-05 17:22:58.664090--WEBCHAT.csv"
+    ],
+    "inability to resolve non-Shopify issue": [
+      "ehh--2025-05-05 17:22:58.664090--WEBCHAT.csv"
+    ],
+    "enhance bot's ability to diagnose and resolve specific ad delivery and budget issues": [
+      "Trudy Beerman--2025-03-22 14:22:26.557101--WEBCHAT.csv"
+    ],
+    "persistent-ad-delivery-issue": [
+      "Trudy Beerman--2025-03-22 14:22:26.557101--WEBCHAT.csv"
+    ],
+    "budget-not-spent": [
+      "Trudy Beerman--2025-03-22 14:22:26.557101--WEBCHAT.csv"
+    ],
+    "direct-account-cancellation": [
+      "hayley--2025-04-06 16:24:17.103889--WEBCHAT.csv"
+    ],
+    "implement direct account cancellation feature": [
+      "hayley--2025-04-06 16:24:17.103889--WEBCHAT.csv"
+    ],
+    "requires-manual-processing": [
+      "hayley--2025-04-06 16:24:17.103889--WEBCHAT.csv"
+    ],
+    "integrate system to verify and resend promotional codes directly": [
+      "franco--2025-03-05 14:48:07.471792--WEBCHAT.csv"
+    ],
+    "user-did-not-receive-promotional-code": [
+      "franco--2025-03-05 14:48:07.471792--WEBCHAT.csv"
+    ],
+    "no-response-from-support": [
+      "franco--2025-03-05 14:48:07.471792--WEBCHAT.csv",
+      "mun--2025-03-19 18:27:00.568146--WEBCHAT.csv"
+    ],
+    "support-team-non-responsive": [
+      "franco--2025-03-05 14:48:07.471792--WEBCHAT.csv"
+    ],
+    "implement direct support for resolving pending ad issues": [
+      "frank flores--2025-02-28 16:31:23.103796--WEBCHAT.csv"
+    ],
+    "unresolved-pending-ad-issue": [
+      "frank flores--2025-02-28 16:31:23.103796--WEBCHAT.csv"
+    ],
+    "API permission management and troubleshooting": [
+      "atakan göl--2025-07-09 21:51:26.358000--WEBCHAT.csv"
+    ],
+    "integrate API permission management and troubleshooting capabilities": [
+      "atakan göl--2025-07-09 21:51:26.358000--WEBCHAT.csv"
+    ],
+    "bot-cannot-modify-permissions": [
+      "atakan göl--2025-07-09 21:51:26.358000--WEBCHAT.csv"
+    ],
+    "bot-cannot-bypass-account": [
+      "gareth--2025-08-14 12:28:21.083000--WEBCHAT.csv"
+    ],
+    "ad-content-modification-capability": [
+      "greenegraeme5--2025-04-25 06:19:30.964414--WEBCHAT.csv"
+    ],
+    "implement a feature to assist users in modifying ad content to meet policy requirements": [
+      "greenegraeme5--2025-04-25 06:19:30.964414--WEBCHAT.csv"
+    ],
+    "add-feature-to-provide-specific-placement-performance-data": [
+      "jyothika--2025-08-14 18:01:36.629000--WEBCHAT.csv"
+    ],
+    "implement real-time debugging support or live chat with a human agent for complex integration issues": [
+      "hapsi--2025-05-19 01:32:33.090388--WEBCHAT.csv"
+    ],
+    "integrate ad approval workflow with human oversight for endorsement issues": [
+      "jacob holstein--2025-06-22 01:58:06.702000--WEBCHAT.csv"
+    ],
+    "endorsement-dispute": [
+      "jacob holstein--2025-06-22 01:58:06.702000--WEBCHAT.csv"
+    ],
+    "implement direct account and credit card deletion functionality": [
+      "jeff glass--2025-03-01 01:01:27.524315--WEBCHAT.csv"
+    ],
+    "bot-cannot-perform-request": [
+      "jeff glass--2025-03-01 01:01:27.524315--WEBCHAT.csv"
+    ],
+    "user-reported-failure": [
+      "jeff glass--2025-03-01 01:01:27.524315--WEBCHAT.csv"
+    ],
+    "integrate pixel verification tool to assist users in real-time": [
+      "jack--2025-05-23 15:41:35.945840--WEBCHAT.csv"
+    ],
+    "bot-cannot-verify-pixel": [
+      "jack--2025-05-23 15:41:35.945840--WEBCHAT.csv"
+    ],
+    "user-needs-to-test-purchase": [
+      "jack--2025-05-23 15:41:35.945840--WEBCHAT.csv"
+    ],
+    "delete-payment-method-functionality": [
+      "katie--2025-07-11 00:14:12.843000--WEBCHAT.csv"
+    ],
+    "implement-payment-method-deletion-feature": [
+      "katie--2025-07-11 00:14:12.843000--WEBCHAT.csv"
+    ],
+    "implement feature to identify and communicate specific rejected images": [
+      "jacob--2025-03-10 18:16:49.936543--WEBCHAT.csv"
+    ],
+    "specific-image-identification-needed": [
+      "jacob--2025-03-10 18:16:49.936543--WEBCHAT.csv"
+    ],
+    "email-not-received": [
+      "jacob--2025-03-10 18:16:49.936543--WEBCHAT.csv"
+    ],
+    "integrate advanced troubleshooting capabilities for pixel issues": [
+      "jeff--2025-04-18 22:31:41.739355--WEBCHAT.csv"
+    ],
+    "user-role-management": [
+      "jun--2025-05-27 07:09:28.363098--WEBCHAT.csv"
+    ],
+    "add-user-role-management-capability": [
+      "jun--2025-05-27 07:09:28.363098--WEBCHAT.csv"
+    ],
+    "user-role-management-required": [
+      "jun--2025-05-27 07:09:28.363098--WEBCHAT.csv"
+    ],
+    "implement live chat or phone support transfer capability": [
+      "jane--2025-08-09 12:23:43.487000--WEBCHAT.csv"
+    ],
+    "implement-contextual-analysis-capability": [
+      "jordan greve--2025-06-11 12:19:04.480000--WEBCHAT.csv"
+    ],
+    "insufficient-information-from-user": [
+      "jordan greve--2025-06-11 12:19:04.480000--WEBCHAT.csv"
+    ],
+    "support-for-chinese-language": [
+      "lucy --2025-04-21 09:16:51.627385--WEBCHAT.csv"
+    ],
+    "expand-language-support-to-include-chinese": [
+      "lucy --2025-04-21 09:16:51.627385--WEBCHAT.csv"
+    ],
+    "access-token-management-interface": [
+      "joseph.xiang--2025-08-16 06:41:08.775000--WEBCHAT.csv"
+    ],
+    "add-access-token-management-interface": [
+      "joseph.xiang--2025-08-16 06:41:08.775000--WEBCHAT.csv"
+    ],
+    "requires-access-token-management-interface": [
+      "joseph.xiang--2025-08-16 06:41:08.775000--WEBCHAT.csv"
+    ],
+    "api-documentation-needed": [
+      "joseph.xiang--2025-08-16 06:41:08.775000--WEBCHAT.csv"
+    ],
+    "implement automated verification status updates": [
+      "lizzy--2025-04-07 17:43:59.270122--WEBCHAT.csv"
+    ],
+    "user-requested-human-service": [
+      "lizzy--2025-04-07 17:43:59.270122--WEBCHAT.csv"
+    ],
+    "verification-process-requires-human": [
+      "lizzy--2025-05-27 18:22:19.342290--WEBCHAT.csv"
+    ],
+    "integrate direct support ticket system for unresolved issues": [
+      "julieshanap131--2025-06-16 16:05:51.889000--WEBCHAT.csv"
+    ],
+    "support-contact-issue": [
+      "julieshanap131--2025-06-16 16:05:51.889000--WEBCHAT.csv"
+    ],
+    "implement automated account verification process": [
+      "micah--2025-04-18 14:29:27.433757--WEBCHAT.csv"
+    ],
+    "integrate image recognition to assist with visual troubleshooting": [
+      "alen--2025-06-11 16:42:43.588000--WEBCHAT.csv"
+    ],
+    "unresolved high CPM issue": [
+      "alen--2025-06-11 16:42:43.588000--WEBCHAT.csv"
+    ],
+    "lack of response from support": [
+      "alen--2025-06-11 16:42:43.588000--WEBCHAT.csv"
+    ],
+    "implement personalized guidance for experienced users": [
+      "marthia --2025-05-14 14:29:58.888019--WEBCHAT.csv"
+    ],
+    "user-needed-specific-guidance": [
+      "marthia --2025-05-14 14:29:58.888019--WEBCHAT.csv"
+    ],
+    "integrate-system-to-provide-specific-rejection-reasons": [
+      "matt hoyler--2025-04-24 03:44:15.433347--WEBCHAT.csv"
+    ],
+    "specific-rejection-reason-not-accessible": [
+      "matt hoyler--2025-04-24 03:44:15.433347--WEBCHAT.csv"
+    ],
+    "integrate direct invoice download functionality or provide clearer troubleshooting steps": [
+      "matteo--2025-07-03 10:13:42.317000--WEBCHAT.csv"
+    ],
+    "permissions-issue": [
+      "matteo--2025-07-03 10:13:42.317000--WEBCHAT.csv",
+      "matteo--2025-07-03 10:13:42.317000--WEBCHAT.csv"
+    ],
+    "display-error": [
+      "matteo--2025-07-03 10:13:42.317000--WEBCHAT.csv"
+    ],
+    "no-link-visible": [
+      "matteo--2025-07-03 10:13:42.317000--WEBCHAT.csv"
+    ],
+    "bulk-zip-code-entry-with-city-state": [
+      "marthia --2025-05-14 21:45:17.678109--WEBCHAT.csv"
+    ],
+    "implement-bulk-zip-code-entry-feature": [
+      "marthia --2025-05-14 21:45:17.678109--WEBCHAT.csv"
+    ],
+    "complexity-of-bulk-entry": [
+      "marthia --2025-05-14 21:45:17.678109--WEBCHAT.csv"
+    ],
+    "manual-entry-requirement": [
+      "marthia --2025-05-14 21:45:17.678109--WEBCHAT.csv"
+    ],
+    "user-requested-additional-help": [
+      "naifu--2025-02-07 19:26:17.827051--WEBCHAT.csv"
+    ],
+    "integrate-direct-language-change-feature": [
+      "micki--2025-05-13 07:32:35.646673--WEBCHAT.csv"
+    ],
+    "web-event-deletion": [
+      "mohit--2025-07-29 07:25:26.461000--WEBCHAT.csv"
+    ],
+    "implement-web-event-deletion-feature": [
+      "mohit--2025-07-29 07:25:26.461000--WEBCHAT.csv"
+    ],
+    "implement-profile-correction-workflow": [
+      "nutribinature--2025-06-25 20:27:47.596000--WEBCHAT.csv"
+    ],
+    "integrate system to allow bots to provide specific reasons for ad rejection or initiate resolution process": [
+      "penny--2025-05-16 11:08:05.743666--WEBCHAT.csv"
+    ],
+    "ad-rejection-requires-human-review": [
+      "penny--2025-05-16 11:08:05.743666--WEBCHAT.csv"
+    ],
+    "implement direct escalation to support team for unresolved ad review issues": [
+      "mun--2025-03-19 18:27:00.568146--WEBCHAT.csv"
+    ],
+    "ad content analysis and offer eligibility check": [
+      "ori--2025-03-04 12:00:41.792911--WEBCHAT.csv"
+    ],
+    "integrate ad content analysis and offer eligibility check capabilities": [
+      "ori--2025-03-04 12:00:41.792911--WEBCHAT.csv"
+    ],
+    "buygood-network-integration-guidance": [
+      "pedro--2025-07-11 16:16:13.908000--WEBCHAT.csv"
+    ],
+    "add-buygood-network-integration-instructions": [
+      "pedro--2025-07-11 16:16:13.908000--WEBCHAT.csv"
+    ],
+    "integrate ad review expedition feature, enhance card issue troubleshooting, provide video monetization guidance": [
+      "alex--2025-07-27 07:11:27.552000--WEBCHAT.csv"
+    ],
+    "need-for-ad-review-expedition": [
+      "alex--2025-07-27 07:11:27.552000--WEBCHAT.csv"
+    ],
+    "lack-of-response-from-support": [
+      "alex--2025-07-27 07:11:27.552000--WEBCHAT.csv"
+    ],
+    "integrate with billing system API for real-time transaction and billing issue resolution": [
+      "parth--2025-03-07 16:51:24.429955--WEBCHAT.csv"
+    ],
+    "transaction-declines": [
+      "parth--2025-03-07 16:51:24.429955--WEBCHAT.csv"
+    ],
+    "integrate real-time campaign diagnostics to identify and resolve ad delivery issues": [
+      "roxy--2025-04-23 02:08:30.479703--WEBCHAT.csv"
+    ],
+    "complex-campaign-issue": [
+      "roxy--2025-04-23 02:08:30.479703--WEBCHAT.csv"
+    ],
+    "bot-cannot-resolve": [
+      "roxy--2025-04-23 02:08:30.479703--WEBCHAT.csv"
+    ],
+    "enhance bot's ability to troubleshoot specific integration errors": [
+      "rachit--2025-07-25 10:18:45.580000--WEBCHAT.csv"
+    ],
+    "implement cryptocurrency payment options": [
+      "patel harshil--2025-04-30 10:36:22.952499--WEBCHAT.csv"
+    ],
+    "unresolved-payment-issue": [
+      "patel harshil--2025-04-30 10:36:22.952499--WEBCHAT.csv"
+    ],
+    "lack-of-cryptocurrency-support": [
+      "patel harshil--2025-04-30 10:36:22.952499--WEBCHAT.csv"
+    ],
+    "live-chat-escalation": [
+      "sharath--2025-04-02 12:44:27.631436--WEBCHAT.csv"
+    ],
+    "implement-live-chat-escalation-feature": [
+      "sharath--2025-04-02 12:44:27.631436--WEBCHAT.csv"
+    ],
+    "user-requested-live-chat": [
+      "sharath--2025-04-02 12:44:27.631436--WEBCHAT.csv"
+    ],
+    "implement direct escalation to human support for unresolved issues": [
+      "qiaosen--2025-07-02 02:27:27.394000--WEBCHAT.csv"
+    ],
+    "user-repeatedly-requested-human-support": [
+      "qiaosen--2025-07-02 02:27:27.394000--WEBCHAT.csv"
+    ],
+    "user-expressed-dissatisfaction": [
+      "qiaosen--2025-07-02 02:27:27.394000--WEBCHAT.csv"
+    ],
+    "direct-dashboard-navigation-support": [
+      "shahul meeran--2025-03-06 03:46:07.340972--WEBCHAT.csv"
+    ],
+    "integrate direct dashboard navigation support for business verification": [
+      "shahul meeran--2025-03-06 03:46:07.340972--WEBCHAT.csv"
+    ],
+    "incorrect-guidance": [
+      "shahul meeran--2025-03-06 03:46:07.340972--WEBCHAT.csv"
+    ],
+    "incorrect-resource-link": [
+      "shahul meeran--2025-03-06 03:46:07.340972--WEBCHAT.csv"
+    ],
+    "expand-payment-methods-to-include-paypal": [
+      "shetty--2025-05-05 13:03:27.497556--WEBCHAT.csv"
+    ],
+    "language change capability": [
+      "ry--2025-05-14 21:11:22.807024--WEBCHAT.csv"
+    ],
+    "add language change functionality": [
+      "ry--2025-05-14 21:11:22.807024--WEBCHAT.csv"
+    ],
+    "language-change-not-supported": [
+      "ry--2025-05-14 21:11:22.807024--WEBCHAT.csv"
+    ],
+    "integrate live chat support feature": [
+      "sonny--2025-08-07 03:44:47.684000--WEBCHAT.csv"
+    ],
+    "direct-meeting-scheduling": [
+      "shaun--2025-07-09 17:49:37.545000--WEBCHAT.csv"
+    ],
+    "add direct meeting scheduling for eligible users": [
+      "shaun--2025-07-09 17:49:37.545000--WEBCHAT.csv"
+    ],
+    "user-needs-verification": [
+      "shaun--2025-07-09 17:49:37.545000--WEBCHAT.csv"
+    ],
+    "implement feedback loop for user confirmation on issue resolution": [
+      "sachin--2025-04-09 10:24:49.447708--WEBCHAT.csv"
+    ],
+    "complex-issue-requires-human": [
+      "sachin--2025-04-09 10:24:49.447708--WEBCHAT.csv"
+    ],
+    "integrate with payment processing system to handle authorization issues": [
+      "sid--2025-04-21 14:25:29.181091--WEBCHAT.csv"
+    ],
+    "payment-authorization-failure": [
+      "sid--2025-04-21 14:25:29.181091--WEBCHAT.csv"
+    ],
+    "international-targeting-capability": [
+      "shivani--2025-06-24 13:04:40.636000--WEBCHAT.csv"
+    ],
+    "implement international targeting options or clarify targeting limitations upfront": [
+      "shivani--2025-06-24 13:04:40.636000--WEBCHAT.csv"
+    ],
+    "location-targeting-restriction": [
+      "shivani--2025-06-24 13:04:40.636000--WEBCHAT.csv"
+    ],
+    "ability to modify video ad size limit": [
+      "ryan--2025-05-13 19:09:41.635494--WEBCHAT.csv"
+    ],
+    "implement a feature to allow larger video uploads or provide a compression tool": [
+      "ryan--2025-05-13 19:09:41.635494--WEBCHAT.csv"
+    ],
+    "user-request-exceeds-system-capabilities": [
+      "ryan--2025-05-13 19:09:41.635494--WEBCHAT.csv"
+    ],
+    "user-needs-human-contact": [
+      "ryan--2025-05-13 19:09:41.635494--WEBCHAT.csv"
+    ],
+    "implement direct live agent chat feature": [
+      "az--2025-01-14 21:31:15.494692--WEBCHAT.csv"
+    ],
+    "integrate with billing system API for detailed charge explanations and add pixel management feature": [
+      "ryan--2025-02-20 23:55:38.896528--WEBCHAT.csv"
+    ],
+    "billing issue unresolved": [
+      "ryan--2025-02-20 23:55:38.896528--WEBCHAT.csv"
+    ],
+    "specific pixel information needed": [
+      "ryan--2025-02-20 23:55:38.896528--WEBCHAT.csv"
+    ],
+    "optimize-response-time": [
+      "test--2025-08-14 20:02:40.130000--WEBCHAT.csv"
+    ],
+    "response-delay-notification": [
+      "test--2025-08-14 20:02:40.130000--WEBCHAT.csv"
+    ],
+    "implement a system for seamless escalation to human agents for complex issues": [
+      "shub--2025-06-17 21:36:22.905000--WEBCHAT.csv"
+    ],
+    "implement a system to automatically check and update account eligibility for adding ad credits": [
+      "sumit--2025-08-16 13:28:50.333000--WEBCHAT.csv"
+    ],
+    "eligibility-requirements": [
+      "sumit--2025-08-16 13:28:50.333000--WEBCHAT.csv"
+    ],
+    "integrate business verification workflow": [
+      "ulgz--2025-08-11 01:58:41.710000--WEBCHAT.csv"
+    ],
+    "profile-verification-required": [
+      "ulgz--2025-08-11 01:58:41.710000--WEBCHAT.csv"
+    ],
+    "integrate real-time interface navigation assistance": [
+      "steve m--2025-06-01 03:08:58.923832--WEBCHAT.csv"
+    ],
+    "interface-change-uncertainty": [
+      "steve m--2025-06-01 03:08:58.923832--WEBCHAT.csv"
+    ],
+    "lookalike audience creation, direct upload for media plans": [
+      "ett--2025-04-02 22:48:03.012275--WEBCHAT.csv"
+    ],
+    "implement lookalike audience creation feature, add direct upload functionality for media plans": [
+      "ett--2025-04-02 22:48:03.012275--WEBCHAT.csv"
+    ],
+    "lack of direct upload feature": [
+      "ett--2025-04-02 22:48:03.012275--WEBCHAT.csv"
+    ],
+    "direct-ad-credit-addition": [
+      "zakir--2025-05-20 11:44:07.301620--WEBCHAT.csv"
+    ],
+    "implement a system to handle ad credit requests for users not meeting current criteria": [
+      "zakir--2025-05-20 11:44:07.301620--WEBCHAT.csv"
+    ],
+    "expand-support-for-Pure-CPA": [
+      "vikingmedia--2025-03-31 08:51:11.267490--WEBCHAT.csv"
+    ],
+    "human-agent-transfer": [
+      "yasser--2025-07-22 17:36:53.561000--WEBCHAT.csv"
+    ],
+    "bot-cannot-transfer-to-human-agent": [
+      "yasser--2025-07-22 17:36:53.561000--WEBCHAT.csv"
+    ],
+    "update bot knowledge base with correct ClickBank parameter information": [
+      "tarun--2025-04-03 09:03:51.673188--WEBCHAT.csv"
+    ],
+    "bot-provided-incorrect-information": [
+      "tarun--2025-04-03 09:03:51.673188--WEBCHAT.csv"
+    ],
+    "user-received-conflicting-advice": [
+      "tarun--2025-04-03 09:03:51.673188--WEBCHAT.csv"
+    ],
+    "incorrect-parameter-advice": [
+      "tarun--2025-04-03 09:03:51.673188--WEBCHAT.csv"
+    ],
+    "integrate with billing system API for direct issue resolution": [
+      "wxn--2025-04-02 01:45:44.057209--WEBCHAT.csv"
+    ],
+    "billing-issue-unresolved": [
+      "wxn--2025-04-02 01:45:44.057209--WEBCHAT.csv"
+    ],
+    "campaign-spending-issue-unresolved": [
+      "wxn--2025-04-02 01:45:44.057209--WEBCHAT.csv"
+    ],
+    "integrate real-time status check for account verification": [
+      "whalemo--2025-04-14 07:12:27.634533--WEBCHAT.csv"
+    ],
+    "user-follow-up-required": [
+      "whalemo--2025-04-14 07:12:27.634533--WEBCHAT.csv"
+    ],
+    "integrate real-time chat support for technical issues": [
+      "rory--2025-07-04 20:24:49.281000--WEBCHAT.csv"
+    ],
+    "direct campaign management and API pricing information": [
+      "k--2025-07-07 15:25:45.582000--WEBCHAT.csv"
+    ],
+    "integrate direct campaign management features and detailed API pricing information": [
+      "k--2025-07-07 15:25:45.582000--WEBCHAT.csv"
+    ],
+    "bulk edit functionality": [
+      "mun--2025-03-20 22:19:39.487157--WEBCHAT.csv"
+    ],
+    "implement bulk edit functionality for ad headlines": [
+      "mun--2025-03-20 22:19:39.487157--WEBCHAT.csv"
+    ],
+    "user-dissatisfaction-with-support-response": [
+      "mun--2025-03-20 22:19:39.487157--WEBCHAT.csv"
+    ],
+    "integrate account status API for real-time updates": [
+      "sofiaclarkooybvmpy--2025-04-10 13:45:49.196345--WEBCHAT.csv"
+    ],
+    "billing-inquiry": [
+      "sofiaclarkooybvmpy--2025-04-10 13:45:49.196345--WEBCHAT.csv"
+    ],
+    "suspicious-activity-flag": [
+      "sofiaclarkooybvmpy--2025-04-10 13:45:49.196345--WEBCHAT.csv"
+    ],
+    "integrate-support-ticket-submission-feature": [
+      "zhou--2025-08-08 06:21:14.020000--WEBCHAT.csv"
+    ],
+    "need-for-custom-exclusion": [
+      "zhou--2025-08-08 06:21:14.020000--WEBCHAT.csv"
+    ],
+    "real-time-ad-status-check": [
+      "Taylor Newman--2025-04-23 14:53:04.625854--WEBCHAT.csv"
+    ],
+    "integrate real-time ad status tracking system": [
+      "Taylor Newman--2025-04-23 14:53:04.625854--WEBCHAT.csv"
+    ]
+  },
+  "successful_capabilities": {
+    "account-verification-guidance": [
+      "Abhishek Patel--2025-03-23 08:12:56.594428--WEBCHAT.csv"
+    ],
+    "campaign-activation-instructions": [
+      "Abhishek Patel--2025-03-23 08:12:56.594428--WEBCHAT.csv"
+    ],
+    "information-gathering": [
+      "Andy--2025-03-26 12:34:19.409589--WEBCHAT.csv",
+      "Aris--2025-03-04 07:51:33.913060--WEBCHAT.csv",
+      "Jai Singh--2025-06-26 17:12:01.319000--WEBCHAT.csv",
+      "John Rowady--2025-05-20 14:58:10.582832--WEBCHAT.csv",
+      "Kyle Martin--2025-07-28 16:27:45.587000--WEBCHAT.csv",
+      "Regina McLean--2025-06-04 16:43:21.586568--WEBCHAT.csv",
+      "Rutvik Vasani--2025-06-30 12:55:59.549000--WEBCHAT.csv",
+      "test--2025-08-14 20:02:40.130000--WEBCHAT.csv"
+    ],
+    "escalation-handling": [
+      "Andy--2025-03-26 12:34:19.409589--WEBCHAT.csv",
+      "Kim Test--2025-01-31 01:11:23.965027--WEBCHAT.csv",
+      "Mohit--2025-02-28 10:19:53.739916--WEBCHAT.csv",
+      "Polite Arrangement 9a21777918--2025-02-27 06:40:08.562648--WEBCHAT.csv"
+    ],
+    "policy-clarification": [
+      "Amanda--2025-08-14 22:54:44.818000--WEBCHAT.csv",
+      "Ali--2025-05-30 16:55:53.561481--WEBCHAT.csv",
+      "Anait--2025-03-20 12:15:56.626556--WEBCHAT.csv",
+      "Agustin Herebia--2025-07-23 12:25:02.841000--WEBCHAT.csv",
+      "Anna--2025-02-27 08:30:15.485575--WEBCHAT.csv",
+      "Alexander Klee--2025-07-22 11:15:04.723000--WEBCHAT.csv",
+      "Antonio --2025-03-13 14:24:48.367277--WEBCHAT.csv",
+      "Ben--2025-03-06 11:38:42.547869--WEBCHAT.csv",
+      "Anna--2025-08-11 03:53:14.195000--WEBCHAT.csv",
+      "Bishal--2025-07-22 11:42:29.626000--WEBCHAT.csv",
+      "Brad--2025-07-09 02:18:27.584000--WEBCHAT.csv",
+      "Artem--2025-06-16 18:03:28.206000--WEBCHAT.csv",
+      "Bruno--2025-07-04 02:23:07.807000--WEBCHAT.csv",
+      "Anna--2025-03-27 12:15:20.221545--WEBCHAT.csv",
+      "CHEN--2025-07-15 13:16:39.531000--WEBCHAT.csv",
+      "Constance--2025-05-21 21:50:47.889112--WEBCHAT.csv",
+      "Dalikh--2025-04-30 15:08:15.250341--WEBCHAT.csv",
+      "Daniele--2025-06-30 13:46:47.847000--WEBCHAT.csv",
+      "Connor--2025-05-01 13:56:10.018352--WEBCHAT.csv",
+      "Daniel Merki--2025-04-22 20:58:51.239950--WEBCHAT.csv",
+      "Dejvis--2025-08-07 19:16:42.151000--WEBCHAT.csv",
+      "ENOCH SHAW--2025-03-26 21:25:13.277629--WEBCHAT.csv",
+      "Francisco Valenzuela--2025-04-24 13:59:44.573466--WEBCHAT.csv",
+      "Frank--2025-05-04 19:01:30.396149--WEBCHAT.csv",
+      "Gary--2025-08-04 11:00:23.207000--WEBCHAT.csv",
+      "Fancy Bounce 8a694293f2--2025-02-27 07:27:49.457010--WEBCHAT.csv",
+      "Forrest--2025-07-21 17:43:26.834000--WEBCHAT.csv",
+      "Hillary--2025-04-25 20:48:19.304963--WEBCHAT.csv",
+      "Itamar--2025-04-25 16:42:12.231373--WEBCHAT.csv",
+      "Imran--2025-05-19 19:39:47.572571--WEBCHAT.csv",
+      "Jessie--2025-03-19 09:40:58.435302--WEBCHAT.csv",
+      "Jonathan--2025-04-18 14:58:33.083467--WEBCHAT.csv",
+      "Jones--2025-04-08 12:17:52.833049--WEBCHAT.csv",
+      "Kaio--2025-06-20 22:31:52.728000--WEBCHAT.csv",
+      "Karen--2025-05-28 06:17:25.253005--WEBCHAT.csv",
+      "Kasparas--2025-03-12 17:02:13.184900--WEBCHAT.csv",
+      "Kevin--2025-08-07 07:36:03.097000--WEBCHAT.csv",
+      "LUCA--2025-07-29 03:19:34.010000--WEBCHAT.csv",
+      "Lo Trang Lam--2025-08-15 00:39:11.880000--WEBCHAT.csv",
+      "Han--2025-03-25 16:32:14.927473--WEBCHAT.csv",
+      "Maxx Lipman--2025-08-07 15:34:32.536000--WEBCHAT.csv",
+      "Miles Baker--2025-04-28 20:48:11.656804--WEBCHAT.csv",
+      "Mirella Yzaguirre--2025-04-26 18:41:45.268408--WEBCHAT.csv",
+      "Noval--2025-06-11 08:43:16.389000--WEBCHAT.csv",
+      "Nikola--2025-05-09 08:56:37.186223--WEBCHAT.csv",
+      "Regina McLean--2025-06-04 16:43:21.586568--WEBCHAT.csv",
+      "Ordered Soldier 1b08ddaa06--2025-03-03 15:20:20.416271--WEBCHAT.csv",
+      "Ryan--2025-08-11 19:54:37.634000--WEBCHAT.csv",
+      "Ryan--2025-03-06 00:32:24.811843--WEBCHAT.csv",
+      "Sakshi--2025-04-20 05:52:43.957214--WEBCHAT.csv",
+      "Shiva--2025-07-09 05:09:18.984000--WEBCHAT.csv",
+      "Sharath--2025-07-04 08:20:02.980000--WEBCHAT.csv",
+      "Prince--2025-05-15 11:34:54.765179--WEBCHAT.csv",
+      "Some Analog 816acc408e--2025-03-04 09:53:43.572647--WEBCHAT.csv",
+      "Stef--2025-08-06 14:14:57.742000--WEBCHAT.csv",
+      "Steve Gong--2025-03-13 01:47:58.655325--WEBCHAT.csv",
+      "Suvi--2025-04-20 15:28:48.574570--WEBCHAT.csv",
+      "Sunni--2025-07-13 16:08:19.534000--WEBCHAT.csv",
+      "Steve--2025-07-10 01:23:57.229000--WEBCHAT.csv",
+      "Thin Sheave c73cc5a170--2025-01-16 03:16:04.777784--WEBCHAT.csv",
+      "Thomas--2025-03-28 12:42:18.450148--WEBCHAT.csv",
+      "Thiago--2025-07-16 00:58:40.798000--WEBCHAT.csv",
+      "Tijn va--2025-06-25 17:11:24.062000--WEBCHAT.csv",
+      "Tinashe--2025-03-18 09:54:01.718060--WEBCHAT.csv",
+      "Varun Sharma--2025-05-27 06:41:01.096937--WEBCHAT.csv",
+      "Vivek--2025-07-09 21:14:57.979000--WEBCHAT.csv",
+      "Whalemo--2025-04-11 07:17:27.656430--WEBCHAT.csv",
+      "Vince Czaplyski--2025-04-25 19:51:28.663706--WEBCHAT.csv",
+      "Wilson--2025-03-07 06:10:07.677133--WEBCHAT.csv",
+      "alekosaldanaybz--2025-06-06 02:25:01.209000--WEBCHAT.csv",
+      "Tatiana--2025-07-31 20:43:44.483000--WEBCHAT.csv",
+      "cazaresmary290--2025-06-06 04:48:33.103000--WEBCHAT.csv",
+      "Tim--2025-07-25 16:24:47.977000--WEBCHAT.csv",
+      "bvkj--2025-04-11 03:16:56.564336--WEBCHAT.csv",
+      "gu bassi--2025-06-30 19:09:36.099000--WEBCHAT.csv",
+      "Trevor--2025-03-19 21:53:48.198879--WEBCHAT.csv",
+      "gen--2025-07-18 22:31:24.956000--WEBCHAT.csv",
+      "jyothika--2025-08-14 18:01:36.629000--WEBCHAT.csv",
+      "kishi--2025-05-28 10:43:35.551180--WEBCHAT.csv",
+      "naifu--2025-02-07 19:26:17.827051--WEBCHAT.csv",
+      "obenaufjayla893--2025-05-23 02:02:12.606324--WEBCHAT.csv",
+      "sambranooktavec--2025-04-17 02:00:55.239667--WEBCHAT.csv",
+      "shetty--2025-05-05 13:03:27.497556--WEBCHAT.csv",
+      "ryan--2025-02-20 21:50:49.053804--WEBCHAT.csv",
+      "saven--2025-05-10 20:41:15.468021--WEBCHAT.csv",
+      "wang--2025-04-09 07:02:34.809162--WEBCHAT.csv",
+      "vikingmedia--2025-03-31 08:51:11.267490--WEBCHAT.csv",
+      "wang--2025-02-27 08:21:47.200157--WEBCHAT.csv",
+      "zuninoroxana883--2025-05-18 15:52:06.866180--WEBCHAT.csv",
+      "x--2025-06-03 16:38:34.801966--WEBCHAT.csv",
+      "Leo--2025-08-13 17:54:58.598000--WEBCHAT.csv"
+    ],
+    "information-provision": [
+      "Amanda--2025-08-14 22:54:44.818000--WEBCHAT.csv",
+      "Agustin Herebia--2025-07-23 12:25:02.841000--WEBCHAT.csv",
+      "Antonio --2025-03-13 14:24:48.367277--WEBCHAT.csv",
+      "Artem--2025-03-17 12:23:25.665446--WEBCHAT.csv",
+      "Anna--2025-08-11 03:53:14.195000--WEBCHAT.csv",
+      "Dalibor--2025-03-13 11:57:17.168665--WEBCHAT.csv",
+      "Deema Towers--2025-04-29 17:08:27.496280--WEBCHAT.csv",
+      "Ian--2025-05-23 18:26:24.304951--WEBCHAT.csv",
+      "Jones--2025-04-08 12:17:52.833049--WEBCHAT.csv",
+      "Lou--2025-03-14 19:10:52.663685--WEBCHAT.csv",
+      "Marek Kubasiak--2025-05-15 08:10:23.264845--WEBCHAT.csv",
+      "Mike--2025-04-01 09:05:31.815477--WEBCHAT.csv",
+      "Mirella Yzaguirre--2025-04-26 18:41:45.268408--WEBCHAT.csv",
+      "Nathaniel--2025-04-08 02:01:16.028281--WEBCHAT.csv",
+      "Nazma--2025-05-17 09:54:57.285231--WEBCHAT.csv",
+      "Phuong--2025-07-10 09:49:18.035000--WEBCHAT.csv",
+      "Pratik--2025-07-28 13:12:39.441000--WEBCHAT.csv",
+      "Peter Schaub--2025-05-11 09:43:18.060754--WEBCHAT.csv",
+      "Steve Gong--2025-03-13 01:47:58.655325--WEBCHAT.csv",
+      "alan--2025-03-31 16:34:41.927527--WEBCHAT.csv",
+      "cazaresmary290--2025-06-06 04:48:33.103000--WEBCHAT.csv",
+      "chen--2025-05-30 13:28:25.055022--WEBCHAT.csv",
+      "gu bassi--2025-06-30 19:09:36.099000--WEBCHAT.csv",
+      "hello--2025-05-16 06:06:22.293370--WEBCHAT.csv",
+      "obenaufjayla893--2025-05-23 02:02:12.606324--WEBCHAT.csv",
+      "steve--2025-08-09 03:14:06.784000--WEBCHAT.csv",
+      "zhaodaocrumb--2025-03-15 14:34:35.655372--WEBCHAT.csv"
+    ],
+    "instruction-provision": [
+      "Ali--2025-05-30 16:55:53.561481--WEBCHAT.csv",
+      "micki--2025-05-13 07:32:35.646673--WEBCHAT.csv"
+    ],
+    "multi-step-instruction": [
+      "Amanda Morales--2025-05-10 17:17:46.392263--WEBCHAT.csv",
+      "Anna--2025-03-06 13:44:48.222224--WEBCHAT.csv",
+      "Ben--2025-03-06 11:38:42.547869--WEBCHAT.csv",
+      "Anuj Sood--2025-07-09 20:09:43.090000--WEBCHAT.csv",
+      "Bishal--2025-07-22 11:42:29.626000--WEBCHAT.csv",
+      "Artem--2025-06-16 18:03:28.206000--WEBCHAT.csv",
+      "Andrew--2025-04-02 02:41:34.012286--WEBCHAT.csv",
+      "Boris--2025-07-10 06:45:02.412000--WEBCHAT.csv",
+      "Constance--2025-05-12 17:22:52.332652--WEBCHAT.csv",
+      "Daniel--2025-04-09 12:06:23.881068--WEBCHAT.csv",
+      "Daniele--2025-06-30 13:46:47.847000--WEBCHAT.csv",
+      "Danny Greeson--2025-05-06 18:10:06.646082--WEBCHAT.csv",
+      "Connor--2025-05-01 13:56:10.018352--WEBCHAT.csv",
+      "Daria--2025-03-07 09:41:08.899373--WEBCHAT.csv",
+      "Dejvis--2025-08-07 19:16:42.151000--WEBCHAT.csv",
+      "Divine--2025-07-22 20:48:13.756000--WEBCHAT.csv",
+      "Divine--2025-07-22 19:33:29.608000--WEBCHAT.csv",
+      "Evgenii--2025-06-13 07:46:50.007000--WEBCHAT.csv",
+      "Gary--2025-04-05 21:10:47.167923--WEBCHAT.csv",
+      "Frank--2025-05-04 19:01:30.396149--WEBCHAT.csv",
+      "Fancy Bounce 8a694293f2--2025-02-27 07:27:49.457010--WEBCHAT.csv",
+      "Hugo --2025-04-28 18:54:42.104177--WEBCHAT.csv",
+      "Hugo--2025-06-02 20:34:00.470679--WEBCHAT.csv",
+      "Igal--2025-06-05 12:57:01.652387--WEBCHAT.csv",
+      "Itamar--2025-04-25 16:42:12.231373--WEBCHAT.csv",
+      "Imran--2025-05-19 19:39:47.572571--WEBCHAT.csv",
+      "Jason--2025-03-16 19:58:46.211158--WEBCHAT.csv",
+      "Jessie--2025-03-19 09:40:58.435302--WEBCHAT.csv",
+      "Jingming_test--2025-04-16 07:00:18.083552--WEBCHAT.csv",
+      "Jessie--2025-03-19 09:43:57.122056--WEBCHAT.csv",
+      "Jonathan--2025-04-18 14:58:33.083467--WEBCHAT.csv",
+      "Kaio--2025-06-20 22:31:52.728000--WEBCHAT.csv",
+      "Josh Littler--2025-04-15 20:25:58.472509--WEBCHAT.csv",
+      "Karen--2025-05-28 06:17:25.253005--WEBCHAT.csv",
+      "Kasparas--2025-03-12 17:02:13.184900--WEBCHAT.csv",
+      "Han--2025-03-25 16:32:14.927473--WEBCHAT.csv",
+      "Marcus--2025-07-19 21:17:49.352000--WEBCHAT.csv",
+      "Lukas--2025-07-03 17:28:08.903000--WEBCHAT.csv",
+      "Maxx Lipman--2025-08-07 15:34:32.536000--WEBCHAT.csv",
+      "Michael Olaleye--2025-03-04 21:41:52.347917--WEBCHAT.csv",
+      "Mayur--2025-04-14 12:26:19.764001--WEBCHAT.csv",
+      "Roxy--2025-04-24 18:24:35.239297--WEBCHAT.csv",
+      "Rutvik Vasani--2025-06-30 12:55:59.549000--WEBCHAT.csv",
+      "Ryan--2025-08-11 19:54:37.634000--WEBCHAT.csv",
+      "Marc--2025-04-10 12:08:42.126398--WEBCHAT.csv",
+      "Sachin--2025-07-21 17:58:55.854000--WEBCHAT.csv",
+      "Sakshi--2025-04-20 05:52:43.957214--WEBCHAT.csv",
+      "Shahin--2025-06-25 20:14:11.916000--WEBCHAT.csv",
+      "Ranjith--2025-07-17 14:47:20.432000--WEBCHAT.csv",
+      "Sharath--2025-07-04 08:20:02.980000--WEBCHAT.csv",
+      "Prince--2025-05-15 11:34:54.765179--WEBCHAT.csv",
+      "Some Analog 816acc408e--2025-03-04 09:53:43.572647--WEBCHAT.csv",
+      "Suvi--2025-04-20 15:28:48.574570--WEBCHAT.csv",
+      "QQ--2025-07-09 12:19:12.307000--WEBCHAT.csv",
+      "Sumit--2025-04-22 19:43:16.567963--WEBCHAT.csv",
+      "Steve--2025-07-10 01:23:57.229000--WEBCHAT.csv",
+      "Thin Sheave c73cc5a170--2025-01-16 03:16:04.777784--WEBCHAT.csv",
+      "Thomas--2025-03-28 12:42:18.450148--WEBCHAT.csv",
+      "Thiago--2025-07-16 00:58:40.798000--WEBCHAT.csv",
+      "Tinashe--2025-03-18 09:54:01.718060--WEBCHAT.csv",
+      "Varun Sharma--2025-05-27 06:41:01.096937--WEBCHAT.csv",
+      "Vivek--2025-07-09 21:14:57.979000--WEBCHAT.csv",
+      "Whalemo--2025-04-11 07:17:27.656430--WEBCHAT.csv",
+      "Vince Czaplyski--2025-04-25 19:51:28.663706--WEBCHAT.csv",
+      "Wilson--2025-03-07 06:10:07.677133--WEBCHAT.csv",
+      "Tatiana--2025-07-31 20:43:44.483000--WEBCHAT.csv",
+      "blue--2025-03-05 17:51:16.859985--WEBCHAT.csv",
+      "alex suarez--2025-06-24 10:57:22.080000--WEBCHAT.csv",
+      "as--2025-07-23 21:26:23.549000--WEBCHAT.csv",
+      "Tim--2025-07-25 16:24:47.977000--WEBCHAT.csv",
+      "bvkj--2025-04-11 03:16:56.564336--WEBCHAT.csv",
+      "darren--2025-04-14 16:34:56.913525--WEBCHAT.csv",
+      "Trevor--2025-03-19 21:53:48.198879--WEBCHAT.csv",
+      "kishi--2025-05-28 10:43:35.551180--WEBCHAT.csv",
+      "ryan--2025-02-21 23:58:52.372841--WEBCHAT.csv",
+      "sohil--2025-03-11 12:39:04.961122--WEBCHAT.csv",
+      "ryan--2025-02-20 21:50:49.053804--WEBCHAT.csv",
+      "saven--2025-05-10 20:41:15.468021--WEBCHAT.csv",
+      "sunil--2025-03-20 13:32:27.030105--WEBCHAT.csv",
+      "test+azhar--2025-07-26 00:02:06.449000--WEBCHAT.csv",
+      "tarun--2025-05-07 07:08:50.612745--WEBCHAT.csv",
+      "wang--2025-04-09 07:02:34.809162--WEBCHAT.csv",
+      "vikingmedia--2025-03-31 08:51:11.267490--WEBCHAT.csv",
+      "wang--2025-02-27 08:21:47.200157--WEBCHAT.csv",
+      "zuninoroxana883--2025-05-18 15:52:06.866180--WEBCHAT.csv"
+    ],
+    "data-collection": [
+      "Amanda Morales--2025-05-10 17:17:46.392263--WEBCHAT.csv"
+    ],
+    "request-submission-guidance": [
+      "Anait--2025-03-20 12:15:56.626556--WEBCHAT.csv"
+    ],
+    "account-structure-explanation": [
+      "Anna--2025-02-27 08:30:15.485575--WEBCHAT.csv"
+    ],
+    "payment-issue-guidance": [
+      "Alexander Klee--2025-07-22 11:15:04.723000--WEBCHAT.csv"
+    ],
+    "support-escalation": [
+      "Anna--2025-03-06 13:44:48.222224--WEBCHAT.csv",
+      "naifu--2025-02-07 19:26:17.827051--WEBCHAT.csv"
+    ],
+    "multi-language-support": [
+      "1258--2025-08-08 06:08:03.004000--WEBCHAT.csv",
+      "junyi--2025-04-08 10:11:57.685492--WEBCHAT.csv"
+    ],
+    "technical-explanation": [
+      "1258--2025-08-08 06:08:03.004000--WEBCHAT.csv",
+      "Marc--2025-04-10 12:08:42.126398--WEBCHAT.csv",
+      "Ranjith--2025-07-17 14:47:20.432000--WEBCHAT.csv"
+    ],
+    "step-by-step-instruction": [
+      "1258--2025-08-08 06:08:03.004000--WEBCHAT.csv"
+    ],
+    "instruction-giving": [
+      "Artem--2025-04-07 11:00:35.994951--WEBCHAT.csv",
+      "Ian--2025-05-23 18:26:24.304951--WEBCHAT.csv",
+      "Phuong--2025-07-10 09:49:18.035000--WEBCHAT.csv"
+    ],
+    "user-guidance": [
+      "Artem--2025-04-07 11:00:35.994951--WEBCHAT.csv",
+      "Brian Green--2025-03-31 06:30:01.438008--WEBCHAT.csv",
+      "Hillary--2025-04-25 20:48:19.304963--WEBCHAT.csv",
+      "x--2025-06-03 16:38:34.801966--WEBCHAT.csv"
+    ],
+    "verification-guidance": [
+      "Artem--2025-03-17 12:23:25.665446--WEBCHAT.csv",
+      "Hello--2025-06-08 04:40:01.449000--WEBCHAT.csv",
+      "Jordan--2025-03-14 15:26:57.485571--WEBCHAT.csv"
+    ],
+    "context-adjustment": [
+      "Anuj Sood--2025-07-09 20:09:43.090000--WEBCHAT.csv"
+    ],
+    "request-forwarding": [
+      "Aris--2025-03-04 07:51:33.913060--WEBCHAT.csv",
+      "Mayukh Basu--2025-03-17 16:35:18.420795--WEBCHAT.csv"
+    ],
+    "guidance-provision": [
+      "Brad--2025-07-09 02:18:27.584000--WEBCHAT.csv",
+      "Daniel Merki--2025-04-22 20:58:51.239950--WEBCHAT.csv",
+      "Kris--2025-07-29 19:58:19.570000--WEBCHAT.csv",
+      "Nikola--2025-05-09 08:56:37.186223--WEBCHAT.csv",
+      "Pedro Gonzalez--2025-07-25 21:41:18.804000--WEBCHAT.csv",
+      "Rizwan Patel--2025-03-20 17:00:10.612898--WEBCHAT.csv",
+      "Shiva--2025-07-09 05:09:18.984000--WEBCHAT.csv",
+      "Leo--2025-08-13 17:54:58.598000--WEBCHAT.csv"
+    ],
+    "resource-linking": [
+      "Andrew--2025-04-02 02:41:34.012286--WEBCHAT.csv",
+      "Charley--2025-05-14 21:13:25.253611--WEBCHAT.csv",
+      "Constance--2025-05-12 17:22:52.332652--WEBCHAT.csv",
+      "Dalikh--2025-04-30 15:08:15.250341--WEBCHAT.csv",
+      "Constance Rose--2025-03-17 21:06:57.765736--WEBCHAT.csv",
+      "Divine--2025-07-22 20:48:13.756000--WEBCHAT.csv",
+      "Evgenii--2025-06-13 07:46:50.007000--WEBCHAT.csv",
+      "Gary--2025-04-05 21:10:47.167923--WEBCHAT.csv",
+      "Jingming_test--2025-04-16 07:00:18.083552--WEBCHAT.csv",
+      "Kevin--2025-08-07 07:36:03.097000--WEBCHAT.csv",
+      "Kris--2025-07-29 19:58:19.570000--WEBCHAT.csv",
+      "Lou--2025-03-14 19:10:52.663685--WEBCHAT.csv",
+      "Marcus--2025-07-19 21:17:49.352000--WEBCHAT.csv",
+      "Michael Olaleye--2025-03-04 21:41:52.347917--WEBCHAT.csv",
+      "Peter Schaub--2025-05-11 09:43:18.060754--WEBCHAT.csv",
+      "Ryan--2025-03-06 00:32:24.811843--WEBCHAT.csv",
+      "Sean--2025-03-13 16:04:37.536003--WEBCHAT.csv",
+      "alan--2025-03-31 16:34:41.927527--WEBCHAT.csv",
+      "alex suarez--2025-06-24 10:57:22.080000--WEBCHAT.csv",
+      "darren--2025-04-14 16:34:56.913525--WEBCHAT.csv",
+      "gen--2025-07-18 22:31:24.956000--WEBCHAT.csv",
+      "hello--2025-05-16 06:06:22.293370--WEBCHAT.csv",
+      "jyothika--2025-08-14 18:01:36.629000--WEBCHAT.csv",
+      "junyi--2025-04-08 10:11:57.685492--WEBCHAT.csv",
+      "test+azhar--2025-07-26 00:02:06.449000--WEBCHAT.csv",
+      "steve--2025-08-09 03:14:06.784000--WEBCHAT.csv"
+    ],
+    "resource-link-sharing": [
+      "Boris--2025-07-10 06:45:02.412000--WEBCHAT.csv"
+    ],
+    "issue-diagnosis": [
+      "Bruno--2025-07-04 02:23:07.807000--WEBCHAT.csv"
+    ],
+    "troubleshooting-guidance": [
+      "Branimir--2025-04-03 06:39:42.351431--WEBCHAT.csv",
+      "test--2025-08-14 20:02:40.130000--WEBCHAT.csv"
+    ],
+    "billing-navigation": [
+      "Branimir--2025-04-03 06:39:42.351431--WEBCHAT.csv"
+    ],
+    "information-escalation": [
+      "Brian Green--2025-03-31 06:30:01.438008--WEBCHAT.csv"
+    ],
+    "integration-guidance": [
+      "Anna--2025-03-06 13:30:30.073738--WEBCHAT.csv",
+      "Jason--2025-05-07 15:21:28.817426--WEBCHAT.csv",
+      "Matheus--2025-06-20 15:03:00.147000--WEBCHAT.csv",
+      "Marc--2025-04-10 12:08:42.126398--WEBCHAT.csv",
+      "Sumit--2025-04-22 19:43:16.567963--WEBCHAT.csv",
+      "sunil--2025-03-20 13:32:27.030105--WEBCHAT.csv",
+      "tarun--2025-05-07 07:08:50.612745--WEBCHAT.csv"
+    ],
+    "problem-resolution": [
+      "Anna--2025-03-06 13:30:30.073738--WEBCHAT.csv"
+    ],
+    "email-guidance": [
+      "CHEN--2025-07-15 13:16:39.531000--WEBCHAT.csv"
+    ],
+    "escalation-to-human": [
+      "Bryan Higgins--2025-03-07 16:59:00.497110--WEBCHAT.csv"
+    ],
+    "technical-troubleshooting": [
+      "Charley--2025-05-14 21:13:25.253611--WEBCHAT.csv",
+      "Igal--2025-06-05 12:57:01.652387--WEBCHAT.csv",
+      "Lukas--2025-07-03 17:28:08.903000--WEBCHAT.csv",
+      "Monika--2025-04-23 18:49:27.164273--WEBCHAT.csv",
+      "Roxy--2025-04-24 18:24:35.239297--WEBCHAT.csv",
+      "Shahin--2025-06-25 20:14:11.916000--WEBCHAT.csv",
+      "QQ--2025-07-09 12:19:12.307000--WEBCHAT.csv",
+      "Trevor--2025-03-19 21:53:48.198879--WEBCHAT.csv"
+    ],
+    "next-step-suggestion": [
+      "Constance--2025-05-21 21:50:47.889112--WEBCHAT.csv"
+    ],
+    "agent-connection-initiation": [
+      "Clear Davit f0917f319c--2025-03-03 17:16:39.623556--WEBCHAT.csv"
+    ],
+    "instruction-delivery": [
+      "Constance Rose--2025-03-17 21:06:57.765736--WEBCHAT.csv"
+    ],
+    "policy-linking": [
+      "Dalibor--2025-03-13 11:57:17.168665--WEBCHAT.csv"
+    ],
+    "platform-specific-guidance": [
+      "Danny Greeson--2025-05-06 18:10:06.646082--WEBCHAT.csv"
+    ],
+    "billing-inquiry-resolution": [
+      "Daria--2025-03-07 09:41:08.899373--WEBCHAT.csv"
+    ],
+    "api-integration-explanation": [
+      "Decide--2025-05-23 16:10:34.288055--WEBCHAT.csv"
+    ],
+    "impression-tracking-explanation": [
+      "Decide--2025-05-23 16:10:34.288055--WEBCHAT.csv"
+    ],
+    "problem-diagnosis": [
+      "Divine--2025-07-22 19:33:29.608000--WEBCHAT.csv"
+    ],
+    "metrics-explanation": [
+      "ENOCH SHAW--2025-03-26 21:25:13.277629--WEBCHAT.csv"
+    ],
+    "billing-instruction": [
+      "ENOCH SHAW--2025-03-26 21:25:13.277629--WEBCHAT.csv"
+    ],
+    "live-agent-connection": [
+      "Excel--2025-03-05 14:34:06.736398--WEBCHAT.csv",
+      "Stale Hypotenuse 97aabe2f60--2025-02-07 19:13:43.288302--WEBCHAT.csv",
+      "blue--2025-03-05 17:51:16.859985--WEBCHAT.csv"
+    ],
+    "status-update": [
+      "Excel--2025-03-05 14:34:06.736398--WEBCHAT.csv"
+    ],
+    "error-diagnosis": [
+      "Eladio J Cabrera Riveiro--2025-03-03 19:37:23.395466--WEBCHAT.csv"
+    ],
+    "technical-guidance": [
+      "Eladio J Cabrera Riveiro--2025-03-03 19:37:23.395466--WEBCHAT.csv"
+    ],
+    "guidance-to-human-support": [
+      "Francisco Valenzuela--2025-04-24 13:59:44.573466--WEBCHAT.csv"
+    ],
+    "guidance-on-next-steps": [
+      "Gary--2025-08-04 11:00:23.207000--WEBCHAT.csv"
+    ],
+    "ad-optimization-guidance": [
+      "Forrest--2025-07-21 17:43:26.834000--WEBCHAT.csv"
+    ],
+    "technical-instruction": [
+      "Forrest--2025-07-21 17:43:26.834000--WEBCHAT.csv"
+    ],
+    "user-reassurance": [
+      "Hello--2025-06-08 04:40:01.449000--WEBCHAT.csv",
+      "Polite Arrangement 9a21777918--2025-02-27 06:40:08.562648--WEBCHAT.csv"
+    ],
+    "problem-solving": [
+      "Hugo --2025-04-28 18:54:42.104177--WEBCHAT.csv"
+    ],
+    "troubleshooting": [
+      "Hugo--2025-06-02 20:34:00.470679--WEBCHAT.csv",
+      "Kristin--2025-03-27 16:12:28.807679--WEBCHAT.csv"
+    ],
+    "campaign-optimization-advice": [
+      "Jai Singh--2025-06-26 17:12:01.319000--WEBCHAT.csv"
+    ],
+    "macro-explanation": [
+      "Jason--2025-05-07 15:21:28.817426--WEBCHAT.csv"
+    ],
+    "eligibility-confirmation": [
+      "Jason--2025-03-16 19:58:46.211158--WEBCHAT.csv",
+      "Miles Baker--2025-04-28 20:48:11.656804--WEBCHAT.csv"
+    ],
+    "language-support": [
+      "Jessie--2025-03-19 09:43:57.122056--WEBCHAT.csv"
+    ],
+    "instruction-providing": [
+      "John Rowady--2025-05-20 14:58:10.582832--WEBCHAT.csv"
+    ],
+    "resource-provision": [
+      "Jordan--2025-03-14 15:26:57.485571--WEBCHAT.csv"
+    ],
+    "audience-targeting-guidance": [
+      "Josh Littler--2025-04-15 20:25:58.472509--WEBCHAT.csv"
+    ],
+    "user-engagement": [
+      "Kim Test--2025-01-31 01:11:23.965027--WEBCHAT.csv"
+    ],
+    "resource-recommendation": [
+      "Klinsman da silva--2025-08-14 01:02:57.787000--WEBCHAT.csv",
+      "Gabriel--2025-07-22 19:17:01.573000--WEBCHAT.csv"
+    ],
+    "subscription-guidance": [
+      "Klinsman da silva--2025-08-14 01:02:57.787000--WEBCHAT.csv"
+    ],
+    "error-troubleshooting": [
+      "Kris--2025-07-29 19:58:19.570000--WEBCHAT.csv"
+    ],
+    "strategic-guidance": [
+      "Gabriel--2025-07-22 19:17:01.573000--WEBCHAT.csv"
+    ],
+    "troubleshooting-advice": [
+      "Gabriel--2025-07-22 19:17:01.573000--WEBCHAT.csv"
+    ],
+    "verification-process-initiation": [
+      "Kyle Martin--2025-07-28 16:27:45.587000--WEBCHAT.csv"
+    ],
+    "appeal-process-guidance": [
+      "LUCA--2025-07-29 03:19:34.010000--WEBCHAT.csv"
+    ],
+    "support-hours-information": [
+      "Lo Trang Lam--2025-08-15 00:39:11.880000--WEBCHAT.csv"
+    ],
+    "strategic-advice": [
+      "Han--2025-03-25 16:32:14.927473--WEBCHAT.csv"
+    ],
+    "contact-sharing": [
+      "Marek Kubasiak--2025-05-15 08:10:23.264845--WEBCHAT.csv"
+    ],
+    "user-support": [
+      "Mayukh Basu--2025-03-17 16:35:18.420795--WEBCHAT.csv"
+    ],
+    "troubleshooting-assistance": [
+      "Matheus--2025-06-20 15:03:00.147000--WEBCHAT.csv"
+    ],
+    "guidance-to-support": [
+      "Mike--2025-04-01 09:05:31.815477--WEBCHAT.csv"
+    ],
+    "example-provision": [
+      "Mayur--2025-04-14 12:26:19.764001--WEBCHAT.csv"
+    ],
+    "information-retrieval": [
+      "Mike Appelt--2025-05-21 21:50:08.571384--WEBCHAT.csv"
+    ],
+    "concise-response": [
+      "Mike Appelt--2025-05-21 21:50:08.571384--WEBCHAT.csv"
+    ],
+    "user-greeting": [
+      "Monika--2025-04-23 18:49:27.164273--WEBCHAT.csv"
+    ],
+    "budget-explanation": [
+      "Kristin--2025-03-27 16:12:28.807679--WEBCHAT.csv"
+    ],
+    "ad-setup-guidance": [
+      "Kristin--2025-03-27 16:12:28.807679--WEBCHAT.csv"
+    ],
+    "clarification": [
+      "Nathaniel--2025-04-08 02:01:16.028281--WEBCHAT.csv",
+      "Rizwan Patel--2025-03-20 17:00:10.612898--WEBCHAT.csv",
+      "zhaodaocrumb--2025-03-15 14:34:35.655372--WEBCHAT.csv"
+    ],
+    "geographic-clarification": [
+      "Nazma--2025-05-17 09:54:57.285231--WEBCHAT.csv"
+    ],
+    "campaign-troubleshooting": [
+      "Nicolas--2025-06-17 19:12:21.013000--WEBCHAT.csv"
+    ],
+    "educating-user-on-ad-process": [
+      "Nicolas--2025-06-17 19:12:21.013000--WEBCHAT.csv"
+    ],
+    "issue-identification": [
+      "Pedro Gonzalez--2025-07-25 21:41:18.804000--WEBCHAT.csv"
+    ],
+    "guidance": [
+      "Pratik--2025-07-28 13:12:39.441000--WEBCHAT.csv"
+    ],
+    "billing-information": [
+      "Raj Singh--2025-04-25 09:37:04.336966--WEBCHAT.csv"
+    ],
+    "ad-model-clarification": [
+      "Raj Singh--2025-04-25 09:37:04.336966--WEBCHAT.csv"
+    ],
+    "problem-identification": [
+      "Rolando Rivero--2025-08-12 03:05:46.165000--WEBCHAT.csv",
+      "Saurav--2025-03-05 15:34:58.371242--WEBCHAT.csv",
+      "anja --2025-07-16 15:56:12.858000--WEBCHAT.csv"
+    ],
+    "corrective-guidance": [
+      "Rolando Rivero--2025-08-12 03:05:46.165000--WEBCHAT.csv"
+    ],
+    "quick-response": [
+      "Ordered Soldier 1b08ddaa06--2025-03-03 15:20:20.416271--WEBCHAT.csv"
+    ],
+    "problem-explanation": [
+      "Rizwan Patel--2025-03-20 17:00:10.612898--WEBCHAT.csv"
+    ],
+    "feature-confirmation": [
+      "Rizwan Patel--2025-03-20 17:00:10.612898--WEBCHAT.csv"
+    ],
+    "campaign-analysis": [
+      "Sachin--2025-07-21 17:58:55.854000--WEBCHAT.csv"
+    ],
+    "escalation-procedure": [
+      "Saurav--2025-03-05 15:34:58.371242--WEBCHAT.csv"
+    ],
+    "platform-identification": [
+      "Sean--2025-03-13 16:04:37.536003--WEBCHAT.csv"
+    ],
+    "billing-policy-clarification": [
+      "Shukree Abuwi--2025-04-07 02:11:44.279741--WEBCHAT.csv"
+    ],
+    "link-provision": [
+      "Shukree Abuwi--2025-04-07 02:11:44.279741--WEBCHAT.csv",
+      "Stef--2025-08-06 14:14:57.742000--WEBCHAT.csv"
+    ],
+    "campaign-optimization-guidance": [
+      "Prince--2025-05-15 11:34:54.765179--WEBCHAT.csv"
+    ],
+    "escalation-to-human-agent": [
+      "Sweet Denouement 9a1ce65f83--2025-02-28 03:56:32.178208--WEBCHAT.csv"
+    ],
+    "best-practice-advice": [
+      "Sunni--2025-07-13 16:08:19.534000--WEBCHAT.csv"
+    ],
+    "support-contact-provision": [
+      "Tijn va--2025-06-25 17:11:24.062000--WEBCHAT.csv"
+    ],
+    "greeting": [
+      "Xuchen Yao--2025-02-27 19:04:45.070151--WEBCHAT.csv"
+    ],
+    "bot-identification": [
+      "Xuchen Yao--2025-02-27 19:04:45.070151--WEBCHAT.csv"
+    ],
+    "verification-requirement-explanation": [
+      "alekosaldanaybz--2025-06-06 02:25:01.209000--WEBCHAT.csv"
+    ],
+    "solution-explanation": [
+      "anja --2025-07-16 15:56:12.858000--WEBCHAT.csv"
+    ],
+    "platform-capability-clarification": [
+      "brad--2025-05-30 11:36:25.411851--WEBCHAT.csv"
+    ],
+    "form-validation": [
+      "as--2025-07-23 21:26:23.549000--WEBCHAT.csv"
+    ],
+    "guidance-on-setup": [
+      "chen--2025-05-30 13:28:25.055022--WEBCHAT.csv"
+    ],
+    "scaling-advice": [
+      "michel berbari--2025-06-10 17:59:59.660000--WEBCHAT.csv"
+    ],
+    "resource-sharing": [
+      "michel berbari--2025-06-10 17:59:59.660000--WEBCHAT.csv"
+    ],
+    "navigation-guidance": [
+      "micki--2025-05-13 07:32:35.646673--WEBCHAT.csv"
+    ],
+    "budget-information": [
+      "sara test--2025-06-17 23:54:37.716000--WEBCHAT.csv"
+    ],
+    "bidding-strategy-explanation": [
+      "sara test--2025-06-17 23:54:37.716000--WEBCHAT.csv"
+    ],
+    "contact-information-provision": [
+      "sambranooktavec--2025-04-17 02:00:55.239667--WEBCHAT.csv",
+      "ryan--2025-02-20 21:50:49.053804--WEBCHAT.csv"
+    ],
+    "agent-connection": [
+      "kristen--2025-02-27 07:26:36.449291--WEBCHAT.csv"
+    ],
+    "user-query-clarification": [
+      "wang--2025-04-09 07:02:34.809162--WEBCHAT.csv"
+    ]
+  }
+}
