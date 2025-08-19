@@ -71,12 +71,12 @@ def generate_executive_summary(data):
     needs_human = sum(1 for r in data['per_chat'] if r.get('needs_human', False))
     human_rate = (needs_human / total_conversations) * 100 if total_conversations > 0 else 0
     
-    # User emotion analysis
-    emotions = [r.get('user_emotion', 'neutral') for r in data['per_chat']]
+    # User emotion analysis (only from high-value conversations)
+    emotions = [r.get('user_emotion', 'neutral') for r in high_value_results]
     emotion_counts = Counter(emotions)
     
-    # Conversation complexity
-    complexities = [r.get('conversation_complexity', 'simple') for r in data['per_chat']]
+    # Conversation complexity (only from high-value conversations)
+    complexities = [r.get('conversation_complexity', 'simple') for r in high_value_results]
     complexity_counts = Counter(complexities)
     
     summary = f"""
@@ -84,19 +84,35 @@ def generate_executive_summary(data):
 
 ## 📊 Overall Performance Metrics
 - **Total Conversations Analyzed**: {total_conversations:,}
+- **High-Value Conversations**: {high_value:,} ({high_value/total_conversations*100:.1f}%)
+- **Low-Value Conversations Filtered**: {low_value:,} ({low_value/total_conversations*100:.1f}%)
+- **Error Conversations**: {error_conversations:,} ({error_conversations/total_conversations*100:.1f}%)
+
+## 🎯 High-Value Conversation Analysis
 - **Success Rate**: {solve_rate:.1f}% ({solved_conversations:,} conversations)
 - **Human Escalation Rate**: {human_rate:.1f}% ({needs_human:,} conversations)
-- **Failure Rate**: {100-solve_rate:.1f}% ({total_conversations-solved_conversations:,} conversations)
+- **Failure Rate**: {100-solve_rate:.1f}% ({high_value-solved_conversations:,} conversations)
 
-## 😊 User Experience Insights
-- **Satisfied Users**: {emotion_counts.get('satisfied', 0):,} ({emotion_counts.get('satisfied', 0)/total_conversations*100:.1f}%)
-- **Frustrated Users**: {emotion_counts.get('frustrated', 0):,} ({emotion_counts.get('frustrated', 0)/total_conversations*100:.1f}%)
-- **Neutral Users**: {emotion_counts.get('neutral', 0):,} ({emotion_counts.get('neutral', 0)/total_conversations*100:.1f}%)
+## 🚫 Filtered Out Conversations
+- **Low-Value Conversations**: {low_value:,} conversations
+  - **≤2 user messages** (hard threshold)
+  - Greetings only (no actual request)
+  - Just cancellations ("Cancel", "No", "Stop")
+  - Form submissions without context
+- **Incomplete Conversations**: {sum(1 for r in results if r.get('filtered_reason') == 'incomplete-conversation-no-user-input'):,} conversations
+  - No user input at all
+- **Error Conversations**: {error_conversations:,} conversations
+  - Processing errors, file errors
 
-## 🔍 Conversation Complexity Distribution
-- **Simple Conversations**: {complexity_counts.get('simple', 0):,} ({complexity_counts.get('simple', 0)/total_conversations*100:.1f}%)
-- **Moderate Complexity**: {complexity_counts.get('moderate', 0):,} ({complexity_counts.get('moderate', 0)/total_conversations*100:.1f}%)
-- **Complex Conversations**: {complexity_counts.get('complex', 0):,} ({complexity_counts.get('complex', 0)/total_conversations*100:.1f}%)
+## 😊 User Experience Insights (High-Value Conversations Only)
+- **Satisfied Users**: {emotion_counts.get('satisfied', 0):,} ({emotion_counts.get('satisfied', 0)/high_value*100:.1f}% of high-value conversations)
+- **Frustrated Users**: {emotion_counts.get('frustrated', 0):,} ({emotion_counts.get('frustrated', 0)/high_value*100:.1f}% of high-value conversations)
+- **Neutral Users**: {emotion_counts.get('neutral', 0):,} ({emotion_counts.get('neutral', 0)/high_value*100:.1f}% of high-value conversations)
+
+## 🔍 Conversation Complexity Distribution (High-Value Conversations Only)
+- **Simple Conversations**: {complexity_counts.get('simple', 0):,} ({complexity_counts.get('simple', 0)/high_value*100:.1f}% of high-value conversations)
+- **Moderate Complexity**: {complexity_counts.get('moderate', 0):,} ({complexity_counts.get('moderate', 0)/high_value*100:.1f}% of high-value conversations)
+- **Complex Conversations**: {complexity_counts.get('complex', 0):,} ({complexity_counts.get('complex', 0)/high_value*100:.1f}% of high-value conversations)
 """
     return summary
 
@@ -108,13 +124,13 @@ def generate_problem_analysis(data):
     results = data['per_chat']
     total = len(results)
     
-    # Failure categories
-    failure_categories = [r.get('failure_category', 'unknown') for r in results]
+    # Failure categories (only from high-value conversations)
+    failure_categories = [r.get('failure_category', 'unknown') for r in high_value_results]
     failure_counts = Counter(failure_categories)
     
-    # Missing features with priority
+    # Missing features with priority (only from high-value conversations)
     missing_features = []
-    for r in results:
+    for r in high_value_results:  # Only look at high-value conversations
         if r.get('failure_category') == 'feature-not-supported':
             feature = r.get('missing_feature', 'unknown')
             priority = r.get('feature_priority_score', 1)
@@ -122,7 +138,7 @@ def generate_problem_analysis(data):
     
     # Improvement needs with effort (ONLY actionable improvements, exclude "no improvement needed" responses)
     improvement_needs = []
-    for r in results:
+    for r in high_value_results:  # Only look at high-value conversations
         improvement = r.get('specific_improvement_needed', 'none')
         effort = r.get('improvement_effort', 'low')
         # Filter out non-actionable responses
@@ -138,7 +154,7 @@ def generate_problem_analysis(data):
     
     # Escalation triggers (ONLY actual triggers, exclude "no escalation needed" responses)
     escalation_triggers = []
-    for r in results:
+    for r in high_value_results:  # Only look at high-value conversations
         triggers = r.get('escalation_triggers', [])
         for trigger in triggers:
             if trigger and not any(phrase in trigger.lower() for phrase in [
@@ -150,7 +166,7 @@ def generate_problem_analysis(data):
     
     # Error patterns (ONLY actual errors, exclude "no errors detected" responses)
     error_patterns = []
-    for r in results:
+    for r in high_value_results:  # Only look at high-value conversations
         errors = r.get('error_patterns', [])
         for error in errors:
             if error and not any(phrase in error.lower() for phrase in [
@@ -750,8 +766,17 @@ def generate_concise_report(analysis_dir, output_file):
     
     results = data['per_chat']
     total = len(results)
-    solved = sum(1 for r in results if r.get('solved', False))
-    needs_human = sum(1 for r in results if r.get('needs_human', False))
+    
+    # Count conversation quality
+    high_value = sum(1 for r in results if r.get('conversation_quality') == 'high-value')
+    low_value = sum(1 for r in results if r.get('conversation_quality') == 'low-value')
+    error_conversations = sum(1 for r in results if r.get('conversation_quality') == 'error')
+    
+    # Filter to only high-value conversations for analysis
+    high_value_results = [r for r in results if r.get('conversation_quality') == 'high-value']
+    
+    solved = sum(1 for r in high_value_results if r.get('solved', False))
+    needs_human = sum(1 for r in high_value_results if r.get('needs_human', False))
     
     # Get actionable improvements only
     actionable_improvements = []
@@ -1043,6 +1068,41 @@ def generate_concise_report(analysis_dir, output_file):
             font-style: italic;
         }
         
+        .filtering-summary {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .filtering-item {
+            text-align: center;
+            flex: 1;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .filtering-number {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 8px;
+        }
+        
+        .filtering-label {
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 5px;
+        }
+        
+        .filtering-description {
+            font-size: 0.85em;
+            color: #6c757d;
+            line-height: 1.3;
+        }
+        
         .conversation-modal {
             display: none;
             position: fixed;
@@ -1273,22 +1333,68 @@ def generate_concise_report(analysis_dir, output_file):
                         <div class="metric-label">Total Conversations</div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-number">""" + f"{solved/total*100:.1f}%" + """</div>
-                        <div class="metric-label">Success Rate</div>
+                        <div class="metric-number">""" + f"{high_value:,}" + """</div>
+                        <div class="metric-label">High-Value Conversations</div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-number">""" + f"{needs_human/total*100:.1f}%" + """</div>
-                        <div class="metric-label">Human Escalation Rate</div>
+                        <div class="metric-number">""" + f"{low_value:,}" + """</div>
+                        <div class="metric-label">Low-Value Filtered</div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-number">""" + f"{len(missing_features):,}" + """</div>
-                        <div class="metric-label">Missing Features</div>
+                        <div class="metric-number">""" + f"{solved:,}" + """</div>
+                        <div class="metric-label">Successfully Solved</div>
+                    </div>
+                </div>
+                
+                <div class="summary-box" style="margin-top: 20px;">
+                    <h3>🔍 Conversation Quality Breakdown</h3>
+                    <div class="summary-stats">
+                        <div class="summary-stat">
+                            <div class="summary-number">""" + f"{high_value/total*100:.1f}%" + """</div>
+                            <div>High-Value (Analyzed)</div>
+                        </div>
+                        <div class="summary-stat">
+                            <div class="summary-number">""" + f"{low_value/total*100:.1f}%" + """</div>
+                            <div>Low-Value (Filtered)</div>
+                        </div>
+                        <div class="summary-stat">
+                            <div class="summary-number">""" + f"{error_conversations/total*100:.1f}%" + """</div>
+                            <div>Errors</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🔍 Conversation Quality Breakdown</h2>
+                <div class="note-box" style="background: #f8f9fa; border-left: 4px solid #6c757d; padding: 15px; margin-bottom: 20px; border-radius: 4px;">
+                    <strong>🔍 Filtering Logic:</strong> We automatically filter out low-value conversations to focus on meaningful interactions. <strong>High-value conversations</strong> are those where users actually had problems to solve. <strong>Low-value conversations</strong> include conversations with <strong>≤2 user messages</strong> (hard threshold), just greetings, cancellations, or minimal interaction.
+                </div>
+                <div class="filtering-summary">
+                    <div class="filtering-item">
+                        <div class="filtering-number">{high_value:,}</div>
+                        <div class="filtering-label">High-Value Conversations</div>
+                        <div class="filtering-description">Meaningful interactions analyzed for problems</div>
+                    </div>
+                    <div class="filtering-item">
+                        <div class="filtering-number">{low_value:,}</div>
+                        <div class="filtering-label">Low-Value Filtered</div>
+                        <div class="filtering-description">≤2 user messages, greetings, cancellations</div>
+                    </div>
+                    <div class="filtering-item">
+                        <div class="filtering-number">{error_conversations:,}</div>
+                        <div class="filtering-label">Error Conversations</div>
+                        <div class="filtering-description">Processing errors, file issues</div>
                     </div>
                 </div>
             </div>
 
             <div class="section">
                 <h2>🚨 PROBLEMS THE CHATBOT CANNOT SOLVE</h2>
+                
+                <div class="note-box" style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin-bottom: 20px; border-radius: 4px;">
+                    <strong>🎯 Focus:</strong> This analysis is based on <strong>{high_value:,} high-value conversations</strong> where users had actual problems to solve. Low-value interactions (greetings, cancellations) are excluded to focus on real issues.
+                </div>
                 
                 <h3>1. Missing Functions & Features</h3>
                 <div class="issue-list">"""
@@ -1500,12 +1606,16 @@ def generate_concise_report(analysis_dir, output_file):
             <div class="section">
                 <h2>✅ PROBLEMS THE CHATBOT CAN SOLVE WELL</h2>
                 
+                <div class="note-box" style="background: #e7f3ff; border-left: 4px solid #007bff; padding: 15px; margin-bottom: 20px; border-radius: 4px;">
+                    <strong>📊 Note:</strong> Success metrics are calculated only from <strong>high-value conversations</strong> where users actually had problems to solve. Greetings, cancellations, and minimal interactions are excluded from success calculations.
+                </div>
+                
                 <h3>Successful Capabilities</h3>
                 <div class="issue-list">"""
     
-    # Show what the bot does well
+    # Show what the bot does well (only from high-value conversations)
     successful_capabilities = []
-    for r in results:
+    for r in high_value_results:  # Only look at high-value conversations
         if r.get('solved', False):
             caps = r.get('capabilities', [])
             if isinstance(caps, list):
@@ -1555,16 +1665,16 @@ def generate_concise_report(analysis_dir, output_file):
                         <div>Total Conversations</div>
                     </div>
                     <div class="summary-stat">
-                        <div class="summary-number">""" + f"{solved/total*100:.1f}%" + """</div>
-                        <div>Success Rate</div>
+                        <div class="summary-number">""" + f"{high_value:,}" + """</div>
+                        <div>High-Value (Analyzed)</div>
                     </div>
                     <div class="summary-stat">
-                        <div class="summary-number">""" + f"{needs_human/total*100:.1f}%" + """</div>
-                        <div>Human Escalation Rate</div>
+                        <div class="summary-number">""" + f"{low_value:,}" + """</div>
+                        <div>Low-Value (Filtered)</div>
                     </div>
                     <div class="summary-stat">
-                        <div class="summary-number">""" + f"{len(missing_features)}" + """</div>
-                        <div>Missing Features</div>
+                        <div class="summary-number">""" + f"{solved:,}" + """</div>
+                        <div>Successfully Solved</div>
                     </div>
                 </div>
             </div>

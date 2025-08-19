@@ -194,6 +194,8 @@ def process_single_file(args):
                 "conversation_complexity": "simple",
                 "feature_priority_score": 1,
                 "improvement_effort": "low",
+                "conversation_quality": "low-value",
+                "filtered_reason": "empty-transcript"
             }
         
         # Check for incomplete conversations (no user input)
@@ -202,7 +204,7 @@ def process_single_file(args):
                 "file": base,
                 "topics": ["incomplete-conversation"],
                 "user_tasks_attempted": ["no-user-request"],
-                "solved": True,  # Not a failure - no request to solve
+                "solved": False,  # Not a success - no problem was solved
                 "why_unsolved": ["no-user-request-to-solve"],
                 "needs_human": False,
                 "capabilities": ["greeting", "form-presentation"],
@@ -222,6 +224,38 @@ def process_single_file(args):
                 "conversation_complexity": "simple",
                 "feature_priority_score": 1,
                 "improvement_effort": "low",
+                "conversation_quality": "low-value",
+                "filtered_reason": "incomplete-conversation-no-user-input"
+            }
+        
+        # Check for low-value conversations (just greetings, cancellations, etc.)
+        if is_low_value_conversation(transcript):
+            return {
+                "file": base,
+                "topics": ["low-value-conversation"],
+                "user_tasks_attempted": ["minimal-interaction"],
+                "solved": False,  # Not a success - no problem was solved
+                "why_unsolved": ["no-substantial-request"],
+                "needs_human": False,
+                "capabilities": ["greeting", "basic-interaction"],
+                "limitations": [],
+                "examples": [],
+                "failure_category": "low-value-conversation",
+                "missing_feature": "no-missing-feature-low-value",
+                "feature_category": "no-feature-category-low-value",
+                "specific_improvement_needed": "no-improvement-needed-low-value",
+                "success_patterns": ["bot-greeting-successful", "basic-interaction-complete"],
+                "demonstrated_skills": ["greeting", "basic-interaction"],
+                "user_satisfaction_indicators": ["conversation-initiated", "minimal-interaction"],
+                "conversation_flow": ["bot-greeting", "user-minimal-response"],
+                "escalation_triggers": ["no-escalation-needed", "minimal-interaction"],
+                "error_patterns": ["no-errors-detected", "low-value-conversation"],
+                "user_emotion": "neutral",
+                "conversation_complexity": "simple",
+                "feature_priority_score": 1,
+                "improvement_effort": "low",
+                "conversation_quality": "low-value",
+                "filtered_reason": "low-value-2-or-fewer-user-messages"
             }
 
         if dry_run:
@@ -248,13 +282,15 @@ def process_single_file(args):
                 "conversation_complexity": "simple",
                 "feature_priority_score": 1,
                 "improvement_effort": "low",
+                "conversation_quality": "unknown",
+                "filtered_reason": "dry-run"
             }
         else:
             prompt = USER_PROMPT_TEMPLATE.format(transcript=transcript)
             try:
                 content = chat_complete(SYSTEM_PROMPT, prompt, rate_limiter)
                 obj = json.loads(content)
-                result = {"file": base, **obj}
+                result = {"file": base, **obj, "conversation_quality": "high-value", "filtered_reason": "none"}
                 return result
             except Exception as e:
                 return {
@@ -281,12 +317,15 @@ def process_single_file(args):
                     "conversation_complexity": "simple",
                     "feature_priority_score": 1,
                     "improvement_effort": "low",
+                    "conversation_quality": "error",
+                    "filtered_reason": "parse-error"
                 }
     except Exception as e:
         return {
             "file": base,
             "topics": ["file-error"],
             "user_tasks_attempted": [],
+            "count": 0,
             "solved": False,
             "why_unsolved": [f"file-error: {type(e).__name__}"],
             "needs_human": False,
@@ -306,6 +345,8 @@ def process_single_file(args):
             "conversation_complexity": "simple",
             "feature_priority_score": 1,
             "improvement_effort": "low",
+            "conversation_quality": "error",
+            "filtered_reason": "file-error"
         }
 
 # Feature consolidation moved to generate_executive_report.py
@@ -319,6 +360,43 @@ def is_incomplete_conversation(transcript):
     user_lines = [line for line in lines if 'user:' in line.lower() and line.strip()]
     # If no user lines or only empty user lines, it's incomplete
     return len(user_lines) == 0
+
+def is_low_value_conversation(transcript):
+    """Check if conversation has low analytical value based on user message count and content."""
+    lines = transcript.split('\n')
+    user_messages = []
+    
+    for line in lines:
+        line = line.strip()
+        if line and 'user:' in line.lower():
+            # Extract just the message part after "user:"
+            msg_part = line.split('user:', 1)[1].strip().lower()
+            user_messages.append(msg_part)
+    
+    # HARD THRESHOLD: If user has 2 or fewer messages, filter out
+    if len(user_messages) <= 2:
+        return True
+    
+    # Additional content filtering for conversations with more than 2 messages
+    meaningful_content = False
+    for msg in user_messages:
+        # Skip if it's just "cancel", "no", "stop"
+        if msg in ['cancel', 'no', 'stop', 'quit', 'exit']:
+            continue
+        
+        # Skip if it's just a form submission without context
+        if msg == 'the user completes the submission of the form':
+            continue
+        
+        # Skip if it's just a greeting
+        if len(msg) < 20 and any(word in msg for word in ['hi', 'hello', 'hey', 'good morning', 'good afternoon']):
+            continue
+        
+        # If we get here, there's meaningful content
+        meaningful_content = True
+        break
+    
+    return not meaningful_content
 
 # --------------- UTIL: BUILD TRANSCRIPTS ---------------
 def csv_to_transcript(csv_path):
@@ -382,10 +460,23 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False):
             print(f"Processing {i}/{len(csv_files)}: {base}")
             
             result = process_single_file((path, dry_run, rate_limiter))
+            
+            # Filter out low-value conversations completely
+            if result.get("conversation_quality") == "low-value":
+                reason = result.get('filtered_reason', 'unknown')
+                if '2-or-fewer-user-messages' in reason:
+                    print(f"  🚫  Filtered out: {base} (≤2 user messages)")
+                else:
+                    print(f"  🚫  Filtered out: {base} ({reason})")
+                continue  # Skip this conversation entirely
+            
             per_chat.append(result)
             
             if i % 10 == 0 or i == len(csv_files):
+                filtered_count = i - len(per_chat)
                 print(f"\n📊 Progress: {i}/{len(csv_files)} files processed ({i/len(csv_files)*100:.1f}%)")
+                print(f"   🚫 Filtered out: {filtered_count} low-value conversations (≤2 user messages)")
+                print(f"   ✅ High-value conversations: {len(per_chat)}")
                 print()
     else:
         # Parallel processing for real API calls
@@ -412,6 +503,16 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False):
                 
                 try:
                     result = future.result()
+                    
+                    # Filter out low-value conversations completely
+                    if result.get("conversation_quality") == "low-value":
+                        reason = result.get('filtered_reason', 'unknown')
+                        if '2-or-fewer-user-messages' in reason:
+                            print(f"  🚫  Filtered out: {base} (≤2 user messages)")
+                        else:
+                            print(f"  🚫  Filtered out: {base} ({reason})")
+                        continue  # Skip this conversation entirely
+                    
                     per_chat.append(result)
                     
                     # Check for errors
@@ -426,7 +527,9 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False):
                         elapsed = time.time() - start_time
                         rate = completed / elapsed if elapsed > 0 else 0
                         eta = (len(csv_files) - completed) / rate if rate > 0 else 0
+                        filtered_count = len(csv_files) - len(per_chat) - errs
                         print(f"\n📊 Progress: {completed}/{len(csv_files)} files processed ({completed/len(csv_files)*100:.1f}%)")
+                        print(f"   🚫 Filtered out: {filtered_count} low-value conversations (≤2 user messages)")
                         print(f"   🚨 Errors so far: {errs}")
                         print(f"   ⏱️  Processing rate: {rate:.1f} files/second")
                         print(f"   ⏳  Estimated time remaining: {eta:.1f} seconds")
@@ -436,21 +539,9 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False):
                     errs += 1
                     print(f"  ❌  Exception processing {base}: {e}")
                     # Add error result
-                    per_chat.append({
-                        "file": base,
-                        "topics": ["processing-error"],
-                        "user_tasks_attempted": [],
-                        "solved": False,
-                        "why_unsolved": [f"processing-error: {type(e).__name__}"],
-                        "needs_human": False,
-                        "capabilities": [],
-                        "limitations": [],
-                        "examples": [],
-                        "failure_category": "other",
-                        "missing_feature": "no-missing-feature-processing-error",
-                        "feature_category": "no-feature-category-processing-error",
-                        "specific_improvement_needed": "no-improvement-needed-processing-error",
-                    })
+                    # Don't add processing errors to results - they're not useful for analysis
+                    print(f"  ❌  Processing error for {base}: {e}")
+                    continue
 
     if not dry_run:
         total_time = time.time() - start_time
@@ -557,15 +648,25 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False):
         json.dump(problem_conversation_mapping, f, ensure_ascii=False, indent=2)
     print(f"  ✅  Created problem mapping: {mapping_path}")
 
+    total_files = len(csv_files)
+    filtered_count = total_files - len(per_chat) - errs
+    
     print(f"\n🎯 Analysis Complete!")
+    print(f"📊 Summary:")
+    print(f"   📁 Total files processed: {total_files}")
+    print(f"   🚫 Low-value conversations filtered: {filtered_count}")
+    print(f"   🚨 Processing errors: {errs}")
+    print(f"   ✅ High-value conversations analyzed: {len(per_chat)}")
     print(f"📁 Raw data: {raw_path}")
     print(f"📊 Problem mapping: {mapping_path}")
     print(f"💡 Run 'python generate_executive_report.py --analysis_dir {outdir} --output report.html --short' to generate HTML report")
     
     if errs > 0:
         print(f"\n⚠️  Warning: {errs} files had errors during processing")
-    else:
-        print(f"\n✅ All files processed successfully!")
+    if filtered_count > 0:
+        print(f"\n🚫 Note: {filtered_count} low-value conversations were filtered out (≤2 user messages, greetings, cancellations, etc.)")
+    if len(per_chat) > 0:
+        print(f"\n✅ {len(per_chat)} high-value conversations analyzed successfully!")
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
