@@ -2,7 +2,7 @@
 import os, glob, json, time, math, textwrap, argparse, collections, re
 import pandas as pd
 # matplotlib removed - no charts needed
-from datetime import datetime
+from datetime import datetime, timedelta
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
 
@@ -13,13 +13,118 @@ import threading
 #   COOPER_BASE_URL=...  (optional; defaults to the one in the code)
 #   COOPER_MODEL=...     (optional; defaults to gpt-4o)
 #
-COOPER_MODEL = os.getenv("COOPER_MODEL", "gpt-4o")
+COOPER_MODEL = os.getenv("COOPER_MODEL", "gpt-4.1-mini")
 COOPER_BASE_URL = os.getenv("COOPER_BASE_URL", "http://cooper.k8s.nb-prod.com/v1/chat/completions")
 COOPER_API_KEY = os.getenv("COOPER_API_KEY", "nb-AAoDnr1JKoVz6WZgjucGRSo91c2mZa9EtYa9aOF91wPg1uw7W83utyKNGluOAy5L000")
 
 MAX_TRANSCRIPT_CHARS = None   # no truncation - provide full conversation context
 REQUESTS_PER_MINUTE = 500     # rate limiting (increased for much faster processing)
 MAX_WORKERS = 10              # number of parallel API workers
+
+# --------------- WEEK DETECTION ---------------
+def get_conversation_week(csv_path):
+    """Extract the week from a conversation CSV file based on the first timestamp."""
+    try:
+        df = pd.read_csv(csv_path)
+        
+        # Try to find time column
+        col_time = next((c for c in df.columns if "Time" in c), None)
+        if not col_time:
+            return None
+        
+        # Get the first timestamp
+        first_time = None
+        for _, row in df.iterrows():
+            time_str = str(row[col_time]).strip()
+            if time_str and time_str != 'nan' and time_str != 'None':
+                first_time = time_str
+                break
+        
+        if not first_time:
+            return None
+        
+        # Parse timestamp (try multiple formats)
+        parsed_time = None
+        time_formats = [
+            '%Y-%m-%d %H:%M:%S',
+            '%m/%d/%Y %H:%M:%S',
+            '%Y-%m-%dT%H:%M:%S',
+            '%m/%d/%Y %H:%M',
+            '%Y-%m-%d'
+        ]
+        
+        for fmt in time_formats:
+            try:
+                parsed_time = datetime.strptime(first_time, fmt)
+                break
+            except ValueError:
+                continue
+        
+        if not parsed_time:
+            # Try to extract just the date part
+            try:
+                date_part = first_time.split()[0]  # Take first part before space
+                parsed_time = datetime.strptime(date_part, '%Y-%m-%d')
+            except ValueError:
+                try:
+                    parsed_time = datetime.strptime(date_part, '%m/%d/%Y')
+                except ValueError:
+                    return None
+        
+        # Calculate week start (Monday = 0)
+        week_start = parsed_time - timedelta(days=parsed_time.weekday())
+        week_end = week_start + timedelta(days=6)
+        
+        return {
+            'week_start': week_start.strftime('%Y-%m-%d'),
+            'week_end': week_end.strftime('%Y-%m-%d'),
+            'week_key': week_start.strftime('%Y-%m-%d'),
+            'display_name': f"{week_start.strftime('%m/%d/%Y')}-{week_end.strftime('%m/%d/%Y')}"
+        }
+        
+    except Exception as e:
+        print(f"  ⚠️  Could not determine week for {csv_path}: {e}")
+        return None
+
+def group_files_by_week(csv_files):
+    """Group CSV files by week based on conversation timestamps."""
+    weekly_groups = {}
+    
+    print(f"📅 Grouping {len(csv_files)} files by week...")
+    
+    for csv_file in csv_files:
+        week_info = get_conversation_week(csv_file)
+        if week_info:
+            week_key = week_info['week_key']
+            if week_key not in weekly_groups:
+                weekly_groups[week_key] = {
+                    'week_info': week_info,
+                    'files': []
+                }
+            weekly_groups[week_key]['files'].append(csv_file)
+        else:
+            # If we can't determine week, put in "unknown" group
+            if 'unknown' not in weekly_groups:
+                weekly_groups['unknown'] = {
+                    'week_info': {
+                        'week_start': 'Unknown',
+                        'week_end': 'Unknown', 
+                        'week_key': 'unknown',
+                        'display_name': 'Unknown Date'
+                    },
+                    'files': []
+                }
+            weekly_groups['unknown']['files'].append(csv_file)
+    
+    # Sort weeks chronologically
+    sorted_weeks = sorted(weekly_groups.keys(), key=lambda x: x if x != 'unknown' else '9999-99-99')
+    
+    print(f"  📊 Found {len(weekly_groups)} weeks:")
+    for week_key in sorted_weeks:
+        week_data = weekly_groups[week_key]
+        print(f"    📅 {week_data['week_info']['display_name']}: {len(week_data['files'])} files")
+    
+    return weekly_groups, sorted_weeks
 
 # --------------- RATE LIMITER ---------------
 class RateLimiter:
@@ -435,132 +540,398 @@ def csv_to_transcript(csv_path):
         lines.append(f"[{t}] {spk}: {msg}")
 
     transcript = "\n".join(lines)
+    
     if MAX_TRANSCRIPT_CHARS:
         return transcript[:MAX_TRANSCRIPT_CHARS]
     return transcript
 
 # --------------- MAIN ---------------
+def create_intelligent_problem_groups(problems):
+    """
+    Create intelligent problem grouping and summarization based on problem descriptions.
+    This groups similar problems into meaningful categories for better analysis.
+    """
+    grouped_problems = {}
+    
+    # Define problem categories and their keywords
+    problem_categories = {
+        'Technical Issues': [
+            'error', 'bug', 'crash', 'fail', 'broken', 'not working', 'malfunction',
+            'technical', 'system', 'backend', 'api', 'integration', 'connection'
+        ],
+        'User Experience': [
+            'ui', 'ux', 'interface', 'design', 'layout', 'navigation', 'usability',
+            'user experience', 'user interface', 'user interface design'
+        ],
+        'Feature Gaps': [
+            'missing', 'not available', 'lack of', 'need', 'require', 'want',
+            'feature', 'functionality', 'capability', 'tool', 'option'
+        ],
+        'Human Support': [
+            'human', 'agent', 'support', 'escalation', 'live', 'real-time',
+            'manual', 'intervention', 'assistance', 'help'
+        ],
+        'Performance': [
+            'slow', 'performance', 'speed', 'delay', 'timeout', 'lag',
+            'response time', 'loading', 'processing'
+        ],
+        'Account & Access': [
+            'account', 'login', 'access', 'permission', 'verification',
+            'authentication', 'authorization', 'credentials'
+        ],
+        'Billing & Payment': [
+            'billing', 'payment', 'invoice', 'charge', 'cost', 'price',
+            'subscription', 'plan', 'fee'
+        ],
+        'Campaign Management': [
+            'campaign', 'ad', 'advertising', 'marketing', 'promotion',
+            'targeting', 'audience', 'reach'
+        ],
+        'Data & Analytics': [
+            'data', 'analytics', 'report', 'statistics', 'metrics',
+            'tracking', 'measurement', 'insights'
+        ],
+        'Content & Media': [
+            'content', 'media', 'file', 'upload', 'download', 'image',
+            'video', 'document', 'asset'
+        ]
+    }
+    
+    # Group problems by category
+    for problem, conversations in problems.items():
+        assigned_category = 'Other'
+        highest_score = 0
+        
+        # Find the best matching category
+        for category, keywords in problem_categories.items():
+            score = 0
+            for keyword in keywords:
+                if keyword.lower() in problem.lower():
+                    score += 1
+            
+            if score > highest_score:
+                highest_score = score
+                assigned_category = category
+        
+        # Create category if it doesn't exist
+        if assigned_category not in grouped_problems:
+            grouped_problems[assigned_category] = {
+                'problems': {},
+                'summary': '',
+                'total_conversations': 0
+            }
+        
+        # Add problem to category
+        grouped_problems[assigned_category]['problems'][problem] = conversations
+        grouped_problems[assigned_category]['total_conversations'] += len(conversations)
+    
+    # Generate intelligent summaries for each category
+    for category, category_data in grouped_problems.items():
+        problem_list = list(category_data['problems'].keys())
+        if problem_list:
+            category_data['summary'] = generate_category_summary(category, problem_list, category_data['total_conversations'])
+    
+    return grouped_problems
+
+def generate_category_summary(category, problems, total_conversations):
+    """Generate intelligent category summaries based on problems and themes."""
+    # Extract key themes from problems
+    themes = extract_problem_themes(problems)
+    
+    # Generate summary based on category and themes
+    summary = ''
+    
+    if category == 'Technical Issues':
+        summary = f"System and technical problems affecting {total_conversations} conversations"
+        if 'api' in themes: summary += ' (API integration issues)'
+        if 'error' in themes: summary += ' (Error handling)'
+    elif category == 'User Experience':
+        summary = f"Interface and usability issues in {total_conversations} conversations"
+        if 'navigation' in themes: summary += ' (Navigation problems)'
+        if 'design' in themes: summary += ' (Design issues)'
+    elif category == 'Feature Gaps':
+        summary = f"Missing functionality requested in {total_conversations} conversations"
+        if 'automation' in themes: summary += ' (Automation needs)'
+        if 'workflow' in themes: summary += ' (Workflow improvements)'
+    elif category == 'Human Support':
+        summary = f"Escalation to human support in {total_conversations} conversations"
+        if 'live' in themes: summary += ' (Live chat requests)'
+        if 'complex' in themes: summary += ' (Complex issues)'
+    elif category == 'Performance':
+        summary = f"Performance and speed issues in {total_conversations} conversations"
+        if 'slow' in themes: summary += ' (Slow response times)'
+        if 'timeout' in themes: summary += ' (Timeout issues)'
+    elif category == 'Account & Access':
+        summary = f"Account and access problems in {total_conversations} conversations"
+        if 'verification' in themes: summary += ' (Verification issues)'
+        if 'permission' in themes: summary += ' (Permission problems)'
+    elif category == 'Billing & Payment':
+        summary = f"Billing and payment issues in {total_conversations} conversations"
+        if 'invoice' in themes: summary += ' (Invoice requests)'
+        if 'payment' in themes: summary += ' (Payment problems)'
+    elif category == 'Campaign Management':
+        summary = f"Campaign and advertising issues in {total_conversations} conversations"
+        if 'targeting' in themes: summary += ' (Targeting problems)'
+        if 'approval' in themes: summary += ' (Approval issues)'
+    elif category == 'Data & Analytics':
+        summary = f"Data and analytics problems in {total_conversations} conversations"
+        if 'tracking' in themes: summary += ' (Tracking issues)'
+        if 'report' in themes: summary += ' (Reporting problems)'
+    elif category == 'Content & Media':
+        summary = f"Content and media issues in {total_conversations} conversations"
+        if 'upload' in themes: summary += ' (Upload problems)'
+        if 'media' in themes: summary += ' (Media handling)'
+    else:
+        summary = f"Other issues affecting {total_conversations} conversations"
+    
+    return summary
+
+def extract_problem_themes(problems):
+    """Extract key themes from problem descriptions."""
+    themes = []
+    common_words = [
+        'api', 'error', 'navigation', 'design', 'automation', 'workflow',
+        'live', 'complex', 'slow', 'timeout', 'verification', 'permission',
+        'invoice', 'payment', 'targeting', 'approval', 'tracking', 'report',
+        'upload', 'media', 'integration', 'connection', 'system', 'backend'
+    ]
+    
+    for problem in problems:
+        problem_lower = problem.lower()
+        for word in common_words:
+            if word in problem_lower and word not in themes:
+                themes.append(word)
+    
+    return themes
+
 def main(input_glob, outdir, sample_limit=None, dry_run=False):
     os.makedirs(outdir, exist_ok=True)
     csv_files = sorted(glob.glob(input_glob))
     if sample_limit:
         csv_files = csv_files[:sample_limit]
 
-    per_chat = []
-    errs = 0
+    print(f"📁 Found {len(csv_files)} CSV files")
     
-    # Initialize rate limiter
-    rate_limiter = RateLimiter(REQUESTS_PER_MINUTE)
-    start_time = time.time()  # Track total processing time
+    # STEP 1: Filter out low-value conversations first (using original filtering logic)
+    print(f"\n🔍 Step 1: Filtering low-value conversations...")
+    high_value_files = []
+    filtered_count = 0
+    
+    for i, csv_path in enumerate(csv_files, 1):
+        base = os.path.basename(csv_path)
+        if i % 100 == 0 or i == len(csv_files):
+            print(f"  📊 Filtering progress: {i}/{len(csv_files)} ({i/len(csv_files)*100:.1f}%)")
+        
+        try:
+            transcript = csv_to_transcript(csv_path)
+            if not transcript.strip():
+                filtered_count += 1
+                continue
+            
+            # Check for incomplete conversations (no user input)
+            if is_incomplete_conversation(transcript):
+                filtered_count += 1
+                continue
+            
+            # Check for low-value conversations (just greetings, cancellations, etc.)
+            if is_low_value_conversation(transcript):
+                filtered_count += 1
+                continue
+            
+            # This is a high-value conversation
+            high_value_files.append(csv_path)
+            
+        except Exception as e:
+            # If we can't read the file, filter it out
+            filtered_count += 1
+            continue
+    
+    print(f"  ✅ Filtering complete!")
+    print(f"     📁 Total files: {len(csv_files)}")
+    print(f"     🚫 Filtered out: {filtered_count} low-value conversations")
+    print(f"     ✅ High-value files: {len(high_value_files)}")
+    
+    if len(high_value_files) == 0:
+        print(f"\n❌ No high-value conversations found after filtering!")
+        return
+    
+    # STEP 2: Group high-value files by week and process them
+    print(f"\n📅 Step 2: Grouping high-value files by week...")
+    weekly_groups, sorted_weeks = group_files_by_week(high_value_files)
+    
+    # Process each week separately
+    all_per_chat = []
+    weekly_results = {}
+    total_errs = 0
+    
+    for week_key in sorted_weeks:
+        week_data = weekly_groups[week_key]
+        week_files = week_data['files']
+        week_info = week_data['week_info']
+        
+        print(f"\n📅 Processing week: {week_info['display_name']} ({len(week_files)} files)")
 
-    if dry_run:
-        # Sequential processing for dry run
-        for i, path in enumerate(csv_files, 1):
-            base = os.path.basename(path)
-            print(f"Processing {i}/{len(csv_files)}: {base}")
-            
-            result = process_single_file((path, dry_run, rate_limiter))
-            
-            # Filter out low-value conversations completely
-            if result.get("conversation_quality") == "low-value":
-                reason = result.get('filtered_reason', 'unknown')
-                if '2-or-fewer-user-messages' in reason:
-                    print(f"  🚫  Filtered out: {base} (≤2 user messages)")
-                else:
-                    print(f"  🚫  Filtered out: {base} ({reason})")
-                continue  # Skip this conversation entirely
-            
-            per_chat.append(result)
-            
-            if i % 10 == 0 or i == len(csv_files):
-                filtered_count = i - len(per_chat)
-                print(f"\n📊 Progress: {i}/{len(csv_files)} files processed ({i/len(csv_files)*100:.1f}%)")
-                print(f"   🚫 Filtered out: {filtered_count} low-value conversations (≤2 user messages)")
-                print(f"   ✅ High-value conversations: {len(per_chat)}")
-                print()
-    else:
-        # Parallel processing for real API calls
-        print(f"🚀 Starting parallel processing with {MAX_WORKERS} workers...")
-        print(f"📊 Rate limit: {REQUESTS_PER_MINUTE} requests per minute")
+        per_chat = []
+        errs = 0
         
-        # Prepare arguments for parallel processing
-        args_list = [(path, dry_run, rate_limiter) for path in csv_files]
-        
-        with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-            print(f"  📤 Submitting {len(args_list)} tasks to {MAX_WORKERS} workers...")
-            
-            # Submit all tasks
-            future_to_path = {executor.submit(process_single_file, args): args[0] for args in args_list}
-            print(f"  ✅ All tasks submitted! Workers are now processing in parallel...")
-            
-            # Process completed tasks
-            completed = 0
-            start_time = time.time()
-            for future in as_completed(future_to_path):
-                path = future_to_path[future]
+        # Initialize rate limiter for this week
+        rate_limiter = RateLimiter(REQUESTS_PER_MINUTE)
+        start_time = time.time()  # Track processing time for this week
+
+        if dry_run:
+            # Sequential processing for dry run
+            for i, path in enumerate(week_files, 1):
                 base = os.path.basename(path)
-                completed += 1
+                print(f"  Processing {i}/{len(week_files)}: {base}")
                 
-                try:
-                    result = future.result()
+                result = process_single_file((path, dry_run, rate_limiter))
+                
+                # These files are already filtered, so just add them
+                per_chat.append(result)
+                
+                if i % 10 == 0 or i == len(week_files):
+                    print(f"\n  📊 Progress: {i}/{len(week_files)} files processed ({i/len(week_files)*100:.1f}%)")
+                    print(f"     ✅ High-value conversations: {len(per_chat)}")
+                    print()
+        else:
+            # Parallel processing for real API calls
+            print(f"  🚀 Starting parallel processing with {MAX_WORKERS} workers...")
+            print(f"  📊 Rate limit: {REQUESTS_PER_MINUTE} requests per minute")
+            
+            # Prepare arguments for parallel processing
+            args_list = [(path, dry_run, rate_limiter) for path in week_files]
+            
+            with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+                print(f"    📤 Submitting {len(args_list)} tasks to {MAX_WORKERS} workers...")
+                
+                # Submit all tasks
+                future_to_path = {executor.submit(process_single_file, args): args[0] for args in args_list}
+                print(f"    ✅ All tasks submitted! Workers are now processing in parallel...")
+                
+                # Process completed tasks
+                completed = 0
+                start_time = time.time()
+                for future in as_completed(future_to_path):
+                    path = future_to_path[future]
+                    base = os.path.basename(path)
+                    completed += 1
                     
-                    # Filter out low-value conversations completely
-                    if result.get("conversation_quality") == "low-value":
-                        reason = result.get('filtered_reason', 'unknown')
-                        if '2-or-fewer-user-messages' in reason:
-                            print(f"  🚫  Filtered out: {base} (≤2 user messages)")
-                        else:
-                            print(f"  🚫  Filtered out: {base} ({reason})")
-                        continue  # Skip this conversation entirely
-                    
-                    per_chat.append(result)
-                    
-                    # Check for errors
-                    if "parse-error" in result.get("topics", []) or "file-error" in result.get("topics", []):
-                        errs += 1
-                        print(f"  ❌  Error processing {base}")
-                    else:
-                        print(f"  ✅  Completed {base}")
-                    
-                    # Progress update
-                    if completed % 10 == 0 or completed == len(csv_files):
-                        elapsed = time.time() - start_time
-                        rate = completed / elapsed if elapsed > 0 else 0
-                        eta = (len(csv_files) - completed) / rate if rate > 0 else 0
-                        filtered_count = len(csv_files) - len(per_chat) - errs
-                        print(f"\n📊 Progress: {completed}/{len(csv_files)} files processed ({completed/len(csv_files)*100:.1f}%)")
-                        print(f"   🚫 Filtered out: {filtered_count} low-value conversations (≤2 user messages)")
-                        print(f"   🚨 Errors so far: {errs}")
-                        print(f"   ⏱️  Processing rate: {rate:.1f} files/second")
-                        print(f"   ⏳  Estimated time remaining: {eta:.1f} seconds")
-                        print()
+                    try:
+                        result = future.result()
                         
-                except Exception as e:
-                    errs += 1
-                    print(f"  ❌  Exception processing {base}: {e}")
-                    # Add error result
-                    # Don't add processing errors to results - they're not useful for analysis
-                    print(f"  ❌  Processing error for {base}: {e}")
-                    continue
+                        # These files are already filtered, so just add them
+                        per_chat.append(result)
+                        
+                        # Check for errors
+                        if "parse-error" in result.get("topics", []) or "file-error" in result.get("topics", []):
+                            errs += 1
+                            print(f"    ❌  Error processing {base}")
+                        else:
+                            print(f"    ✅  Completed {base}")
+                        
+                        # Progress update
+                        if completed % 10 == 0 or completed == len(week_files):
+                            elapsed = time.time() - start_time
+                            rate = completed / elapsed if elapsed > 0 else 0
+                            eta = (len(week_files) - completed) / rate if rate > 0 else 0
+                            print(f"\n    📊 Progress: {completed}/{len(week_files)} files processed ({completed/len(week_files)*100:.1f}%)")
+                            print(f"       🚨 Errors so far: {errs}")
+                            print(f"       ⏱️  Processing rate: {rate:.1f} files/second")
+                            print(f"       ⏳  Estimated time remaining: {eta:.1f} seconds")
+                            print()
+                            
+                    except Exception as e:
+                        errs += 1
+                        print(f"    ❌  Exception processing {base}: {e}")
+                        print(f"    ❌  Processing error for {base}: {e}")
+                        continue
 
-    if not dry_run:
-        total_time = time.time() - start_time
-        avg_time_per_file = total_time / len(csv_files) if csv_files else 0
-        print(f"\n🚀 Parallel Processing Summary:")
-        print(f"   📊 Total files: {len(csv_files)}")
-        print(f"   ⏱️  Total time: {total_time:.1f} seconds")
-        print(f"   📈 Average time per file: {avg_time_per_file:.2f} seconds")
-        print(f"   🔧 Workers used: {MAX_WORKERS}")
-        print(f"   📊 Files per second: {len(csv_files)/total_time:.2f}")
+        if not dry_run:
+            total_time = time.time() - start_time
+            avg_time_per_file = total_time / len(week_files) if week_files else 0
+            print(f"\n  🚀 Week Processing Summary:")
+            print(f"     📊 Files in week: {len(week_files)}")
+            print(f"     ⏱️  Processing time: {total_time:.1f} seconds")
+            print(f"     📈 Average time per file: {avg_time_per_file:.2f} seconds")
+            print(f"     🔧 Workers used: {MAX_WORKERS}")
+            print(f"     📊 Files per second: {len(week_files)/total_time:.2f}")
+            print()
+        
+        print(f"  🎉 Week processing complete!")
+        
+        # Create weekly problem mapping for this week
+        weekly_problems = {}
+        for r in per_chat:
+            problems_found = []
+            
+            # Check for missing features
+            if r.get("failure_category") == "feature-not-supported":
+                missing_feature = r.get("missing_feature", "unknown-feature")
+                if missing_feature and missing_feature != "unknown-feature":
+                    problems_found.append(missing_feature)
+            
+            # Check for improvement needs
+            improvement = r.get("specific_improvement_needed", "no-improvement-needed")
+            if improvement and improvement != "no-improvement-needed":
+                if not any(phrase in improvement.lower() for phrase in [
+                    'bot-handled-perfectly', 'user-request-fulfilled', 'conversation-successful',
+                    'bot-solved-problem', 'user-satisfied', 'conversation-completed-successfully'
+                ]):
+                    problems_found.append(improvement)
+            
+            # Check for escalation triggers
+            escalation_triggers = r.get("escalation_triggers", [])
+            for trigger in escalation_triggers:
+                if trigger and not any(phrase in trigger.lower() for phrase in [
+                    'none', 'no-escalation-needed', 'bot-solved-problem', 'user-satisfied',
+                    'conversation-completed-successfully', 'user-abandoned-conversation'
+                ]):
+                    problems_found.append(trigger)
+            
+            # Check for error patterns
+            error_patterns = r.get("error_patterns", [])
+            for error in error_patterns:
+                if error and not any(phrase in error.lower() for phrase in [
+                    'none', 'no-errors-detected', 'system-functioning-perfectly',
+                    'all-requests-successful', 'no-technical-issues', 'conversation-abandoned'
+                ]):
+                    problems_found.append(error)
+            
+            # Add problems to weekly mapping
+            for problem in problems_found:
+                if problem not in weekly_problems:
+                    weekly_problems[problem] = []
+                weekly_problems[problem].append(r['file'])
+        
+        # Create weekly grouped problems
+        weekly_grouped_problems = create_intelligent_problem_groups(weekly_problems)
+        
+        # Store weekly results
+        weekly_results[week_key] = {
+            'week_info': week_info,
+            'per_chat': per_chat,
+            'errors': errs,
+            'total_files': len(week_files),
+            'grouped_problems': weekly_grouped_problems
+        }
+        
+        # Add to overall results
+        all_per_chat.extend(per_chat)
+        total_errs += errs
+        
+        print(f"  📊 Week {week_info['display_name']} results:")
+        print(f"     ✅ High-value conversations: {len(per_chat)}")
+        print(f"     🚨 Errors: {errs}")
+        print(f"     🚫 Filtered out: {len(week_files) - len(per_chat) - errs}")
         print()
     
-    print(f"\n🎉 Processing complete! Starting analysis...")
+    print(f"\n🎉 All weeks processed! Starting analysis...")
     
-    # Run summary step
-    print(f"\n📊 Running summary analysis...")
+    # Run summary step for all data combined
+    print(f"\n📊 Running summary analysis for all weeks...")
     try:
         from summarize_results import generate_summary_report
-        summary_stats = generate_summary_report(per_chat, outdir)
+        summary_stats = generate_summary_report(all_per_chat, outdir)
         print(f"  ✅ Summary analysis complete!")
     except ImportError:
         print(f"  ⚠️  Summary module not found, skipping summary step")
@@ -569,12 +940,18 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False):
         print(f"  ❌ Summary analysis failed: {e}")
         summary_stats = None
     
-    # Save raw data (needed for HTML report)
+    # Save raw data for all weeks combined (needed for HTML report)
     raw_path = os.path.join(outdir, "per_chat.jsonl")
     with open(raw_path, "w", encoding="utf-8") as f:
-        for r in per_chat:
+        for r in all_per_chat:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
-    print(f"  ✅  Created raw data: {raw_path}")
+    print(f"  ✅  Created combined raw data: {raw_path}")
+    
+    # Save weekly data separately (needed for week filtering in HTML)
+    weekly_data_path = os.path.join(outdir, "weekly_data.json")
+    with open(weekly_data_path, "w", encoding="utf-8") as f:
+        json.dump(weekly_results, f, ensure_ascii=False, indent=2)
+    print(f"  ✅  Created weekly data: {weekly_data_path}")
 
     # Problem-to-conversation mappings for clickable items (consolidated approach)
     problem_conversation_mapping = {
@@ -583,7 +960,7 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False):
     }
 
     # Process conversations to build mapping
-    for r in per_chat:
+    for r in all_per_chat:
         # Map all problems to conversations (consolidated approach)
         problems_found = []
         
@@ -654,31 +1031,48 @@ def main(input_glob, outdir, sample_limit=None, dry_run=False):
                     problem_conversation_mapping['successful_capabilities'][success_type] = []
                 problem_conversation_mapping['successful_capabilities'][success_type].append(r['file'])
 
+    # Create intelligent problem grouping and summarization
+    grouped_problems = create_intelligent_problem_groups(problem_conversation_mapping['problems'])
+    problem_conversation_mapping['grouped_problems'] = grouped_problems
+    
     # Save problem-to-conversation mapping (needed for HTML report)
     mapping_path = os.path.join(outdir, "problem_conversation_mapping.json")
     with open(mapping_path, "w", encoding="utf-8") as f:
         json.dump(problem_conversation_mapping, f, ensure_ascii=False, indent=2)
     print(f"  ✅  Created problem mapping: {mapping_path}")
+    print(f"  🏷️  Created {len(grouped_problems)} problem categories")
 
-    total_files = len(csv_files)
-    filtered_count = total_files - len(per_chat) - errs
-    
+    total_files = sum(len(weekly_groups[week]['files']) for week in weekly_groups)
+    filtered_count = total_files - len(all_per_chat) - total_errs
+
     print(f"\n🎯 Analysis Complete!")
     print(f"📊 Summary:")
     print(f"   📁 Total files processed: {total_files}")
     print(f"   🚫 Low-value conversations filtered: {filtered_count}")
-    print(f"   🚨 Processing errors: {errs}")
-    print(f"   ✅ High-value conversations analyzed: {len(per_chat)}")
+    print(f"   🚨 Processing errors: {total_errs}")
+    print(f"   ✅ High-value conversations analyzed: {len(all_per_chat)}")
     print(f"📁 Raw data: {raw_path}")
     print(f"📊 Problem mapping: {mapping_path}")
+    print(f"📅 Weekly data: {weekly_data_path}")
     print(f"💡 Run 'python generate_executive_report.py --analysis_dir {outdir} --output report.html --short' to generate HTML report")
     
-    if errs > 0:
-        print(f"\n⚠️  Warning: {errs} files had errors during processing")
+    if total_errs > 0:
+        print(f"\n⚠️  Warning: {total_errs} files had errors during processing")
     if filtered_count > 0:
         print(f"\n🚫 Note: {filtered_count} low-value conversations were filtered out (≤2 user messages, greetings, cancellations, etc.)")
-    if len(per_chat) > 0:
-        print(f"\n✅ {len(per_chat)} high-value conversations analyzed successfully!")
+    if len(all_per_chat) > 0:
+        print(f"\n✅ {len(all_per_chat)} high-value conversations analyzed successfully!")
+    
+    print(f"\n📅 Weekly Breakdown:")
+    for week_key in sorted_weeks:
+        if week_key in weekly_results:
+            week_data = weekly_results[week_key]
+            week_info = week_data['week_info']
+            print(f"   📅 {week_info['display_name']}: {len(week_data['per_chat'])} conversations, {week_data['errors']} errors")
+    else:
+            # Handle case where week had no valid conversations
+            week_info = weekly_groups[week_key]['week_info']
+            print(f"   📅 {week_info['display_name']}: 0 conversations (all filtered out), 0 errors")
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()

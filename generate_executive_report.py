@@ -57,6 +57,18 @@ def load_analysis_data(analysis_dir):
         print(f"  ⚠️  Problem mapping not found: {mapping_path}")
         data['problem_mapping'] = {}
     
+    # Load weekly data for week filtering
+    weekly_data_path = os.path.join(analysis_dir, "weekly_data.json")
+    if os.path.exists(weekly_data_path):
+        with open(weekly_data_path, 'r', encoding='utf-8') as f:
+            weekly_data = json.load(f)
+        data['weekly_data'] = weekly_data
+        print(f"  ✅  Loaded weekly data: {weekly_data_path}")
+        print(f"  📅  Found {len(weekly_data)} weeks of data")
+    else:
+        print(f"  ⚠️  Weekly data not found: {weekly_data_path}")
+        data['weekly_data'] = {}
+    
     return data
 
 def generate_executive_summary(data):
@@ -1142,6 +1154,47 @@ def generate_concise_report(analysis_dir, output_file):
         .content {
             padding: 30px;
         }
+        .week-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .week-tab {
+            padding: 10px 20px;
+            background: #e9ecef;
+            border: 2px solid transparent;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        .week-tab:hover {
+            background: #dee2e6;
+            transform: translateY(-2px);
+        }
+        .week-tab.active {
+            background: #667eea;
+            color: white;
+            border-color: #495057;
+        }
+        .week-tab.multi-select {
+            background: #28a745;
+            color: white;
+        }
+        .week-tab.multi-select:hover {
+            background: #218838;
+        }
+        .week-selection-info {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #e3f2fd;
+            border-radius: 8px;
+            border-left: 4px solid #2196f3;
+        }
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1582,26 +1635,35 @@ def generate_concise_report(analysis_dir, output_file):
         </div>
         
         <div class="content">
+            <!-- Week Selection Tabs -->
+            <div class="week-tabs" id="weekTabs">
+                <!-- Week tabs will be populated by JavaScript -->
+            </div>
+            
+            <div class="week-selection-info" id="weekSelectionInfo">
+                <strong>📅 Week Selection:</strong> Click on week tabs above to filter data. You can select multiple weeks by holding Ctrl/Cmd while clicking.
+            </div>
+            
             <div class="section">
                 <h2>📊 Key Metrics</h2>
                 <div class="metrics-grid">
-                    <div class="metric-card">
+                    <div class="metric-card" data-metric="totalCount">
                         <div class="metric-number">""" + f"{raw_csv_count:,}" + """</div>
                         <div class="metric-label">Total conversations</div>
                     </div>
-                    <div class="metric-card">
+                    <div class="metric-card" data-metric="analyzedCount">
                         <div class="metric-number">""" + f"{analyzed_count:,}" + """</div>
                         <div class="metric-label">Analyzed</div>
                     </div>
-                    <div class="metric-card">
+                    <div class="metric-card" data-metric="solvedCount">
                         <div class="metric-number">""" + f"{solved:,}" + """</div>
                         <div class="metric-label">Chatbot successes</div>
                     </div>
-                    <div class="metric-card">
+                    <div class="metric-card" data-metric="needsHumanCount">
                         <div class="metric-number">""" + f"{needs_human:,}" + """</div>
                         <div class="metric-label">Need Human Assistance</div>
                     </div>
-                    <div class="metric-card">
+                    <div class="metric-card" data-metric="filteredCount">
                         <div class="metric-number">""" + f"{filtered_out:,}" + """</div>
                         <div class="metric-label">Filtered Out (Too Short/Greetings)</div>
                     </div>
@@ -1615,39 +1677,78 @@ def generate_concise_report(analysis_dir, output_file):
                 
                 <div class="issue-list">"""
     
-    # Get all problems from the consolidated mapping
-    all_problems = []
-    if 'problems' in data.get('problem_mapping', {}):
-        for problem, problem_data in data['problem_mapping']['problems'].items():
-            if isinstance(problem_data, dict) and 'conversations' in problem_data:
-                count = len(problem_data['conversations'])
-                all_problems.append((problem, count, problem_data))
-    
-    # Sort by count (most frequent problems first)
-    all_problems.sort(key=lambda x: x[1], reverse=True)
-    
-    if all_problems:
-        for problem, count, problem_data in all_problems[:15]:  # Top 15 problems
-            # Verify count consistency
-            sub_problem_total = sum(len(convs) for convs in problem_data.get('sub_problems', {}).values())
-            if count != sub_problem_total:
-                print(f"  ⚠️  COUNT MISMATCH in HTML: '{problem}' shows {count} but sub-problems total {sub_problem_total}")
+    # Check if we have grouped problems from the analysis
+    if 'grouped_problems' in data.get('problem_mapping', {}) and data['problem_mapping']['grouped_problems']:
+        # Use pre-computed grouped problems from Python analysis
+        grouped_problems = data['problem_mapping']['grouped_problems']
+        
+        # Sort categories by total conversations affected
+        categories = sorted(grouped_problems.keys(), 
+                          key=lambda cat: grouped_problems[cat]['total_conversations'], 
+                          reverse=True)
+        
+        for category in categories:
+            category_data = grouped_problems[category]
             
-            # Encode JSON for safe embedding in data- attribute
-            popup_json = json.dumps(problem_data, ensure_ascii=False)
-            popup_data = urllib.parse.quote(popup_json)
+            # Create category header
             html_report += f"""
-                <div class="feature-item clickable-item" data-problem="{problem}" data-popup="{popup_data}" data-count="{count}">
+                <div class="category-header" style="background: #e9ecef; padding: 12px 15px; margin: 20px 0 10px 0; border-radius: 6px; border-left: 4px solid #6c757d; font-weight: bold; color: #495057; font-size: 1.1em;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span>{category}</span>
+                        <span style="background: #6c757d; color: white; padding: 4px 8px; border-radius: 12px; font-size: 0.8em;">
+                            {category_data['total_conversations']} conversations
+                        </span>
+                </div>
+                    <div style="font-size: 0.9em; font-weight: normal; margin-top: 5px; color: #6c757d;">
+                        {category_data['summary']}
+                    </div>
+                </div>"""
+            
+            # Display problems in this category
+            problems = list(category_data['problems'].items())
+            problems.sort(key=lambda x: len(x[1]), reverse=True)  # Sort by conversation count
+            
+            for problem, conversations in problems:
+                count = len(conversations)
+                problem_data = {'conversations': conversations}
+                popup_json = json.dumps(problem_data, ensure_ascii=False)
+                popup_data = urllib.parse.quote(popup_json)
+                
+                html_report += f"""
+                <div class="feature-item clickable-item" data-problem="{problem}" data-popup="{popup_data}" data-count="{count}" style="margin-left: 20px;">
                     <span class="feature-count">{count:,}</span>
                     <strong>{problem}</strong>
-                    <div class="conversation-preview">Click to see {count} conversations grouped by sub-problems (total: {sub_problem_total})</div>
-                </div>"""
+                    <div class="conversation-preview">Click to see {count} conversations</div>
+                    </div>"""
+    
     else:
-        html_report += """
-                <div class="feature-item">
-                    <span class="feature-count">0</span>
-                    <strong>No problems identified</strong>
-                </div>"""
+        # Fallback to old method if no grouped problems
+        all_problems = []
+        if 'problems' in data.get('problem_mapping', {}):
+            for problem, problem_data in data['problem_mapping']['problems'].items():
+                if isinstance(problem_data, dict) and 'conversations' in problem_data:
+                    count = len(problem_data['conversations'])
+                    all_problems.append((problem, count, problem_data))
+        
+        # Sort by count (most frequent problems first)
+        all_problems.sort(key=lambda x: x[1], reverse=True)
+        
+        if all_problems:
+            for problem, count, problem_data in all_problems[:15]:  # Top 15 problems
+                # Verify count consistency
+                sub_problem_total = sum(len(convs) for convs in problem_data.get('sub_problems', {}).values())
+                if count != sub_problem_total:
+                    print(f"  ⚠️  COUNT MISMATCH in HTML: '{problem}' shows {count} but sub-problems total {sub_problem_total}")
+                
+                # Encode JSON for safe embedding in data- attribute
+                popup_json = json.dumps(problem_data, ensure_ascii=False)
+                popup_data = urllib.parse.quote(popup_json)
+                html_report += f"""
+                    <div class="feature-item clickable-item" data-problem="{problem}" data-popup="{popup_data}" data-count="{count}">
+                        <span class="feature-count">{count:,}</span>
+                        <strong>{problem}</strong>
+                        <div class="conversation-preview">Click to see {count} conversations grouped by sub-problems (total: {sub_problem_total})</div>
+                    </div>"""
     
     html_report += """
                 </div>
@@ -1706,20 +1807,20 @@ def generate_concise_report(analysis_dir, output_file):
                     <span class="feature-count">✓</span>
                     <strong>{display_name}</strong>
                     <div class="conversation-preview">Proven capability - {len(conversations)} examples</div>
-                </div>"""
+                    </div>"""
     
     # If no successes found
     if not key_capabilities:
-        html_report += """
-                <div class="feature-item">
+            html_report += """
+                    <div class="feature-item">
                     <span class="feature-count">⚠️</span>
                     <strong>Limited Success Data</strong>
                     <div class="conversation-preview">Few conversations were marked as successfully handled</div>
-                </div>"""
+                    </div>"""
     
     html_report += """
                 </div>
-            </div>
+                </div>
 
 
         </div>
@@ -1749,8 +1850,465 @@ def generate_concise_report(analysis_dir, output_file):
         <p style="margin-top: 10px; font-size: 0.9em; color: #666;">Click these buttons to verify JavaScript and modal are working</p>
     </div>
     
+    <!-- Embedded Weekly Data -->
+    <script>
+        window.embeddedWeeklyData = """ + json.dumps(data.get('weekly_data', {}), ensure_ascii=False) + """;
+    </script>
+    
     <script>
         console.log('JavaScript loaded successfully');
+        
+        // Week filtering functionality
+        let weeklyData = {};
+        let selectedWeeks = new Set();
+        let allData = null;
+        
+        // Initialize week filtering when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeWeekFiltering();
+        });
+        
+        function initializeWeekFiltering() {
+            // Weekly data is embedded in the HTML, no need to fetch
+            if (window.embeddedWeeklyData) {
+                weeklyData = window.embeddedWeeklyData;
+                allData = window.embeddedWeeklyData;
+                createWeekTabs();
+                updateDisplay();
+            } else {
+                console.log('Weekly data not available, using combined data only');
+                weeklyData = {};
+                allData = null;
+                createWeekTabs();
+                updateDisplay();
+            }
+        }
+        
+        function createWeekTabs() {
+            const tabsContainer = document.getElementById('weekTabs');
+            if (!tabsContainer) return;
+            
+            // Clear existing tabs
+            tabsContainer.innerHTML = '';
+            
+            // Add "All Weeks" tab
+            const allWeeksTab = document.createElement('div');
+            allWeeksTab.className = 'week-tab active';
+            allWeeksTab.textContent = '📅 All Weeks';
+            allWeeksTab.onclick = () => selectAllWeeks();
+            tabsContainer.appendChild(allWeeksTab);
+            
+            // Add individual week tabs
+            if (weeklyData && Object.keys(weeklyData).length > 0) {
+                const sortedWeeks = Object.keys(weeklyData).sort();
+                sortedWeeks.forEach(weekKey => {
+                    if (weekKey === 'unknown') return; // Skip unknown week
+                    
+                    const weekInfo = weeklyData[weekKey].week_info;
+                    const weekTab = document.createElement('div');
+                    weekTab.className = 'week-tab';
+                    weekTab.textContent = weekInfo.display_name;
+                    weekTab.onclick = (e) => toggleWeekSelection(weekKey, e);
+                    weekTab.setAttribute('data-week', weekKey);
+                    tabsContainer.appendChild(weekTab);
+                });
+            }
+        }
+        
+        function selectAllWeeks() {
+            selectedWeeks.clear();
+            document.querySelectorAll('.week-tab').forEach(tab => {
+                tab.classList.remove('active', 'multi-select');
+            });
+            document.querySelector('.week-tab').classList.add('active');
+            updateDisplay();
+        }
+        
+        function toggleWeekSelection(weekKey, event) {
+            const tab = event.target;
+            const isCtrlPressed = event.ctrlKey || event.metaKey;
+            
+            if (isCtrlPressed) {
+                // Multi-select mode
+                if (selectedWeeks.has(weekKey)) {
+                    selectedWeeks.delete(weekKey);
+                    tab.classList.remove('multi-select');
+                } else {
+                    selectedWeeks.add(weekKey);
+                    tab.classList.add('multi-select');
+                }
+                
+                // Update "All Weeks" tab
+                document.querySelector('.week-tab').classList.remove('active');
+                
+                // Update display
+                updateDisplay();
+            } else {
+                // Single select mode
+                selectedWeeks.clear();
+                selectedWeeks.add(weekKey);
+                
+                // Update tab states
+                document.querySelectorAll('.week-tab').forEach(t => {
+                    t.classList.remove('active', 'multi-select');
+                });
+                tab.classList.add('active');
+                
+                updateDisplay();
+            }
+        }
+        
+        function updateDisplay() {
+            const infoDiv = document.getElementById('weekSelectionInfo');
+            if (!infoDiv) return;
+            
+            if (selectedWeeks.size === 0) {
+                // Show all weeks
+                infoDiv.innerHTML = '<strong>📅 Week Selection:</strong> Showing data from all weeks combined.';
+                updateMetrics(allData);
+            } else if (selectedWeeks.size === 1) {
+                // Show single week
+                const weekKey = Array.from(selectedWeeks)[0];
+                const weekInfo = weeklyData[weekKey].week_info;
+                infoDiv.innerHTML = `<strong>📅 Week Selection:</strong> Showing data from week: <strong>${weekInfo.display_name}</strong>`;
+                
+                // Create a data object with the week's conversations and rebuild problem mapping
+                const weekData = {
+                    per_chat: weeklyData[weekKey].per_chat || []
+                };
+                
+                // Rebuild problem mapping for this specific week
+                rebuildProblemMapping(weekData);
+                
+                updateMetrics(weekData);
+            } else {
+                // Show multiple weeks
+                const weekNames = Array.from(selectedWeeks).map(key => weeklyData[key].week_info.display_name);
+                infoDiv.innerHTML = `<strong>📅 Week Selection:</strong> Showing combined data from ${selectedWeeks.size} weeks: <strong>${weekNames.join(', ')}</strong>`;
+                
+                // Combine data from multiple weeks
+                const combinedData = combineWeeklyData(Array.from(selectedWeeks));
+                updateMetrics(combinedData);
+            }
+        }
+        
+        function combineWeeklyData(weekKeys) {
+            const combined = {
+                per_chat: []
+            };
+            
+            weekKeys.forEach(weekKey => {
+                if (weeklyData[weekKey] && weeklyData[weekKey].per_chat) {
+                    combined.per_chat.push(...weeklyData[weekKey].per_chat);
+                }
+            });
+            
+            // Rebuild problem mapping for combined data
+            rebuildProblemMapping(combined);
+            
+            return combined;
+        }
+        
+        function rebuildProblemMapping(data) {
+            console.log('Rebuilding problem mapping for filtered data...');
+            
+            if (!data || !data.per_chat) return;
+            
+            // Rebuild problem mapping from scratch based on filtered conversations
+            const problems = {};
+            const successful_capabilities = {};
+            
+            data.per_chat.forEach(conversation => {
+                // Map problems
+                const problems_found = [];
+                
+                // Check for missing features
+                if (conversation.failure_category === "feature-not-supported") {
+                    const missing_feature = conversation.missing_feature;
+                    if (missing_feature && missing_feature !== "unknown-feature") {
+                        problems_found.push(missing_feature);
+                    }
+                }
+                
+                // Check for improvement needs
+                const improvement = conversation.specific_improvement_needed;
+                if (improvement && improvement !== "no-improvement-needed") {
+                    // Filter out success indicators
+                    if (!improvement.includes('bot-handled-perfectly') && 
+                        !improvement.includes('user-request-fulfilled') && 
+                        !improvement.includes('conversation-successful') &&
+                        !improvement.includes('bot-solved-problem') && 
+                        !improvement.includes('user-satisfied') && 
+                        !improvement.includes('conversation-completed-successfully')) {
+                        problems_found.push(improvement);
+                    }
+                }
+                
+                // Check for escalation triggers
+                const escalation_triggers = conversation.escalation_triggers || [];
+                escalation_triggers.forEach(trigger => {
+                    if (trigger && !trigger.includes('none') && 
+                        !trigger.includes('no-escalation-needed') && 
+                        !trigger.includes('bot-solved-problem') && 
+                        !trigger.includes('user-satisfied') &&
+                        !trigger.includes('conversation-completed-successfully') && 
+                        !trigger.includes('user-abandoned-conversation')) {
+                        problems_found.push(trigger);
+                    }
+                });
+                
+                // Check for error patterns
+                const error_patterns = conversation.error_patterns || [];
+                error_patterns.forEach(error => {
+                    if (error && !error.includes('none') && 
+                        !error.includes('no-errors-detected') && 
+                        !error.includes('system-functioning-perfectly') &&
+                        !error.includes('all-requests-successful') && 
+                        !error.includes('no-technical-issues') && 
+                        !error.includes('conversation-abandoned')) {
+                        problems_found.push(error);
+                    }
+                });
+                
+                // Add problems to mapping
+                problems_found.forEach(problem => {
+                    if (!problems[problem]) {
+                        problems[problem] = [];
+                    }
+                    problems[problem].push(conversation.file);
+                });
+                
+                // Map successful capabilities
+                if (conversation.solved) {
+                    // Add demonstrated skills
+                    const skills = conversation.demonstrated_skills || [];
+                    skills.forEach(skill => {
+                        if (skill) {
+                            if (!successful_capabilities[skill]) {
+                                successful_capabilities[skill] = [];
+                            }
+                            successful_capabilities[skill].push(conversation.file);
+                        }
+                    });
+                    
+                    // Add success indicators
+                    const improvement = conversation.specific_improvement_needed || "";
+                    if (improvement && (improvement.includes('bot-handled-perfectly') || 
+                        improvement.includes('user-request-fulfilled') || 
+                        improvement.includes('conversation-successful') ||
+                        improvement.includes('bot-solved-problem') || 
+                        improvement.includes('user-satisfied') || 
+                        improvement.includes('conversation-completed-successfully'))) {
+                        
+                        const success_type = "bot-handled-perfectly";
+                        if (!successful_capabilities[success_type]) {
+                            successful_capabilities[success_type] = [];
+                        }
+                        successful_capabilities[success_type].push(conversation.file);
+                    }
+                }
+            });
+            
+            // Update the data object with rebuilt mapping
+            data.problem_mapping = {
+                problems: problems,
+                successful_capabilities: successful_capabilities
+            };
+            
+            console.log('Problem mapping rebuilt:', {
+                problems: Object.keys(problems).length,
+                capabilities: Object.keys(successful_capabilities).length
+            });
+        }
+        
+        function updateMetrics(data) {
+            if (!data || !data.per_chat) return;
+            
+            // Update metrics display based on filtered data
+            const results = data.per_chat;
+            const analyzed_count = results.length;
+            const high_value = results.filter(r => r.conversation_quality === 'high-value').length;
+            const solved = results.filter(r => r.solved).length;
+            const needs_human = results.filter(r => r.needs_human).length;
+            
+            // Update metric cards
+            updateMetricCard('analyzedCount', analyzed_count);
+            updateMetricCard('solvedCount', solved);
+            updateMetricCard('needsHumanCount', needs_human);
+            
+            // Note: totalCount and filteredCount are static and don't change with week selection
+            // They represent the overall dataset size
+            
+            // Update problems and capabilities sections
+            updateProblemsSection(data);
+            updateCapabilitiesSection(data);
+        }
+        
+        function updateMetricCard(id, value) {
+            const card = document.querySelector(`[data-metric="${id}"]`);
+            if (card) {
+                const numberElement = card.querySelector('.metric-number');
+                if (numberElement) {
+                    numberElement.textContent = value.toLocaleString();
+                }
+            }
+        }
+        
+        function updateProblemsSection(data) {
+            console.log('Updating problems section with filtered data...');
+            
+            if (!data || !data.problem_mapping || !data.problem_mapping.problems) return;
+            
+            // Find the problems section by looking for the heading text
+            const headings = document.querySelectorAll('.section h2');
+            let problemsSection = null;
+            for (const heading of headings) {
+                if (heading.textContent.includes('PROBLEMS THE CHATBOT CANNOT SOLVE')) {
+                    problemsSection = heading.closest('.section');
+                    break;
+                }
+            }
+            
+            if (!problemsSection) return;
+            
+            const issueList = problemsSection.querySelector('.issue-list');
+            if (!issueList) return;
+            
+            // Clear existing problems
+            issueList.innerHTML = '';
+            
+            // Get all problems from the filtered data
+            const allProblems = [];
+            for (const [problem, conversations] of Object.entries(data.problem_mapping.problems)) {
+                if (conversations && conversations.length > 0) {
+                    allProblems.push([problem, conversations.length, { conversations: conversations }]);
+                }
+            }
+            
+            // Sort by count (most frequent problems first)
+            allProblems.sort((a, b) => b[1] - a[1]);
+            
+            // Display top 15 problems
+            allProblems.slice(0, 15).forEach(([problem, count, problemData]) => {
+                const popup_json = JSON.stringify(problemData, null, 2);
+                const popup_data = encodeURIComponent(popup_json);
+                
+                const problemDiv = document.createElement('div');
+                problemDiv.className = 'feature-item clickable-item';
+                problemDiv.setAttribute('data-problem', problem);
+                problemDiv.setAttribute('data-popup', popup_data);
+                problemDiv.setAttribute('data-count', count);
+                problemDiv.onclick = () => showConversations(problem, popup_data, count);
+                
+                problemDiv.innerHTML = `
+                    <span class="feature-count">${count.toLocaleString()}</span>
+                    <strong>${problem}</strong>
+                    <div class="conversation-preview">Click to see ${count} conversations</div>
+                `;
+                
+                issueList.appendChild(problemDiv);
+            });
+            
+            if (allProblems.length === 0) {
+                issueList.innerHTML = `
+                    <div class="feature-item">
+                        <span class="feature-count">0</span>
+                        <strong>No problems identified in selected week(s)</strong>
+                    </div>
+                `;
+            }
+        }
+        
+        function updateCapabilitiesSection(data) {
+            console.log('Updating capabilities section with filtered data...');
+            
+            if (!data || !data.problem_mapping || !data.problem_mapping.successful_capabilities) return;
+            
+            // Find the capabilities section by looking for the heading text
+            const headings = document.querySelectorAll('.section h2');
+            let capabilitiesSection = null;
+            for (const heading of headings) {
+                if (heading.textContent.includes('KEY CHATBOT STRENGTHS')) {
+                    capabilitiesSection = heading.closest('.section');
+                    break;
+                }
+            }
+            
+            if (!capabilitiesSection) return;
+            
+            const issueList = capabilitiesSection.querySelector('.issue-list');
+            if (!issueList) return;
+            
+            // Clear existing capabilities
+            issueList.innerHTML = '';
+            
+            // Create a prioritized list of key capabilities
+            const keyCapabilities = [];
+            const capabilityPriority = {
+                'bot-handled-perfectly': 1,
+                'account-verification-guidance': 2,
+                'campaign-activation-instructions': 3,
+                'policy-clarification': 4,
+                'multi-step-instruction': 5,
+                'problem-solving': 6,
+            };
+            
+            for (const [capability, conversations] of Object.entries(data.problem_mapping.successful_capabilities)) {
+                if (capability && conversations && conversations.length > 0) {
+                    const priority = capabilityPriority[capability] || 99;
+                    keyCapabilities.push([priority, capability, conversations]);
+                }
+            }
+            
+            // Sort by priority (lower number = higher priority)
+            keyCapabilities.sort((a, b) => a[0] - b[0]);
+            
+            // Show only top 5 most important capabilities
+            keyCapabilities.slice(0, 5).forEach(([priority, capability, conversations]) => {
+                const popupData = {
+                    conversations: conversations,
+                    sub_problems: { capability: conversations },
+                    type: 'success'
+                };
+                const popup_json = encodeURIComponent(JSON.stringify(popupData));
+                
+                const displayNames = {
+                    'bot-handled-perfectly': 'Perfect Problem Resolution',
+                    'account-verification-guidance': 'Account Verification Support',
+                    'campaign-activation-instructions': 'Campaign Setup Guidance',
+                    'policy-clarification': 'Policy & Rules Clarification',
+                    'multi-step-instruction': 'Complex Multi-Step Tasks',
+                    'problem-solving': 'General Problem Solving'
+                };
+                
+                const displayName = displayNames[capability] || capability.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                
+                const capabilityDiv = document.createElement('div');
+                capabilityDiv.className = 'feature-item clickable-item';
+                capabilityDiv.setAttribute('data-problem', capability);
+                capabilityDiv.setAttribute('data-popup', popup_json);
+                capabilityDiv.setAttribute('data-count', conversations.length);
+                capabilityDiv.onclick = () => showConversations(capability, popup_json, conversations.length);
+                
+                capabilityDiv.innerHTML = `
+                    <span class="feature-count">✓</span>
+                    <strong>${displayName}</strong>
+                    <div class="conversation-preview">Proven capability - ${conversations.length} examples</div>
+                `;
+                
+                issueList.appendChild(capabilityDiv);
+            });
+            
+            if (keyCapabilities.length === 0) {
+                issueList.innerHTML = `
+                    <div class="feature-item">
+                        <span class="feature-count">⚠️</span>
+                        <strong>Limited Success Data</strong>
+                        <div class="conversation-preview">Few conversations were marked as successfully handled in selected week(s)</div>
+                    </div>
+                `;
+            }
+        }
         
         // Delegate click handling for all feature items
         document.addEventListener('click', function(e) {
@@ -1875,8 +2433,8 @@ def generate_concise_report(analysis_dir, output_file):
                         <div style="text-align: center; color: #6c757d;">
                             <p>Loading conversation data...</p>
                             <p>Searching for CSV file...</p>
-                        </div>
-                    </div>
+                </div>
+            </div>
                 </div>
             `;
             
@@ -1911,7 +2469,7 @@ def generate_concise_report(analysis_dir, output_file):
                                 The CSV file may not be accessible from the browser.<br>
                                 Try opening the HTML file from the same directory as the analysis_out folder.
                             </p>
-                        </div>
+                    </div>
                     `;
                 });
         }
@@ -1964,14 +2522,14 @@ def generate_concise_report(analysis_dir, output_file):
                                         <span class="speaker-icon">${speakerIcon}</span>
                                         <span class="speaker-name">${msg['Sender full name'] || msg['Sender name'] || 'Unknown'}</span>
                                         ${msg['Time in GMT'] ? `<span class="timestamp">${msg['Time in GMT']}</span>` : ''}
-                                    </div>
+                    </div>
                                     <div class="message-content">
                                         ${msg['Message'] || 'No message content'}
-                                    </div>
-                                </div>
+                    </div>
+                </div>
                             `;
                         }).join('')}
-                    </div>
+            </div>
                 `;
                 
             } catch (error) {
@@ -1987,8 +2545,8 @@ def generate_concise_report(analysis_dir, output_file):
                         </p>
                         <div style="background: white; padding: 15px; border-radius: 8px; margin-top: 15px; text-align: left; font-family: monospace; font-size: 0.8em; max-height: 200px; overflow-y: auto;">
                             <pre>${csvText.substring(0, 1000)}${csvText.length > 1000 ? '...' : ''}</pre>
-                        </div>
-                    </div>
+        </div>
+    </div>
                 `;
             }
         }
